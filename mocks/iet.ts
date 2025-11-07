@@ -1,0 +1,95 @@
+
+import { InventoryForm } from '../types';
+
+export const IET_INVENTORY: InventoryForm = {
+  id: 'iet',
+  acronym: 'IET',
+  name: 'Inventário de Espiritualidade e Transcendência',
+  objective: 'Avaliar o grau de espiritualidade subjetiva, sentido de transcendência e conexão com dimensões que ultrapassam o self individual — sejam elas de natureza simbólica, filosófica, ética ou religiosa.\nO foco não é a religiosidade formal, mas sim a vivência de conexão, propósito e ampliação de consciência.',
+  instructions: 'Este questionário investiga como você percebe sua relação com algo maior do que si mesmo — seja a vida, a natureza, o universo, a humanidade ou um princípio espiritual.\n\nNão há respostas certas ou erradas. Responda de acordo com o quanto cada afirmação representa sua experiência pessoal.',
+  responseScale: [
+    { value: 0, label: 'Nunca ou quase nunca' },
+    { value: 1, label: 'Raramente' },
+    { value: 2, label: 'Às vezes' },
+    { value: 3, label: 'Frequentemente' },
+    { value: 4, label: 'Quase sempre ou sempre' },
+  ],
+  domains: [
+    {
+      id: 'connection_unity',
+      name: 'Sentido de Conexão e Unidade',
+      icon: '🌿',
+      description: 'Avalia o sentimento de integração com o todo, a natureza ou o fluxo da vida.',
+      questions: [
+        { id: 26001, text: 'Sinto que faço parte de algo maior do que eu.' },
+        { id: 26002, text: 'Tenho momentos em que percebo uma profunda união com a vida.' },
+        { id: 26003, text: 'Às vezes sinto que estou desconectado do mundo ao meu redor.', isReversed: true },
+        { id: 26004, text: 'Tenho experiências em que tudo parece estar interligado.' },
+        { id: 26005, text: 'Costumo sentir que minha existência tem um lugar no universo.' },
+      ],
+    },
+    {
+      id: 'purpose_meaning',
+      name: 'Propósito e Significado Transcendente',
+      icon: '🔮',
+      description: 'Investiga o quanto o indivíduo percebe um propósito que dá sentido à vida.',
+      questions: [
+        { id: 26006, text: 'Sinto que há um propósito que orienta minha vida.' },
+        { id: 26007, text: 'Frequentemente me pergunto “por que estou aqui”.' },
+        { id: 26008, text: 'Tenho clareza sobre o que me faz sentir parte de algo significativo.' },
+        { id: 26009, text: 'Às vezes sinto que vivo sem direção ou propósito.', isReversed: true },
+        { id: 26010, text: 'Busco viver de acordo com um sentido que vai além de mim mesmo.' },
+      ],
+    },
+    {
+      id: 'spiritual_experience',
+      name: 'Experiência Espiritual e Ampliação de Consciência',
+      icon: '🌙',
+      description: 'Avalia estados subjetivos de expansão, insight ou conexão interior profunda.',
+      questions: [
+        { id: 26011, text: 'Já vivi momentos de profunda paz interior, difíceis de descrever.' },
+        { id: 26012, text: 'Em certos momentos, sinto que minha mente se expande para algo maior.' },
+        { id: 26013, text: 'Já tive experiências que mudaram minha forma de ver a vida.' },
+        { id: 26014, text: 'Tenho dificuldade em acessar um estado de serenidade profunda.', isReversed: true },
+        { id: 26015, text: 'Sinto que às vezes há uma sabedoria em mim que vai além do pensamento racional.' },
+      ],
+    },
+    {
+      id: 'ego_transcendence',
+      name: 'Transcendência do Ego e Compromisso Ético',
+      icon: '🕊️',
+      description: 'Explora a capacidade de ir além dos interesses pessoais, conectando-se a valores universais.',
+      questions: [
+        { id: 26016, text: 'Sinto que minha vida é guiada por valores mais amplos do que meus desejos.' },
+        { id: 26017, text: 'Tento agir pensando no bem comum.' },
+        { id: 26018, text: 'Costumo me perceber preso em questões egoístas.', isReversed: true },
+        { id: 26019, text: 'Sinto que a compaixão é uma força que orienta minhas ações.' },
+        { id: 26020, text: 'Acredito que crescer espiritualmente envolve servir algo além de si mesmo.' },
+      ],
+    },
+    {
+      id: 'spiritual_integration',
+      name: 'Integração Espiritual e Autotransformação',
+      icon: '💫',
+      description: 'Avalia a integração das experiências espirituais com o cotidiano e a capacidade de transformação interior.',
+      questions: [
+        { id: 26021, text: 'As experiências profundas que vivi mudaram minha forma de ser.' },
+        { id: 26022, text: 'Busco aprender com cada dificuldade como parte do meu crescimento interior.' },
+        { id: 26023, text: 'Às vezes tenho dificuldade em manter o equilíbrio entre o espiritual e o prático.', isReversed: true },
+        { id: 26024, text: 'Sinto que estou me tornando uma pessoa mais consciente e compassiva.' },
+        { id: 26025, text: 'Vejo minha trajetória como um processo de evolução pessoal e espiritual.' },
+      ],
+    },
+  ],
+  scoring: {
+    type: 'sum',
+    description: 'A pontuação total (0-100) indica o nível de integração espiritual e sentido de transcendência. Pontuações mais altas refletem maior conexão e propósito.',
+    notes: ['Itens que indicam ausência de conexão ou espiritualidade fragmentada são revertidos na pontuação.'],
+    ranges: [
+      { min: 76, max: 100, label: 'Alta Transcendência', description: 'Forte sentido de conexão, propósito, coerência ética e autotransformação.' },
+      { min: 51, max: 75, label: 'Boa Integração Espiritual', description: 'Conexão e propósito presentes, com boa coerência interna.' },
+      { min: 26, max: 50, label: 'Transcendência Moderada', description: 'Busca por sentido, mas com inconsistências ou desconexão ocasional.' },
+      { min: 0, max: 25, label: 'Baixa Transcendência', description: 'Vazio existencial, desconexão, perda de sentido.' },
+    ],
+  },
+};

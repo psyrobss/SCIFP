@@ -1,0 +1,89 @@
+
+import { InventoryForm } from '../types';
+
+export const IECAD_INVENTORY: InventoryForm = {
+  id: 'iecad',
+  acronym: 'IECAD',
+  name: 'Inventário de Empatia Cognitiva e Afetiva Diferenciada',
+  objective: 'Avaliar a capacidade de compreender (empatia cognitiva) e sentir (empatia afetiva) as emoções e estados mentais de outras pessoas, mantendo autorregulação emocional e diferenciação entre o self e o outro.',
+  instructions: 'As frases abaixo descrevem maneiras de perceber e reagir às emoções de outras pessoas.\nIndique com que frequência isso se aplica a você.',
+  responseScale: [
+    { value: 0, label: 'Nunca' },
+    { value: 1, label: 'Raramente' },
+    { value: 2, label: 'Às vezes' },
+    { value: 3, label: 'Frequentemente' },
+    { value: 4, label: 'Quase sempre' },
+  ],
+  domains: [
+    {
+      id: 'cognitive_empathy',
+      name: 'Empatia Cognitiva e Teoria da Mente',
+      icon: '🧠',
+      description: 'Avalia a capacidade de compreender os pensamentos, intenções e emoções de outras pessoas sem confundi-los com os próprios.',
+      questions: [
+        { id: 61001, text: 'Consigo imaginar o que outra pessoa está pensando em uma conversa.' },
+        { id: 61002, text: 'Percebo facilmente quando alguém está desconfortável, mesmo sem falar nada.' },
+        { id: 61003, text: 'Tento entender os motivos por trás do comportamento dos outros.' },
+        { id: 61004, text: 'Tenho dificuldade em prever como alguém reagirá a uma situação.', isReversed: true },
+        { id: 61005, text: 'Consigo distinguir quando uma pessoa age por medo, raiva ou tristeza.' },
+        { id: 61006, text: 'Penso em como minhas palavras podem ser interpretadas pelos outros.' },
+        { id: 61007, text: 'Costumo compreender as perspectivas de pessoas com opiniões muito diferentes das minhas.' },
+      ],
+    },
+    {
+      id: 'affective_empathy',
+      name: 'Empatia Afetiva e Sintonização Emocional',
+      icon: '💓',
+      description: 'Avalia a capacidade de sentir emoções congruentes às dos outros e reagir emocionalmente de forma ajustada.',
+      questions: [
+        { id: 61008, text: 'Quando alguém sofre, sinto uma emoção parecida.' },
+        { id: 61009, text: 'É comum eu me emocionar com histórias ou filmes sobre outras pessoas.' },
+        { id: 61010, text: 'Se alguém perto de mim está ansioso, também fico tenso(a).' },
+        { id: 61011, text: 'Às vezes sinto as emoções dos outros tão intensamente que me desgasto.', isReversed: true },
+        { id: 61012, text: 'Consigo sentir compaixão sem perder meu equilíbrio emocional.' },
+        { id: 61013, text: 'Sinto alegria genuína quando vejo alguém feliz.' },
+        { id: 61014, text: 'Tenho dificuldade de me conectar emocionalmente com os outros.', isReversed: true },
+      ],
+    },
+    {
+      id: 'interpersonal_regulation',
+      name: 'Regulação Emocional Interpessoal',
+      icon: '🪞',
+      description: 'Avalia o equilíbrio entre empatia e autocontrole emocional diante de estímulos afetivos.',
+      questions: [
+        { id: 61015, text: 'Mesmo quando alguém está muito triste, consigo manter a calma para ajudar.' },
+        { id: 61016, text: 'Sei quando devo me afastar emocionalmente para não me sobrecarregar.' },
+        { id: 61017, text: 'Costumo ajudar melhor quando não me deixo levar pela emoção do outro.' },
+        { id: 61018, text: 'Tenho dificuldade em separar o que sinto do que o outro está sentindo.', isReversed: true },
+        { id: 61019, text: 'Quando percebo sofrimento em alguém, consigo agir de forma prática e empática.' },
+        { id: 61020, text: 'Sou capaz de compreender a dor dos outros sem absorvê-la.' },
+        { id: 61021, text: 'Às vezes fico paralisado(a) diante do sofrimento alheio.', isReversed: true },
+      ],
+    },
+    {
+      id: 'social_responsiveness',
+      name: 'Responsividade Social e Compaixão Ativa',
+      icon: '🌐',
+      description: 'Avalia a tendência de transformar empatia em ações concretas de apoio, cuidado ou solidariedade.',
+      questions: [
+        { id: 61022, text: 'Tento oferecer ajuda quando percebo que alguém precisa, mesmo sem ser solicitado.' },
+        { id: 61023, text: 'Demonstro empatia não apenas em palavras, mas em ações.' },
+        { id: 61024, text: 'Busco confortar pessoas em sofrimento.' },
+        { id: 61025, text: 'Sinto-me responsável por aliviar o sofrimento que percebo ao meu redor.' },
+        { id: 61026, text: 'Às vezes evito me envolver emocionalmente para não me sobrecarregar.', isReversed: true },
+        { id: 61027, text: 'A empatia me motiva a agir por causas sociais ou comunitárias.' },
+        { id: 61028, text: 'Consigo equilibrar empatia e limites pessoais nas minhas relações.' },
+      ],
+    },
+  ],
+  scoring: {
+    type: 'sum',
+    description: 'A pontuação total (0–112) indica o nível de empatia diferenciada. Itens com (R) são invertidos. Escores mais altos refletem maior integração e sofisticação empática.',
+    ranges: [
+      { min: 0, max: 28, label: 'Empatia restrita', description: 'Dificuldade de compreender ou sentir emoções alheias' },
+      { min: 29, max: 56, label: 'Empatia funcional básica', description: 'Reconhecimento afetivo, mas com pouca nuance ou regulação' },
+      { min: 57, max: 84, label: 'Empatia diferenciada', description: 'Boa integração entre emoção e cognição empática' },
+      { min: 85, max: 112, label: 'Empatia madura e integrada', description: 'Alto nível de insight emocional e regulação empática sofisticada' },
+    ],
+  },
+};

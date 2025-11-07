@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Inventory } from '../types';
+import { ALL_INVENTORIES } from '../mocks';
 
 interface InventoryCardProps {
   inventory: Inventory;
 }
 
 export const InventoryCard: React.FC<InventoryCardProps> = ({ inventory }) => {
-  const isAvailable = inventory.icon === '✅';
+  const isAvailable = !!ALL_INVENTORIES[inventory.acronym.toUpperCase()];
 
   const cardContent = (
     <>

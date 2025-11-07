@@ -1,0 +1,89 @@
+
+import { InventoryForm } from '../types';
+
+export const ICE_INVENTORY: InventoryForm = {
+  id: 'ice',
+  acronym: 'ICE',
+  name: 'Inventário de Curiosidade e Exploração',
+  objective: 'Avaliar a propensão do indivíduo a buscar novas experiências, explorar ideias, questionar, aprender continuamente e se engajar cognitivamente com o mundo ao seu redor.',
+  instructions: 'As frases a seguir descrevem atitudes, comportamentos e sentimentos relacionados à curiosidade e exploração pessoal.\nIndique com que frequência cada item se aplica a você.',
+  responseScale: [
+    { value: 0, label: 'Nunca' },
+    { value: 1, label: 'Raramente' },
+    { value: 2, label: 'Às vezes' },
+    { value: 3, label: 'Frequentemente' },
+    { value: 4, label: 'Quase sempre' },
+  ],
+  domains: [
+    {
+      id: 'cognitive_curiosity',
+      name: 'Curiosidade Cognitiva',
+      icon: '🧠',
+      description: 'Avalia interesse em aprender, buscar informações e investigar conceitos novos.',
+      questions: [
+        { id: 63001, text: 'Gosto de aprender coisas novas, mesmo que sejam complexas.' },
+        { id: 63002, text: 'Frequentemente me pergunto como e por que algo acontece.' },
+        { id: 63003, text: 'Busco ativamente informações sobre tópicos desconhecidos.' },
+        { id: 63004, text: 'Sinto dificuldade em me interessar por assuntos novos.', isReversed: true },
+        { id: 63005, text: 'Adoro explorar ideias e teorias diferentes das minhas.' },
+        { id: 63006, text: 'Sinto-me motivado(a) a descobrir soluções para problemas que nunca enfrentei.' },
+        { id: 63007, text: 'Gosto de questionar minhas próprias crenças para entender melhor.' },
+      ],
+    },
+    {
+      id: 'experiential_curiosity',
+      name: 'Curiosidade Experiencial',
+      icon: '🌐',
+      description: 'Avalia disposição para vivenciar novas experiências práticas e sensoriais.',
+      questions: [
+        { id: 63008, text: 'Procuro experimentar atividades novas, mesmo fora da minha zona de conforto.' },
+        { id: 63009, text: 'Gosto de viajar ou conhecer lugares desconhecidos.' },
+        { id: 63010, text: 'Tento novas comidas, músicas ou culturas quando posso.' },
+        { id: 63011, text: 'Evito experiências desconhecidas por medo ou insegurança.', isReversed: true },
+        { id: 63012, text: 'Busco desafios que me permitam aprender fazendo.' },
+        { id: 63013, text: 'Costumo me entusiasmar com novidades no meu cotidiano.' },
+        { id: 63014, text: 'Prefiro seguir rotinas conhecidas a explorar o novo.', isReversed: true },
+      ],
+    },
+    {
+      id: 'social_exploration',
+      name: 'Exploração Social e Interpessoal',
+      icon: '🧩',
+      description: 'Avalia interesse em conhecer pessoas, aprender com diferentes perspectivas e se engajar socialmente.',
+      questions: [
+        { id: 63015, text: 'Gosto de conversar com pessoas que têm experiências diferentes das minhas.' },
+        { id: 63016, text: 'Tento compreender pontos de vista distintos antes de formar minha opinião.' },
+        { id: 63017, text: 'Procuro aprender com as histórias de vida de outras pessoas.' },
+        { id: 63018, text: 'Evito interações sociais novas por receio de desconforto.', isReversed: true },
+        { id: 63019, text: 'Sinto-me motivado(a) a participar de grupos ou comunidades para expandir horizontes.' },
+        { id: 63020, text: 'Costumo me aproximar de pessoas que podem me ensinar algo novo.' },
+        { id: 63021, text: 'Evito conhecer pessoas desconhecidas mesmo quando há oportunidade.', isReversed: true },
+      ],
+    },
+    {
+      id: 'self_development_motivation',
+      name: 'Motivação por Autodesenvolvimento',
+      icon: '🌟',
+      description: 'Avalia interesse contínuo em aprimoramento pessoal e profissional, autodescoberta e aprendizagem ao longo da vida.',
+      questions: [
+        { id: 63022, text: 'Estou constantemente buscando melhorar minhas habilidades.' },
+        { id: 63023, text: 'Tenho prazer em desenvolver novos talentos ou competências.' },
+        { id: 63024, text: 'Procuro cursos, leituras ou atividades que ampliem meu conhecimento.' },
+        { id: 63025, text: 'Evito investir tempo em meu autodesenvolvimento.', isReversed: true },
+        { id: 63026, text: 'Busco feedback e reflexão sobre minhas experiências para crescer.' },
+        { id: 63027, text: 'Estou aberto(a) a mudar minha forma de pensar diante de novas informações.' },
+        { id: 63028, text: 'Acredito que a aprendizagem contínua é essencial para minha vida.' },
+      ],
+    },
+  ],
+  scoring: {
+    type: 'sum',
+    description: 'A pontuação total (0–112) indica o nível de curiosidade e exploração. Itens com (R) são invertidos. Escores mais altos refletem maior abertura e motivação exploratória.',
+    ranges: [
+      { min: 0, max: 28, label: 'Curiosidade baixa', description: 'Pouco interesse em novidades, resistência a experiências novas' },
+      { min: 29, max: 56, label: 'Curiosidade moderada', description: 'Interesse pontual, abertura limitada a novos estímulos' },
+      { min: 57, max: 84, label: 'Curiosidade funcional', description: 'Busca ativa de novas experiências e aprendizado, com equilíbrio' },
+      { min: 85, max: 112, label: 'Curiosidade elevada', description: 'Forte motivação exploratória, aprendizagem contínua e abertura cognitiva' },
+    ],
+  },
+};

@@ -1,3 +1,5 @@
+
+
 import { Module } from './types';
 
 export const MODULES: Module[] = [
@@ -10,6 +12,8 @@ export const MODULES: Module[] = [
       { id: 2, icon: '✅', acronym: 'IFEC', name: 'Inventário de Funções Executivas no Cotidiano' },
       { id: 3, icon: '✅', acronym: 'IAPM', name: 'Inventário de Atenção e Processamento Mental' },
       { id: 4, icon: '✅', acronym: 'IFMSC', name: 'Inventário de Fadiga Mental e Sobrecarga Cognitiva' },
+      { id: 34, icon: '✅', acronym: 'ISDA', name: 'Inventário de Sensibilidade e Desempenho Adaptativo (AH/SD)' },
+      { id: 38, icon: '✅', acronym: 'ICF', name: 'Inventário de Criatividade e Fluência Mental' },
     ],
   },
   {
@@ -23,6 +27,16 @@ export const MODULES: Module[] = [
       { id: 8, icon: '✅', acronym: 'IEVA', name: 'Inventário de Esquemas e Vulnerabilidades Afetivas' },
       { id: 23, icon: '✅', acronym: 'IES', name: 'Inventário de Estilos de Sofrimento' },
       { id: 26, icon: '✅', acronym: 'IOP', name: 'Inventário de Organização Psíquica' },
+      { id: 30, icon: '✅', acronym: 'ISV', name: 'Inventário do Self e Vulnerabilidade Identitária' },
+      { id: 35, icon: '✅', acronym: 'IAAC', name: 'Inventário de Autoestima e Autocompaixão' },
+      { id: 43, icon: '✅', acronym: 'IAE', name: 'Inventário de Autoestima e Autovalor' },
+      { id: 36, icon: '✅', acronym: 'IEV', name: 'Inventário de Estilos de Vínculo' },
+      { id: 37, icon: '✅', acronym: 'IRF', name: 'Inventário de Resiliência e Flexibilidade Psicológica' },
+      { id: 40, icon: '✅', acronym: 'IFE', name: 'Inventário de Função Executiva Emocional' },
+      { id: 45, icon: '✅', acronym: 'ITIA', name: 'Inventário de Tolerância à Incerteza e Ambiguidade' },
+      { id: 57, icon: '✅', acronym: 'IRHP', name: 'Inventário de Regulação do Humor Positivo' },
+      { id: 58, icon: '✅', acronym: 'ITFFS', name: 'Inventário de Tolerância à Frustração e Frustração Social' },
+      { id: 59, icon: '✅', acronym: 'IIEP', name: 'Inventário de Inteligência Emocional Prática' },
     ],
   },
   {
@@ -40,6 +54,17 @@ export const MODULES: Module[] = [
       { id: 22, icon: '✅', acronym: 'IMC', name: 'Inventário de Metacognição Clínica' },
       { id: 24, icon: '✅', acronym: 'IQE', name: 'Inventário de Qualidade Existencial' },
       { id: 27, icon: '✅', acronym: 'ICTE', name: 'Inventário de Consciência Temporal e Existencial' },
+      { id: 28, icon: '✅', acronym: 'ICMI', name: 'Inventário de Consciência Moral e Integridade' },
+      { id: 29, icon: '✅', acronym: 'IVM', name: 'Inventário de Vontade e Motivação' },
+      { id: 31, icon: '✅', acronym: 'ICSE', name: 'Inventário de Coerência do Self e Existência' },
+      { id: 32, icon: '✅', acronym: 'IET', name: 'Inventário de Espiritualidade e Transcendência' },
+      { id: 60, icon: '🗓️', acronym: 'IFPM', name: 'Inventário de Planejamento Futuro e Projeção de Metas' },
+      { id: 47, icon: '✅', acronym: 'IMIE', name: 'Inventário de Motivação Intrínseca e Extrínseca' },
+      { id: 48, icon: '✅', acronym: 'IPSE', name: 'Inventário de Propósito de Vida e Sentido Existencial' },
+      { id: 49, icon: '✅', acronym: 'IAAP', name: 'Inventário de Autodeterminação e Agência Pessoal' },
+      { id: 53, icon: '✅', acronym: 'ICE', name: 'Inventário de Curiosidade e Exploração' },
+      { id: 54, icon: '✅', acronym: 'IFAA', name: 'Inventário de Fluxo e Absorção em Atividades' },
+      { id: 55, icon: '✅', acronym: 'IMAP', name: 'Inventário de Mindfulness e Atenção Plena' },
     ],
   },
   {
@@ -51,6 +76,13 @@ export const MODULES: Module[] = [
       { id: 15, icon: '✅', acronym: 'IFA', name: 'Inventário de Funcionamento Adaptativo' },
       { id: 16, icon: '✅', acronym: 'IASO', name: 'Inventário de Assertividade e Sociabilidade' },
       { id: 25, icon: '✅', acronym: 'ISA', name: 'Inventário de Satisfação e Autoeficácia' },
+      { id: 33, icon: '✅', acronym: 'IHS', name: 'Inventário de Habilidades Sociais Clínicas' },
+      { id: 39, icon: '✅', acronym: 'IAR', name: 'Inventário de Ajuste Relacional' },
+      { id: 41, icon: '✅', acronym: 'EAA', name: 'Escala de Autoexpansão em Amizades' },
+      { id: 42, icon: '✅', acronym: 'EAR', name: 'Escala de Autoexpansão em Relacionamento Romântico' },
+      { id: 50, icon: '✅', acronym: 'ICSA', name: 'Inventário de Competência Social Avançada' },
+      { id: 51, icon: '✅', acronym: 'IECAD', name: 'Inventário de Empatia Cognitiva e Afetiva Diferenciada' },
+      { id: 52, icon: '✅', acronym: 'IECP', name: 'Inventário de Engajamento Comunitário e Pertencimento' },
     ],
   },
   {
@@ -61,6 +93,9 @@ export const MODULES: Module[] = [
       { id: 17, icon: '✅', acronym: 'IDSE', name: 'Inventário de Sintomas de Estresse e Exaustão' },
       { id: 18, icon: '✅', acronym: 'ISSM', name: 'Inventário de Sono, Saúde e Motivação' },
       { id: 19, icon: '✅', acronym: 'ICCR', name: 'Inventário de Comportamentos Compulsivos e Repetitivos' },
+      { id: 44, icon: '✅', acronym: 'IQVL', name: 'Inventário de Qualidade de Vida e Lazer' },
+      { id: 46, icon: '✅', acronym: 'IASM', name: 'Inventário de Autogestão de Saúde Mental' },
+      { id: 56, icon: '✅', acronym: 'IELV', name: 'Inventário de Estilo de Lazer e Equilíbrio Vida/Trabalho' },
     ],
   },
 ];

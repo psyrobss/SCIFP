@@ -1,0 +1,100 @@
+
+import { InventoryForm } from '../types';
+
+export const IHS_INVENTORY: InventoryForm = {
+  id: 'ihs',
+  acronym: 'IHS',
+  name: 'Inventário de Habilidades Sociais Clínicas',
+  objective: 'Avaliar competências sociais centrais para interação interpessoal funcional: comunicação (assertividade e clareza), empatia e escuta, iniciação e manutenção de relações, gestão de conflitos e estabelecimento de limites, cooperação e trabalho em grupo.',
+  instructions: 'Abaixo estão frases sobre como você costuma se comportar e interagir com outras pessoas. Leia cada frase e assinale a opção que melhor representa como você geralmente age nas últimas 4 semanas.',
+  responseScale: [
+    { value: 0, label: 'Nunca ou quase nunca' },
+    { value: 1, label: 'Raramente' },
+    { value: 2, label: 'Às vezes' },
+    { value: 3, label: 'Frequentemente' },
+    { value: 4, label: 'Quase sempre / Sempre' },
+  ],
+  domains: [
+    {
+      id: 'assertive_communication',
+      name: 'Comunicação Assertiva e Clareza',
+      icon: '💬',
+      description: 'Capacidade de expressar opiniões, necessidades e limites de forma clara, direta e respeitosa.',
+      questions: [
+        { id: 27001, text: 'Consigo expressar minhas opiniões de maneira clara, sem ofender os outros.' },
+        { id: 27002, text: 'Digo “não” quando algo ultrapassa meus limites.' },
+        { id: 27003, text: 'Faço pedidos de forma direta quando preciso de algo.' },
+        { id: 27004, text: 'Evito mensagens passivo-agressivas; falo abertamente sobre o que me incomoda.' },
+        { id: 27005, text: 'Ajusto minha comunicação ao contexto (formal/informal) com facilidade.' },
+        { id: 27006, text: 'Às vezes cismo em dizer algo e acabo não dizendo.', isReversed: true },
+      ],
+    },
+    {
+      id: 'empathy_active_listening',
+      name: 'Empatia e Escuta Ativa',
+      icon: '👂',
+      description: 'Habilidade de perceber, compreender e responder adequadamente às emoções e perspectivas dos outros.',
+      questions: [
+        { id: 27007, text: 'Consigo perceber o que alguém sente mesmo quando não fala diretamente.' },
+        { id: 27008, text: 'Mostro atenção sincera quando outra pessoa fala dos seus problemas.' },
+        { id: 27009, text: 'Faço perguntas que ajudam o outro a se abrir.' },
+        { id: 27010, text: 'Sou capaz de oferecer suporte emocional adequado sem me sobrecarregar.' },
+        { id: 27011, text: 'Tenho dificuldade em não interromper quando alguém está falando.', isReversed: true },
+        { id: 27012, text: 'Demonstro compreensão mesmo quando discordo.' },
+      ],
+    },
+    {
+      id: 'relationship_initiation_maintenance',
+      name: 'Iniciação e Manutenção de Relações',
+      icon: '🤝',
+      description: 'Competência para iniciar novas interações sociais e manter vínculos saudáveis e significativos.',
+      questions: [
+        { id: 27013, text: 'Tenho facilidade para iniciar conversas com pessoas novas.' },
+        { id: 27014, text: 'Sou capaz de manter contato com amigos e colegas regularmente.' },
+        { id: 27015, text: 'Faço esforços para aprofundar relacionamentos importantes.' },
+        { id: 27016, text: 'Costumo evitar situações sociais por timidez.', isReversed: true },
+        { id: 27017, text: 'Participo ativamente de atividades de grupo quando quero.' },
+        { id: 27018, text: 'Sei introduzir temas e manter a conversa interessante.' },
+      ],
+    },
+    {
+      id: 'conflict_management_boundaries',
+      name: 'Gestão de Conflitos e Limites',
+      icon: '⚖️',
+      description: 'Capacidade de lidar com desacordos de forma construtiva e estabelecer limites interpessoais claros.',
+      questions: [
+        { id: 27019, text: 'Lido com críticas de forma construtiva.' },
+        { id: 27020, text: 'Consigo negociar soluções quando há desacordo.' },
+        { id: 27021, text: 'Evito explodir emocionalmente em discussões; mantenho o controle.' },
+        { id: 27022, text: 'Às vezes evito conflitos mesmo quando deveria reivindicar meus direitos.', isReversed: true },
+        { id: 27023, text: 'Defino limites claros em relacionamentos pessoais e profissionais.' },
+        { id: 27024, text: 'Sou capaz de pedir reparação quando fui tratado injustamente.' },
+      ],
+    },
+    {
+      id: 'cooperation_group_work',
+      name: 'Cooperação e Trabalho em Grupo',
+      icon: '👥',
+      description: 'Habilidade de colaborar com os outros, aceitar feedback e trabalhar em equipe de forma produtiva e respeitosa.',
+      questions: [
+        { id: 27025, text: 'Contribuo de forma equilibrada em trabalhos de equipe (nem dominando nem sumindo).' },
+        { id: 27026, text: 'Aceito feedback e ajusto meu comportamento no grupo.' },
+        { id: 27027, text: 'Sou proativo em dividir tarefas e responsabilidades.' },
+        { id: 27028, text: 'Tenho dificuldade em colaborar quando discordo do grupo.', isReversed: true },
+        { id: 27029, text: 'Busco soluções que conciliem os interesses de todos.' },
+        { id: 27030, text: 'Promovo um clima de respeito e confiança entre colegas.' },
+      ],
+    },
+  ],
+  scoring: {
+    type: 'sum',
+    description: 'A pontuação total (0-120) indica o nível de Habilidades Sociais. Pontuações mais altas refletem maior competência social.',
+    subScoresDescription: 'A média por domínio pode ser calculada para uma análise mais detalhada.',
+    ranges: [
+      { min: 100, max: 120, label: 'Habilidades sociais elevadas', description: 'Comunicação equilibrada e capacidade cooperativa.' },
+      { min: 70, max: 99, label: 'Habilidades funcionais', description: 'Leves pontos a desenvolver, mas bom funcionamento geral.' },
+      { min: 40, max: 69, label: 'Habilidades moderadas/variáveis', description: 'Recomenda-se trabalhar assertividade, iniciação social e limites.' },
+      { min: 0, max: 39, label: 'Dificuldades significativas', description: 'Intervenção em habilidades sociais recomendada (treino, terapia de grupo).' },
+    ],
+  },
+};

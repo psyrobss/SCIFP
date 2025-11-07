@@ -1,0 +1,89 @@
+
+import { InventoryForm } from '../types';
+
+export const IMAP_INVENTORY: InventoryForm = {
+  id: 'imap',
+  acronym: 'IMAP',
+  name: 'Inventário de Mindfulness e Atenção Plena',
+  objective: 'Avaliar a capacidade do indivíduo de manter atenção plena ao momento presente, consciência sem julgamento, percepção de pensamentos e emoções, e engajamento consciente nas atividades diárias.',
+  instructions: 'As afirmações descrevem atitudes, percepções e comportamentos relacionados à atenção plena.\nIndique com que frequência cada item se aplica a você.',
+  responseScale: [
+    { value: 0, label: 'Nunca' },
+    { value: 1, label: 'Raramente' },
+    { value: 2, label: 'Às vezes' },
+    { value: 3, label: 'Frequentemente' },
+    { value: 4, label: 'Quase sempre' },
+  ],
+  domains: [
+    {
+      id: 'present_attention',
+      name: 'Atenção ao Presente',
+      icon: '🌿',
+      description: 'Avalia a capacidade de focar no momento atual e perceber experiências sensoriais e cognitivas sem distração.',
+      questions: [
+        { id: 65001, text: 'Consigo prestar atenção plena ao que estou fazendo, sem me distrair.' },
+        { id: 65002, text: 'Frequentemente me pego pensando em tarefas passadas ou futuras.', isReversed: true },
+        { id: 65003, text: 'Percebo detalhes do ambiente que normalmente passariam despercebidos.' },
+        { id: 65004, text: 'Tenho dificuldade de me concentrar no presente.', isReversed: true },
+        { id: 65005, text: 'Sinto que minha mente divaga com frequência durante atividades rotineiras.', isReversed: true },
+        { id: 65006, text: 'Consigo absorver totalmente a experiência de cada atividade que realizo.' },
+        { id: 65007, text: 'Aprecio e noto pequenos detalhes do cotidiano que outras pessoas ignoram.' },
+      ],
+    },
+    {
+      id: 'thought_awareness',
+      name: 'Consciência e Observação de Pensamentos',
+      icon: '🧠',
+      description: 'Avalia percepção e observação dos próprios pensamentos sem se envolver automaticamente com eles.',
+      questions: [
+        { id: 65008, text: 'Consigo perceber meus pensamentos sem julgá-los.' },
+        { id: 65009, text: 'Frequentemente me identifico completamente com pensamentos negativos.', isReversed: true },
+        { id: 65010, text: 'Sou capaz de observar ideias ou preocupações sem reagir impulsivamente.' },
+        { id: 65011, text: 'Costumo criticar meus próprios pensamentos automaticamente.', isReversed: true },
+        { id: 65012, text: 'Consigo notar quando minha mente cria histórias ou suposições.' },
+        { id: 65013, text: 'Sinto dificuldade em reconhecer padrões de pensamento repetitivos.', isReversed: true },
+        { id: 65014, text: 'Posso distanciar-me mentalmente de pensamentos que me perturbam.' },
+      ],
+    },
+    {
+      id: 'emotional_awareness',
+      name: 'Consciência Emocional',
+      icon: '💛',
+      description: 'Avalia percepção e aceitação das emoções sem julgamento ou supressão.',
+      questions: [
+        { id: 65015, text: 'Posso perceber minhas emoções sem me sentir sobrecarregado(a).' },
+        { id: 65016, text: 'Evito reconhecer sentimentos desconfortáveis.', isReversed: true },
+        { id: 65017, text: 'Aceito minhas emoções mesmo quando são negativas.' },
+        { id: 65018, text: 'Frequentemente reprimo sentimentos para não incomodar os outros.', isReversed: true },
+        { id: 65019, text: 'Conecto minhas sensações físicas com emoções que estou sentindo.' },
+        { id: 65020, text: 'Consigo identificar rapidamente mudanças em meu estado emocional.' },
+        { id: 65021, text: 'Costumo reagir emocionalmente antes de perceber como me sinto.', isReversed: true },
+      ],
+    },
+    {
+      id: 'conscious_engagement',
+      name: 'Aceitação e Engajamento Consciente',
+      icon: '🌟',
+      description: 'Avalia capacidade de agir de forma intencional e consciente, com aceitação e não julgamento.',
+      questions: [
+        { id: 65022, text: 'Tento agir de acordo com minhas intenções conscientes, não por impulso.' },
+        { id: 65023, text: 'Aceito eventos que não posso controlar sem frustração excessiva.' },
+        { id: 65024, text: 'Frequentemente ajo de forma automática sem prestar atenção ao que faço.', isReversed: true },
+        { id: 65025, text: 'Consigo permanecer calmo(a) diante de situações desafiadoras.' },
+        { id: 65026, text: 'Evito ou luto contra experiências internas desconfortáveis.', isReversed: true },
+        { id: 65027, text: 'Busco envolver-me plenamente nas atividades, sem pressa ou distrações.' },
+        { id: 65028, text: 'Costumo agir sem pensar nas consequências ou no momento presente.', isReversed: true },
+      ],
+    },
+  ],
+  scoring: {
+    type: 'sum',
+    description: 'A pontuação total (0–112) indica o nível de mindfulness. Itens invertidos: 2, 4, 5, 9, 11, 13, 16, 18, 21, 24, 26, 28.',
+    ranges: [
+      { min: 0, max: 28, label: 'Mindfulness baixo', description: 'Dificuldade em atenção plena, consciência e regulação emocional' },
+      { min: 29, max: 56, label: 'Mindfulness moderado', description: 'Alguma atenção ao presente, percepção parcial de pensamentos e emoções' },
+      { min: 57, max: 84, label: 'Mindfulness funcional', description: 'Boa atenção ao presente, consciência de pensamentos e emoções, engajamento consciente' },
+      { min: 85, max: 112, label: 'Mindfulness elevado', description: 'Forte atenção plena, observação de pensamentos/emissões sem julgamento, aceitação e engajamento consciente' },
+    ],
+  },
+};
