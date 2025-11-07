@@ -4,10 +4,9 @@ import { InventoryCard } from './InventoryCard';
 
 interface ModuleSectionProps {
   module: Module;
-  onSelectInventory: (acronym: string) => void;
 }
 
-export const ModuleSection: React.FC<ModuleSectionProps> = ({ module, onSelectInventory }) => {
+export const ModuleSection: React.FC<ModuleSectionProps> = ({ module }) => {
   return (
     <section aria-labelledby={`module-title-${module.id}`}>
       <div className="mb-6">
@@ -17,7 +16,7 @@ export const ModuleSection: React.FC<ModuleSectionProps> = ({ module, onSelectIn
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {module.inventories.map((inventory) => (
-          <InventoryCard key={inventory.id} inventory={inventory} onSelect={onSelectInventory} />
+          <InventoryCard key={inventory.id} inventory={inventory} />
         ))}
       </div>
     </section>

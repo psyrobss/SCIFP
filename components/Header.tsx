@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ResponseOption } from '../types';
 
 const BrainIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
@@ -43,14 +44,16 @@ export const Header: React.FC<HeaderProps> = ({ responseScale }) => {
 
   return (
     <header className="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-10">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center space-x-4">
-        <BrainIcon className="h-8 w-8 text-indigo-600" />
-        <div>
-           <h1 className="text-xl sm:text-2xl font-bold text-slate-800 tracking-tight">
-             SCIFP - Sistema Clínico de Inventários
-           </h1>
-           <p className="text-sm text-slate-500 hidden sm:block">Plataforma de Formulários Psicoterápicos</p>
-        </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <Link to="/" className="flex items-center space-x-4" aria-label="Voltar para a página inicial">
+          <BrainIcon className="h-8 w-8 text-indigo-600" />
+          <div>
+            <h1 className="text-xl sm:text-2xl font-bold text-slate-800 tracking-tight">
+              SCIFP - Sistema Clínico de Inventários
+            </h1>
+            <p className="text-sm text-slate-500 hidden sm:block">Plataforma de Formulários Psicoterápicos</p>
+          </div>
+        </Link>
       </div>
     </header>
   );
