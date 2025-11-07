@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SCIFP - Sistema Clínico</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+<style>
+  @media print {
+    body * {
+      visibility: hidden;
+    }
+    .printable-area, .printable-area * {
+      visibility: visible;
+    }
+    .printable-area {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      margin-top: 0 !important;
+      background-color: white !important;
+    }
+    .no-print, .no-print * {
+      display: none !important;
+    }
+    .print-only {
+      display: block !important;
+    }
+  }
+</style>
+</head>
+<body class="bg-slate-50">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>

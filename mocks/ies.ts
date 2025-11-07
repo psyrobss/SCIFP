@@ -1,0 +1,109 @@
+
+import { InventoryForm } from '../types';
+
+export const IES_INVENTORY: InventoryForm = {
+  id: 'ies',
+  acronym: 'IES',
+  name: 'Inventário de Estilos de Sofrimento',
+  objective: 'Avaliar os padrões psicológicos de sofrimento — a forma como o indivíduo vivencia, regula e expressa a dor emocional —, considerando dimensões como autocrítica, evitação, dependência, controle, vazio e resignação. O instrumento permite compreender como o paciente sofre e tenta se proteger, oferecendo dados clínicos úteis para ajustar estratégias terapêuticas e metacognitivas.',
+  instructions: 'As frases abaixo descrevem maneiras diferentes de sentir e reagir diante da dor, frustração ou sofrimento emocional.\nLeia cada uma e marque o quanto ela corresponde à sua experiência pessoal na maior parte do tempo.',
+  responseScale: [
+    { value: 0, label: 'Nunca é verdade para mim' },
+    { value: 1, label: 'Raramente é verdade para mim' },
+    { value: 2, label: 'Às vezes é verdade para mim' },
+    { value: 3, label: 'Frequentemente é verdade para mim' },
+    { value: 4, label: 'Quase sempre é verdade para mim' },
+  ],
+  domains: [
+    {
+      id: 'self_critical_suffering',
+      name: 'Sofrimento Autocrítico',
+      icon: '⚖️',
+      description: 'Padrão de sofrimento marcado pela culpa, vergonha e autojulgamento, onde a dor é internalizada como uma falha pessoal.',
+      questions: [
+        { id: 11001, text: 'Quando algo dá errado, costumo me culpar excessivamente.' },
+        { id: 11002, text: 'Sinto vergonha de ter emoções intensas.' },
+        { id: 11003, text: 'Tenho dificuldade em me perdoar por erros passados.' },
+        { id: 11004, text: 'Costumo pensar que minha dor é culpa minha.' },
+        { id: 11005, text: 'Tenho medo de demonstrar fragilidade.' },
+        { id: 11006, text: 'Às vezes sinto que mereço o que sofro.' },
+        { id: 11007, text: 'Sinto que preciso estar sempre no controle para não errar.' },
+        { id: 11008, text: 'Julgo meus sentimentos como fraqueza.' },
+      ],
+    },
+    {
+      id: 'avoidant_suffering',
+      name: 'Sofrimento Evitativo',
+      icon: '🚪',
+      description: 'Tendência a negar, suprimir ou se distrair da dor emocional, evitando o contato com a própria vulnerabilidade.',
+      questions: [
+        { id: 11101, text: 'Tento não pensar no que me faz sofrer.' },
+        { id: 11102, text: 'Distrai-me com trabalho, telas ou tarefas para não sentir emoções difíceis.' },
+        { id: 11103, text: 'Tenho medo de que, se eu sentir a dor, ela me destrua.' },
+        { id: 11104, text: 'Finjo que está tudo bem para evitar conflitos.' },
+        { id: 11105, text: 'Evito situações que possam me deixar vulnerável.' },
+        { id: 11106, text: 'Tento controlar demais meus sentimentos para não perder o equilíbrio.' },
+        { id: 11107, text: 'Tenho dificuldade em chorar ou demonstrar emoções.' },
+        { id: 11108, text: 'Quando começo a sentir algo doloroso, mudo de assunto ou foco.' },
+      ],
+    },
+    {
+      id: 'dependent_suffering',
+      name: 'Sofrimento Dependente',
+      icon: '💞',
+      description: 'A dor é vivenciada com uma forte necessidade de apoio externo, validação e conforto para ser manejada.',
+      questions: [
+        { id: 11201, text: 'Quando sofro, preciso que alguém esteja comigo.' },
+        { id: 11202, text: 'Tenho dificuldade em lidar sozinho com minhas emoções.' },
+        { id: 11203, text: 'Busco aprovação para me sentir melhor emocionalmente.' },
+        { id: 11204, text: 'Quando alguém me rejeita, sinto que perco o chão.' },
+        { id: 11205, text: 'Preciso que as pessoas reconheçam o quanto estou mal.' },
+        { id: 11206, text: 'Sinto que só melhoro quando alguém me conforta.' },
+        { id: 11207, text: 'Tenho medo de ficar sozinho quando estou triste.' },
+        { id: 11208, text: 'Evito discutir para não perder o apoio dos outros.' },
+      ],
+    },
+    {
+      id: 'controlled_dissociated_suffering',
+      name: 'Sofrimento Controlado ou Dissociado',
+      icon: '🧊',
+      description: 'Padrão de desconexão afetiva, onde o sofrimento é racionalizado e a expressão emocional é contida ou "anestesiada".',
+      questions: [
+        { id: 11301, text: 'Tento lidar com o sofrimento de forma racional, sem me envolver emocionalmente.' },
+        { id: 11302, text: 'Evito demonstrar o que sinto para não parecer fraco.' },
+        { id: 11303, text: 'Sinto como se minhas emoções estivessem desligadas.' },
+        { id: 11304, text: 'Prefiro resolver meus problemas sozinho e em silêncio.' },
+        { id: 11305, text: 'Às vezes tenho dificuldade em sentir empatia pelas emoções dos outros.' },
+        { id: 11306, text: 'Quando algo me machuca, não costumo demonstrar nada.' },
+        { id: 11307, text: 'Tenho sensação de estar emocionalmente “entorpecido”.' },
+        { id: 11308, text: 'Prefiro pensar do que sentir.' },
+      ],
+    },
+    {
+      id: 'existential_void_suffering',
+      name: 'Sofrimento Existencial ou de Vazio',
+      icon: '🌫️',
+      description: 'A dor está ligada a uma sensação de falta de sentido, propósito ou conexão consigo mesmo e com a vida.',
+      questions: [
+        { id: 11401, text: 'Às vezes sinto que minha vida perdeu o sentido.' },
+        { id: 11402, text: 'Tenho a sensação de estar emocionalmente “vazio”.' },
+        { id: 11403, text: 'Sinto que nada do que faço realmente me preenche.' },
+        { id: 11404, text: 'Tenho dificuldade em encontrar propósito pessoal.' },
+        { id: 11405, text: 'Às vezes me sinto desconectado de mim mesmo.' },
+        { id: 11406, text: 'Sinto um tipo de dor que não sei explicar.' },
+        { id: 11407, text: 'Tenho a sensação de estar vivendo no “modo automático”.' },
+        { id: 11408, text: 'Sinto que nada me toca profundamente, nem mesmo coisas boas.' },
+      ],
+    },
+  ],
+  scoring: {
+    type: 'average',
+    description: 'A pontuação é a média das respostas (0-4), representando a intensidade do sofrimento. A análise por domínio revela o estilo predominante.',
+    ranges: [
+      { min: 0, max: 0.9, label: 'Baixa', description: 'Boa capacidade de lidar com emoções; sofrimento adaptativo.' },
+      { min: 1, max: 1.9, label: 'Leve', description: 'Sofrimento presente, mas manejável; requer autorregulação emocional.' },
+      { min: 2, max: 2.9, label: 'Moderada', description: 'Padrões desadaptativos de enfrentamento da dor; requer intervenção psicoterápica focal.' },
+      { min: 3, max: 4, label: 'Elevada', description: 'Sofrimento persistente, internalizado ou desorganizado; risco de esgotamento afetivo.' }
+    ],
+  }
+};

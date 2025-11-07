@@ -1,0 +1,140 @@
+
+import { InventoryForm } from '../types';
+
+export const IAC_INVENTORY: InventoryForm = {
+  id: 'iac',
+  acronym: 'IAC',
+  name: 'Inventário de Aliança e Colaboração Terapêutica (IAC)',
+  objective: 'Avaliar a aliança terapêutica e a colaboração percebida entre paciente e terapeuta, entendidas como fatores centrais para a eficácia do processo psicoterápico.',
+  instructions: 'A seguir estão frases sobre sua relação com o(a) seu/sua terapeuta e sobre como você percebe o trabalho conjunto nas sessões. Leia com atenção e assinale o quanto cada afirmação corresponde à sua experiência.',
+  responseScale: [
+    { value: 0, label: 'Nunca é verdade para mim' },
+    { value: 1, label: 'Raramente é verdade para mim' },
+    { value: 2, label: 'Às vezes é verdade para mim' },
+    { value: 3, label: 'Frequentemente é verdade para mim' },
+    { value: 4, label: 'Quase sempre é verdade para mim' },
+  ],
+  domains: [
+    {
+      id: 'affective_bond_trust',
+      name: 'Vínculo Afetivo e Confiança',
+      icon: '💞',
+      description: 'Qualidade do laço emocional com o terapeuta, incluindo sentimentos de confiança, aceitação e segurança na relação.',
+      interpretationLabels: {
+        level_1: 'Vínculo frágil, com sentimentos de desconfiança.',
+        level_2: 'Confiança em desenvolvimento, mas com hesitações.',
+        level_3: 'Bom nível de confiança e segurança na relação.',
+        level_4: 'Vínculo forte e seguro, permitindo vulnerabilidade.',
+      },
+      questions: [
+        { id: 6001, text: 'Sinto que meu terapeuta realmente se importa comigo.' },
+        { id: 6002, text: 'Tenho liberdade para falar de qualquer assunto na terapia.' },
+        { id: 6003, text: 'Às vezes sinto que meu terapeuta não me entende de verdade.', isReversed: true },
+        { id: 6004, text: 'Sinto-me aceito(a) mesmo quando exponho partes difíceis de mim.' },
+        { id: 6005, text: 'Confio nas intenções do meu terapeuta.' },
+        { id: 6006, text: 'Tenho receio de ser julgado(a) durante as sessões.', isReversed: true },
+        { id: 6007, text: 'Sinto que meu terapeuta me escuta com atenção genuína.' },
+        { id: 6008, text: 'Sinto que posso ser autêntico(a) e vulnerável na presença dele(a).' },
+      ],
+    },
+    {
+      id: 'collaboration_task_engagement',
+      name: 'Colaboração e Engajamento nas Tarefas',
+      icon: '⚙️',
+      description: 'Percepção de que paciente e terapeuta trabalham juntos em direção a objetivos claros e compartilhados.',
+      interpretationLabels: {
+        level_1: 'Baixo engajamento e falta de clareza nos objetivos.',
+        level_2: 'Colaboração parcial, com alguma dificuldade de alinhamento.',
+        level_3: 'Bom trabalho em equipe, com objetivos claros.',
+        level_4: 'Elevado senso de parceria e engajamento mútuo.',
+      },
+      questions: [
+        { id: 6101, text: 'Sinto que meu terapeuta e eu trabalhamos em equipe.' },
+        { id: 6102, text: 'Compreendo claramente o que estamos tentando alcançar na terapia.' },
+        { id: 6103, text: 'Às vezes não entendo o propósito das atividades propostas.', isReversed: true },
+        { id: 6104, text: 'Sinto que participo ativamente das decisões sobre o que abordar.' },
+        { id: 6105, text: 'Quando recebo tarefas ou reflexões para casa, tento cumpri-las.' },
+        { id: 6106, text: 'Tenho clareza sobre o que posso fazer para melhorar fora das sessões.' },
+        { id: 6107, text: 'Às vezes sinto que estamos sem direção no processo terapêutico.', isReversed: true },
+        { id: 6108, text: 'Percebo que há um esforço mútuo para o meu progresso.' },
+      ],
+    },
+    {
+      id: 'communication_therapeutic_attunement',
+      name: 'Comunicação e Sintonia Terapêutica',
+      icon: '🧩',
+      description: 'Qualidade da comunicação e do entendimento mútuo, refletindo o quanto o paciente se sente compreendido pelo terapeuta.',
+      interpretationLabels: {
+        level_1: 'Comunicação com ruídos e sensação de não ser compreendido.',
+        level_2: 'Sintonia intermitente, com alguns mal-entendidos.',
+        level_3: 'Boa comunicação e sintonia na maior parte do tempo.',
+        level_4: 'Elevada sintonia, com comunicação fluida e profunda.',
+      },
+      questions: [
+        { id: 6201, text: 'Meu terapeuta consegue explicar as coisas de forma que eu entenda.' },
+        { id: 6202, text: 'Sinto que ele(a) percebe o que estou sentindo, mesmo quando não falo.' },
+        { id: 6203, text: 'Às vezes saio das sessões sem entender o que foi trabalhado.', isReversed: true },
+        { id: 6204, text: 'As conversas fluem naturalmente durante as sessões.' },
+        { id: 6205, text: 'Tenho a sensação de que “falamos a mesma língua”.' },
+        { id: 6206, text: 'Quando há mal-entendidos, conseguimos esclarecê-los.' },
+        { id: 6207, text: 'Já senti que ele(a) interpretou algo de modo incorreto sobre mim.', isReversed: true },
+        { id: 6208, text: 'Sinto que nossas conversas realmente me ajudam a evoluir.' },
+      ],
+    },
+    {
+      id: 'growth_process_safety',
+      name: 'Crescimento e Segurança no Processo',
+      icon: '🌱',
+      description: 'Percepção de que a terapia é um espaço seguro que promove mudança, autoconfiança e capacidade de enfrentar desafios.',
+      interpretationLabels: {
+        level_1: 'Sensação de estagnação ou insegurança no processo.',
+        level_2: 'Crescimento lento ou limitado a algumas áreas.',
+        level_3: 'Percepção clara de progresso e desenvolvimento pessoal.',
+        level_4: 'Forte sensação de crescimento e transformação impulsionada pela terapia.',
+      },
+      questions: [
+        { id: 6301, text: 'Sinto que estou mudando positivamente com a ajuda da terapia.' },
+        { id: 6302, text: 'Tenho mais autoconfiança para lidar com meus sentimentos.' },
+        { id: 6303, text: 'Às vezes me sinto estagnado(a), sem avanços.', isReversed: true },
+        { id: 6304, text: 'Sinto-me encorajado(a) a experimentar novas formas de pensar e agir.' },
+        { id: 6305, text: 'A terapia me faz sentir mais capaz de enfrentar desafios.' },
+        { id: 6306, text: 'Tenho segurança em continuar mesmo quando as sessões são difíceis.' },
+        { id: 6307, text: 'Às vezes penso em desistir da terapia por frustração.', isReversed: true },
+        { id: 6308, text: 'Percebo que estou desenvolvendo uma nova forma de compreender a mim mesmo(a).' },
+      ],
+    },
+    {
+      id: 'autonomy_mutual_alliance',
+      name: 'Autonomia e Aliança Mútua',
+      icon: '⚖️',
+      description: 'Equilíbrio entre o apoio do terapeuta e o desenvolvimento da autonomia do paciente, com liberdade para discordar e participar ativamente.',
+      interpretationLabels: {
+        level_1: 'Relação de dependência ou com baixa participação do paciente.',
+        level_2: 'Autonomia em desenvolvimento, mas com receio de se posicionar.',
+        level_3: 'Boa parceria, com respeito à autonomia e opiniões do paciente.',
+        level_4: 'Aliança madura que fortalece a autonomia e a autoeficácia.',
+      },
+      questions: [
+        { id: 6401, text: 'Sinto que o terapeuta confia na minha capacidade de mudar.' },
+        { id: 6402, text: 'Tenho liberdade para discordar do meu terapeuta quando necessário.' },
+        { id: 6403, text: 'Às vezes sinto que dependo demais dele(a).', isReversed: true },
+        { id: 6404, text: 'Sinto que minha opinião é valorizada nas sessões.' },
+        { id: 6405, text: 'Tenho clareza de que o trabalho da terapia depende também de mim.' },
+        { id: 6406, text: 'O terapeuta me ajuda a pensar por conta própria, sem me impor respostas.' },
+        { id: 6407, text: 'Sinto que estamos construindo algo juntos.' },
+        { id: 6408, text: 'Quando algo me incomoda na terapia, consigo expressar isso.' },
+      ],
+    },
+  ],
+  scoring: {
+    type: 'sum',
+    description: 'O escore total (0–160) indica o grau global de aliança terapêutica percebida.',
+    subScoresDescription: 'Subescores por domínio podem ser calculados para avaliar dimensões específicas (vínculo, colaboração, sintonia etc.).',
+    ranges: [
+      { min: 0, max: 40, label: 'Aliança frágil', description: 'Aliança frágil; sentimentos de distância, desconfiança ou evasão.' },
+      { min: 41, max: 80, label: 'Vínculo moderado', description: 'Vínculo moderado, mas com lacunas na comunicação ou engajamento.' },
+      { min: 81, max: 120, label: 'Boa aliança', description: 'Boa aliança e colaboração; base sólida para o processo.' },
+      { min: 121, max: 160, label: 'Aliança madura', description: 'Aliança terapêutica madura e colaborativa, com alta sintonia e autonomia reflexiva.' }
+    ]
+  }
+};

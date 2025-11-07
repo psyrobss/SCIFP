@@ -1,0 +1,99 @@
+
+import { InventoryForm } from '../types';
+
+export const IFMSC_INVENTORY: InventoryForm = {
+  id: 'ifmsc',
+  acronym: 'IFMSC',
+  name: 'Inventário de Fadiga Mental e Sobrecarga Cognitiva (IFMSC)',
+  objective: 'Avaliar a percepção subjetiva de exaustão mental, lentificação cognitiva, dificuldade de recuperação e sensação de sobrecarga emocional ou intelectual no cotidiano.',
+  instructions: 'As frases abaixo descrevem experiências mentais e cognitivas comuns em situações de estresse, excesso de trabalho, ou esgotamento emocional. Marque a opção que melhor descreve o que ocorre com você na maior parte dos dias.',
+  responseScale: [
+    { value: 0, label: 'Nunca' },
+    { value: 1, label: 'Raramente' },
+    { value: 2, label: 'Às vezes' },
+    { value: 3, label: 'Frequentemente' },
+    { value: 4, label: 'Quase sempre' },
+  ],
+  domains: [
+    {
+      id: 'cognitive_exhaustion',
+      name: 'Exaustão Cognitiva',
+      icon: '⚡',
+      description: 'Sensação de esgotamento mental, cansaço do raciocínio e dificuldade em manter o esforço intelectual.',
+      questions: [
+        { id: 2301, text: 'Sinto minha mente cansada, mesmo sem esforço físico.' },
+        { id: 2302, text: 'Tenho a sensação de que meu cérebro “não dá conta” de processar tudo.' },
+        { id: 2303, text: 'Fico mentalmente exausto(a) depois de pequenas tarefas.' },
+        { id: 2304, text: 'Tenho dificuldade em pensar com clareza quando estou cansado(a).' },
+        { id: 2305, text: 'Sinto que meu raciocínio desacelera ao longo do dia.' },
+        { id: 2306, text: 'Tenho necessidade de pausas mentais constantes.' },
+      ],
+    },
+    {
+      id: 'mental_slowness_performance',
+      name: 'Lentificação e Desempenho Mental',
+      icon: '🧠',
+      description: 'Percepção de lentidão no pensamento, dificuldade de compreensão e queda no desempenho de tarefas cognitivas.',
+      questions: [
+        { id: 2401, text: 'Sinto que estou pensando ou reagindo mais devagar que o normal.' },
+        { id: 2402, text: 'Tenho dificuldade em compreender informações simples quando estou cansado(a).' },
+        { id: 2403, text: 'Esqueço facilmente o que acabei de fazer ou ler.' },
+        { id: 2404, text: 'Tenho a sensação de que “nada entra na cabeça”.' },
+        { id: 2405, text: 'Demoro para iniciar tarefas cognitivas, mesmo as fáceis.' },
+        { id: 2406, text: 'Sinto que perco eficiência conforme o dia avança.' },
+      ],
+    },
+    {
+      id: 'mental_overload_saturation',
+      name: 'Sobrecarga e Saturação Mental',
+      icon: '🌀',
+      description: 'Sensação de que a mente está "cheia", com excesso de informações e dificuldade em lidar com múltiplas demandas.',
+      questions: [
+        { id: 2501, text: 'Tenho a sensação de que há “informação demais” na minha mente.' },
+        { id: 2502, text: 'Sinto-me sobrecarregado(a) por estímulos, sons ou demandas simultâneas.' },
+        { id: 2503, text: 'Tenho vontade de “desligar” de tudo por um tempo.' },
+        { id: 2504, text: 'Sinto que minha mente está cheia, mesmo sem estar produzindo muito.' },
+        { id: 2505, text: 'Tenho dificuldade em lidar com múltiplas tarefas ou responsabilidades.' },
+        { id: 2506, text: 'Pequenas decisões parecem exigir esforço mental excessivo.' },
+      ],
+    },
+    {
+      id: 'mental_recovery_difficulty',
+      name: 'Dificuldade de Recuperação Mental',
+      icon: '💭',
+      description: 'Percepção de que o descanso não é suficiente para restaurar a energia e a clareza mental.',
+      questions: [
+        { id: 2601, text: 'Mesmo após descansar, continuo me sentindo mentalmente cansado(a).' },
+        { id: 2602, text: 'Tenho dificuldade em me concentrar mesmo após uma boa noite de sono.' },
+        { id: 2603, text: 'Sinto que preciso de longos períodos de pausa para me recompor.' },
+        { id: 2604, text: 'O cansaço mental parece não passar completamente.' },
+        { id: 2605, text: 'Tenho sensação de que o descanso “não recarrega” minha energia mental.' },
+        { id: 2606, text: 'Acordo já com sensação de fadiga mental.' },
+      ],
+    },
+    {
+      id: 'emotional_functional_impact',
+      name: 'Impacto Emocional e Funcional',
+      icon: '❤️',
+      description: 'Avalia como a fadiga mental afeta o humor, a irritabilidade, o prazer e o interesse pelas atividades diárias.',
+      questions: [
+        { id: 2701, text: 'Fico irritado(a) com facilidade por causa do cansaço mental.' },
+        { id: 2702, text: 'Tenho me sentido emocionalmente esgotado(a).' },
+        { id: 2703, text: 'Evito situações que exigem esforço mental.' },
+        { id: 2704, text: 'Tenho sentido menos prazer em atividades cognitivas (ler, estudar, conversar).' },
+        { id: 2705, text: 'Tenho perdido o interesse em tarefas que antes eram fáceis.' },
+        { id: 2706, text: 'Sinto que minha exaustão mental está afetando meu humor e relacionamentos.' },
+      ],
+    },
+  ],
+  scoring: {
+    type: 'average',
+    description: 'A pontuação média (0-4) representa o nível de fadiga mental e sobrecarga cognitiva percebida. Escores mais altos indicam maior exaustão.',
+    ranges: [
+      { min: 0, max: 0.9, label: 'Sem Fadiga Mental', description: 'Energia cognitiva preservada e boa capacidade de recuperação.' },
+      { min: 1, max: 1.9, label: 'Fadiga Mental Leve', description: 'Cansaço mental após esforço, mas com recuperação adequada.' },
+      { min: 2, max: 2.9, label: 'Fadiga Mental Moderada', description: 'Sensação persistente de exaustão com impacto no desempenho e humor.' },
+      { min: 3, max: 4, label: 'Exaustão Cognitiva (Burnout)', description: 'Esgotamento mental severo e crônico, com dificuldade de recuperação.' },
+    ],
+  }
+};

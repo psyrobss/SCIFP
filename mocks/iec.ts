@@ -1,0 +1,113 @@
+
+import { InventoryForm } from '../types';
+
+export const IEC_INVENTORY: InventoryForm = {
+  id: 'iec',
+  acronym: 'IEC',
+  name: 'Inventário de Estratégias Cognitivas (IEC)',
+  objective: 'Avaliar o repertório de estratégias cognitivas utilizadas para lidar com pensamentos automáticos, ruminações, autocríticas e interpretações disfuncionais do cotidiano.',
+  instructions: 'As frases abaixo descrevem maneiras de pensar e reagir a situações difíceis ou desagradáveis. Leia cada uma e marque o quanto elas se aplicam a você na maior parte do tempo.',
+  responseScale: [
+    { value: 0, label: 'Nunca' },
+    { value: 1, label: 'Raramente' },
+    { value: 2, label: 'Às vezes' },
+    { value: 3, label: 'Frequentemente' },
+    { value: 4, label: 'Quase sempre' },
+  ],
+  domains: [
+    {
+      id: 'rumination',
+      name: 'Ruminação e Pensamento Repetitivo',
+      icon: '💭',
+      description: 'Tendência a ficar preso em pensamentos negativos e repetitivos sobre problemas, erros ou preocupações.',
+      questions: [
+        { id: 3801, text: 'Fico repetindo na mente o que deu errado em uma situação.' },
+        { id: 3802, text: 'Tenho dificuldade em “desligar” dos pensamentos negativos.' },
+        { id: 3803, text: 'Volto várias vezes ao mesmo assunto, mesmo sabendo que não muda nada.' },
+        { id: 3804, text: 'Reflito demais sobre o que as pessoas pensaram de mim.' },
+        { id: 3805, text: 'Penso repetidamente no que poderia ter feito diferente.' },
+        { id: 3806, text: 'Tenho dificuldade em deixar o passado para trás.' },
+      ],
+    },
+    {
+      id: 'catastrophizing',
+      name: 'Catastrofização e Pensamento Disfuncional',
+      icon: '⚡',
+      description: 'Hábito de superestimar a probabilidade de resultados negativos e imaginar os piores cenários possíveis.',
+      questions: [
+        { id: 3901, text: 'Imagino o pior resultado possível quando algo me preocupa.' },
+        { id: 3902, text: 'Tenho tendência a exagerar os riscos das situações.' },
+        { id: 3903, text: 'Acredito que pequenos erros podem ter grandes consequências.' },
+        { id: 3904, text: 'Quando algo ruim acontece, penso que tudo vai dar errado.' },
+        { id: 3905, text: 'Sinto que não vou conseguir lidar com o que vem pela frente.' },
+        { id: 3906, text: 'Transformo pequenos problemas em grandes ameaças mentais.' },
+      ],
+    },
+    {
+      id: 'reappraisal',
+      name: 'Reavaliação Cognitiva (Estratégia Funcional)',
+      icon: '🧠',
+      description: 'Capacidade de reinterpretar situações de forma mais equilibrada, realista ou positiva para reduzir o impacto emocional.',
+      questions: [
+        { id: 4001, text: 'Tento ver o lado positivo mesmo em situações ruins.', isReversed: true },
+        { id: 4002, text: 'Penso em como posso aprender com o que aconteceu.', isReversed: true },
+        { id: 4003, text: 'Tento reinterpretar o problema de uma forma menos negativa.', isReversed: true },
+        { id: 4004, text: 'Busco lembrar de situações em que consegui superar algo parecido.', isReversed: true },
+        { id: 4005, text: 'Tento enxergar as coisas de modo mais realista e equilibrado.', isReversed: true },
+        { id: 4006, text: 'Tento compreender meus pensamentos sem julgá-los.', isReversed: true },
+      ],
+    },
+    {
+      id: 'self_criticism',
+      name: 'Autocrítica e Julgamento Pessoal',
+      icon: '🌪️',
+      description: 'Tendência a se julgar de forma severa, focar nos próprios erros e ter pensamentos de incapacidade ou autodepreciação.',
+      questions: [
+        { id: 4101, text: 'Sou muito duro(a) comigo mesmo(a) quando erro.' },
+        { id: 4102, text: 'Tenho dificuldade em perdoar meus próprios erros.' },
+        { id: 4103, text: 'Critico-me mentalmente com frequência.' },
+        { id: 4104, text: 'Fico com raiva de mim por não ser “melhor”.' },
+        { id: 4105, text: 'Comparo-me negativamente com outras pessoas.' },
+        { id: 4106, text: 'Tenho pensamentos automáticos de incapacidade.' },
+      ],
+    },
+    {
+      id: 'avoidance',
+      name: 'Evitação Cognitiva e Supressão de Pensamentos',
+      icon: '🪞',
+      description: 'Esforço para não pensar ou sentir emoções desconfortáveis, suprimindo pensamentos ou se distraindo constantemente.',
+      questions: [
+        { id: 4201, text: 'Tento não pensar em coisas que me incomodam.' },
+        { id: 4202, text: 'Ocupo minha mente para não lembrar de algo doloroso.' },
+        { id: 4203, text: 'Finjo que determinados pensamentos não existem.' },
+        { id: 4204, text: 'Evito refletir sobre o que me causa ansiedade.' },
+        { id: 4205, text: 'Tento empurrar os pensamentos ruins “para fora da cabeça”.' },
+        { id: 4206, text: 'Distraio-me constantemente para não entrar em contato com emoções negativas.' },
+      ],
+    },
+    {
+      id: 'acceptance',
+      name: 'Aceitação e Descentralização Cognitiva (Estratégia Funcional)',
+      icon: '🧩',
+      description: 'Habilidade de observar pensamentos e emoções sem julgamento, reconhecendo-os como eventos mentais passageiros.',
+      questions: [
+        { id: 4301, text: 'Reconheço que não posso controlar todos os meus pensamentos.', isReversed: true },
+        { id: 4302, text: 'Tento observar meus pensamentos sem reagir a eles.', isReversed: true },
+        { id: 4303, text: 'Entendo que pensar algo não significa que seja verdade.', isReversed: true },
+        { id: 4304, text: 'Pratico aceitar as emoções sem lutar contra elas.', isReversed: true },
+        { id: 4305, text: 'Consigo ver meus pensamentos como “eventos mentais”, não como fatos.', isReversed: true },
+        { id: 4306, text: 'Tento manter uma postura curiosa e aberta diante da minha mente.', isReversed: true },
+      ],
+    },
+  ],
+  scoring: {
+    type: 'average',
+    description: 'A pontuação média (0-4) indica a predominância de estratégias cognitivas disfuncionais. Escores mais altos sugerem maior rigidez cognitiva e uso de estratégias que mantêm o sofrimento.',
+    ranges: [
+      { min: 0, max: 0.9, label: 'Estratégias Adaptativas', description: 'Uso predominante de reavaliação e aceitação; boa flexibilidade cognitiva.' },
+      { min: 1, max: 1.9, label: 'Uso Misto de Estratégias', description: 'Presença de estratégias disfuncionais, mas com algum repertório adaptativo.' },
+      { min: 2, max: 2.9, label: 'Predomínio de Estratégias Disfuncionais', description: 'Padrão de ruminação, catastrofização ou autocrítica que contribui para o sofrimento.' },
+      { min: 3, max: 4, label: 'Alta Rigidez Cognitiva', description: 'Forte adesão a padrões de pensamento disfuncionais, com baixo repertório adaptativo.' },
+    ],
+  }
+};
