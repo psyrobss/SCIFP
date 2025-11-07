@@ -1,15 +1,11 @@
-
 import React, { useState, useMemo, useEffect, useCallback, useRef } from 'react';
-import { InventoryForm, InterpretationRange, Question as BaseQuestion, Domain } from '../types';
+import { InventoryForm, InterpretationRange, Question as BaseQuestion, Domain, ResponseOption } from '../types';
 
 /*
-  Versão melhorada do InventoryFormView
-  - Comentários breves em Português.
-  - Melhor tratamento de estados e performance (useMemo/useCallback).
-  - Scroll para resultados usando ref (evita querySelector direta).
-  - Inversão de itens mais robusta (usa min/max da escala).
-  - Verificação de "todas respondidas" por presença explícita de cada questão.
-  - Pequenas melhorias de acessibilidade (aria-*, fieldset/legend).
+  Versão refatorada do InventoryFormView
+  - Extraído a lógica de renderização da pergunta para um componente `QuestionRenderer`.
+  - Eliminada a duplicação de código entre a view de desktop (tabela) e mobile (cartões).
+  - Mantidas as melhorias de performance, acessibilidade e estado.
 */
 
 /* Ícones simples em componentes para manter o JSX limpo */
@@ -19,7 +15,6 @@ const BackArrowIcon = () => (
     <path d="M12 19l-7-7 7-7"></path>
   </svg>
 );
-
 
 /* Tipo estendido usado localmente (mantém metadados do domínio) */
 type ShuffledQuestion = BaseQuestion & {
@@ -73,6 +68,85 @@ const getDomainInterpretation = (
   if (averageScore < 3) return effectiveLabels.level_3;
   return effectiveLabels.level_4;
 };
+
+
+// --- Componente Refatorado para Renderizar uma Pergunta ---
+interface QuestionRendererProps {
+  question: ShuffledQuestion;
+  responseScale: ResponseOption[];
+  currentAnswer: number | undefined;
+  onAnswerChange: (questionId: number, value: number) => void;
+  type: 'desktop' | 'mobile';
+}
+
+const QuestionRenderer: React.FC<QuestionRendererProps> = ({ question, responseScale, currentAnswer, onAnswerChange, type }) => {
+  if (type === 'desktop') {
+    return (
+      <tr className="group even:bg-slate-50/50">
+        <td className="px-3 py-2 whitespace-normal text-sm font-medium text-slate-800 align-middle">
+          <div className="flex items-start gap-x-3">
+            <span title={question.domainName} className="text-xl mt-1 flex-shrink-0" aria-hidden="true">
+              {question.domainIcon}
+            </span>
+            <span>{question.text}</span>
+          </div>
+        </td>
+        {responseScale.map((option) => (
+          <td key={option.value} className="px-1 py-2 text-center align-middle">
+            <input
+              type="radio"
+              id={`q${question.id}_${option.value}_desktop`}
+              name={`question_${question.id}_desktop`}
+              value={option.value}
+              checked={currentAnswer === option.value}
+              onChange={() => onAnswerChange(question.id, option.value)}
+              className="h-5 w-5 text-indigo-600 border-slate-300 focus:ring-0 focus:ring-offset-0 cursor-pointer"
+              aria-label={`${option.label} (${option.value}) para a pergunta: ${question.text}`}
+            />
+          </td>
+        ))}
+      </tr>
+    );
+  }
+
+  // type === 'mobile'
+  return (
+    <fieldset className="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+      <legend className="sr-only">Pergunta sobre {question.domainName}</legend>
+      <div className="flex items-start gap-x-3">
+        <span title={question.domainName} className="text-2xl mt-1 flex-shrink-0" aria-hidden="true">
+          {question.domainIcon}
+        </span>
+        <p className="text-sm font-medium text-slate-800 mb-4">{question.text}</p>
+      </div>
+
+      <div className="flex justify-center items-center pt-2 gap-x-3">
+        {responseScale.map((option) => (
+          <div key={option.value}>
+            <input
+              type="radio"
+              id={`q${question.id}_${option.value}_mobile`}
+              name={`question_${question.id}_mobile`}
+              value={option.value}
+              checked={currentAnswer === option.value}
+              onChange={() => onAnswerChange(question.id, option.value)}
+              className="sr-only peer"
+              aria-label={`${option.label} (${option.value})`}
+            />
+            <label
+              htmlFor={`q${question.id}_${option.value}_mobile`}
+              title={`${option.label} (${option.value})`}
+              className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-slate-300 bg-white font-bold text-slate-600 cursor-pointer transition-all duration-200 ease-in-out hover:border-indigo-400 peer-checked:border-indigo-600 peer-checked:bg-indigo-600 peer-checked:text-white"
+            >
+              {option.value}
+            </label>
+          </div>
+        ))}
+      </div>
+    </fieldset>
+  );
+};
+
 
 interface InventoryFormViewProps {
   inventory: InventoryForm;
@@ -232,6 +306,7 @@ export const InventoryFormView: React.FC<InventoryFormViewProps> = ({ inventory,
       </div>
 
       <form onSubmit={(e) => e.preventDefault()}>
+        {/* --- Layout de Tabela para Desktop --- */}
         <div className="hidden md:block overflow-x-auto rounded-lg border border-slate-200">
           <table className="min-w-full divide-y divide-slate-200 table-fixed" role="table" aria-label="Questionário">
             <thead className="bg-slate-50">
@@ -241,38 +316,22 @@ export const InventoryFormView: React.FC<InventoryFormViewProps> = ({ inventory,
                 </th>
                 {inventory.responseScale.map((option) => (
                   <th key={option.value} scope="col" className="px-1 py-2 text-center text-xs font-semibold text-slate-600 w-20">
-                    <span className="block font-bold text-slate-800 text-base">{option.value}</span>
-                    <span className="block font-normal text-slate-500 mt-1 leading-tight">{option.label}</span>
+                    <span className="block font-bold text-slate-800 text-sm">{option.value}</span>
+                    <span className="block font-normal text-slate-500 mt-1 leading-tight text-xs">{option.label}</span>
                   </th>
                 ))}
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-slate-200">
               {shuffledQuestions.map((question) => (
-                <tr key={question.id} className="group even:bg-slate-50/50">
-                  <td className="px-3 py-2 whitespace-normal text-sm font-medium text-slate-800 align-middle">
-                    <div className="flex items-start gap-x-3">
-                      <span title={question.domainName} className="text-xl mt-1 flex-shrink-0" aria-hidden="true">
-                        {question.domainIcon}
-                      </span>
-                      <span>{question.text}</span>
-                    </div>
-                  </td>
-                  {inventory.responseScale.map((option) => (
-                    <td key={option.value} className="px-1 py-2 text-center align-middle">
-                      <input
-                        type="radio"
-                        id={`q${question.id}_${option.value}`}
-                        name={`question_${question.id}`}
-                        value={option.value}
-                        checked={answers[question.id] === option.value}
-                        onChange={() => handleAnswerChange(question.id, option.value)}
-                        className="h-5 w-5 text-indigo-600 border-slate-300 focus:ring-indigo-500 cursor-pointer"
-                        aria-label={`${option.label} (${option.value}) para a pergunta: ${question.text}`}
-                      />
-                    </td>
-                  ))}
-                </tr>
+                <QuestionRenderer
+                  key={question.id}
+                  question={question}
+                  responseScale={inventory.responseScale}
+                  currentAnswer={answers[question.id]}
+                  onAnswerChange={handleAnswerChange}
+                  type="desktop"
+                />
               ))}
             </tbody>
           </table>
@@ -280,36 +339,15 @@ export const InventoryFormView: React.FC<InventoryFormViewProps> = ({ inventory,
 
         {/* --- Layout de Cartão para Mobile --- */}
         <div className="block md:hidden space-y-4">
-          {shuffledQuestions.map((question, index) => (
-            <fieldset key={question.id} className="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
-              <legend className="sr-only">Pergunta {index + 1}</legend>
-              <div className="flex items-start gap-x-3">
-                 <span title={question.domainName} className="text-2xl mt-1 flex-shrink-0" aria-hidden="true">
-                  {question.domainIcon}
-                </span>
-                <p className="text-sm font-medium text-slate-800 mb-4">{question.text}</p>
-              </div>
-
-              <div className="flex justify-around items-center space-x-1">
-                {inventory.responseScale.map((option) => (
-                  <div key={option.value} className="flex flex-col items-center">
-                    <input
-                      type="radio"
-                      id={`q${question.id}_${option.value}_mobile`}
-                      name={`question_${question.id}_mobile`}
-                      value={option.value}
-                      checked={answers[question.id] === option.value}
-                      onChange={() => handleAnswerChange(question.id, option.value)}
-                      className="h-5 w-5 text-indigo-600 border-slate-300 focus:ring-indigo-500 cursor-pointer"
-                      aria-label={`${option.label} (${option.value})`}
-                    />
-                    <label htmlFor={`q${question.id}_${option.value}_mobile`} className="mt-2 text-xs text-slate-600 font-semibold cursor-pointer">
-                      {option.value}
-                    </label>
-                  </div>
-                ))}
-              </div>
-            </fieldset>
+          {shuffledQuestions.map((question) => (
+             <QuestionRenderer
+                key={question.id}
+                question={question}
+                responseScale={inventory.responseScale}
+                currentAnswer={answers[question.id]}
+                onAnswerChange={handleAnswerChange}
+                type="mobile"
+              />
           ))}
         </div>
       </form>
