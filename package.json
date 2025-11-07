@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "description": "Uma plataforma para gerenciar e aplicar inventários e formulários psicoterapêuticos, organizada em módulos para avaliação Cognitivo-Neuropsicológica, Regulação Emocional, Processos Terapêuticos, Funcionamento Social e Saúde Mental.",
-  "scripts": {
-    "build": "echo 'Build successful!'"
-  },
   "dependencies": {
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
