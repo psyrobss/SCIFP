@@ -23,7 +23,7 @@ const HomePage: React.FC = () => (
     <div className="mt-16 text-center">
       <p className="text-slate-600">
         Deseja uma sugestão de inventário?{' '}
-        <Link to="/selecao-aleatoria" className="text-indigo-600 font-semibold hover:underline">
+        <Link to="/questionarios-terapeuticos" className="text-indigo-600 font-semibold hover:underline">
           Clique aqui para uma seleção aleatória por módulo.
         </Link>
       </p>
@@ -89,7 +89,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/inventario/:acronym" element={<InventoryPage />} />
-          <Route path="/selecao-aleatoria" element={<RandomSelectionWrapper />} />
+          <Route path="/questionarios-terapeuticos" element={<RandomSelectionWrapper />} />
         </Routes>
       </main>
       <Footer />
