@@ -71,6 +71,7 @@ const RandomSelectionWrapper: React.FC = () => {
 const App: React.FC = () => {
   const location = useLocation();
   const isFormView = location.pathname.startsWith('/inventario/');
+  const isRandomSelectionPage = location.pathname === '/questionarios-terapeuticos';
   
   // A bit of logic to get the current inventory for the header
   let currentInventory: InventoryForm | undefined;
@@ -84,7 +85,10 @@ const App: React.FC = () => {
   return (
     <div className="bg-slate-50 min-h-screen text-slate-800 flex flex-col">
        <ScrollToTop />
-       <Header responseScale={isFormView ? currentInventory?.responseScale : undefined} />
+       <Header 
+        responseScale={isFormView ? currentInventory?.responseScale : undefined} 
+        isRandomSelectionPage={isRandomSelectionPage}
+      />
       <main className="container mx-auto p-4 sm:p-6 lg:p-8 flex-grow">
         <Routes>
           <Route path="/" element={<HomePage />} />
