@@ -20,6 +20,12 @@ export const ICCR_INVENTORY: InventoryForm = {
       name: 'Pensamentos Intrusivos e Repetitivos',
       icon: '🔄',
       description: 'Presença de pensamentos indesejados, obsessivos ou preocupações excessivas que são difíceis de controlar.',
+      interpretationLabels: {
+        level_1: 'Baixa presença de pensamentos intrusivos.',
+        level_2: 'Pensamentos repetitivos leves e controláveis.',
+        level_3: 'Padrão moderado de pensamentos obsessivos.',
+        level_4: 'Forte presença de pensamentos intrusivos e de difícil controle.',
+      },
       questions: [
         { id: 17001, text: 'Tenho pensamentos indesejados que voltam repetidamente à minha mente.' },
         { id: 17002, text: 'Tento evitar certos pensamentos, mas eles retornam com força.' },
@@ -33,6 +39,12 @@ export const ICCR_INVENTORY: InventoryForm = {
       name: 'Rituais, Checagens e Comportamentos de Repetição',
       icon: '🧼',
       description: 'Necessidade de realizar ações repetitivas, como checagens, limpezas ou rituais, para aliviar a ansiedade.',
+      interpretationLabels: {
+        level_1: 'Baixa necessidade de rituais ou checagens.',
+        level_2: 'Comportamentos repetitivos leves, sem grande impacto.',
+        level_3: 'Rituais moderados que consomem tempo e geram ansiedade.',
+        level_4: 'Forte presença de compulsões e rituais com impacto funcional.',
+      },
       questions: [
         { id: 17101, text: 'Sinto necessidade de checar coisas várias vezes (como portas, luzes, mensagens).' },
         { id: 17102, text: 'Repito determinadas ações até sentir que estão “corretas o suficiente”.' },
@@ -46,6 +58,12 @@ export const ICCR_INVENTORY: InventoryForm = {
       name: 'Impulsividade e Perda de Controle',
       icon: '⚡',
       description: 'Dificuldade em resistir a impulsos ou interromper comportamentos prejudiciais, mesmo com consciência das consequências.',
+      interpretationLabels: {
+        level_1: 'Bom controle sobre impulsos.',
+        level_2: 'Impulsividade leve ou em situações específicas.',
+        level_3: 'Dificuldade moderada em resistir a impulsos.',
+        level_4: 'Forte padrão de impulsividade e perda de controle.',
+      },
       questions: [
         { id: 17201, text: 'Às vezes ajo por impulso e depois me arrependo.' },
         { id: 17202, text: 'Tenho dificuldade em interromper comportamentos mesmo sabendo que me prejudicam.' },
@@ -59,6 +77,12 @@ export const ICCR_INVENTORY: InventoryForm = {
       name: 'Consciência, Culpa e Impacto Funcional',
       icon: '🧠',
       description: 'Nível de percepção sobre o caráter exagerado dos comportamentos e o impacto negativo que eles causam na rotina e no bem-estar.',
+      interpretationLabels: {
+        level_1: 'Baixo impacto funcional e pouca culpa associada.',
+        level_2: 'Consciência do problema com impacto leve na rotina.',
+        level_3: 'Impacto moderado na rotina, com sentimentos de culpa.',
+        level_4: 'Forte impacto funcional, com sofrimento e culpa significativos.',
+      },
       questions: [
         { id: 17301, text: 'Tenho consciência de que alguns dos meus comportamentos são exagerados ou sem sentido.' },
         { id: 17302, text: 'Sinto culpa ou vergonha por não conseguir controlar certos hábitos.' },

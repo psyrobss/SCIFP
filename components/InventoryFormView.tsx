@@ -54,15 +54,8 @@ const shuffleArray = (array: ShuffledQuestion[]): ShuffledQuestion[] => {
 /* Função para gerar interpretação breve do domínio por média */
 const getDomainInterpretation = (
   averageScore: number,
-  labels?: Domain['interpretationLabels'],
-  acronym?: string
+  labels?: Domain['interpretationLabels']
 ): string => {
-  if (acronym === 'IEV') {
-    if (averageScore <= 1) return 'Baixa expressão do estilo';
-    if (averageScore <= 2.5) return 'Média / tendência moderada';
-    return 'Alta expressão / predominância do estilo';
-  }
-
   const defaultDeficitLabels = {
     level_1: 'Nenhuma dificuldade significativa.',
     level_2: 'Presença de dificuldades leves.',
@@ -425,7 +418,7 @@ export const InventoryFormView: React.FC<InventoryFormViewProps> = ({ inventory,
                         <strong>Interpretação:</strong> {
                           domain.interpretationSumRanges && domain.interpretationSumRanges.length > 0
                           ? getDomainInterpretationBySum(domain.score, domain.interpretationSumRanges)
-                          : getDomainInterpretation(domain.averageScore, domain.interpretationLabels, inventory.acronym)
+                          : getDomainInterpretation(domain.averageScore, domain.interpretationLabels)
                         }
                     </p>
                 </div>

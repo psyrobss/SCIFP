@@ -20,6 +20,12 @@ export const IFMSC_INVENTORY: InventoryForm = {
       name: 'Exaustão Cognitiva',
       icon: '⚡',
       description: 'Sensação de esgotamento mental, cansaço do raciocínio e dificuldade em manter o esforço intelectual.',
+      interpretationLabels: {
+        level_1: 'Nenhuma exaustão cognitiva significativa.',
+        level_2: 'Cansaço mental leve após esforço intenso.',
+        level_3: 'Exaustão cognitiva moderada e persistente.',
+        level_4: 'Forte sensação de esgotamento mental.',
+      },
       questions: [
         { id: 2301, text: 'Sinto minha mente cansada, mesmo sem esforço físico.' },
         { id: 2302, text: 'Tenho a sensação de que meu cérebro “não dá conta” de processar tudo.' },
@@ -34,6 +40,12 @@ export const IFMSC_INVENTORY: InventoryForm = {
       name: 'Lentificação e Desempenho Mental',
       icon: '🧠',
       description: 'Percepção de lentidão no pensamento, dificuldade de compreensão e queda no desempenho de tarefas cognitivas.',
+      interpretationLabels: {
+        level_1: 'Desempenho mental preservado e ágil.',
+        level_2: 'Leve lentificação cognitiva sob fadiga.',
+        level_3: 'Lentidão moderada com impacto no desempenho.',
+        level_4: 'Forte sensação de lentidão e queda no desempenho.',
+      },
       questions: [
         { id: 2401, text: 'Sinto que estou pensando ou reagindo mais devagar que o normal.' },
         { id: 2402, text: 'Tenho dificuldade em compreender informações simples quando estou cansado(a).' },
@@ -48,6 +60,12 @@ export const IFMSC_INVENTORY: InventoryForm = {
       name: 'Sobrecarga e Saturação Mental',
       icon: '🌀',
       description: 'Sensação de que a mente está "cheia", com excesso de informações e dificuldade em lidar com múltiplas demandas.',
+      interpretationLabels: {
+        level_1: 'Nenhuma sensação de sobrecarga mental.',
+        level_2: 'Sensação leve de sobrecarga em situações de alta demanda.',
+        level_3: 'Sobrecarga mental moderada e frequente.',
+        level_4: 'Forte sensação de saturação e sobrecarga mental.',
+      },
       questions: [
         { id: 2501, text: 'Tenho a sensação de que há “informação demais” na minha mente.' },
         { id: 2502, text: 'Sinto-me sobrecarregado(a) por estímulos, sons ou demandas simultâneas.' },
@@ -62,6 +80,12 @@ export const IFMSC_INVENTORY: InventoryForm = {
       name: 'Dificuldade de Recuperação Mental',
       icon: '💭',
       description: 'Percepção de que o descanso não é suficiente para restaurar a energia e a clareza mental.',
+      interpretationLabels: {
+        level_1: 'Boa capacidade de recuperação mental após descanso.',
+        level_2: 'Recuperação mental um pouco mais lenta que o normal.',
+        level_3: 'Dificuldade moderada em se recuperar, mesmo após descanso.',
+        level_4: 'Forte sensação de que o descanso não restaura a energia mental.',
+      },
       questions: [
         { id: 2601, text: 'Mesmo após descansar, continuo me sentindo mentalmente cansado(a).' },
         { id: 2602, text: 'Tenho dificuldade em me concentrar mesmo após uma boa noite de sono.' },
@@ -76,6 +100,12 @@ export const IFMSC_INVENTORY: InventoryForm = {
       name: 'Impacto Emocional e Funcional',
       icon: '❤️',
       description: 'Avalia como a fadiga mental afeta o humor, a irritabilidade, o prazer e o interesse pelas atividades diárias.',
+      interpretationLabels: {
+        level_1: 'Nenhum impacto emocional ou funcional significativo.',
+        level_2: 'Impacto leve no humor e irritabilidade.',
+        level_3: 'Impacto moderado no humor, prazer e relacionamentos.',
+        level_4: 'Forte impacto emocional e funcional, com perda de interesse.',
+      },
       questions: [
         { id: 2701, text: 'Fico irritado(a) com facilidade por causa do cansaço mental.' },
         { id: 2702, text: 'Tenho me sentido emocionalmente esgotado(a).' },

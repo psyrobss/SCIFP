@@ -20,6 +20,12 @@ export const ISV_INVENTORY: InventoryForm = {
       name: 'Coerência e Continuidade do Self',
       icon: '🧩',
       description: 'Avalia o quanto a pessoa sente que é a mesma em diferentes contextos e momentos da vida.',
+      interpretationLabels: {
+        level_1: 'Forte dificuldade de coerência, com identidade difusa.',
+        level_2: 'Coerência moderada, com alguma instabilidade.',
+        level_3: 'Bom senso de continuidade e coerência.',
+        level_4: 'Elevada coerência e estabilidade do self.',
+      },
       questions: [
         { id: 24001, text: 'Sinto que minha personalidade muda muito de acordo com quem está ao meu redor.' },
         { id: 24002, text: 'Tenho dificuldade em saber quem eu realmente sou.' },
@@ -33,6 +39,12 @@ export const ISV_INVENTORY: InventoryForm = {
       name: 'Fragmentação e Vulnerabilidade Identitária',
       icon: '🌊',
       description: 'Explora a instabilidade do self e o sentimento de vazio ou despersonalização.',
+      interpretationLabels: {
+        level_1: 'Baixa sensação de fragmentação ou vazio.',
+        level_2: 'Vulnerabilidade leve, com sentimentos ocasionais de vazio.',
+        level_3: 'Fragmentação moderada, com instabilidade do self sob estresse.',
+        level_4: 'Forte sensação de fragmentação, vazio ou despersonalização.',
+      },
       questions: [
         { id: 24006, text: 'Em certos momentos, sinto que não existo ou que sou “ninguém”.' },
         { id: 24007, text: 'Tenho períodos em que me sinto totalmente diferente de quem era antes.' },
@@ -46,6 +58,12 @@ export const ISV_INVENTORY: InventoryForm = {
       name: 'Influência Externa e Conformidade',
       icon: '🪶',
       description: 'Avalia o quanto o self depende da aprovação e da validação externa.',
+      interpretationLabels: {
+        level_1: 'Baixa dependência de validação externa.',
+        level_2: 'Leve sensibilidade à opinião alheia.',
+        level_3: 'Moderada necessidade de aprovação para se sentir seguro.',
+        level_4: 'Forte dependência da validação externa, com baixa autonomia.',
+      },
       questions: [
         { id: 24011, text: 'Costumo mudar de opinião para agradar as pessoas.' },
         { id: 24012, text: 'Tenho dificuldade em sustentar minhas próprias ideias diante de críticas.' },
@@ -59,6 +77,12 @@ export const ISV_INVENTORY: InventoryForm = {
       name: 'Autenticidade e Autoexpressão',
       icon: '🔍',
       description: 'Investiga a congruência entre o self interno e o comportamento externo.',
+      interpretationLabels: {
+        level_1: 'Forte dificuldade em ser autêntico, com uso de "máscaras".',
+        level_2: 'Autenticidade inconsistente, com medo de julgamento.',
+        level_3: 'Boa capacidade de expressar o self verdadeiro.',
+        level_4: 'Elevada autenticidade e congruência interna.',
+      },
       questions: [
         { id: 24016, text: 'Consigo expressar meus verdadeiros sentimentos, mesmo quando são impopulares.', isReversed: true },
         { id: 24017, text: 'Às vezes finjo ser algo que não sou para evitar conflitos.' },
@@ -72,6 +96,12 @@ export const ISV_INVENTORY: InventoryForm = {
       name: 'Integração e Autoaceitação',
       icon: '🧭',
       description: 'Avalia a integração das experiências internas, reconciliação com o passado e autoaceitação.',
+      interpretationLabels: {
+        level_1: 'Forte dificuldade de autoaceitação e integração.',
+        level_2: 'Aceitação parcial, com conflitos internos não resolvidos.',
+        level_3: 'Boa capacidade de aceitar e integrar diferentes partes de si.',
+        level_4: 'Elevada autoaceitação e integração das experiências de vida.',
+      },
       questions: [
         { id: 24021, text: 'Consigo aceitar partes de mim que antes rejeitava.', isReversed: true },
         { id: 24022, text: 'Tenho uma visão integrada das minhas experiências de vida.', isReversed: true },

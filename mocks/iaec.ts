@@ -21,6 +21,12 @@ export const IAEC_INVENTORY: InventoryForm = {
       name: 'Autocrítica e Autojulgamento',
       icon: '💔',
       description: 'Tendência a se julgar de forma severa, culpar-se por erros e manter uma visão negativa sobre o próprio valor.',
+      interpretationLabels: {
+        level_1: 'Baixo nível de autocrítica disfuncional.',
+        level_2: 'Autocrítica leve ou situacional.',
+        level_3: 'Padrão moderado de autocrítica e autojulgamento.',
+        level_4: 'Forte autocrítica, com impacto negativo na autoestima.',
+      },
       questions: [
         { id: 4401, text: 'Sou muito duro(a) comigo mesmo(a) quando cometo erros.' },
         { id: 4402, text: 'Costumo me culpar por coisas pequenas.' },
@@ -35,6 +41,12 @@ export const IAEC_INVENTORY: InventoryForm = {
       name: 'Autoexigência e Perfeccionismo',
       icon: '⚖️',
       description: 'Crença de que é preciso atingir padrões muito elevados de desempenho para ser aceito ou ter valor.',
+      interpretationLabels: {
+        level_1: 'Baixo nível de autoexigência e perfeccionismo.',
+        level_2: 'Padrões de exigência leves e flexíveis.',
+        level_3: 'Autoexigência moderada com impacto no bem-estar.',
+        level_4: 'Perfeccionismo rígido e disfuncional.',
+      },
       questions: [
         { id: 4501, text: 'Sinto que preciso fazer tudo com perfeição.' },
         { id: 4502, text: 'Tenho dificuldade em aceitar resultados medianos.' },
@@ -49,6 +61,12 @@ export const IAEC_INVENTORY: InventoryForm = {
       name: 'Esquema de Inadequação e Defeito',
       icon: '🧱',
       description: 'Sentimento persistente de que há algo fundamentalmente errado, falho ou inferior em si mesmo.',
+      interpretationLabels: {
+        level_1: 'Baixa ativação do esquema de inadequação.',
+        level_2: 'Sentimentos leves ou situacionais de inadequação.',
+        level_3: 'Esquema de inadequação moderado e ativo.',
+        level_4: 'Forte sentimento de ser falho, com vergonha e evitação.',
+      },
       questions: [
         { id: 4601, text: 'Sinto que há algo errado comigo que os outros não veem.' },
         { id: 4602, text: 'Tenho a sensação de ser “menos” do que as outras pessoas.' },
@@ -63,6 +81,12 @@ export const IAEC_INVENTORY: InventoryForm = {
       name: 'Esquema de Padrão Inatingível',
       icon: '🌀',
       description: 'Necessidade de manter controle rígido sobre si mesmo e evitar qualquer sinal de fraqueza ou vulnerabilidade.',
+      interpretationLabels: {
+        level_1: 'Baixa ativação do esquema de padrão inatingível.',
+        level_2: 'Padrões elevados, mas com alguma flexibilidade.',
+        level_3: 'Esquema moderadamente ativo, com alta autocobrança.',
+        level_4: 'Forte necessidade de controle e medo de falhar.',
+      },
       questions: [
         { id: 4701, text: 'Acho que preciso estar sempre no controle de mim mesmo(a).' },
         { id: 4702, text: 'Evito demonstrar fraqueza ou vulnerabilidade.' },
@@ -77,6 +101,12 @@ export const IAEC_INVENTORY: InventoryForm = {
       name: 'Esquema de Submissão e Desvalorização Pessoal',
       icon: '🧍',
       description: 'Tendência a colocar as necessidades dos outros acima das próprias, evitando conflitos e desvalorizando as próprias opiniões.',
+      interpretationLabels: {
+        level_1: 'Baixa ativação do esquema de submissão.',
+        level_2: 'Leve tendência a priorizar os outros e evitar conflitos.',
+        level_3: 'Padrão moderado de submissão, com desvalorização das próprias necessidades.',
+        level_4: 'Forte padrão de submissão e dificuldade de autoafirmação.',
+      },
       questions: [
         { id: 4801, text: 'Tenho dificuldade em dizer “não”.' },
         { id: 4802, text: 'Costumo colocar as necessidades dos outros acima das minhas.' },
@@ -91,6 +121,12 @@ export const IAEC_INVENTORY: InventoryForm = {
       name: 'Esquema de Punição e Autossabotagem',
       icon: '🌧️',
       description: 'Crença de que merece ser punido por erros e tendência a se envolver em comportamentos que sabotam a própria felicidade.',
+      interpretationLabels: {
+        level_1: 'Baixa ativação do esquema de punição.',
+        level_2: 'Tendência leve à autopunição ou dificuldade em aceitar o sucesso.',
+        level_3: 'Esquema de punição moderadamente ativo, com autossabotagem.',
+        level_4: 'Forte crença de que merece sofrer, com comportamentos autossabotadores.',
+      },
       questions: [
         { id: 4901, text: 'Quando algo dá errado, penso que mereço sofrer.' },
         { id: 4902, text: 'Às vezes me impeço de ser feliz, sem saber por quê.' },

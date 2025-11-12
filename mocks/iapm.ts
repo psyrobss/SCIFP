@@ -20,6 +20,12 @@ export const IAPM_INVENTORY: InventoryForm = {
       name: 'Atenção Sustentada',
       icon: '🎯',
       description: 'Capacidade de manter o foco em uma tarefa ou estímulo por um período prolongado sem se distrair.',
+      interpretationLabels: {
+        level_1: 'Excelente capacidade de atenção sustentada.',
+        level_2: 'Dificuldades leves para manter o foco por longos períodos.',
+        level_3: 'Dificuldade moderada de concentração em tarefas monótonas.',
+        level_4: 'Forte dificuldade em sustentar a atenção, com alto nível de distração.',
+      },
       questions: [
         { id: 1801, text: 'Tenho dificuldade em manter o foco por longos períodos.' },
         { id: 1802, text: 'Percebo que minha mente “desliga” durante tarefas monótonas.' },
@@ -34,6 +40,12 @@ export const IAPM_INVENTORY: InventoryForm = {
       name: 'Velocidade de Processamento',
       icon: '⚡',
       description: 'Agilidade para compreender, organizar e responder a informações recebidas do ambiente.',
+      interpretationLabels: {
+        level_1: 'Velocidade de processamento mental ágil e eficiente.',
+        level_2: 'Leve lentidão para processar informações novas.',
+        level_3: 'Lentidão moderada no raciocínio e na organização de pensamentos.',
+        level_4: 'Forte sensação de lentidão mental com impacto funcional.',
+      },
       questions: [
         { id: 1901, text: 'Preciso de mais tempo que o normal para compreender informações novas.' },
         { id: 1902, text: 'Tenho a sensação de que meu raciocínio está mais lento que antes.' },
@@ -48,6 +60,12 @@ export const IAPM_INVENTORY: InventoryForm = {
       name: 'Alternância Atencional (Flexibilidade do Foco)',
       icon: '🔄',
       description: 'Habilidade de mudar o foco de atenção entre diferentes tarefas ou estímulos de forma eficiente.',
+      interpretationLabels: {
+        level_1: 'Excelente flexibilidade e alternância de foco.',
+        level_2: 'Dificuldade leve para alternar entre tarefas ou após interrupções.',
+        level_3: 'Dificuldade moderada em lidar com múltiplas demandas simultâneas.',
+        level_4: 'Forte dificuldade de alternância atencional, com confusão mental.',
+      },
       questions: [
         { id: 2001, text: 'Tenho dificuldade em mudar de uma tarefa para outra sem me confundir.' },
         { id: 2002, text: 'Quando interrompido(a), demoro a retomar o raciocínio anterior.' },
@@ -62,6 +80,12 @@ export const IAPM_INVENTORY: InventoryForm = {
       name: 'Atenção Seletiva e Filtragem de Estímulos',
       icon: '🧩',
       description: 'Capacidade de focar em um estímulo relevante enquanto ignora outras distrações ao redor.',
+      interpretationLabels: {
+        level_1: 'Excelente capacidade de filtrar distrações.',
+        level_2: 'Leve dificuldade em ignorar estímulos irrelevantes.',
+        level_3: 'Dificuldade moderada de concentração em ambientes com distrações.',
+        level_4: 'Forte sensibilidade a distrações, com sobrecarga sensorial.',
+      },
       questions: [
         { id: 2101, text: 'Tenho dificuldade em ignorar ruídos, pessoas ou distrações ao redor.' },
         { id: 2102, text: 'Qualquer barulho ou movimento me tira a concentração.' },
@@ -76,6 +100,12 @@ export const IAPM_INVENTORY: InventoryForm = {
       name: 'Clareza Mental e Consciência Cognitiva',
       icon: '💭',
       description: 'Percepção de um pensamento organizado, nítido e livre de confusão ou "nevoeiro mental".',
+      interpretationLabels: {
+        level_1: 'Alta clareza mental e pensamento organizado.',
+        level_2: 'Sensação ocasional de "nevoeiro mental" ou confusão.',
+        level_3: 'Sensação moderada e frequente de mente "enevoada" ou lenta.',
+        level_4: 'Forte sensação de confusão mental e sobrecarga.',
+      },
       questions: [
         { id: 2201, text: 'Tenho sensação de “mente enevoada” ou confusa.' },
         { id: 2202, text: 'Às vezes parece que meu pensamento está “embaçado” ou lento.' },

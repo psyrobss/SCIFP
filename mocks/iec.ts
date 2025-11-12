@@ -20,6 +20,12 @@ export const IEC_INVENTORY: InventoryForm = {
       name: 'Ruminação e Pensamento Repetitivo',
       icon: '💭',
       description: 'Tendência a ficar preso em pensamentos negativos e repetitivos sobre problemas, erros ou preocupações.',
+      interpretationLabels: {
+        level_1: 'Baixo nível de ruminação.',
+        level_2: 'Ruminação leve ou ocasional.',
+        level_3: 'Padrão moderado de pensamento repetitivo.',
+        level_4: 'Forte tendência à ruminação, com impacto no humor.',
+      },
       questions: [
         { id: 3801, text: 'Fico repetindo na mente o que deu errado em uma situação.' },
         { id: 3802, text: 'Tenho dificuldade em “desligar” dos pensamentos negativos.' },
@@ -34,6 +40,12 @@ export const IEC_INVENTORY: InventoryForm = {
       name: 'Catastrofização e Pensamento Disfuncional',
       icon: '⚡',
       description: 'Hábito de superestimar a probabilidade de resultados negativos e imaginar os piores cenários possíveis.',
+      interpretationLabels: {
+        level_1: 'Baixa tendência à catastrofização.',
+        level_2: 'Catastrofização leve, especialmente sob estresse.',
+        level_3: 'Padrão moderado de pensamento catastrófico.',
+        level_4: 'Forte tendência a imaginar os piores cenários.',
+      },
       questions: [
         { id: 3901, text: 'Imagino o pior resultado possível quando algo me preocupa.' },
         { id: 3902, text: 'Tenho tendência a exagerar os riscos das situações.' },
@@ -48,6 +60,12 @@ export const IEC_INVENTORY: InventoryForm = {
       name: 'Reavaliação Cognitiva (Estratégia Funcional)',
       icon: '🧠',
       description: 'Capacidade de reinterpretar situações de forma mais equilibrada, realista ou positiva para reduzir o impacto emocional.',
+      interpretationLabels: {
+        level_1: 'Forte dificuldade em utilizar a reavaliação cognitiva.',
+        level_2: 'Uso limitado ou inconsistente da reavaliação.',
+        level_3: 'Boa capacidade de reavaliar situações de forma adaptativa.',
+        level_4: 'Excelente e frequente uso da reavaliação cognitiva.',
+      },
       questions: [
         { id: 4001, text: 'Tento ver o lado positivo mesmo em situações ruins.', isReversed: true },
         { id: 4002, text: 'Penso em como posso aprender com o que aconteceu.', isReversed: true },
@@ -62,6 +80,12 @@ export const IEC_INVENTORY: InventoryForm = {
       name: 'Autocrítica e Julgamento Pessoal',
       icon: '🌪️',
       description: 'Tendência a se julgar de forma severa, focar nos próprios erros e ter pensamentos de incapacidade ou autodepreciação.',
+      interpretationLabels: {
+        level_1: 'Baixo nível de autocrítica disfuncional.',
+        level_2: 'Autocrítica leve ou situacional.',
+        level_3: 'Padrão moderado de autocrítica e autojulgamento.',
+        level_4: 'Forte autocrítica, com impacto negativo na autoestima.',
+      },
       questions: [
         { id: 4101, text: 'Sou muito duro(a) comigo mesmo(a) quando erro.' },
         { id: 4102, text: 'Tenho dificuldade em perdoar meus próprios erros.' },
@@ -76,6 +100,12 @@ export const IEC_INVENTORY: InventoryForm = {
       name: 'Evitação Cognitiva e Supressão de Pensamentos',
       icon: '🪞',
       description: 'Esforço para não pensar ou sentir emoções desconfortáveis, suprimindo pensamentos ou se distraindo constantemente.',
+      interpretationLabels: {
+        level_1: 'Baixo uso de evitação cognitiva.',
+        level_2: 'Evitação leve de pensamentos ou emoções desconfortáveis.',
+        level_3: 'Uso moderado da supressão como estratégia principal.',
+        level_4: 'Forte padrão de evitação cognitiva e supressão de pensamentos.',
+      },
       questions: [
         { id: 4201, text: 'Tento não pensar em coisas que me incomodam.' },
         { id: 4202, text: 'Ocupo minha mente para não lembrar de algo doloroso.' },
@@ -90,6 +120,12 @@ export const IEC_INVENTORY: InventoryForm = {
       name: 'Aceitação e Descentralização Cognitiva (Estratégia Funcional)',
       icon: '🧩',
       description: 'Habilidade de observar pensamentos e emoções sem julgamento, reconhecendo-os como eventos mentais passageiros.',
+      interpretationLabels: {
+        level_1: 'Forte dificuldade em aceitar e observar pensamentos.',
+        level_2: 'Capacidade limitada ou inconsistente de aceitação.',
+        level_3: 'Boa capacidade de observar pensamentos sem julgamento.',
+        level_4: 'Excelente habilidade de aceitação e descentralização cognitiva.',
+      },
       questions: [
         { id: 4301, text: 'Reconheço que não posso controlar todos os meus pensamentos.', isReversed: true },
         { id: 4302, text: 'Tento observar meus pensamentos sem reagir a eles.', isReversed: true },

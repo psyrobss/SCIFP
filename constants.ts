@@ -103,6 +103,7 @@ export const MODULES: Module[] = [
       { id: 44, icon: '✅', acronym: 'IQVL', name: 'Inventário de Qualidade de Vida e Lazer' },
       { id: 46, icon: '✅', acronym: 'IASM', name: 'Inventário de Autogestão de Saúde Mental' },
       { id: 56, icon: '✅', acronym: 'IELV', name: 'Inventário de Estilo de Lazer e Equilíbrio Vida/Trabalho' },
+      { id: 68, icon: '📋', acronym: 'APB-1s', name: 'Avaliação Psicológica Pós-bariátrica (1ª semana)' },
     ],
   },
 ];

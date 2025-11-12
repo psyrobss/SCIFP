@@ -20,6 +20,12 @@ export const IFEC_INVENTORY: InventoryForm = {
       name: 'Planejamento e Organização',
       icon: '🗓️',
       description: 'Mede a capacidade de estruturar tarefas, definir prioridades e gerenciar o tempo de forma eficaz.',
+      interpretationLabels: {
+        level_1: 'Excelente capacidade de planejamento e organização.',
+        level_2: 'Dificuldades leves e pontuais na organização de tarefas.',
+        level_3: 'Dificuldades moderadas de planejamento com impacto na rotina.',
+        level_4: 'Forte desorganização e dificuldade de planejamento.',
+      },
       questions: [
         { id: 1301, text: 'Tenho dificuldade em organizar minhas tarefas diárias.' },
         { id: 1302, text: 'Costumo subestimar o tempo necessário para fazer as coisas.' },
@@ -34,6 +40,12 @@ export const IFEC_INVENTORY: InventoryForm = {
       name: 'Flexibilidade Cognitiva',
       icon: '🔄',
       description: 'Avalia a habilidade de se adaptar a mudanças, considerar diferentes perspectivas e alterar planos quando necessário.',
+      interpretationLabels: {
+        level_1: 'Alta flexibilidade cognitiva e capacidade de adaptação.',
+        level_2: 'Leve rigidez cognitiva, com alguma resistência a mudanças.',
+        level_3: 'Dificuldade moderada em se adaptar a novas situações.',
+        level_4: 'Forte rigidez cognitiva e dificuldade de adaptação.',
+      },
       questions: [
         { id: 1401, text: 'Tenho dificuldade em mudar de plano quando algo dá errado.' },
         { id: 1402, text: 'Fico confuso(a) quando preciso adaptar-me a novas situações.' },
@@ -48,6 +60,12 @@ export const IFEC_INVENTORY: InventoryForm = {
       name: 'Controle Inibitório e Autocontrole',
       icon: '⏱️',
       description: 'Mede a capacidade de conter impulsos, resistir a distrações e regular reações emocionais e comportamentais.',
+      interpretationLabels: {
+        level_1: 'Excelente controle inibitório e autorregulação.',
+        level_2: 'Dificuldades leves de autocontrole, especialmente sob pressão.',
+        level_3: 'Dificuldade moderada em conter impulsos e distrações.',
+        level_4: 'Forte padrão de impulsividade e baixo autocontrole.',
+      },
       questions: [
         { id: 1501, text: 'Falo sem pensar nas consequências.' },
         { id: 1502, text: 'Tenho dificuldade em conter impulsos ou reações emocionais.' },
@@ -62,6 +80,12 @@ export const IFEC_INVENTORY: InventoryForm = {
       name: 'Monitoramento e Autocorreção',
       icon: '📊',
       description: 'Avalia a habilidade de perceber os próprios erros, revisar o desempenho e ajustar o comportamento conforme necessário.',
+      interpretationLabels: {
+        level_1: 'Forte dificuldade de automonitoramento e correção de erros.',
+        level_2: 'Dificuldade moderada em perceber e corrigir falhas.',
+        level_3: 'Boa capacidade de monitoramento, com algumas falhas.',
+        level_4: 'Excelente capacidade de automonitoramento e correção.',
+      },
       questions: [
         { id: 1601, text: 'Percebo rapidamente quando cometo erros.', isReversed: true },
         { id: 1602, text: 'Costumo revisar minhas tarefas para verificar se estão corretas.', isReversed: true },
@@ -76,6 +100,12 @@ export const IFEC_INVENTORY: InventoryForm = {
       name: 'Iniciação e Motivação',
       icon: '🧩',
       description: 'Mede a capacidade de iniciar tarefas de forma autônoma e superar a procrastinação.',
+      interpretationLabels: {
+        level_1: 'Excelente capacidade de iniciativa e automotivação.',
+        level_2: 'Leve tendência à procrastinação ou dificuldade de iniciar tarefas.',
+        level_3: 'Dificuldade moderada de iniciativa, com procrastinação frequente.',
+        level_4: 'Forte padrão de procrastinação e baixa motivação.',
+      },
       questions: [
         { id: 1701, text: 'Tenho dificuldade em começar tarefas, mesmo as simples.' },
         { id: 1702, text: 'Procrastino mesmo quando sei o que devo fazer.' },

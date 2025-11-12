@@ -20,6 +20,12 @@ export const IES_INVENTORY: InventoryForm = {
       name: 'Sofrimento Autocrítico',
       icon: '⚖️',
       description: 'Padrão de sofrimento marcado pela culpa, vergonha e autojulgamento, onde a dor é internalizada como uma falha pessoal.',
+      interpretationLabels: {
+        level_1: 'Baixa tendência ao sofrimento autocrítico.',
+        level_2: 'Sofrimento autocrítico leve ou situacional.',
+        level_3: 'Padrão moderado de culpa e autojulgamento.',
+        level_4: 'Forte padrão de sofrimento autocrítico, com vergonha e autopunição.',
+      },
       questions: [
         { id: 11001, text: 'Quando algo dá errado, costumo me culpar excessivamente.' },
         { id: 11002, text: 'Sinto vergonha de ter emoções intensas.' },
@@ -36,6 +42,12 @@ export const IES_INVENTORY: InventoryForm = {
       name: 'Sofrimento Evitativo',
       icon: '🚪',
       description: 'Tendência a negar, suprimir ou se distrair da dor emocional, evitando o contato com a própria vulnerabilidade.',
+      interpretationLabels: {
+        level_1: 'Baixo uso de estratégias evitativas.',
+        level_2: 'Tendência leve a evitar ou suprimir emoções.',
+        level_3: 'Padrão moderado de evitação emocional.',
+        level_4: 'Forte padrão de evitação e negação do sofrimento.',
+      },
       questions: [
         { id: 11101, text: 'Tento não pensar no que me faz sofrer.' },
         { id: 11102, text: 'Distrai-me com trabalho, telas ou tarefas para não sentir emoções difíceis.' },
@@ -52,6 +64,12 @@ export const IES_INVENTORY: InventoryForm = {
       name: 'Sofrimento Dependente',
       icon: '💞',
       description: 'A dor é vivenciada com uma forte necessidade de apoio externo, validação e conforto para ser manejada.',
+      interpretationLabels: {
+        level_1: 'Baixa dependência emocional para lidar com o sofrimento.',
+        level_2: 'Busca por apoio externo de forma equilibrada.',
+        level_3: 'Padrão moderado de dependência para regulação emocional.',
+        level_4: 'Forte necessidade de validação e apoio externo para lidar com a dor.',
+      },
       questions: [
         { id: 11201, text: 'Quando sofro, preciso que alguém esteja comigo.' },
         { id: 11202, text: 'Tenho dificuldade em lidar sozinho com minhas emoções.' },
@@ -68,6 +86,12 @@ export const IES_INVENTORY: InventoryForm = {
       name: 'Sofrimento Controlado ou Dissociado',
       icon: '🧊',
       description: 'Padrão de desconexão afetiva, onde o sofrimento é racionalizado e a expressão emocional é contida ou "anestesiada".',
+      interpretationLabels: {
+        level_1: 'Baixa tendência à dissociação ou controle excessivo.',
+        level_2: 'Uso leve de racionalização para lidar com a dor.',
+        level_3: 'Padrão moderado de desconexão emocional.',
+        level_4: 'Forte padrão de sofrimento dissociado ou "anestesiado".',
+      },
       questions: [
         { id: 11301, text: 'Tento lidar com o sofrimento de forma racional, sem me envolver emocionalmente.' },
         { id: 11302, text: 'Evito demonstrar o que sinto para não parecer fraco.' },
@@ -84,6 +108,12 @@ export const IES_INVENTORY: InventoryForm = {
       name: 'Sofrimento Existencial ou de Vazio',
       icon: '🌫️',
       description: 'A dor está ligada a uma sensação de falta de sentido, propósito ou conexão consigo mesmo e com a vida.',
+      interpretationLabels: {
+        level_1: 'Baixo nível de sofrimento existencial.',
+        level_2: 'Questionamentos existenciais leves ou ocasionais.',
+        level_3: 'Padrão moderado de vazio e falta de sentido.',
+        level_4: 'Forte sensação de vazio existencial e desconexão.',
+      },
       questions: [
         { id: 11401, text: 'Às vezes sinto que minha vida perdeu o sentido.' },
         { id: 11402, text: 'Tenho a sensação de estar emocionalmente “vazio”.' },

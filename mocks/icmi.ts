@@ -20,6 +20,12 @@ export const ICMI_INVENTORY: InventoryForm = {
       name: 'Clareza e Consistência de Valores',
       icon: '🧭',
       description: 'Avalia o quanto a pessoa conhece e mantém seus valores centrais, mesmo diante de pressões externas.',
+      interpretationLabels: {
+        level_1: 'Forte dificuldade em identificar ou manter valores.',
+        level_2: 'Valores pouco claros ou inconsistentes.',
+        level_3: 'Boa clareza e consistência de valores.',
+        level_4: 'Valores centrais fortes e bem definidos.',
+      },
       questions: [
         { id: 22001, text: 'Sei claramente quais são meus valores mais importantes.' },
         { id: 22002, text: 'Minhas escolhas refletem aquilo em que realmente acredito.' },
@@ -33,6 +39,12 @@ export const ICMI_INVENTORY: InventoryForm = {
       name: 'Responsabilidade e Autenticidade',
       icon: '🤝',
       description: 'Avalia o comprometimento com a verdade pessoal e com as consequências das próprias ações.',
+      interpretationLabels: {
+        level_1: 'Baixo senso de responsabilidade e autenticidade.',
+        level_2: 'Responsabilidade inconsistente, com tendência a justificar erros.',
+        level_3: 'Bom nível de responsabilidade e autenticidade.',
+        level_4: 'Forte senso de responsabilidade e compromisso com a verdade.',
+      },
       questions: [
         { id: 22101, text: 'Assumo meus erros quando percebo que causei algum prejuízo.' },
         { id: 22102, text: 'Procuro agir com transparência, mesmo que isso traga desconforto momentâneo.' },
@@ -46,6 +58,12 @@ export const ICMI_INVENTORY: InventoryForm = {
       name: 'Empatia Ética e Justiça',
       icon: '🌱',
       description: 'Avalia a capacidade de reconhecer direitos, perspectivas e necessidades dos outros na tomada de decisão moral.',
+      interpretationLabels: {
+        level_1: 'Baixa empatia ética e consideração pelos outros.',
+        level_2: 'Empatia limitada ou focada em interesses próprios.',
+        level_3: 'Boa capacidade de considerar o impacto de suas ações nos outros.',
+        level_4: 'Forte senso de justiça e empatia ética.',
+      },
       questions: [
         { id: 22201, text: 'Penso nas consequências das minhas ações para as outras pessoas.' },
         { id: 22202, text: 'Procuro entender o ponto de vista dos outros antes de julgar.' },
@@ -59,6 +77,12 @@ export const ICMI_INVENTORY: InventoryForm = {
       name: 'Integridade Interna e Autocrítica Moral',
       icon: '🪞',
       description: 'Avalia o quanto o indivíduo se percebe íntegro e coerente, reconhecendo falhas sem se desvalorizar.',
+      interpretationLabels: {
+        level_1: 'Baixa integridade interna e autocrítica punitiva.',
+        level_2: 'Integridade inconsistente, com autocrítica excessiva.',
+        level_3: 'Bom senso de integridade e autocrítica construtiva.',
+        level_4: 'Forte senso de integridade e capacidade de aprender com os erros.',
+      },
       questions: [
         { id: 22301, text: 'Sinto-me em paz quando ajo de acordo com o que considero certo.' },
         { id: 22302, text: 'Consigo admitir quando ajo de forma incoerente com meus valores.' },

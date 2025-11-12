@@ -20,6 +20,12 @@ export const ICSE_INVENTORY: InventoryForm = {
       name: 'Coerência Interna e Autenticidade',
       icon: '🌿',
       description: 'Avalia o quanto os pensamentos, emoções e ações da pessoa estão integrados e coerentes.',
+      interpretationLabels: {
+        level_1: 'Forte incoerência e falta de autenticidade.',
+        level_2: 'Incoerência moderada, com conflitos internos.',
+        level_3: 'Boa coerência e autenticidade.',
+        level_4: 'Elevada coerência e integração interna.',
+      },
       questions: [
         { id: 25001, text: 'Me sinto a mesma pessoa por dentro e por fora.' },
         { id: 25002, text: 'Às vezes ajo de forma contrária ao que acredito.' },
@@ -33,6 +39,12 @@ export const ICSE_INVENTORY: InventoryForm = {
       name: 'Clareza Existencial e Sentido de Vida',
       icon: '🔎',
       description: 'Explora a percepção de propósito, sentido e direção na existência.',
+      interpretationLabels: {
+        level_1: 'Forte sensação de vazio e falta de propósito.',
+        level_2: 'Propósito de vida pouco claro ou indefinido.',
+        level_3: 'Bom senso de direção e significado.',
+        level_4: 'Elevada clareza existencial e forte senso de propósito.',
+      },
       questions: [
         { id: 25006, text: 'Tenho clareza sobre o que dá sentido à minha vida.', isReversed: true },
         { id: 25007, text: 'Frequentemente me pergunto qual é o propósito da minha existência.' },
@@ -46,6 +58,12 @@ export const ICSE_INVENTORY: InventoryForm = {
       name: 'Congruência entre Valores e Comportamentos',
       icon: '🧩',
       description: 'Avalia o quanto a conduta da pessoa é consistente com seus princípios e crenças.',
+      interpretationLabels: {
+        level_1: 'Forte incongruência entre valores e comportamentos.',
+        level_2: 'Incongruência moderada, com ações que contradizem valores.',
+        level_3: 'Boa congruência e alinhamento entre valores e ações.',
+        level_4: 'Elevada congruência e consistência de comportamento.',
+      },
       questions: [
         { id: 25011, text: 'Tento agir de acordo com o que considero certo.', isReversed: true },
         { id: 25012, text: 'Muitas vezes percebo que vivo de modo incoerente com o que defendo.' },
@@ -59,6 +77,12 @@ export const ICSE_INVENTORY: InventoryForm = {
       name: 'Integração Temporal do Self',
       icon: '🪶',
       description: 'Explora a continuidade e integração entre o passado, o presente e o futuro.',
+      interpretationLabels: {
+        level_1: 'Forte sensação de fragmentação temporal.',
+        level_2: 'Dificuldade em conectar passado, presente e futuro.',
+        level_3: 'Boa integração e senso de continuidade da história de vida.',
+        level_4: 'Elevada integração temporal e narrativa de vida coerente.',
+      },
       questions: [
         { id: 25016, text: 'Tenho uma narrativa coerente sobre minha trajetória de vida.', isReversed: true },
         { id: 25017, text: 'Sinto que o meu “eu” do passado e o do presente são muito diferentes.' },
@@ -72,6 +96,12 @@ export const ICSE_INVENTORY: InventoryForm = {
       name: 'Unidade Existencial e Aceitação',
       icon: '🌌',
       description: 'Avalia a integração entre aspectos racionais, emocionais e espirituais do self.',
+      interpretationLabels: {
+        level_1: 'Forte sensação de divisão interna e falta de aceitação.',
+        level_2: 'Dificuldade em aceitar e integrar contradições internas.',
+        level_3: 'Boa capacidade de aceitação e unidade existencial.',
+        level_4: 'Elevado senso de unidade e aceitação das complexidades do self.',
+      },
       questions: [
         { id: 25021, text: 'Consigo aceitar contradições dentro de mim sem me sentir perdido.', isReversed: true },
         { id: 25022, text: 'Tenho dificuldade em aceitar partes de mim que não compreendo.' },

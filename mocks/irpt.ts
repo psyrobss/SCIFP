@@ -20,6 +20,12 @@ export const IRPT_INVENTORY: InventoryForm = {
       name: 'Evitação Emocional',
       icon: '🧩',
       description: 'Tendência a evitar o contato ou a expressão de sentimentos dolorosos e vulneráveis durante a terapia.',
+      interpretationLabels: {
+        level_1: 'Baixa evitação, com abertura para explorar emoções.',
+        level_2: 'Evitação leve de temas mais sensíveis.',
+        level_3: 'Evitação moderada, com dificuldade de aprofundamento emocional.',
+        level_4: 'Forte padrão de evitação emocional que bloqueia o processo.',
+      },
       questions: [
         { id: 2801, text: 'Evito falar de assuntos que me causam desconforto emocional.' },
         { id: 2802, text: 'Tento manter a conversa na terapia em temas neutros.' },
@@ -34,6 +40,12 @@ export const IRPT_INVENTORY: InventoryForm = {
       name: 'Resistência Cognitiva e Racionalização',
       icon: '🧠',
       description: 'Uso de justificativas lógicas e intelectualização para se defender de insights ou interpretações emocionais.',
+      interpretationLabels: {
+        level_1: 'Baixa resistência cognitiva, com abertura a novas perspectivas.',
+        level_2: 'Leve tendência à racionalização para evitar vulnerabilidade.',
+        level_3: 'Uso moderado da intelectualização como defesa.',
+        level_4: 'Forte padrão de racionalização e resistência a insights.',
+      },
       questions: [
         { id: 2901, text: 'Tento entender racionalmente meus problemas, em vez de senti-los.' },
         { id: 2902, text: 'Costumo justificar minhas atitudes para não parecer vulnerável.' },
@@ -48,6 +60,12 @@ export const IRPT_INVENTORY: InventoryForm = {
       name: 'Controle e Desconfiança no Processo',
       icon: '🔒',
       description: 'Dificuldade em se entregar ao processo terapêutico, mantendo uma postura de controle ou desconfiança sobre o terapeuta.',
+      interpretationLabels: {
+        level_1: 'Alta confiança e entrega ao processo.',
+        level_2: 'Leve desconfiança ou necessidade de controle.',
+        level_3: 'Desconfiança moderada que limita a profundidade do trabalho.',
+        level_4: 'Forte desconfiança e controle que impede a aliança terapêutica.',
+      },
       questions: [
         { id: 3001, text: 'Tenho dificuldade em confiar totalmente no terapeuta.' },
         { id: 3002, text: 'Fico atento(a) a tudo o que o terapeuta diz, com medo de ser julgado(a).' },
@@ -62,6 +80,12 @@ export const IRPT_INVENTORY: InventoryForm = {
       name: 'Ambivalência e Medo de Mudança',
       icon: '🌀',
       description: 'Conflito interno entre o desejo de mudar e o medo das consequências ou da perda da identidade atual.',
+      interpretationLabels: {
+        level_1: 'Baixa ambivalência, com forte desejo de mudança.',
+        level_2: 'Leve ambivalência ou medo das consequências da mudança.',
+        level_3: 'Ambivalência moderada que gera estagnação no processo.',
+        level_4: 'Forte medo de mudança, com autossabotagem frequente.',
+      },
       questions: [
         { id: 3101, text: 'Parte de mim quer mudar, mas outra parte resiste.' },
         { id: 3102, text: 'Sinto medo de descobrir coisas sobre mim que não quero ver.' },
@@ -76,6 +100,12 @@ export const IRPT_INVENTORY: InventoryForm = {
       name: 'Dependência Terapêutica e Transferência Defensiva',
       icon: '💬',
       description: 'Reações transferenciais que se manifestam como dependência excessiva, idealização ou hostilidade em relação ao terapeuta.',
+      interpretationLabels: {
+        level_1: 'Relação terapêutica autônoma e colaborativa.',
+        level_2: 'Leve dependência ou idealização do terapeuta.',
+        level_3: 'Padrões transferenciais moderados (idealização/raiva).',
+        level_4: 'Forte dependência ou reações transferenciais defensivas.',
+      },
       questions: [
         { id: 3201, text: 'Fico ansioso(a) quando o terapeuta falta ou atrasa.' },
         { id: 3202, text: 'Sinto que preciso da aprovação do terapeuta para me sentir bem.' },

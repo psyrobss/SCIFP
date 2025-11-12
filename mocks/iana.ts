@@ -20,6 +20,12 @@ export const IANA_INVENTORY: InventoryForm = {
       name: 'Atenção e Concentração',
       icon: '🧩',
       description: 'Avalia a capacidade de manter o foco, filtrar distrações e sustentar o esforço mental em tarefas.',
+      interpretationLabels: {
+        level_1: 'Nenhuma dificuldade significativa de atenção.',
+        level_2: 'Lapsos de atenção ocasionais, com baixo impacto.',
+        level_3: 'Dificuldades de atenção persistentes e perceptíveis.',
+        level_4: 'Dificuldades de atenção intensas com impacto funcional.',
+      },
       questions: [
         { id: 101, text: 'Tenho dificuldade em manter a atenção em tarefas por muito tempo.' },
         { id: 102, text: 'Distrai-me facilmente com estímulos do ambiente.' },
@@ -34,6 +40,12 @@ export const IANA_INVENTORY: InventoryForm = {
       name: 'Memória',
       icon: '💭',
       description: 'Mede a percepção sobre a capacidade de reter e recuperar informações recentes e importantes do dia a dia.',
+      interpretationLabels: {
+        level_1: 'Nenhuma queixa de memória significativa.',
+        level_2: 'Lapsos de memória leves e esporádicos.',
+        level_3: 'Dificuldades de memória moderadas e recorrentes.',
+        level_4: 'Queixas de memória intensas com impacto no cotidiano.',
+      },
       questions: [
         { id: 201, text: 'Esqueço compromissos ou datas importantes.' },
         { id: 202, text: 'Tenho dificuldade em lembrar nomes de pessoas conhecidas.' },
@@ -48,6 +60,12 @@ export const IANA_INVENTORY: InventoryForm = {
       name: 'Linguagem',
       icon: '🗣️',
       description: 'Avalia dificuldades na expressão verbal, compreensão e organização do discurso no cotidiano.',
+      interpretationLabels: {
+        level_1: 'Nenhuma dificuldade de linguagem relatada.',
+        level_2: 'Dificuldades leves e pontuais na busca de palavras.',
+        level_3: 'Dificuldades moderadas na expressão ou compreensão verbal.',
+        level_4: 'Dificuldades de linguagem significativas e frequentes.',
+      },
       questions: [
         { id: 301, text: 'Tenho dificuldade em encontrar palavras durante conversas.' },
         { id: 302, text: 'Troco palavras parecidas sem perceber (ex: “garfo” por “faca”).' },
@@ -61,6 +79,12 @@ export const IANA_INVENTORY: InventoryForm = {
       name: 'Funções Executivas',
       icon: '⚙️',
       description: 'Mede a capacidade de planejamento, organização, tomada de decisão e controle de impulsos em atividades diárias.',
+      interpretationLabels: {
+        level_1: 'Bom funcionamento executivo.',
+        level_2: 'Dificuldades leves de planejamento e organização.',
+        level_3: 'Dificuldades executivas moderadas com impacto na rotina.',
+        level_4: 'Dificuldades executivas intensas e disfuncionais.',
+      },
       questions: [
         { id: 401, text: 'Tenho dificuldade em planejar ou organizar minhas atividades.' },
         { id: 402, text: 'Sinto-me sobrecarregado(a) com tarefas simples.' },
@@ -75,6 +99,12 @@ export const IANA_INVENTORY: InventoryForm = {
       name: 'Percepção e Processamento Visual/Espacial',
       icon: '🧍',
       description: 'Avalia dificuldades na interpretação de estímulos visuais, orientação espacial e reconhecimento de padrões.',
+      interpretationLabels: {
+        level_1: 'Nenhuma dificuldade visuoespacial relatada.',
+        level_2: 'Dificuldades leves e ocasionais de percepção.',
+        level_3: 'Dificuldades moderadas em tarefas visuoespaciais.',
+        level_4: 'Dificuldades intensas de orientação e reconhecimento.',
+      },
       questions: [
         { id: 501, text: 'Tenho dificuldade em perceber detalhes em imagens ou mapas.' },
         { id: 502, text: 'Tenho dificuldade em reconhecer rostos familiares.' },
@@ -88,6 +118,12 @@ export const IANA_INVENTORY: InventoryForm = {
       name: 'Emoção e Regulação Afetiva',
       icon: '❤️',
       description: 'Mede a estabilidade do humor, a capacidade de regular emoções como raiva e ansiedade, e a expressão afetiva.',
+      interpretationLabels: {
+        level_1: 'Boa estabilidade e regulação emocional.',
+        level_2: 'Labilidade emocional leve ou situacional.',
+        level_3: 'Dificuldades moderadas de regulação do humor.',
+        level_4: 'Instabilidade emocional intensa e frequente.',
+      },
       questions: [
         { id: 601, text: 'Sinto variações bruscas de humor sem motivo claro.' },
         { id: 602, text: 'Fico irritado(a) com facilidade.' },
@@ -103,6 +139,12 @@ export const IANA_INVENTORY: InventoryForm = {
       name: 'Comportamento e Vida Social',
       icon: '🤝',
       description: 'Avalia o impacto das dificuldades percebidas no isolamento social, motivação para atividades e mudanças de hábito.',
+      interpretationLabels: {
+        level_1: 'Bom funcionamento social e comportamental.',
+        level_2: 'Leve tendência ao isolamento ou desmotivação.',
+        level_3: 'Dificuldades moderadas na interação social e motivação.',
+        level_4: 'Forte impacto no funcionamento social e comportamental.',
+      },
       questions: [
         { id: 701, text: 'Tenho evitado situações sociais por falta de energia ou paciência.' },
         { id: 702, text: 'As pessoas dizem que estou diferente no comportamento.' },

@@ -69,6 +69,7 @@ import { ICDFO_INVENTORY } from './icdf-o';
 import { ICDFC_INVENTORY } from './icdf-c';
 import { IEE_INVENTORY } from './iee';
 import { IAS_INVENTORY } from './ias';
+import { APB1S_INVENTORY } from './apb-1s';
 
 
 export const ALL_INVENTORIES: { [key: string]: InventoryForm } = {
@@ -139,4 +140,5 @@ export const ALL_INVENTORIES: { [key: string]: InventoryForm } = {
   'ICDF-C': ICDFC_INVENTORY,
   IEE: IEE_INVENTORY,
   IAS: IAS_INVENTORY,
+  'APB-1S': APB1S_INVENTORY,
 };

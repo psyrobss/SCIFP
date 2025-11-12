@@ -20,6 +20,12 @@ export const IDSE_INVENTORY: InventoryForm = {
       name: 'Cansaço Emocional e Sobrecarga Psíquica',
       icon: '💭',
       description: 'Sensação de esgotamento emocional, irritabilidade e dificuldade em relaxar devido à sobrecarga de responsabilidades.',
+      interpretationLabels: {
+        level_1: 'Baixo nível de cansaço emocional.',
+        level_2: 'Cansaço emocional leve, geralmente após esforço.',
+        level_3: 'Sinais moderados de esgotamento e sobrecarga.',
+        level_4: 'Forte cansaço emocional, com irritabilidade e dificuldade de relaxar.',
+      },
       questions: [
         { id: 15001, text: 'Sinto-me emocionalmente esgotado(a) no final do dia.' },
         { id: 15002, text: 'Tenho sentido menos paciência com situações ou pessoas cotidianas.' },
@@ -33,6 +39,12 @@ export const IDSE_INVENTORY: InventoryForm = {
       name: 'Sintomas Cognitivos e Dificuldade de Concentração',
       icon: '🧠',
       description: 'Impacto do estresse na capacidade de foco, memória e clareza mental para tomar decisões.',
+      interpretationLabels: {
+        level_1: 'Funcionamento cognitivo preservado.',
+        level_2: 'Dificuldades cognitivas leves e ocasionais.',
+        level_3: 'Dificuldade moderada de foco e memória.',
+        level_4: 'Sintomas cognitivos intensos, com impacto na performance.',
+      },
       questions: [
         { id: 15101, text: 'Tenho dificuldade para manter o foco em tarefas simples.' },
         { id: 15102, text: 'Sinto que minha memória recente está pior.' },
@@ -46,6 +58,12 @@ export const IDSE_INVENTORY: InventoryForm = {
       name: 'Reações Fisiológicas e Sinais Corporais',
       icon: '⚡',
       description: 'Manifestações físicas do estresse, como tensão muscular, problemas de sono e fadiga corporal.',
+      interpretationLabels: {
+        level_1: 'Baixa presença de sintomas físicos de estresse.',
+        level_2: 'Sintomas físicos leves e esporádicos.',
+        level_3: 'Reações fisiológicas moderadas e persistentes.',
+        level_4: 'Sintomas físicos intensos e frequentes.',
+      },
       questions: [
         { id: 15201, text: 'Tenho notado aumento de tensão muscular, dores ou rigidez.' },
         { id: 15202, text: 'Meu sono tem sido irregular ou pouco reparador.' },
@@ -59,6 +77,12 @@ export const IDSE_INVENTORY: InventoryForm = {
       name: 'Desmotivação e Redução de Interesse',
       icon: '💬',
       description: 'Perda de entusiasmo, prazer e interesse por atividades que antes eram motivadoras, tanto pessoais quanto profissionais.',
+      interpretationLabels: {
+        level_1: 'Motivação e interesse preservados.',
+        level_2: 'Leve redução de interesse ou prazer.',
+        level_3: 'Desmotivação moderada e perda de interesse.',
+        level_4: 'Forte desmotivação e perda de prazer (anedonia).',
+      },
       questions: [
         { id: 15301, text: 'Tenho sentido menos entusiasmo pelas coisas que antes me motivavam.' },
         { id: 15302, text: 'Faço as tarefas mais por obrigação do que por vontade.' },

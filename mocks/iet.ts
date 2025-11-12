@@ -20,6 +20,12 @@ export const IET_INVENTORY: InventoryForm = {
       name: 'Sentido de Conexão e Unidade',
       icon: '🌿',
       description: 'Avalia o sentimento de integração com o todo, a natureza ou o fluxo da vida.',
+      interpretationLabels: {
+        level_1: 'Forte sentimento de desconexão e isolamento.',
+        level_2: 'Conexão fraca ou intermitente com o todo.',
+        level_3: 'Bom senso de conexão e unidade com a vida.',
+        level_4: 'Elevado sentimento de integração e unidade.',
+      },
       questions: [
         { id: 26001, text: 'Sinto que faço parte de algo maior do que eu.' },
         { id: 26002, text: 'Tenho momentos em que percebo uma profunda união com a vida.' },
@@ -33,6 +39,12 @@ export const IET_INVENTORY: InventoryForm = {
       name: 'Propósito e Significado Transcendente',
       icon: '🔮',
       description: 'Investiga o quanto o indivíduo percebe um propósito que dá sentido à vida.',
+      interpretationLabels: {
+        level_1: 'Forte sensação de falta de propósito e sentido.',
+        level_2: 'Propósito de vida pouco claro ou em questionamento.',
+        level_3: 'Bom senso de propósito transcendente.',
+        level_4: 'Forte e claro senso de propósito e missão pessoal.',
+      },
       questions: [
         { id: 26006, text: 'Sinto que há um propósito que orienta minha vida.' },
         { id: 26007, text: 'Frequentemente me pergunto “por que estou aqui”.' },
@@ -46,6 +58,12 @@ export const IET_INVENTORY: InventoryForm = {
       name: 'Experiência Espiritual e Ampliação de Consciência',
       icon: '🌙',
       description: 'Avalia estados subjetivos de expansão, insight ou conexão interior profunda.',
+      interpretationLabels: {
+        level_1: 'Baixa ocorrência de experiências de ampliação de consciência.',
+        level_2: 'Experiências espirituais raras ou superficiais.',
+        level_3: 'Boa capacidade de acessar estados de paz e insight.',
+        level_4: 'Frequentes experiências de conexão e ampliação da consciência.',
+      },
       questions: [
         { id: 26011, text: 'Já vivi momentos de profunda paz interior, difíceis de descrever.' },
         { id: 26012, text: 'Em certos momentos, sinto que minha mente se expande para algo maior.' },
@@ -59,6 +77,12 @@ export const IET_INVENTORY: InventoryForm = {
       name: 'Transcendência do Ego e Compromisso Ético',
       icon: '🕊️',
       description: 'Explora a capacidade de ir além dos interesses pessoais, conectando-se a valores universais.',
+      interpretationLabels: {
+        level_1: 'Forte foco em interesses pessoais e egoístas.',
+        level_2: 'Dificuldade em transcender o ego e agir pelo bem comum.',
+        level_3: 'Bom equilíbrio entre necessidades pessoais e compromisso ético.',
+        level_4: 'Elevada capacidade de transcendência do ego e ação compassiva.',
+      },
       questions: [
         { id: 26016, text: 'Sinto que minha vida é guiada por valores mais amplos do que meus desejos.' },
         { id: 26017, text: 'Tento agir pensando no bem comum.' },
@@ -72,6 +96,12 @@ export const IET_INVENTORY: InventoryForm = {
       name: 'Integração Espiritual e Autotransformação',
       icon: '💫',
       description: 'Avalia a integração das experiências espirituais com o cotidiano e a capacidade de transformação interior.',
+      interpretationLabels: {
+        level_1: 'Baixa integração entre espiritualidade e vida cotidiana.',
+        level_2: 'Dificuldade em aplicar insights espirituais na prática.',
+        level_3: 'Boa integração e uso da espiritualidade para o crescimento.',
+        level_4: 'Elevada integração, com autotransformação contínua.',
+      },
       questions: [
         { id: 26021, text: 'As experiências profundas que vivi mudaram minha forma de ser.' },
         { id: 26022, text: 'Busco aprender com cada dificuldade como parte do meu crescimento interior.' },

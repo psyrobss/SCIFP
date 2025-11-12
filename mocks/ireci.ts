@@ -20,6 +20,12 @@ export const IRECI_INVENTORY: InventoryForm = {
       name: 'Impulsividade e Controle de Reações',
       icon: '💢',
       description: 'Avalia a tendência a agir sem pensar, reagir de forma intensa e a dificuldade em conter respostas imediatas.',
+      interpretationLabels: {
+        level_1: 'Bom controle de impulsos e reações.',
+        level_2: 'Impulsividade leve ou em situações de alto estresse.',
+        level_3: 'Dificuldades moderadas de controle, com reações intensas.',
+        level_4: 'Padrão de impulsividade acentuado e disfuncional.',
+      },
       questions: [
         { id: 801, text: 'Digo ou faço coisas sem pensar nas consequências.' },
         { id: 802, text: 'Tenho dificuldade em conter a raiva quando me sinto provocado(a).' },
@@ -34,11 +40,17 @@ export const IRECI_INVENTORY: InventoryForm = {
       name: 'Consciência Emocional',
       icon: '🌊',
       description: 'Mede a capacidade de identificar, nomear e compreender os próprios estados emocionais e suas causas.',
+      interpretationLabels: {
+        level_1: 'Elevada dificuldade de identificar e compreender emoções.',
+        level_2: 'Consciência emocional superficial ou intermitente.',
+        level_3: 'Boa capacidade de nomear e diferenciar emoções.',
+        level_4: 'Elevada consciência e clareza sobre o mundo emocional interno.',
+      },
       questions: [
         { id: 901, text: 'Tenho dificuldade em identificar o que estou sentindo.' },
         { id: 902, text: 'Sinto emoções confusas, sem saber ao certo por quê.' },
         { id: 903, text: 'Reconheço rapidamente quando minhas emoções começam a mudar.', isReversed: true },
-        { id: 904, text: 'Tenho facilidade em perceber as reações físicas associadas às minhas emoções (ex: coração acelerado, tensão).', isReversed: true },
+        { id: 904, text: 'Tenho facilidade em perceber as reações físicas associadas às minhas emoções (ex: coração acelerado).', isReversed: true },
         { id: 905, text: 'Às vezes percebo que agi emocionalmente sem ter notado o que estava sentindo.' },
       ],
     },
@@ -47,6 +59,12 @@ export const IRECI_INVENTORY: InventoryForm = {
       name: 'Estratégias de Regulação Emocional',
       icon: '🧘',
       description: 'Avalia o uso de estratégias adaptativas para manejar emoções, como a calma, a reavaliação cognitiva e o autocontrole.',
+      interpretationLabels: {
+        level_1: 'Repertório de estratégias de regulação bem desenvolvido.',
+        level_2: 'Uso consistente de estratégias, com algumas dificuldades.',
+        level_3: 'Repertório de estratégias limitado ou pouco utilizado.',
+        level_4: 'Baixo uso de estratégias adaptativas de regulação.',
+      },
       questions: [
         { id: 1001, text: 'Tento respirar fundo ou me acalmar antes de reagir.', isReversed: true },
         { id: 1002, text: 'Consigo me afastar de situações quando percebo que estou prestes a perder o controle.', isReversed: true },
@@ -61,6 +79,12 @@ export const IRECI_INVENTORY: InventoryForm = {
       name: 'Dificuldades em Regulação e Persistência Emocional',
       icon: '🌀',
       description: 'Mede a tendência a ficar preso em estados emocionais negativos, com dificuldade de recuperação e foco.',
+      interpretationLabels: {
+        level_1: 'Boa capacidade de recuperação emocional.',
+        level_2: 'Dificuldades leves em se recuperar de estados negativos.',
+        level_3: 'Tendência a ruminação e persistência de emoções negativas.',
+        level_4: 'Forte dificuldade de regulação, com emoções que persistem e dominam.',
+      },
       questions: [
         { id: 1101, text: 'Quando fico triste, demoro muito para me recuperar.' },
         { id: 1102, text: 'Sinto que pequenas frustrações acabam comigo emocionalmente.' },
@@ -75,6 +99,12 @@ export const IRECI_INVENTORY: InventoryForm = {
       name: 'Impacto Interpessoal e Autopercepção',
       icon: '🤝',
       description: 'Avalia como a desregulação emocional impacta as relações sociais e a percepção que o indivíduo tem de si mesmo.',
+      interpretationLabels: {
+        level_1: 'Baixo impacto da desregulação nas relações.',
+        level_2: 'Impacto leve e ocasional nos relacionamentos.',
+        level_3: 'Impacto moderado e perceptível nas relações e na autoimagem.',
+        level_4: 'Forte impacto negativo nas relações e na autopercepção.',
+      },
       questions: [
         { id: 1201, text: 'As pessoas dizem que sou “explosivo(a)” ou “intenso(a)”.' },
         { id: 1202, text: 'Tenho me afastado de pessoas por medo de reagir mal.' },

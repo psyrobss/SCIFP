@@ -20,6 +20,12 @@ export const IVM_INVENTORY: InventoryForm = {
       name: 'Energia Vital e Iniciativa',
       icon: '⚡',
       description: 'Avalia o impulso interno para agir, disposição física e mental para o cotidiano.',
+      interpretationLabels: {
+        level_1: 'Forte sensação de apatia e baixa energia.',
+        level_2: 'Energia vital reduzida, com pouca iniciativa.',
+        level_3: 'Bom nível de energia e disposição.',
+        level_4: 'Elevada energia vital e iniciativa para agir.',
+      },
       questions: [
         { id: 23001, text: 'Sinto-me energizado(a) para realizar minhas atividades diárias.' },
         { id: 23002, text: 'Tenho disposição para começar novas tarefas ou projetos.' },
@@ -33,6 +39,12 @@ export const IVM_INVENTORY: InventoryForm = {
       name: 'Direção e Propósito',
       icon: '🎯',
       description: 'Avalia o grau de clareza sobre objetivos, metas e sentido de realização pessoal.',
+      interpretationLabels: {
+        level_1: 'Forte sensação de falta de direção e propósito.',
+        level_2: 'Metas pouco claras ou sem significado pessoal.',
+        level_3: 'Bom senso de direção e metas claras.',
+        level_4: 'Forte clareza de propósito e objetivos bem definidos.',
+      },
       questions: [
         { id: 23101, text: 'Sei o que quero alcançar na vida.' },
         { id: 23102, text: 'Minhas metas refletem aquilo que considero importante.' },
@@ -46,6 +58,12 @@ export const IVM_INVENTORY: InventoryForm = {
       name: 'Persistência e Resiliência Motivacional',
       icon: '💪',
       description: 'Avalia a capacidade de manter esforço e foco diante de frustrações e obstáculos.',
+      interpretationLabels: {
+        level_1: 'Baixa persistência, com tendência a desistir facilmente.',
+        level_2: 'Dificuldade em manter o esforço diante de obstáculos.',
+        level_3: 'Boa capacidade de persistência e resiliência.',
+        level_4: 'Elevada persistência e capacidade de superar frustrações.',
+      },
       questions: [
         { id: 23201, text: 'Continuo tentando, mesmo quando as coisas não dão certo de imediato.' },
         { id: 23202, text: 'Encaro dificuldades como parte natural do processo de crescimento.' },
@@ -59,6 +77,12 @@ export const IVM_INVENTORY: InventoryForm = {
       name: 'Autonomia e Autorregulação Motivacional',
       icon: '🔄',
       description: 'Avalia o equilíbrio entre autodireção, autodisciplina e motivação intrínseca.',
+      interpretationLabels: {
+        level_1: 'Baixa autonomia, com forte dependência de estímulos externos.',
+        level_2: 'Dificuldade de autodisciplina e foco.',
+        level_3: 'Boa capacidade de autorregulação e disciplina.',
+        level_4: 'Elevada autonomia e motivação intrínseca.',
+      },
       questions: [
         { id: 23301, text: 'Faço o que precisa ser feito, mesmo sem depender de estímulos externos.' },
         { id: 23302, text: 'Consigo manter o foco nas minhas metas sem me distrair com facilidade.' },
