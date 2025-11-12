@@ -36,6 +36,7 @@ export interface Domain {
     level_3: string; // avg score 2 - 2.9
     level_4: string; // avg score 3 - 4
   };
+  interpretationSumRanges?: InterpretationRange[];
   questions: Question[];
 }
 

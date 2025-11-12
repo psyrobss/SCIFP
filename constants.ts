@@ -37,6 +37,7 @@ export const MODULES: Module[] = [
       { id: 57, icon: '✅', acronym: 'IRHP', name: 'Inventário de Regulação do Humor Positivo' },
       { id: 58, icon: '✅', acronym: 'ITFFS', name: 'Inventário de Tolerância à Frustração e Frustração Social' },
       { id: 59, icon: '✅', acronym: 'IIEP', name: 'Inventário de Inteligência Emocional Prática' },
+      { id: 61, icon: '✅', acronym: 'IER-ET', name: 'Inventário de Expressão da Raiva – Estado e Traço' },
     ],
   },
   {
@@ -46,7 +47,7 @@ export const MODULES: Module[] = [
     inventories: [
       { id: 9, icon: '✅', acronym: 'IPM', name: 'Inventário de Psychological Mindedness (IPM)' },
       { id: 10, icon: '✅', acronym: 'IRPT', name: 'Inventário de Resistência Psicoterápica' },
-      { id: 11, icon: '✅', acronym: 'IEC', name: 'Inventário de Estratégias Cognitivas' },
+      { id: 11, icon: '✅', acronym: 'IEC', name: 'Inventário de Estratébias Cognitivas' },
       { id: 12, icon: '✅', acronym: 'IAC', name: 'Inventário de Aliança e Colaboração Terapêutica' },
       { id: 13, icon: '✅', acronym: 'IAT', name: 'Inventário de Autoanálise e Insight Terapêutico' },
       { id: 20, icon: '✅', acronym: 'IAEC', name: 'Inventário de Autocrítica e Esquemas Centrais' },
@@ -65,6 +66,10 @@ export const MODULES: Module[] = [
       { id: 53, icon: '✅', acronym: 'ICE', name: 'Inventário de Curiosidade e Exploração' },
       { id: 54, icon: '✅', acronym: 'IFAA', name: 'Inventário de Fluxo e Absorção em Atividades' },
       { id: 55, icon: '✅', acronym: 'IMAP', name: 'Inventário de Mindfulness e Atenção Plena' },
+      { id: 63, icon: '🔄', acronym: 'ICDF', name: 'Inventário de Correspondência entre Dizer e Fazer' },
+      { id: 64, icon: '📋', acronym: 'ICDF-O', name: 'Inventário de Correspondência entre Dizer e Fazer – Versão Observacional' },
+      { id: 65, icon: '🪞', acronym: 'ICDF-C', name: 'Inventário de Correspondência entre Dizer e Fazer – Versão Clínica (Paciente)' },
+      { id: 66, icon: '🧠', acronym: 'IEE', name: 'Inventário de Esquiva Experiencial' },
     ],
   },
   {
@@ -83,6 +88,8 @@ export const MODULES: Module[] = [
       { id: 50, icon: '✅', acronym: 'ICSA', name: 'Inventário de Competência Social Avançada' },
       { id: 51, icon: '✅', acronym: 'IECAD', name: 'Inventário de Empatia Cognitiva e Afetiva Diferenciada' },
       { id: 52, icon: '✅', acronym: 'IECP', name: 'Inventário de Engajamento Comunitário e Pertencimento' },
+      { id: 62, icon: '🥋', acronym: 'IPLAD', name: 'Inventário Psicológico para Lutadores de Alto Desempenho' },
+      { id: 67, icon: '😟', acronym: 'IAS', name: 'Inventário de Ansiedade Social' },
     ],
   },
   {

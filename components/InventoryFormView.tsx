@@ -25,12 +25,14 @@ type ShuffledQuestion = BaseQuestion & {
 
 /* Tipos para os resultados calculados */
 interface DomainResult {
+  id: string;
   score: number;
   averageScore: number;
   name: string;
   icon: string;
   description: string;
   interpretationLabels?: Domain['interpretationLabels'];
+  interpretationSumRanges?: InterpretationRange[];
 }
 
 interface CalculatedResult {
@@ -49,7 +51,7 @@ const shuffleArray = (array: ShuffledQuestion[]): ShuffledQuestion[] => {
   return newArray;
 };
 
-/* Função para gerar interpretação breve do domínio */
+/* Função para gerar interpretação breve do domínio por média */
 const getDomainInterpretation = (
   averageScore: number,
   labels?: Domain['interpretationLabels'],
@@ -74,6 +76,16 @@ const getDomainInterpretation = (
   if (averageScore < 2) return effectiveLabels.level_2;
   if (averageScore < 3) return effectiveLabels.level_3;
   return effectiveLabels.level_4;
+};
+
+/* Função para gerar interpretação breve do domínio por soma */
+const getDomainInterpretationBySum = (
+  sumScore: number,
+  ranges?: InterpretationRange[]
+): string => {
+  if (!ranges || ranges.length === 0) return 'Interpretação não disponível.';
+  const interpretation = ranges.find(r => sumScore >= r.min && sumScore <= r.max);
+  return interpretation ? interpretation.label : 'Pontuação fora do intervalo de interpretação.';
 };
 
 
@@ -241,12 +253,14 @@ export const InventoryFormView: React.FC<InventoryFormViewProps> = ({ inventory,
       
       const averageScore = domain.questions.length > 0 ? domainSum / domain.questions.length : 0;
       calculatedDomainScores[domain.id] = {
+        id: domain.id,
         score: domainSum,
         averageScore: averageScore,
         name: domain.name,
         icon: domain.icon,
         description: domain.description,
         interpretationLabels: domain.interpretationLabels,
+        interpretationSumRanges: domain.interpretationSumRanges,
       };
     }
 
@@ -383,7 +397,7 @@ export const InventoryFormView: React.FC<InventoryFormViewProps> = ({ inventory,
                 <p className="text-2xl font-bold text-indigo-600 my-1">{result.interpretation.label}</p>
                  <p className="text-slate-700">
                     {inventory.scoring?.type === 'average' ? 'Pontuação Média: ' : 'Pontuação Total: '}
-                    <span className="font-semibold">{result.totalScore.toFixed(2)}</span>
+                    <span className="font-semibold">{result.totalScore.toFixed(inventory.scoring?.type === 'average' ? 2 : 0)}</span>
                 </p>
                 <p className="text-sm text-slate-500 mt-2">{result.interpretation.description}</p>
              </div>
@@ -391,16 +405,16 @@ export const InventoryFormView: React.FC<InventoryFormViewProps> = ({ inventory,
 
           <div className="space-y-4">
             <h4 className="text-xl font-bold text-slate-800 text-center mb-4">Análise por Domínio</h4>
-            {Object.values(result.domainScores).map((domain) => (
-              <div key={domain.name} className="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+            {(Object.values(result.domainScores) as DomainResult[]).map((domain) => (
+              <div key={domain.id} className="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
                 <div className="flex items-center mb-2">
                    <span className="text-2xl mr-3" aria-hidden="true">{domain.icon}</span>
                    <div>
                       <h5 className="font-bold text-slate-800">{domain.name}</h5>
                       <p className="text-sm text-slate-500">
-                        {inventory.scoring?.type === 'average' ? 'Média: ' : 'Escore: '}
+                        {domain.interpretationSumRanges && domain.interpretationSumRanges.length > 0 ? 'Escore: ' : 'Média: '}
                         <strong>
-                            {inventory.scoring?.type === 'average' ? domain.averageScore.toFixed(2) : domain.score}
+                            {domain.interpretationSumRanges && domain.interpretationSumRanges.length > 0 ? domain.score : domain.averageScore.toFixed(2)}
                         </strong>
                       </p>
                    </div>
@@ -408,7 +422,11 @@ export const InventoryFormView: React.FC<InventoryFormViewProps> = ({ inventory,
                  <div className="mt-3 pt-3 border-t border-slate-200">
                     <p className="text-sm text-slate-600 mb-1"><strong>Descrição:</strong> {domain.description}</p>
                     <p className="text-sm text-slate-700 font-medium">
-                        <strong>Interpretação:</strong> {getDomainInterpretation(domain.averageScore, domain.interpretationLabels, inventory.acronym)}
+                        <strong>Interpretação:</strong> {
+                          domain.interpretationSumRanges && domain.interpretationSumRanges.length > 0
+                          ? getDomainInterpretationBySum(domain.score, domain.interpretationSumRanges)
+                          : getDomainInterpretation(domain.averageScore, domain.interpretationLabels, inventory.acronym)
+                        }
                     </p>
                 </div>
               </div>

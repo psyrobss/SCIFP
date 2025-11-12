@@ -62,6 +62,13 @@ import { IRHP_INVENTORY } from './irhp';
 import { ITFFS_INVENTORY } from './itffs';
 import { IIEP_INVENTORY } from './iiep';
 import { IFPM_INVENTORY } from './ifpm';
+import { IERET_INVENTORY } from './ier-et';
+import { IPLAD_INVENTORY } from './iplad';
+import { ICDF_INVENTORY } from './icdf';
+import { ICDFO_INVENTORY } from './icdf-o';
+import { ICDFC_INVENTORY } from './icdf-c';
+import { IEE_INVENTORY } from './iee';
+import { IAS_INVENTORY } from './ias';
 
 
 export const ALL_INVENTORIES: { [key: string]: InventoryForm } = {
@@ -125,4 +132,11 @@ export const ALL_INVENTORIES: { [key: string]: InventoryForm } = {
   ITFFS: ITFFS_INVENTORY,
   IIEP: IIEP_INVENTORY,
   IFPM: IFPM_INVENTORY,
+  'IER-ET': IERET_INVENTORY,
+  IPLAD: IPLAD_INVENTORY,
+  ICDF: ICDF_INVENTORY,
+  'ICDF-O': ICDFO_INVENTORY,
+  'ICDF-C': ICDFC_INVENTORY,
+  IEE: IEE_INVENTORY,
+  IAS: IAS_INVENTORY,
 };
