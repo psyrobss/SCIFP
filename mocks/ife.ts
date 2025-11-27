@@ -7,6 +7,7 @@ export const IFE_INVENTORY: InventoryForm = {
   name: 'Inventário de Função Executiva Emocional',
   objective: 'Avaliar a integração entre funções executivas cognitivas e regulação emocional, incluindo planejamento, controle de impulsos, tomada de decisão e monitoramento emocional em situações cotidianas.',
   instructions: 'Leia cada afirmação e indique o quanto ela descreve seu comportamento ou reação habitual em situações do dia a dia.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },
@@ -102,13 +103,54 @@ export const IFE_INVENTORY: InventoryForm = {
   ],
   scoring: {
     type: 'sum',
-    description: 'A pontuação total (0–112) indica o nível geral de função executiva emocional. Escores mais altos refletem maior competência.',
+    description: 'A pontuação total (0–112) indica o nível geral de função executiva emocional. Escores mais altos refletem maior competência na integração entre cognição e afeto.',
     subScoresDescription: 'Subescores por domínio podem ser calculados (média de 0-4) para análises específicas.',
     ranges: [
-      { min: 0, max: 28, label: 'Função executiva emocional muito baixa', description: 'Dificuldade significativa em planejar, controlar impulsos e tomar decisões adaptativas.' },
-      { min: 29, max: 56, label: 'Baixa função executiva emocional', description: 'Presença de fragilidades importantes.' },
-      { min: 57, max: 84, label: 'Função moderada', description: 'Recursos adequados, mas com pontos de atenção.' },
-      { min: 85, max: 112, label: 'Função executiva emocional elevada', description: 'Bom planejamento, regulação e flexibilidade emocional.' },
+      { 
+        min: 0, 
+        max: 28, 
+        label: 'Função Executiva Emocional Muito Baixa', 
+        description: 'Dificuldade significativa em planejar, controlar impulsos e tomar decisões sob ativação emocional. O indivíduo tende a ser reativo e ter dificuldade em manter metas quando está estressado.',
+        recommendations: [
+          'Treinamento de habilidades de "Parar e Pensar" antes de agir.',
+          'Uso de estratégias externas de regulação (listas, lembretes visuais) em momentos de crise.',
+          'Terapia focada em controle de impulsos e regulação emocional.',
+          'Simplificar o ambiente para reduzir a sobrecarga de decisões.'
+        ]
+      },
+      { 
+        min: 29, 
+        max: 56, 
+        label: 'Baixa Função Executiva Emocional', 
+        description: 'Presença de fragilidades no monitoramento e adaptação emocional. Pode haver rigidez ou desorganização quando as emoções são intensas.',
+        recommendations: [
+          'Praticar o planejamento antecipado de situações emocionalmente desafiadoras (Planos "Se-Então").',
+          'Desenvolver o hábito de monitorar o estado emocional regularmente.',
+          'Exercícios de respiração para recuperar o acesso ao córtex pré-frontal sob estresse.'
+        ]
+      },
+      { 
+        min: 57, 
+        max: 84, 
+        label: 'Função Executiva Emocional Moderada', 
+        description: 'Recursos adequados na maioria das situações cotidianas. Pode haver falhas pontuais em momentos de alta pressão ou fadiga, mas com capacidade de recuperação.',
+        recommendations: [
+          'Refinar a tomada de decisão integrando intuição e lógica.',
+          'Aumentar o repertório de flexibilidade emocional em situações novas.',
+          'Manter rotinas de autocuidado para preservar a energia executiva.'
+        ]
+      },
+      { 
+        min: 85, 
+        max: 112, 
+        label: 'Função Executiva Emocional Elevada', 
+        description: 'Excelente capacidade de planejamento, regulação e flexibilidade emocional. O indivíduo consegue utilizar as emoções como informações úteis para navegar em problemas complexos.',
+        recommendations: [
+          'Utilizar essa competência para liderança e gestão de crises.',
+          'Mentorar outros no desenvolvimento de regulação emocional.',
+          'Continuar desafiando-se em ambientes complexos que exijam alta adaptação.'
+        ]
+      },
     ],
   },
 };

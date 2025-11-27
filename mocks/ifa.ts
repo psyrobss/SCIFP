@@ -7,6 +7,7 @@ export const IFA_INVENTORY: InventoryForm = {
   name: 'Inventário de Funcionamento Adaptativo',
   objective: 'Avaliar o grau de funcionamento adaptativo do indivíduo em domínios de autonomia, regulação comportamental, autocuidado e competência social. O instrumento busca identificar como o paciente se ajusta às demandas da vida cotidiana, mantém sua independência e regula suas ações de forma funcional.',
   instructions: 'Abaixo estão afirmações sobre comportamentos e atitudes do dia a dia. Leia cada item com atenção e marque o quanto cada afirmação descreve você nas últimas quatro semanas, utilizando a escala abaixo:',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca ou quase nunca' },
     { value: 1, label: 'Raramente' },

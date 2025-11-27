@@ -7,6 +7,7 @@ export const IRHP_INVENTORY: InventoryForm = {
   name: 'Inventário de Regulação do Humor Positivo',
   objective: 'Avaliar a capacidade do indivíduo de perceber, manter e ampliar emoções positivas, otimismo, gratidão e estados de bem-estar subjetivo, bem como estratégias de regulação emocional adaptativas.',
   instructions: 'Leia cada afirmação e indique com que frequência você vivencia o comportamento ou sentimento descrito.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },
@@ -80,10 +81,51 @@ export const IRHP_INVENTORY: InventoryForm = {
     type: 'sum',
     description: 'Pontuação total: 0–112. Itens invertidos: 2, 5, 9, 12, 16, 18, 23, 26. Escores mais altos indicam maior capacidade de regulação positiva.',
     ranges: [
-      { min: 0, max: 28, label: 'Baixa regulação positiva', description: 'Pouca percepção, manutenção ou amplificação de emoções positivas' },
-      { min: 29, max: 56, label: 'Regulação moderada', description: 'Reconhecimento parcial, mas dificuldade em prolongar ou intensificar bem-estar' },
-      { min: 57, max: 84, label: 'Regulação funcional', description: 'Boa consciência, ampliação e compartilhamento de emoções positivas' },
-      { min: 85, max: 112, label: 'Regulação elevada', description: 'Alta capacidade de perceber, intensificar e expressar emoções positivas, promovendo bem-estar' },
+      { 
+        min: 0, 
+        max: 28, 
+        label: 'Baixa Regulação Positiva (Anedonia/Embotamento)', 
+        description: 'Dificuldade significativa em sentir, manter ou expressar alegria e satisfação. Pode indicar anedonia ou humor depressivo.',
+        recommendations: [
+          'Ativação Comportamental: agendar atividades prazerosas simples, mesmo sem vontade inicial.',
+          'Diário de Gratidão: registrar 3 coisas boas por dia para treinar o foco positivo.',
+          'Mindfulness focado nos sentidos para aumentar a receptividade ao prazer.',
+          'Investigação de crenças de que "sentir alegria é perigoso" ou "não mereço ser feliz".'
+        ]
+      },
+      { 
+        min: 29, 
+        max: 56, 
+        label: 'Regulação Positiva Moderada', 
+        description: 'Capacidade presente, mas inconsistente, de vivenciar o positivo. O bem-estar tende a ser passageiro e pouco aprofundado (dificuldade de "savoring").',
+        recommendations: [
+          'Prática de "Savoring" (Saborear): prolongar conscientemente momentos bons.',
+          'Capitalização social: compartilhar boas notícias com pessoas queridas para reviver a emoção.',
+          'Visualização positiva do futuro para treinar o otimismo.'
+        ]
+      },
+      { 
+        min: 57, 
+        max: 84, 
+        label: 'Regulação Positiva Funcional', 
+        description: 'Boa capacidade de sentir e expressar gratidão, alegria e esperança. O indivíduo consegue usar emoções positivas para lidar com o estresse.',
+        recommendations: [
+          'Cultivar a autocompaixão como fonte de afeto positivo.',
+          'Engajar-se em atos de bondade ou altruísmo.',
+          'Integrar práticas de apreciação da beleza na rotina diária.'
+        ]
+      },
+      { 
+        min: 85, 
+        max: 112, 
+        label: 'Regulação Positiva Elevada (Florescimento)', 
+        description: 'Alta competência em gerar e manter bem-estar. Perfil resiliente, otimista e capaz de contagiar positivamente o ambiente.',
+        recommendations: [
+          'Utilizar a energia positiva para impulsionar metas de longo prazo.',
+          'Mentorar outros em habilidades de inteligência emocional.',
+          'Manter a prática de gratidão profunda e conexão com propósito.'
+        ]
+      },
     ],
   },
 };

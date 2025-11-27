@@ -7,6 +7,7 @@ export const IRF_INVENTORY: InventoryForm = {
   name: 'Inventário de Resiliência e Flexibilidade Psicológica',
   objective: 'Avaliar a capacidade de recuperação emocional, adaptação a situações adversas e flexibilidade comportamental e cognitiva em diferentes contextos da vida.',
   instructions: 'Leia cada afirmação e assinale o quanto ela descreve seu comportamento ou pensamento na maior parte do tempo.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },
@@ -105,10 +106,50 @@ export const IRF_INVENTORY: InventoryForm = {
     description: 'A pontuação total (0–112) indica o nível geral de resiliência e flexibilidade psicológica. Escores mais altos refletem maior capacidade adaptativa.',
     subScoresDescription: 'Subescores por domínio podem ser calculados (média de 0-4) para análises específicas.',
     ranges: [
-      { min: 0, max: 28, label: 'Resiliência e flexibilidade muito baixa', description: 'Vulnerabilidade a estresse e dificuldades de adaptação.' },
-      { min: 29, max: 56, label: 'Baixa resiliência/flexibilidade', description: 'Capacidade limitada de enfrentar desafios; intervenções terapêuticas indicadas.' },
-      { min: 57, max: 84, label: 'Resiliência/flexibilidade moderada', description: 'Presença de recursos, mas fragilidades em situações complexas.' },
-      { min: 85, max: 112, label: 'Alta resiliência/flexibilidade', description: 'Capacidade adaptativa sólida, bom enfrentamento de adversidades.' },
+      { 
+        min: 0, 
+        max: 28, 
+        label: 'Resiliência e Flexibilidade Muito Baixa', 
+        description: 'Alta vulnerabilidade ao estresse, dificuldade significativa em se adaptar a mudanças e recuperação lenta após crises.',
+        recommendations: [
+          'Focar em construção de segurança básica e rotinas estáveis.',
+          'Desenvolver tolerância ao mal-estar em pequenas doses.',
+          'Buscar suporte terapêutico para fortalecer recursos de enfrentamento.'
+        ]
+      },
+      { 
+        min: 29, 
+        max: 56, 
+        label: 'Baixa Resiliência / Flexibilidade', 
+        description: 'Capacidade limitada de enfrentar desafios complexos. Tendência à rigidez cognitiva ou comportamental sob pressão.',
+        recommendations: [
+          'Treinar a reavaliação cognitiva (ver problemas sob nova ótica).',
+          'Praticar a aceitação de mudanças fora do controle.',
+          'Ampliar o repertório de estratégias de solução de problemas.'
+        ]
+      },
+      { 
+        min: 57, 
+        max: 84, 
+        label: 'Resiliência e Flexibilidade Moderada', 
+        description: 'Bom funcionamento em situações conhecidas, mas pode haver sobrecarga em crises intensas ou inéditas. Presença de recursos adaptativos.',
+        recommendations: [
+          'Fortalecer a rede de apoio social.',
+          'Identificar e usar pontos fortes pessoais conscientemente.',
+          'Praticar mindfulness para aumentar a flexibilidade mental.'
+        ]
+      },
+      { 
+        min: 85, 
+        max: 112, 
+        label: 'Alta Resiliência e Flexibilidade', 
+        description: 'Excelente capacidade de adaptação, recuperação rápida (bouncing back) e crescimento pós-traumático. Flexibilidade mental e comportamental robusta.',
+        recommendations: [
+          'Utilizar a resiliência para assumir novos desafios e liderança.',
+          'Servir como mentor ou suporte para outros em momentos de crise.',
+          'Manter práticas de autocuidado para sustentar a alta performance.'
+        ]
+      },
     ],
   },
 };

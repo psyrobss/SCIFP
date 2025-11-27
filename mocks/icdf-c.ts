@@ -7,6 +7,7 @@ export const ICDFC_INVENTORY: InventoryForm = {
   name: 'Inventário de Correspondência entre Dizer e Fazer – Versão Clínica (Paciente)',
   objective: 'Explorar a autopercepção do paciente sobre sua própria coerência, promover insight e identificar padrões de dissonância entre valores, intenções e comportamento.',
   instructions: 'Responda pensando no seu dia a dia, nas promessas que faz e nas atitudes que realiza.\nUse a escala:\n1️⃣ Nunca | 2️⃣ Raramente | 3️⃣ Às vezes | 4️⃣ Frequentemente | 5️⃣ Sempre',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 1, label: 'Nunca' },
     { value: 2, label: 'Raramente' },

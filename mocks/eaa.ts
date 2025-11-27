@@ -7,6 +7,7 @@ export const EAA_INVENTORY: InventoryForm = {
   name: 'Escala de Autoexpansão em Amizades (EAA)',
   objective: 'Avaliar a extensão em que o indivíduo busca crescimento pessoal, aprendizagem, experiências e emoções positivas através de amizades próximas.',
   instructions: 'Leia cada afirmação e indique o quanto ela descreve seu comportamento ou sentimentos habituais com amigos próximos.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },

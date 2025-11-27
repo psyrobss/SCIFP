@@ -1,4 +1,5 @@
 
+
 import { InventoryForm } from '../types';
 
 export const IMC_INVENTORY: InventoryForm = {
@@ -7,6 +8,7 @@ export const IMC_INVENTORY: InventoryForm = {
   name: 'Inventário de Metacognição Clínica',
   objective: 'Avaliar o nível de consciência metacognitiva, isto é, o quanto o indivíduo percebe, compreende e regula os próprios estados mentais, pensamentos e emoções. O IMC também mede a capacidade de distinguir entre pensar, sentir e agir, além de observar o fluxo mental sem fusão cognitiva.',
   instructions: 'As afirmações abaixo descrevem como as pessoas geralmente lidam com seus próprios pensamentos e sentimentos. Leia cada frase com atenção e marque o número que mais se aproxima da sua experiência pessoal.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca é verdade para mim' },
     { value: 1, label: 'Raramente é verdade para mim' },
@@ -152,9 +154,39 @@ export const IMC_INVENTORY: InventoryForm = {
     type: 'sum',
     description: 'O escore total varia de 0 a 192. Pontuações mais altas indicam maior metacognição e regulação mental adaptativa.',
     ranges: [
-      { min: 0, max: 64, label: 'Baixa', description: 'Dificuldade em perceber, monitorar ou regular pensamentos; funcionamento automático.' },
-      { min: 65, max: 128, label: 'Moderada', description: 'Alguma consciência metacognitiva, mas ainda fusão com pensamentos e emoções.' },
-      { min: 129, max: 192, label: 'Elevada', description: 'Boa capacidade de observação interna, insight e regulação metamental.' },
+      { 
+        min: 0, 
+        max: 64, 
+        label: 'Baixa Metacognição (Fusão Cognitiva)', 
+        description: 'Dificuldade em se distanciar dos pensamentos ("o que penso é a realidade"). Funcionamento automático e reativo. Tendência à ruminação ou preocupação excessiva sem crítica.',
+        recommendations: [
+          'Treino de Atenção Plena (Mindfulness): observar pensamentos como nuvens passando.',
+          'Técnicas de Desfusão Cognitiva: "Eu estou tendo o pensamento de que..." em vez de "Eu sou...".',
+          'Psicoeducação sobre o modelo da Terapia Metacognitiva.'
+        ]
+      },
+      { 
+        min: 65, 
+        max: 128, 
+        label: 'Metacognição Moderada', 
+        description: 'Alguma capacidade de observar processos mentais, mas inconsistente sob estresse. O indivíduo pode reconhecer pensamentos disfuncionais, mas tem dificuldade em interrompê-los.',
+        recommendations: [
+          'Praticar o "modo observador" em situações de estresse moderado.',
+          'Identificar gatilhos que levam à fusão cognitiva.',
+          'Fortalecer a distinção entre fatos e interpretações.'
+        ]
+      },
+      { 
+        min: 129, 
+        max: 192, 
+        label: 'Elevada Capacidade Metacognitiva', 
+        description: 'Excelente habilidade de monitorar, observar e regular o fluxo mental. Capacidade de não se engajar em pensamentos improdutivos. Mentalização (teoria da mente) bem desenvolvida.',
+        recommendations: [
+          'Utilizar a metacognição para otimizar aprendizagem e resolução de problemas.',
+          'Aplicar a flexibilidade mental em contextos interpessoais complexos.',
+          'Manter práticas de meditação ou reflexão para sustentar a clareza.'
+        ]
+      },
     ],
   },
 };

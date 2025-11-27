@@ -7,6 +7,7 @@ export const IAE_INVENTORY: InventoryForm = {
   name: 'Inventário de Autoestima e Autovalor',
   objective: 'Avaliar a percepção de valor pessoal, autoconfiança, aceitação de si mesmo e crítica interna.',
   instructions: 'Leia cada afirmação e indique o quanto ela descreve seu comportamento, pensamento ou sentimento em relação a si mesmo.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },
@@ -105,10 +106,51 @@ export const IAE_INVENTORY: InventoryForm = {
     description: 'A pontuação total (0–112) indica o nível de autoestima. Escores mais altos refletem maior autoestima.',
     subScoresDescription: 'Subescores por domínio podem ser calculados (média de 0-4) para análises específicas.',
     ranges: [
-      { min: 0, max: 28, label: 'Autoestima muito baixa', description: 'Necessidade de intervenção terapêutica focada em autovalor e autoconfiança.' },
-      { min: 29, max: 56, label: 'Autoestima baixa', description: 'Fragilidades importantes na autoimagem.' },
-      { min: 57, max: 84, label: 'Autoestima moderada', description: 'Recursos adequados, mas ainda com pontos de atenção.' },
-      { min: 85, max: 112, label: 'Autoestima elevada', description: 'Percepção positiva de si mesmo e confiança consistente.' },
+      { 
+        min: 0, 
+        max: 28, 
+        label: 'Autoestima Muito Baixa', 
+        description: 'Autoimagem negativa, insegurança acentuada e autocrítica severa. Pode haver esquiva social e medo de falhar.',
+        recommendations: [
+          'Intervenção terapêutica para fortalecer o "Eu".',
+          'Identificar distorções cognitivas sobre si mesmo (ex: "sou um fracasso").',
+          'Começar com pequenas metas alcançáveis para construir senso de competência.',
+          'Trabalhar a assertividade e limites interpessoais.'
+        ]
+      },
+      { 
+        min: 29, 
+        max: 56, 
+        label: 'Autoestima Baixa', 
+        description: 'Fragilidades na autoimagem e confiança. Tendência a depender da aprovação externa.',
+        recommendations: [
+          'Exercícios de autovalorização (listar qualidades e conquistas).',
+          'Reduzir o perfeccionismo e aceitar erros como aprendizado.',
+          'Praticar o autocuidado como forma de respeito a si mesmo.'
+        ]
+      },
+      { 
+        min: 57, 
+        max: 84, 
+        label: 'Autoestima Moderada', 
+        description: 'Recursos adequados de autovalor, mas com vulnerabilidade a críticas ou estresse.',
+        recommendations: [
+          'Consolidar a autoeficácia através de desafios progressivos.',
+          'Fortalecer a independência emocional.',
+          'Manter diálogo interno compassivo.'
+        ]
+      },
+      { 
+        min: 85, 
+        max: 112, 
+        label: 'Autoestima Elevada', 
+        description: 'Percepção positiva e realista de si mesmo. Confiança, autoaceitação e resiliência diante de críticas.',
+        recommendations: [
+          'Continuar investindo em crescimento pessoal.',
+          'Usar a segurança pessoal para apoiar e empoderar outros.',
+          'Manter a humildade e a abertura a feedbacks.'
+        ]
+      },
     ],
   },
 };

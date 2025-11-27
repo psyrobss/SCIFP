@@ -79,10 +79,21 @@ export const IEV_INVENTORY: InventoryForm = {
     },
   ],
   scoring: {
-    type: 'average', // A type is needed, but the total score isn't the primary result.
-    description: 'A interpretação principal é baseada na pontuação média de cada domínio, que indica o estilo de vínculo predominante.',
+    type: 'average',
+    description: 'A interpretação principal é baseada na pontuação média de cada domínio. O estilo com maior pontuação tende a ser o predominante.',
     ranges: [
-        { min: 0, max: 4, label: 'Análise por Domínio', description: 'O resultado deste inventário é qualitativo. Verifique a pontuação média de cada estilo de vínculo abaixo para compreender seu padrão de apego predominante.' }
+        { 
+          min: 0, 
+          max: 4, 
+          label: 'Análise Qualitativa dos Estilos de Vínculo', 
+          description: 'Este inventário não gera uma pontuação única de "bom" ou "ruim". Em vez disso, observe qual dos domínios abaixo apresenta a maior pontuação média para identificar o estilo de apego predominante.',
+          recommendations: [
+            'Se o Apego Seguro for baixo: Trabalhar a construção de confiança e a "base segura" na terapia.',
+            'Se o Apego Ansioso for alto: Focar em regulação emocional, autonomia e redução da necessidade de validação constante.',
+            'Se o Apego Evitativo for alto: Explorar o medo da vulnerabilidade e incentivar pequenos passos de aproximação emocional.',
+            'Se o Apego Ambivalente for alto: Trabalhar a estabilidade, a coerência interna e o processamento de traumas relacionais passados.'
+          ]
+        }
     ],
   }
 };

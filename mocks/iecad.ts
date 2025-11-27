@@ -7,6 +7,7 @@ export const IECAD_INVENTORY: InventoryForm = {
   name: 'Inventário de Empatia Cognitiva e Afetiva Diferenciada',
   objective: 'Avaliar a capacidade de compreender (empatia cognitiva) e sentir (empatia afetiva) as emoções e estados mentais de outras pessoas, mantendo autorregulação emocional e diferenciação entre o self e o outro.',
   instructions: 'As frases abaixo descrevem maneiras de perceber e reagir às emoções de outras pessoas.\nIndique com que frequência isso se aplica a você.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },

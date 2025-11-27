@@ -7,6 +7,7 @@ export const IQVL_INVENTORY: InventoryForm = {
   name: 'Inventário de Qualidade de Vida e Lazer',
   objective: 'Avaliar percepção subjetiva de bem-estar, satisfação com a vida, engajamento em atividades prazerosas, equilíbrio entre trabalho, lazer e relacionamentos, e experiências de vitalidade.',
   instructions: 'Leia cada afirmação e indique o quanto ela descreve seu comportamento, experiências ou sentimentos recentes (últimos 3 meses).',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },

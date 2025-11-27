@@ -7,6 +7,7 @@ export const ICDF_INVENTORY: InventoryForm = {
   name: 'Inventário de Correspondência entre Dizer e Fazer (ICDF)',
   objective: 'Avaliar o alinhamento entre o que o indivíduo afirma (valores, intenções, promessas ou compromissos) e o que efetivamente realiza em seu comportamento cotidiano. Mede tanto a consistência comportamental quanto a autopercepção de coerência.',
   instructions: 'Leia cada afirmação e indique o quanto ela representa o seu modo de agir, utilizando a seguinte escala:',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 1, label: 'Nunca' },
     { value: 2, label: 'Raramente' },

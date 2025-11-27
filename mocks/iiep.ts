@@ -7,6 +7,7 @@ export const IIEP_INVENTORY: InventoryForm = {
   name: 'Inventário de Inteligência Emocional Prática',
   objective: 'Avaliar a capacidade do indivíduo de perceber, compreender, regular e aplicar emoções de forma adaptativa em situações cotidianas, promovendo bem-estar pessoal e qualidade nas interações sociais.',
   instructions: 'Leia cada afirmação e indique com que frequência você vivencia o comportamento ou sentimento descrito.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },
@@ -80,10 +81,51 @@ export const IIEP_INVENTORY: InventoryForm = {
     type: 'sum',
     description: 'Pontuação total: 0–112. Itens invertidos: 2, 4, 6, 9, 11, 14, 16, 18, 20, 23, 25, 28',
     ranges: [
-      { min: 0, max: 28, label: 'Baixa', description: 'Dificuldade em perceber, compreender, regular e aplicar emoções de forma adaptativa' },
-      { min: 29, max: 56, label: 'Moderada', description: 'Algumas habilidades emocionais, mas com inconsistência e dificuldades em situações complexas' },
-      { min: 57, max: 84, label: 'Funcional', description: 'Boa percepção, compreensão, regulação e aplicação das emoções no cotidiano' },
-      { min: 85, max: 112, label: 'Elevada', description: 'Alta capacidade de inteligência emocional, integração adaptativa de emoções e habilidades sociais' },
+      { 
+        min: 0, 
+        max: 28, 
+        label: 'Baixa Inteligência Emocional (IE)', 
+        description: 'Dificuldade significativa em perceber, compreender e regular emoções. Risco de conflitos interpessoais e decisões impulsivas.',
+        recommendations: [
+          'Alfabetização emocional básica: aprender a nomear e distinguir emoções.',
+          'Monitoramento diário do humor e seus gatilhos.',
+          'Treino de pausa antes de reagir (regulação básica).',
+          'Buscar feedback de pessoas próximas sobre o próprio comportamento.'
+        ]
+      },
+      { 
+        min: 29, 
+        max: 56, 
+        label: 'Inteligência Emocional Moderada', 
+        description: 'Algumas habilidades presentes, mas com inconsistência. Pode haver dificuldade em lidar com emoções complexas ou situações de alto estresse.',
+        recommendations: [
+          'Praticar a empatia ativa (escutar para entender, não para responder).',
+          'Expandir o repertório de estratégias de regulação (além da distração ou supressão).',
+          'Refletir sobre o papel das emoções nas decisões recentes.'
+        ]
+      },
+      { 
+        min: 57, 
+        max: 84, 
+        label: 'Inteligência Emocional Funcional', 
+        description: 'Boa percepção e regulação na maioria das situações cotidianas. Relacionamentos saudáveis e tomada de decisão equilibrada.',
+        recommendations: [
+          'Aprofundar a compreensão das nuances emocionais dos outros.',
+          'Utilizar emoções positivas para motivar a si mesmo e à equipe.',
+          'Gerenciar conflitos de forma colaborativa.'
+        ]
+      },
+      { 
+        min: 85, 
+        max: 112, 
+        label: 'Inteligência Emocional Elevada', 
+        description: 'Alta sofisticação emocional. Capacidade de usar emoções para facilitar o pensamento, liderar e navegar em dinâmicas sociais complexas.',
+        recommendations: [
+          'Atuar como mediador ou líder em situações emocionalmente carregadas.',
+          'Continuar desenvolvendo a inteligência social e cultural.',
+          'Manter práticas de autoconsciência para evitar excesso de confiança.'
+        ]
+      },
     ],
   },
 };

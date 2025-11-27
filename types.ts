@@ -31,10 +31,10 @@ export interface Domain {
   icon: string;
   description: string;
   interpretationLabels?: {
-    level_1: string; // avg score 0 - 0.9
+    level_1: string; // avg score 0 - 0.9 (Low)
     level_2: string; // avg score 1 - 1.9
     level_3: string; // avg score 2 - 2.9
-    level_4: string; // avg score 3 - 4
+    level_4: string; // avg score 3 - 4 (High)
   };
   interpretationSumRanges?: InterpretationRange[];
   questions: Question[];
@@ -45,6 +45,7 @@ export interface InterpretationRange {
   max: number;
   label: string;
   description: string;
+  recommendations?: string[]; // Lista de sugestões práticas ou clínicas
 }
 
 export interface Scoring {
@@ -64,4 +65,7 @@ export interface InventoryForm {
   responseScale: ResponseOption[];
   domains: Domain[];
   scoring?: Scoring;
+  // 'higher_is_better': Pontuação alta = Força/Habilidade (ex: Resiliência).
+  // 'higher_is_worse': Pontuação alta = Sintoma/Dificuldade (ex: Ansiedade). Padrão se omitido.
+  scoreOrientation?: 'higher_is_better' | 'higher_is_worse'; 
 }

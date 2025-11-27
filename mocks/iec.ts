@@ -140,10 +140,52 @@ export const IEC_INVENTORY: InventoryForm = {
     type: 'average',
     description: 'A pontuação média (0-4) indica a predominância de estratégias cognitivas disfuncionais. Escores mais altos sugerem maior rigidez cognitiva e uso de estratégias que mantêm o sofrimento.',
     ranges: [
-      { min: 0, max: 0.9, label: 'Estratégias Adaptativas', description: 'Uso predominante de reavaliação e aceitação; boa flexibilidade cognitiva.' },
-      { min: 1, max: 1.9, label: 'Uso Misto de Estratégias', description: 'Presença de estratégias disfuncionais, mas com algum repertório adaptativo.' },
-      { min: 2, max: 2.9, label: 'Predomínio de Estratégias Disfuncionais', description: 'Padrão de ruminação, catastrofização ou autocrítica que contribui para o sofrimento.' },
-      { min: 3, max: 4, label: 'Alta Rigidez Cognitiva', description: 'Forte adesão a padrões de pensamento disfuncionais, com baixo repertório adaptativo.' },
+      { 
+        min: 0, 
+        max: 0.9, 
+        label: 'Estratégias Adaptativas', 
+        description: 'Uso predominante de reavaliação e aceitação. O indivíduo possui boa flexibilidade cognitiva para lidar com estressores.',
+        recommendations: [
+          'Manter práticas de autocuidado mental.',
+          'Continuar usando a reavaliação para desafios novos.',
+          'Compartilhar estratégias funcionais com outros.'
+        ]
+      },
+      { 
+        min: 1, 
+        max: 1.9, 
+        label: 'Uso Misto de Estratégias', 
+        description: 'Presença de estratégias disfuncionais (como preocupação leve), mas com repertório adaptativo disponível.',
+        recommendations: [
+          'Identificar gatilhos que ativam a ruminação.',
+          'Reforçar o uso consciente da reavaliação cognitiva.',
+          'Praticar "mindfulness" para reduzir a reatividade automática.'
+        ]
+      },
+      { 
+        min: 2, 
+        max: 2.9, 
+        label: 'Predomínio de Estratégias Disfuncionais', 
+        description: 'Padrão consistente de ruminação, catastrofização ou autocrítica que contribui para a manutenção do sofrimento e ansiedade.',
+        recommendations: [
+          'Terapia Cognitivo-Comportamental (TCC) para reestruturação cognitiva.',
+          'Registro de pensamentos disfuncionais (RPD).',
+          'Treinar o questionamento socrático ("Quais as evidências para esse pensamento?").',
+          'Técnicas de "parada do pensamento" e redirecionamento de atenção.'
+        ]
+      },
+      { 
+        min: 3, 
+        max: 4, 
+        label: 'Alta Rigidez Cognitiva', 
+        description: 'Forte adesão a padrões de pensamento disfuncionais, com baixo repertório adaptativo. Risco elevado de transtornos de humor ou ansiedade.',
+        recommendations: [
+          'Intervenção psicoterapêutica intensiva.',
+          'Trabalho com fusão cognitiva (ACT - Terapia de Aceitação e Compromisso).',
+          'Focar em aceitação radical em vez de tentar controlar todos os pensamentos.',
+          'Desenvolvimento de autocompaixão para reduzir a autocrítica severa.'
+        ]
+      },
     ],
   }
 };

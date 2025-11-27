@@ -7,6 +7,7 @@ export const IASO_INVENTORY: InventoryForm = {
   name: 'Inventário de Assertividade e Sociabilidade',
   objective: 'Avaliar o grau de assertividade, abertura social e competência interpessoal do indivíduo, incluindo sua capacidade de expressar sentimentos, defender limites, iniciar e manter interações sociais de forma equilibrada e respeitosa.',
   instructions: 'Leia atentamente cada afirmação abaixo.\nMarque o quanto ela descreve você na maioria das situações, utilizando a escala:',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca ou quase nunca' },
     { value: 1, label: 'Raramente' },

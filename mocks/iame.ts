@@ -8,6 +8,7 @@ export const IAME_INVENTORY: InventoryForm = {
   name: 'Inventário de Autoconsciência e Metacognição Emocional (IAME)',
   objective: 'Avaliar o grau em que o indivíduo reconhece, compreende e monitora seus próprios estados emocionais e mentais. O instrumento busca identificar níveis de metacognição emocional, consciência afetiva e capacidade de reflexão sobre si mesmo, fatores centrais para o autoconhecimento e a regulação emocional eficaz.',
   instructions: 'A seguir, há uma lista de afirmações sobre como você costuma perceber, entender e lidar com suas emoções e pensamentos. Leia cada frase com atenção e marque a opção que melhor descreve como isso costuma acontecer na sua vida.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca é verdade para mim' },
     { value: 1, label: 'Raramente é verdade para mim' },
@@ -132,10 +133,50 @@ export const IAME_INVENTORY: InventoryForm = {
     description: 'O escore total (0–160) representa o nível geral de autoconsciência e metacognição emocional.',
     subScoresDescription: 'Subescores por domínio podem ser calculados para análises específicas (p.ex., insight vs. regulação emocional).',
     ranges: [
-        { min: 0, max: 40, label: 'Baixa autoconsciência', description: 'Baixa autoconsciência emocional e rigidez metacognitiva.' },
-        { min: 41, max: 80, label: 'Consciência limitada', description: 'Consciência emocional limitada; dificuldade em reconhecer e refletir sobre emoções.' },
-        { min: 81, max: 120, label: 'Boa capacidade', description: 'Boa capacidade de insight e regulação emocional, com possíveis áreas de conflito interno.' },
-        { min: 121, max: 160, label: 'Elevada metacognição', description: 'Elevada metacognição emocional; bom equilíbrio entre reflexão, emoção e ação.' }
+        { 
+          min: 0, 
+          max: 40, 
+          label: 'Baixa Autoconsciência / Desconexão', 
+          description: 'Dificuldade significativa em reconhecer e nomear emoções. Tendência a agir de forma reativa ou automática, com pouca reflexão sobre processos internos.',
+          recommendations: [
+            'Treino de alfabetização emocional: aprender o nome das emoções básicas.',
+            'Uso de diários de monitoramento para registrar gatilhos e reações.',
+            'Exercícios de "body scan" (escaneamento corporal) para conectar sensações físicas a emoções.'
+          ]
+        },
+        { 
+          min: 41, 
+          max: 80, 
+          label: 'Consciência Limitada / Intermitente', 
+          description: 'Capacidade de insight presente, mas instável. Em momentos de estresse, pode haver perda da capacidade reflexiva e fusão com pensamentos.',
+          recommendations: [
+            'Praticar a pausa antes da ação ("O que estou sentindo agora?").',
+            'Identificar padrões repetitivos de comportamento.',
+            'Diferenciar pensamentos ("eu acho que...") de sentimentos ("eu sinto que...").'
+          ]
+        },
+        { 
+          min: 81, 
+          max: 120, 
+          label: 'Boa Capacidade Metacognitiva', 
+          description: 'Bom nível de autoconhecimento e regulação. O indivíduo consegue refletir sobre suas emoções e usar essa informação para tomar decisões.',
+          recommendations: [
+            'Aprofundar a integração entre valores pessoais e ações.',
+            'Explorar as origens históricas de padrões emocionais (trabalho com a história de vida).',
+            'Praticar a aceitação radical de emoções difíceis.'
+          ]
+        },
+        { 
+          min: 121, 
+          max: 160, 
+          label: 'Elevada Metacognição e Integração', 
+          description: 'Excelente clareza emocional, coerência interna e capacidade de auto-observação. Alto potencial de autorregulação e crescimento pessoal.',
+          recommendations: [
+            'Utilizar a sabedoria emocional para liderança e suporte a outros.',
+            'Manter práticas de mindfulness para sustentar a clareza.',
+            'Focar na autenticidade e na expressão genuína do self.'
+          ]
+        }
     ]
   }
 };

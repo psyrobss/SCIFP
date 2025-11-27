@@ -7,6 +7,7 @@ export const IAPE_INVENTORY: InventoryForm = {
   name: 'Inventário de Processamento Emocional e Empatia',
   objective: 'Avaliar o modo como o indivíduo percebe, compreende, reage e responde às emoções próprias e alheias, permitindo identificar níveis de empatia cognitiva, empatia emocional e responsividade social.',
   instructions: 'Abaixo estão frases sobre como você tende a perceber e reagir às emoções de outras pessoas. Assinale quanto cada uma representa o que ocorre com você na maioria das situações sociais.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca é verdade para mim' },
     { value: 1, label: 'Raramente é verdade para mim' },

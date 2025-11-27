@@ -1,4 +1,5 @@
 
+
 import { InventoryForm } from '../types';
 
 export const IQE_INVENTORY: InventoryForm = {
@@ -7,6 +8,7 @@ export const IQE_INVENTORY: InventoryForm = {
   name: 'Inventário de Qualidade Existencial',
   objective: 'Avaliar o grau de sentido, coerência interna e engajamento existencial do indivíduo, considerando sua percepção de propósito, valores, identidade e satisfação com a própria trajetória. O instrumento permite identificar áreas de vazio existencial, alienação de valores, baixa autorrealização ou distorções de propósito.',
   instructions: 'Abaixo estão afirmações sobre seu modo de ver a vida, seus objetivos e seu senso de propósito. Marque o quanto cada uma descreve você nas últimas semanas, usando a escala:',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca ou quase nunca' },
     { value: 1, label: 'Raramente' },
@@ -96,10 +98,51 @@ export const IQE_INVENTORY: InventoryForm = {
     type: 'sum',
     description: 'A pontuação é a soma total das respostas (0-80). Pontuações mais altas indicam maior qualidade existencial.',
     ranges: [
-      { min: 60, max: 80, label: 'Alta qualidade existencial', description: 'Forte senso de propósito, coerência e vitalidade.' },
-      { min: 40, max: 59, label: 'Equilíbrio funcional', description: 'Boa adaptação existencial com pequenas lacunas de sentido.' },
-      { min: 20, max: 39, label: 'Vazio ou alienação moderada', description: 'Indícios de desorientação, desmotivação ou perda de propósito.' },
-      { min: 0, max: 19, label: 'Comprometimento existencial', description: 'Sensação de vazio, desânimo ou falta de sentido de vida.' }
+      { 
+        min: 0, 
+        max: 19, 
+        label: 'Comprometimento Existencial / Vazio', 
+        description: 'Sensação de vazio, desânimo, falta de sentido de vida ou desconexão profunda. Pode indicar crise existencial ou sintomas depressivos.',
+        recommendations: [
+          'Logoterapia: explorar valores de criação, vivência e atitude.',
+          'Pequenas ações de sentido: identificar uma atividade diária que tenha significado pessoal.',
+          'Investigar causas de apatia ou anedonia.',
+          'Conectar-se com a natureza ou arte para estimular a sensibilidade.'
+        ]
+      },
+      { 
+        min: 20, 
+        max: 39, 
+        label: 'Vazio ou Alienação Moderada', 
+        description: 'Indícios de desorientação, dúvida sobre o caminho a seguir ou sensação de estar vivendo no "piloto automático". Falta de clareza sobre valores.',
+        recommendations: [
+          'Exercícios de clarificação de valores: "O que é realmente importante para mim?".',
+          'Refletir sobre a coerência entre o tempo gasto e as prioridades reais.',
+          'Buscar novos interesses ou projetos que despertem vitalidade.'
+        ]
+      },
+      { 
+        min: 40, 
+        max: 59, 
+        label: 'Equilíbrio Funcional', 
+        description: 'Boa adaptação existencial com pequenas lacunas de sentido. O indivíduo funciona bem, mas pode sentir falta de um propósito maior em algumas áreas.',
+        recommendations: [
+          'Aprofundar a conexão com o propósito de longo prazo.',
+          'Praticar a gratidão para aumentar a satisfação existencial.',
+          'Mentoria ou voluntariado para expandir o sentido de contribuição.'
+        ]
+      },
+      { 
+        min: 60, 
+        max: 80, 
+        label: 'Alta Qualidade Existencial', 
+        description: 'Forte senso de propósito, coerência, vitalidade e conexão. O indivíduo sente que sua vida vale a pena e está alinhada com seus valores.',
+        recommendations: [
+          'Manter a autenticidade e a coerência interna.',
+          'Utilizar a clareza de propósito para inspirar outros.',
+          'Cultivar a transcendência e o legado pessoal.'
+        ]
+      },
     ],
   }
 };

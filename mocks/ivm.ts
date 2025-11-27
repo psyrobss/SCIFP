@@ -7,6 +7,7 @@ export const IVM_INVENTORY: InventoryForm = {
   name: 'Inventário de Vontade e Motivação',
   objective: 'Avaliar o nível de energia vital, propósito, direção de esforço e persistência, refletindo o quanto o indivíduo sente-se movido por metas significativas e capaz de manter engajamento diante de desafios.',
   instructions: 'As frases abaixo descrevem atitudes e sentimentos relacionados à vontade e motivação pessoal.\nMarque o quanto cada uma representa você nas últimas semanas.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca ou quase nunca' },
     { value: 1, label: 'Raramente' },

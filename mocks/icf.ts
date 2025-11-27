@@ -7,6 +7,7 @@ export const ICF_INVENTORY: InventoryForm = {
   name: 'Inventário de Criatividade e Fluência Mental',
   objective: 'Avaliar a capacidade de gerar ideias novas, pensar de forma flexível e encontrar soluções originais para problemas cotidianos e profissionais.',
   instructions: 'Leia cada afirmação e indique o quanto ela descreve seu comportamento habitual em situações que exigem pensamento ou solução de problemas.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },
@@ -105,10 +106,51 @@ export const ICF_INVENTORY: InventoryForm = {
     description: 'A pontuação total (0–112) indica o nível de criatividade e fluência mental. Escores mais altos refletem maior originalidade e flexibilidade.',
     subScoresDescription: 'Subescores por domínio podem ser calculados (média de 0-4) para análises específicas.',
     ranges: [
-      { min: 0, max: 28, label: 'Fluência e criatividade muito baixa', description: 'Dificuldade em gerar ideias e soluções originais.' },
-      { min: 29, max: 56, label: 'Baixa criatividade', description: 'Tendência à rigidez mental, pouca inovação.' },
-      { min: 57, max: 84, label: 'Criatividade moderada', description: 'Boas capacidades, mas ainda com margens de aprimoramento.' },
-      { min: 85, max: 112, label: 'Alta criatividade e fluência mental', description: 'Perfil altamente original e flexível.' },
+      { 
+        min: 85, 
+        max: 112, 
+        label: 'Alta Criatividade e Fluência', 
+        description: 'Perfil altamente original, flexível e inovador. Facilidade em gerar múltiplas soluções e conectar ideias.',
+        recommendations: [
+          'Buscar ambientes que valorizem a inovação e permitam autonomia.',
+          'Documentar ideias (diário criativo) para não perder insights valiosos.',
+          'Atuar como mentor ou facilitador em processos de brainstorming.',
+          'Cuidar para finalizar projetos iniciados, evitando dispersão excessiva.'
+        ]
+      },
+      { 
+        min: 57, 
+        max: 84, 
+        label: 'Criatividade Moderada/Funcional', 
+        description: 'Boas capacidades criativas aplicadas ao cotidiano. Consegue adaptar-se e resolver problemas com eficácia.',
+        recommendations: [
+          'Praticar exercícios de pensamento lateral para expandir a originalidade.',
+          'Experimentar novas atividades ou hobbies para estimular novas conexões neurais.',
+          'Não ter medo de propor ideias "imperfeitas" em fases iniciais de projetos.'
+        ]
+      },
+      { 
+        min: 29, 
+        max: 56, 
+        label: 'Criatividade em Desenvolvimento', 
+        description: 'Tendência a seguir padrões estabelecidos. Pode haver rigidez mental ou medo de arriscar novas abordagens.',
+        recommendations: [
+          'Questionar o "sempre foi feito assim" e buscar pequenas inovações na rotina.',
+          'Expor-se a diferentes formas de arte, cultura e pensamento.',
+          'Reduzir a autocrítica durante o processo de geração de ideias.'
+        ]
+      },
+      { 
+        min: 0, 
+        max: 28, 
+        label: 'Baixa Fluência Criativa', 
+        description: 'Dificuldade significativa em gerar alternativas ou mudar de perspectiva. Preferência por rotinas estritas e conhecidas.',
+        recommendations: [
+          'Treinar flexibilidade cognitiva com jogos e quebra-cabeças.',
+          'Buscar apoio para resolução de problemas complexos.',
+          'Começar com pequenas mudanças seguras na rotina para ganhar confiança na adaptação.'
+        ]
+      },
     ],
   },
 };

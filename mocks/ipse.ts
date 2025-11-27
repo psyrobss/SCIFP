@@ -7,6 +7,7 @@ export const IPSE_INVENTORY: InventoryForm = {
   name: 'Inventário de Propósito de Vida e Sentido Existencial',
   objective: 'Avaliar o grau de clareza, direção e coerência existencial do indivíduo — isto é, o quanto ele percebe propósito, significado e integração entre seus valores, escolhas e metas de vida.',
   instructions: 'As frases abaixo descrevem percepções e atitudes relacionadas ao seu propósito e sentido de vida.\nLeia cada afirmação e indique o quanto ela expressa como você realmente se sente e pensa na maior parte do tempo.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },

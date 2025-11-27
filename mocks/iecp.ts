@@ -7,6 +7,7 @@ export const IECP_INVENTORY: InventoryForm = {
   name: 'Inventário de Engajamento Comunitário e Pertencimento',
   objective: 'Avaliar o grau de envolvimento, identificação e integração do indivíduo com grupos sociais, comunidades e causas coletivas, considerando aspectos emocionais, comportamentais e identitários.',
   instructions: 'As afirmações abaixo descrevem atitudes e sentimentos em relação à comunidade, grupos e sociedade.\nMarque o quanto cada uma se aplica a você.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },

@@ -120,10 +120,55 @@ export const IFMSC_INVENTORY: InventoryForm = {
     type: 'average',
     description: 'A pontuação média (0-4) representa o nível de fadiga mental e sobrecarga cognitiva percebida. Escores mais altos indicam maior exaustão.',
     ranges: [
-      { min: 0, max: 0.9, label: 'Sem Fadiga Mental', description: 'Energia cognitiva preservada e boa capacidade de recuperação.' },
-      { min: 1, max: 1.9, label: 'Fadiga Mental Leve', description: 'Cansaço mental após esforço, mas com recuperação adequada.' },
-      { min: 2, max: 2.9, label: 'Fadiga Mental Moderada', description: 'Sensação persistente de exaustão com impacto no desempenho e humor.' },
-      { min: 3, max: 4, label: 'Exaustão Cognitiva (Burnout)', description: 'Esgotamento mental severo e crônico, com dificuldade de recuperação.' },
+      { 
+        min: 0, 
+        max: 0.9, 
+        label: 'Sem Fadiga Mental Significativa', 
+        description: 'Energia cognitiva preservada. O cansaço relatado é proporcional ao esforço e aliviado pelo descanso normal.',
+        recommendations: [
+          'Manter rotina equilibrada entre trabalho e lazer.',
+          'Preservar sono de qualidade.',
+          'Praticar atividades de "descompressão" diária.'
+        ]
+      },
+      { 
+        min: 1, 
+        max: 1.9, 
+        label: 'Fadiga Mental Leve', 
+        description: 'Sinais iniciais de cansaço mental, aparecendo geralmente ao final do dia ou após semanas intensas. A recuperação ainda ocorre, mas pode demorar um pouco mais.',
+        recommendations: [
+          'Micro-pausas ativas durante o dia (levantar, esticar, beber água).',
+          'Revisar a carga de trabalho e compromissos.',
+          'Digital Detox: reduzir tempo de tela fora do trabalho.',
+          'Garantir finais de semana livres de obrigações mentais intensas.'
+        ]
+      },
+      { 
+        min: 2, 
+        max: 2.9, 
+        label: 'Sobrecarga Cognitiva Moderada', 
+        description: 'Cansaço persistente que afeta o humor e a produtividade. Sensação de "arrastar-se" para cumprir tarefas. O sono pode não ser totalmente reparador. Risco aumentado de erros e irritabilidade.',
+        recommendations: [
+          'Necessidade de reestruturação da rotina para incluir descanso obrigatório.',
+          'Avaliar níveis de estresse crônico.',
+          'Práticas de relaxamento profundo ou meditação.',
+          'Delegar tarefas e reduzir o nível de exigência temporariamente.',
+          'Avaliação médica para descartar causas físicas (anemia, tireoide).'
+        ]
+      },
+      { 
+        min: 3, 
+        max: 4, 
+        label: 'Exaustão Cognitiva Severa (Risco de Burnout)', 
+        description: 'Esgotamento mental profundo. Sensação de colapso, incapacidade de concentração, apatia ou despersonalização. O descanso comum não recupera a energia. Alto risco para Síndrome de Burnout.',
+        recommendations: [
+          'Afastamento temporário de estressores, se possível (licença, férias).',
+          'Psicoterapia para manejo de Burnout.',
+          'Acompanhamento psiquiátrico pode ser necessário.',
+          'Prioridade absoluta para a recuperação fisiológica e mental.',
+          'Evitar tomada de decisões importantes neste estado.'
+        ]
+      },
     ],
   }
 };

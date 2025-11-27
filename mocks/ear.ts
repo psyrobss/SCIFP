@@ -7,6 +7,7 @@ export const EAR_INVENTORY: InventoryForm = {
   name: 'Escala de Autoexpansão em Relacionamento Romântico (EAR)',
   objective: 'Avaliar a extensão em que o indivíduo se expande pessoalmente, emocional e cognitivamente, através de um parceiro romântico.',
   instructions: 'Leia cada afirmação e indique o quanto ela descreve seu comportamento ou sentimentos habituais com seu parceiro romântico.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },

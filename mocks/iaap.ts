@@ -7,6 +7,7 @@ export const IAAP_INVENTORY: InventoryForm = {
   name: 'Inventário de Autodeterminação e Agência Pessoal',
   objective: 'Avaliar o grau em que o indivíduo demonstra senso de autonomia, controle interno, iniciativa e responsabilidade pessoal sobre suas escolhas, ações e metas.',
   instructions: 'As afirmações abaixo descrevem como as pessoas costumam se relacionar com suas decisões e com o próprio senso de direção na vida.\nLeia cada frase e indique com que frequência ela descreve o que você realmente sente ou faz.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },

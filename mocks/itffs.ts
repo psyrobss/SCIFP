@@ -7,6 +7,7 @@ export const ITFFS_INVENTORY: InventoryForm = {
   name: 'Inventário de Tolerância à Frustração e Frustração Social',
   objective: 'Avaliar a capacidade do indivíduo de lidar com frustrações, obstáculos, atrasos, contratempos e desafios interpessoais de forma adaptativa, sem reações impulsivas ou emocionais desproporcionais.',
   instructions: 'Leia cada afirmação e indique com que frequência você vivencia o comportamento ou sentimento descrito ao enfrentar situações frustrantes ou desafiadoras socialmente.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },
@@ -80,10 +81,51 @@ export const ITFFS_INVENTORY: InventoryForm = {
     type: 'sum',
     description: 'Pontuação total: 0–112. Itens invertidos: 2, 4, 6, 9, 11, 13, 16, 18, 20, 23, 25, 27.',
     ranges: [
-      { min: 0, max: 28, label: 'Muito baixa', description: 'Dificuldade significativa em lidar com frustração, impulsividade emocional, baixa resiliência' },
-      { min: 29, max: 56, label: 'Baixa', description: 'Algumas dificuldades em tolerar frustrações e contratempos' },
-      { min: 57, max: 84, label: 'Funcional', description: 'Capacidade adequada de lidar com obstáculos e situações sociais desafiadoras' },
-      { min: 85, max: 112, label: 'Alta', description: 'Excelente tolerância à frustração, controle emocional e persistência' },
+      { 
+        min: 0, 
+        max: 28, 
+        label: 'Tolerância Muito Baixa à Frustração (LFT)', 
+        description: 'Dificuldade significativa em lidar com o não-atendimento de desejos ou obstáculos. Reações impulsivas, raiva intensa ou desistência imediata são comuns.',
+        recommendations: [
+          'Treino de Tolerância ao Mal-Estar (habilidades DBT).',
+          'Identificar crenças irracionais de "eu tenho que ter o que quero agora".',
+          'Exercícios de exposição gradual a pequenas frustrações.',
+          'Técnicas de relaxamento para reduzir a ativação fisiológica da raiva.'
+        ]
+      },
+      { 
+        min: 29, 
+        max: 56, 
+        label: 'Tolerância Baixa', 
+        description: 'Algumas dificuldades em tolerar frustrações e contratempos. Pode haver irritabilidade frequente ou procrastinação para evitar desconforto.',
+        recommendations: [
+          'Reestruturação cognitiva: mudar "isso é insuportável" para "isso é difícil, mas posso lidar".',
+          'Desenvolver paciência através de mindfulness.',
+          'Focar na resolução de problemas em vez de na reação emocional.'
+        ]
+      },
+      { 
+        min: 57, 
+        max: 84, 
+        label: 'Tolerância Funcional', 
+        description: 'Capacidade adequada de lidar com obstáculos e situações sociais desafiadoras. O indivíduo sente frustração, mas não é paralisado por ela.',
+        recommendations: [
+          'Fortalecer a resiliência focando no aprendizado com o erro.',
+          'Praticar a aceitação radical de situações que não podem ser mudadas.',
+          'Manter perspectiva de longo prazo em projetos difíceis.'
+        ]
+      },
+      { 
+        min: 85, 
+        max: 112, 
+        label: 'Tolerância Elevada (Resiliência)', 
+        description: 'Excelente controle emocional, persistência e capacidade de adaptação frente a bloqueios. Transforma frustração em motivação.',
+        recommendations: [
+          'Utilizar a estabilidade emocional para mediar conflitos.',
+          'Assumir desafios que exijam perseverança.',
+          'Servir de modelo de regulação para outras pessoas.'
+        ]
+      },
     ],
   },
 };

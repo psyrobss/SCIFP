@@ -128,12 +128,54 @@ export const IES_INVENTORY: InventoryForm = {
   ],
   scoring: {
     type: 'average',
-    description: 'A pontuação é a média das respostas (0-4), representando a intensidade do sofrimento. A análise por domínio revela o estilo predominante.',
+    description: 'A pontuação é a média das respostas (0-4), representando a intensidade e o estilo do sofrimento.',
     ranges: [
-      { min: 0, max: 0.9, label: 'Baixa', description: 'Boa capacidade de lidar com emoções; sofrimento adaptativo.' },
-      { min: 1, max: 1.9, label: 'Leve', description: 'Sofrimento presente, mas manejável; requer autorregulação emocional.' },
-      { min: 2, max: 2.9, label: 'Moderada', description: 'Padrões desadaptativos de enfrentamento da dor; requer intervenção psicoterápica focal.' },
-      { min: 3, max: 4, label: 'Elevada', description: 'Sofrimento persistente, internalizado ou desorganizado; risco de esgotamento afetivo.' }
+      { 
+        min: 0, 
+        max: 0.9, 
+        label: 'Manejo Emocional Adaptativo', 
+        description: 'O indivíduo demonstra boa capacidade de lidar com a dor e frustração, sem recorrer a mecanismos rígidos de evitação, culpa ou dependência.',
+        recommendations: [
+          'Manter práticas de autoconhecimento e expressão emocional saudável.',
+          'Fortalecer a rede de apoio como fator de proteção.',
+          'Praticar a aceitação ativa das emoções difíceis como parte da vida.'
+        ]
+      },
+      { 
+        min: 1, 
+        max: 1.9, 
+        label: 'Sofrimento Leve / Reativo', 
+        description: 'Presença de alguns padrões desadaptativos (como leve evitação ou autocrítica) em momentos de maior estresse, mas com recuperação funcional.',
+        recommendations: [
+          'Identificar gatilhos que ativam a autocrítica ou a necessidade de isolamento.',
+          'Praticar a autocompaixão em momentos de falha ou dor.',
+          'Experimentar expressar sentimentos em um ambiente seguro (diário, terapia).'
+        ]
+      },
+      { 
+        min: 2, 
+        max: 2.9, 
+        label: 'Padrões Desadaptativos Moderados', 
+        description: 'Tendência consistente a lidar com o sofrimento de forma que pode perpetuá-lo (ex: ruminar culpa, evitar contato, depender excessivamente). Requer atenção clínica.',
+        recommendations: [
+          'Psicoterapia para flexibilizar os modos de enfrentamento.',
+          'Treinamento em Regulação Emocional para reduzir a necessidade de evitação.',
+          'Questionar crenças de que "sentir dor é perigoso" ou "sou culpado por sofrer".',
+          'Técnicas de Mindfulness para observar a dor sem se fundir a ela.'
+        ]
+      },
+      { 
+        min: 3, 
+        max: 4, 
+        label: 'Estilo de Sofrimento Disfuncional Severo', 
+        description: 'Padrões rígidos e intensos de sofrimento (ex: vazio existencial profundo, dissociação forte ou autocrítica punitiva). Alto risco de agravamento clínico (depressão, ansiedade).',
+        recommendations: [
+          'Intervenção psicoterapêutica focal e intensiva.',
+          'Terapia de Aceitação e Compromisso (ACT) para trabalhar a esquiva experiencial.',
+          'Avaliação para quadros depressivos ou traumáticos.',
+          'Desenvolvimento urgente de recursos de auto-acalmamento e segurança interna.'
+        ]
+      }
     ],
   }
 };

@@ -120,10 +120,53 @@ export const IFEC_INVENTORY: InventoryForm = {
     type: 'average',
     description: 'A pontuação média (0-4) reflete o nível de disfunção executiva percebida. Escores mais altos indicam maiores dificuldades.',
     ranges: [
-      { min: 0, max: 0.9, label: 'Funcionamento Executivo Eficaz', description: 'Alta capacidade de planejamento, flexibilidade e autocontrole.' },
-      { min: 1, max: 1.9, label: 'Dificuldades Executivas Leves', description: 'Dificuldades pontuais, principalmente em situações de estresse.' },
-      { min: 2, max: 2.9, label: 'Disfunção Executiva Moderada', description: 'Dificuldades persistentes com impacto na rotina e produtividade.' },
-      { min: 3, max: 4, label: 'Disfunção Executiva Significativa', description: 'Forte impacto no funcionamento diário; sugere-se avaliação aprofundada.' },
+      { 
+        min: 0, 
+        max: 0.9, 
+        label: 'Funcionamento Executivo Eficaz', 
+        description: 'Indivíduo apresenta boa capacidade de autogerenciamento, planejamento e flexibilidade. Consegue inibir impulsos e monitorar o próprio desempenho de forma adequada.',
+        recommendations: [
+          'Manter desafios cognitivos para preservar a função executiva.',
+          'Pode atuar como mentor ou organizador em contextos de grupo devido à boa capacidade de gestão.',
+          'Continuar utilizando estratégias intuitivas de organização.'
+        ]
+      },
+      { 
+        min: 1, 
+        max: 1.9, 
+        label: 'Dificuldades Executivas Leves', 
+        description: 'Falhas ocasionais na organização, procrastinação ou controle de impulsos, geralmente exacerbadas por cansaço ou estresse. Não chega a comprometer gravemente a independência.',
+        recommendations: [
+          'Uso de ferramentas externas (agendas, apps de tarefas) para reduzir carga mental.',
+          'Técnicas de "time-blocking" para melhorar a gestão do tempo.',
+          'Mindfulness para melhorar o foco e reduzir a reatividade sob estresse.',
+          'Higiene do sono, pois a fadiga afeta rapidamente as funções executivas.'
+        ]
+      },
+      { 
+        min: 2, 
+        max: 2.9, 
+        label: 'Disfunção Executiva Moderada', 
+        description: 'Dificuldades consistentes em iniciar tarefas, manter o foco ou regular impulsos. Impacto perceptível na produtividade acadêmica/profissional e na gestão doméstica. Comum em quadros de TDAH, ansiedade generalizada ou depressão.',
+        recommendations: [
+          'Avaliação clínica para transtornos de déficit de atenção ou humor.',
+          'Terapia Cognitivo-Comportamental (TCC) focada em treino de habilidades executivas.',
+          'Quebrar tarefas complexas em passos menores (micro-passos).',
+          'Externalizar a motivação (trabalhar com parceiros de responsabilidade/body doubling).'
+        ]
+      },
+      { 
+        min: 3, 
+        max: 4, 
+        label: 'Disfunção Executiva Significativa', 
+        description: 'Prejuízo severo na capacidade de autogerenciamento. Dificuldade marcante em iniciar, planejar e concluir atividades, com alta impulsividade ou rigidez. Risco de prejuízos sociais, financeiros e ocupacionais graves.',
+        recommendations: [
+          'Avaliação neuropsicológica e psiquiátrica urgente.',
+          'Intervenção medicamentosa pode ser necessária dependendo da causa base (ex: TDAH severo).',
+          'Reabilitação neuropsicológica focada em compensação de déficits.',
+          'Suporte familiar ou profissional para estruturação do ambiente e rotina.'
+        ]
+      },
     ],
   }
 };

@@ -116,10 +116,52 @@ export const ISV_INVENTORY: InventoryForm = {
     description: 'A pontuação total (0-100) indica o nível de vulnerabilidade identitária. Pontuações mais altas refletem maior fragmentação e instabilidade do self.',
     notes: ['Itens que indicam força e estabilidade do self são revertidos na pontuação.'],
     ranges: [
-      { min: 0, max: 25, label: 'Baixa Vulnerabilidade (Self Integrado)', description: 'Identidade integrada, autoaceitação e autenticidade.' },
-      { min: 26, max: 50, label: 'Vulnerabilidade Moderada', description: 'Identidade funcional, mas com sensibilidade à críticas e pressões externas.' },
-      { min: 51, max: 75, label: 'Vulnerabilidade Significativa', description: 'Tendência à fragmentação, dependência externa e baixa coesão do self.' },
-      { min: 76, max: 100, label: 'Alta Vulnerabilidade (Self Fragmentado)', description: 'Forte instabilidade, confusão de identidade e dificuldade de manter um senso de self contínuo.' },
+      { 
+        min: 0, 
+        max: 25, 
+        label: 'Self Integrado (Baixa Vulnerabilidade)', 
+        description: 'Identidade coesa, senso de continuidade estável e autenticidade. Boa resistência a pressões externas.',
+        recommendations: [
+          'Continuar investindo em projetos alinhados aos valores pessoais.',
+          'Praticar a autoexpressão em novos contextos.',
+          'Servir como mentor ou modelo de autenticidade para outros.'
+        ]
+      },
+      { 
+        min: 26, 
+        max: 50, 
+        label: 'Vulnerabilidade Moderada', 
+        description: 'Identidade funcional, mas com sensibilidade à críticas e dependência parcial da validação externa. Possível uso de "máscaras" sociais.',
+        recommendations: [
+          'Trabalhar a diferenciação entre "o que eu quero" e "o que esperam de mim".',
+          'Fortalecer a autoestima independente de resultados externos.',
+          'Exercícios de valores para clarificar a bússola interna.'
+        ]
+      },
+      { 
+        min: 51, 
+        max: 75, 
+        label: 'Vulnerabilidade Significativa', 
+        description: 'Tendência à fragmentação sob estresse, dúvida constante sobre quem se é e alta conformidade social por medo de rejeição.',
+        recommendations: [
+          'Terapia focada na construção da identidade e narrativa pessoal.',
+          'Explorar crenças de "não ser bom o suficiente" ou "ser defeituoso".',
+          'Reduzir a exposição a ambientes excessivamente críticos.',
+          'Diário de autodescoberta para registrar preferências e sentimentos genuínos.'
+        ]
+      },
+      { 
+        min: 76, 
+        max: 100, 
+        label: 'Alta Vulnerabilidade (Self Fragmentado)', 
+        description: 'Forte instabilidade, sensação de vazio, confusão de identidade e dificuldade de manter um senso de self contínuo. Risco de despersonalização.',
+        recommendations: [
+          'Intervenção clínica prioritária para estruturação do self.',
+          'Evitar decisões de vida drásticas enquanto estiver em crise de identidade.',
+          'Atividades de "grounding" (ancoragem) para aumentar a sensação de realidade.',
+          'Validar a própria existência e necessidades básicas.'
+        ]
+      },
     ],
   },
 };

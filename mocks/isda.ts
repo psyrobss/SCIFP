@@ -7,6 +7,7 @@ export const ISDA_INVENTORY: InventoryForm = {
   name: 'Inventário de Sensibilidade e Desempenho Adaptativo (AH/SD)',
   objective: 'Mapear características frequentes em pessoas com altas habilidades/superdotação (AH/SD) e perfis de sensibilidade (alto rendimento cognitivo + sensibilidade emocional), incluindo processamento intensificado, criatividade, sensibilidade emocional, necessidades específicas de adaptação e bem-estar social/emocional.',
   instructions: 'As afirmações a seguir descrevem características e experiências relacionadas a sensibilidade e desempenho. Considere as últimas 4 semanas e marque a opção que melhor descreve você.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca ou quase nunca' },
     { value: 1, label: 'Raramente' },
@@ -98,10 +99,51 @@ export const ISDA_INVENTORY: InventoryForm = {
     type: 'sum',
     description: 'A pontuação total (0-120) sugere um perfil de sensibilidade e desempenho. Pontuações mais altas indicam maior presença de características associadas a AH/SD.',
     ranges: [
-      { min: 96, max: 120, label: 'Perfil de alta sensibilidade + alto desempenho (AH/SD provável)', description: 'Demanda adaptações educativas/profissionais; risco emocional se sem suporte.' },
-      { min: 60, max: 95, label: 'Perfil de alto potencial com necessidades pontuais', description: 'Beneficia-se de enriquecimento e suporte emocional.' },
-      { min: 30, max: 59, label: 'Potencial moderado/variável', description: 'Áreas de talento e de dificuldade; avaliar contexto para intervenções.' },
-      { min: 0, max: 29, label: 'Baixa expressão de traços AH/SD', description: 'Não exclui talentos específicos, mas menos perfil típico de AH/SD.' },
+      { 
+        min: 96, 
+        max: 120, 
+        label: 'Perfil AH/SD Pronunciado', 
+        description: 'Forte presença de características associadas a Altas Habilidades/Superdotação e sobre-excitabilidade. Alta intensidade cognitiva e emocional.',
+        recommendations: [
+          'Buscar enriquecimento intelectual e desafios complexos para evitar tédio.',
+          'Desenvolver estratégias de regulação para lidar com a intensidade emocional (sobre-excitabilidade).',
+          'Procurar pares intelectuais ou grupos de interesse para reduzir a sensação de isolamento.',
+          'Praticar técnicas de "descompressão" sensorial em ambientes muito estimulantes.'
+        ]
+      },
+      { 
+        min: 60, 
+        max: 95, 
+        label: 'Perfil de Alto Potencial e Sensibilidade', 
+        description: 'Indícios claros de pensamento divergente, sensibilidade e rapidez cognitiva. Pode apresentar necessidades de adaptação em contextos convencionais.',
+        recommendations: [
+          'Valorizar a criatividade e buscar ambientes que permitam autonomia.',
+          'Monitorar níveis de perfeccionismo que possam travar a produtividade.',
+          'Validar a própria sensibilidade como uma força, não um defeito.',
+          'Equilibrar atividades intelectuais com autocuidado físico e emocional.'
+        ]
+      },
+      { 
+        min: 30, 
+        max: 59, 
+        label: 'Potencial e Sensibilidade Moderados', 
+        description: 'Perfil equilibrado, com áreas de talento e sensibilidade, mas sem os extremos típicos da superdotação. Boa adaptação geral.',
+        recommendations: [
+          'Investir em áreas de interesse específico para desenvolver talentos.',
+          'Utilizar a sensibilidade para melhorar relações interpessoais (empatia).',
+          'Manter rotinas organizadas para otimizar o desempenho.'
+        ]
+      },
+      { 
+        min: 0, 
+        max: 29, 
+        label: 'Baixa Expressão de Traços AH/SD', 
+        description: 'Processamento cognitivo e emocional dentro da média populacional. Menor necessidade de adaptações curriculares ou ambientais específicas.',
+        recommendations: [
+          'Focar no desenvolvimento de competências através de esforço e prática deliberada.',
+          'Aproveitar a estabilidade emocional para assumir funções de liderança ou mediação.'
+        ]
+      },
     ],
   },
 };

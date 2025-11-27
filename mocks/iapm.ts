@@ -120,10 +120,53 @@ export const IAPM_INVENTORY: InventoryForm = {
     type: 'average',
     description: 'A pontuação média (0-4) indica a intensidade das dificuldades de atenção e processamento mental. Escores mais altos sugerem maiores déficits.',
     ranges: [
-      { min: 0, max: 0.9, label: 'Atenção e Processamento Preservados', description: 'Funcionamento atencional robusto e clareza mental.' },
-      { min: 1, max: 1.9, label: 'Dificuldades Atencionais Leves', description: 'Lapsos de atenção ocasionais, principalmente sob fadiga.' },
-      { min: 2, max: 2.9, label: 'Dificuldades Atencionais Moderadas', description: 'Dificuldades persistentes de foco e processamento com impacto na performance.' },
-      { min: 3, max: 4, label: 'Dificuldades Atencionais Severas', description: 'Sintomas consistentes com déficits atencionais significativos (ex: TDAH, sobrecarga cognitiva).' },
+      { 
+        min: 0, 
+        max: 0.9, 
+        label: 'Atenção e Processamento Preservados', 
+        description: 'Boa capacidade de foco, seleção de estímulos e velocidade de pensamento. Consegue lidar bem com ambientes ruidosos e multitarefas ocasionais.',
+        recommendations: [
+          'Manter hábitos que favorecem a neuroplasticidade (leitura, aprendizado de novas habilidades).',
+          'Utilizar momentos de alta clareza mental para tarefas complexas.',
+          'Pausas regulares para evitar fadiga futura.'
+        ]
+      },
+      { 
+        min: 1, 
+        max: 1.9, 
+        label: 'Dificuldades Atencionais Leves', 
+        description: 'Lapsos de atenção ocasionais, distratibilidade em ambientes estimulantes ou leve lentificação. Pode ser resultado de cansaço, desinteresse pela tarefa ou uso excessivo de telas.',
+        recommendations: [
+          'Técnica Pomodoro (foco intervalado) para tarefas longas.',
+          'Reduzir multitarefas: focar em uma coisa de cada vez.',
+          'Limitar notificações digitais durante o trabalho/estudo.',
+          'Avaliar qualidade do sono, pois afeta diretamente a velocidade de processamento.'
+        ]
+      },
+      { 
+        min: 2, 
+        max: 2.9, 
+        label: 'Dificuldades Atencionais Moderadas', 
+        description: 'Dificuldades persistentes de concentração e organização mental. Sensação frequente de "mente cheia" ou lenta. Impacta a produtividade e pode gerar erros por descuido. Comum em TDAH não tratado, ansiedade ou depressão.',
+        recommendations: [
+          'Avaliação clínica para transtornos de atenção (TDAH) ou ansiosos.',
+          'Adaptação do ambiente de trabalho (uso de fones de cancelamento de ruído, mesas limpas).',
+          'Prática de Mindfulness para treinar o retorno ao foco.',
+          'Escrever tudo: não confiar apenas na memória de trabalho.'
+        ]
+      },
+      { 
+        min: 3, 
+        max: 4, 
+        label: 'Déficit Atencional Severo / Nevoeiro Mental', 
+        description: 'Prejuízo significativo na capacidade de processar informações, manter o foco ou alternar tarefas. Sensação de confusão mental intensa. Pode indicar exaustão cognitiva grave, efeitos colaterais de medicação ou condições neurológicas.',
+        recommendations: [
+          'Avaliação neurológica e psiquiátrica mandatória.',
+          'Investigar causas metabólicas (ex: tireoide, vitaminas B12/D) e sono (apneia).',
+          'Repouso cognitivo e redução drástica de estímulos.',
+          'Simplificação extrema da rotina diária até a recuperação.'
+        ]
+      },
     ],
   }
 };

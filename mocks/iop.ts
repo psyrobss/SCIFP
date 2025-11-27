@@ -6,7 +6,8 @@ export const IOP_INVENTORY: InventoryForm = {
   acronym: 'IOP',
   name: 'Inventário de Organização Psíquica',
   objective: 'Avaliar o nível de coesão interna, integração identitária e estabilidade emocional-estrutural do indivíduo. O instrumento identifica padrões de funcionamento psicológico que variam de uma organização integrada (neurótica) até uma organização desorganizada (limítrofe ou fragmentada).',
-  instructions: 'Abaixo estão descritas diversas afirmações sobre como você costuma perceber a si mesmo e reagir diante de situações. Marque o quanto cada uma delas se aplica a você na maior parte do tempo.',
+  instructions: 'Abaixo estão descritas diversas afirmações sobre como você costuma perceber a si mesmo e reagir diante da situações. Marque o quanto cada uma delas se aplica a você na maior parte do tempo.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca ou quase nunca' },
     { value: 1, label: 'Raramente' },
@@ -96,10 +97,53 @@ export const IOP_INVENTORY: InventoryForm = {
     type: 'sum',
     description: 'A pontuação é a soma total das respostas (0-80). Pontuações mais altas indicam uma organização psíquica mais integrada e estável.',
     ranges: [
-      { min: 65, max: 80, label: 'Organização Integrada (neurótica)', description: 'Self coeso, defesas maduras, estabilidade emocional e percepção realista.' },
-      { min: 45, max: 64, label: 'Organização Moderada (limítrofe alta)', description: 'Alguma oscilação afetiva, leve confusão identitária, boa capacidade de reflexão.' },
-      { min: 25, max: 44, label: 'Organização Instável (limítrofe baixa)', description: 'Flutuação emocional, defesas primitivas ocasionais, dificuldades de integração.' },
-      { min: 0, max: 24, label: 'Organização Fragmentada (pré-psicótica)', description: 'Self difuso, uso intenso de cisão/projeção, instabilidade acentuada e percepção distorcida.' }
+      { 
+        min: 65, 
+        max: 80, 
+        label: 'Organização Integrada (Neurótica Saudável)', 
+        description: 'Self coeso, identidade clara, defesas maduras e boa capacidade de regulação emocional. Percepção realista de si e dos outros.',
+        recommendations: [
+          'Manter práticas de autodesenvolvimento e insight.',
+          'Utilizar a estabilidade emocional para apoiar outros ou assumir liderança.',
+          'Trabalhar aspectos sutis de perfeccionismo ou autoexigência, se presentes.'
+        ]
+      },
+      { 
+        min: 45, 
+        max: 64, 
+        label: 'Organização Moderada (Limítrofe Alta)', 
+        description: 'Funcionamento geral adaptativo, mas com vulnerabilidade a estressores intensos. Alguma oscilação na autoimagem ou no humor pode ocorrer.',
+        recommendations: [
+          'Terapia focada em identificar gatilhos de instabilidade.',
+          'Fortalecimento de limites interpessoais.',
+          'Técnicas de mentalização para melhorar a compreensão das intenções alheias.',
+          'Monitorar o uso de defesas como projeção ou negação em conflitos.'
+        ]
+      },
+      { 
+        min: 25, 
+        max: 44, 
+        label: 'Organização Instável (Limítrofe Baixa)', 
+        description: 'Flutuação emocional frequente, identidade difusa e uso recorrente de mecanismos de defesa primitivos (cisão: tudo bom ou tudo ruim). Relacionamentos tendem a ser intensos e instáveis.',
+        recommendations: [
+          'Terapia Dialética Comportamental (DBT) ou Terapia Focada na Transferência (TFP).',
+          'Foco prioritário em regulação emocional e tolerância ao mal-estar.',
+          'Trabalho de integração da identidade (unir aspectos positivos e negativos de si mesmo).',
+          'Evitar uso de substâncias que desregulem o humor.'
+        ]
+      },
+      { 
+        min: 0, 
+        max: 24, 
+        label: 'Organização Fragmentada (Pré-Psicótica/Desorganizada)', 
+        description: 'Self difuso, dificuldade em diferenciar fantasia de realidade, angústias intensas de aniquilação ou invasão. Baixa capacidade de conter impulsos.',
+        recommendations: [
+          'Intervenção psiquiátrica para estabilização de sintomas.',
+          'Psicoterapia de apoio e estruturação do ego (foco no "aqui e agora").',
+          'Ambiente seguro e rotinas previsíveis são fundamentais.',
+          'Redução de estímulos estressores.'
+        ]
+      }
     ],
   }
 };

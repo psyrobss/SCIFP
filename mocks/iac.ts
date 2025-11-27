@@ -7,6 +7,7 @@ export const IAC_INVENTORY: InventoryForm = {
   name: 'Inventário de Aliança e Colaboração Terapêutica (IAC)',
   objective: 'Avaliar a aliança terapêutica e a colaboração percebida entre paciente e terapeuta, entendidas como fatores centrais para a eficácia do processo psicoterápico.',
   instructions: 'A seguir estão frases sobre sua relação com o(a) seu/sua terapeuta e sobre como você percebe o trabalho conjunto nas sessões. Leia com atenção e assinale o quanto cada afirmação corresponde à sua experiência.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca é verdade para mim' },
     { value: 1, label: 'Raramente é verdade para mim' },
@@ -131,10 +132,50 @@ export const IAC_INVENTORY: InventoryForm = {
     description: 'O escore total (0–160) indica o grau global de aliança terapêutica percebida.',
     subScoresDescription: 'Subescores por domínio podem ser calculados para avaliar dimensões específicas (vínculo, colaboração, sintonia etc.).',
     ranges: [
-      { min: 0, max: 40, label: 'Aliança frágil', description: 'Aliança frágil; sentimentos de distância, desconfiança ou evasão.' },
-      { min: 41, max: 80, label: 'Vínculo moderado', description: 'Vínculo moderado, mas com lacunas na comunicação ou engajamento.' },
-      { min: 81, max: 120, label: 'Boa aliança', description: 'Boa aliança e colaboração; base sólida para o processo.' },
-      { min: 121, max: 160, label: 'Aliança madura', description: 'Aliança terapêutica madura e colaborativa, com alta sintonia e autonomia reflexiva.' }
+      { 
+        min: 0, 
+        max: 40, 
+        label: 'Aliança Frágil / Ruptura', 
+        description: 'Sentimentos de distância, desconfiança ou falta de segurança na relação. Risco de abandono da terapia.',
+        recommendations: [
+          'Prioridade máxima: discutir abertamente a relação terapêutica.',
+          'Investigar se houve rupturas não reparadas ou mal-entendidos.',
+          'Reavaliar se o estilo do terapeuta é adequado às necessidades do paciente.'
+        ]
+      },
+      { 
+        min: 41, 
+        max: 80, 
+        label: 'Aliança Moderada / Em Construção', 
+        description: 'Vínculo existente, mas com lacunas na comunicação, engajamento ou confiança plena. Pode haver hesitação em se aprofundar.',
+        recommendations: [
+          'Focar no fortalecimento da confiança e segurança.',
+          'Clarificar objetivos e tarefas da terapia para alinhar expectativas.',
+          'Incentivar feedback do paciente sobre o processo.'
+        ]
+      },
+      { 
+        min: 81, 
+        max: 120, 
+        label: 'Boa Aliança Terapêutica', 
+        description: 'Relação colaborativa e segura. O paciente sente-se compreendido e engajado, com boa base para o trabalho clínico.',
+        recommendations: [
+          'Manter a transparência e a colaboração.',
+          'Usar a segurança da relação para explorar temas mais difíceis.',
+          'Monitorar periodicamente a satisfação com o progresso.'
+        ]
+      },
+      { 
+        min: 121, 
+        max: 160, 
+        label: 'Aliança Terapêutica Sólida e Madura', 
+        description: 'Excelente sintonia, confiança profunda e parceria. A relação serve como modelo de vínculo seguro e promove autonomia.',
+        recommendations: [
+          'Utilizar a relação para reparar padrões de vínculo antigos.',
+          'Promover a generalização dos ganhos relacionais para fora da terapia.',
+          'Preparar para a autonomia e eventual alta, consolidando a internalização do "terapeuta interno".'
+        ]
+      }
     ]
   }
 };

@@ -120,10 +120,52 @@ export const IRECI_INVENTORY: InventoryForm = {
     type: 'average',
     description: 'A pontuação média (0-4) indica o nível de desregulação emocional. Escores mais altos sugerem maiores dificuldades de regulação e controle de impulsos.',
     ranges: [
-      { min: 0, max: 0.9, label: 'Regulação Emocional Eficaz', description: 'Boa capacidade de consciência, controle e manejo emocional.' },
-      { min: 1, max: 1.9, label: 'Dificuldades Leves de Regulação', description: 'Reações impulsivas ou dificuldades emocionais em situações de alto estresse.' },
-      { min: 2, max: 2.9, label: 'Desregulação Moderada', description: 'Dificuldades persistentes em controlar reações e regular emoções, com impacto interpessoal.' },
-      { min: 3, max: 4, label: 'Desregulação Significativa', description: 'Padrão de instabilidade emocional e impulsividade com forte impacto funcional.' },
+      { 
+        min: 0, 
+        max: 0.9, 
+        label: 'Regulação Emocional Eficaz', 
+        description: 'Boa capacidade de consciência, controle e manejo emocional. O indivíduo recupera-se rapidamente de estressores.',
+        recommendations: [
+          'Manter práticas de autocuidado e atenção plena.',
+          'Servir como modelo de regulação em ambientes familiares ou de trabalho.',
+          'Continuar desenvolvendo a inteligência emocional em situações complexas.'
+        ]
+      },
+      { 
+        min: 1, 
+        max: 1.9, 
+        label: 'Dificuldades Leves de Regulação', 
+        description: 'Reações impulsivas ou dificuldades emocionais aparecem principalmente em situações de alto estresse ou cansaço.',
+        recommendations: [
+          'Identificar gatilhos específicos que levam à desregulação.',
+          'Praticar técnicas de "pausa" antes de reagir (contar até 10, respiração diafragmática).',
+          'Melhorar a higiene do sono e reduzir estimulantes.'
+        ]
+      },
+      { 
+        min: 2, 
+        max: 2.9, 
+        label: 'Desregulação Moderada', 
+        description: 'Dificuldades persistentes em controlar reações e regular emoções. Impacto visível nos relacionamentos e na autoimagem.',
+        recommendations: [
+          'Psicoterapia (TCC ou Terapia do Esquema) para identificação de padrões.',
+          'Treinamento de Habilidades Sociais e Assertividade.',
+          'Práticas regulares de Mindfulness para aumentar a janela de tolerância ao estresse.',
+          'Diário de emoções para monitorar padrões de reatividade.'
+        ]
+      },
+      { 
+        min: 3, 
+        max: 4, 
+        label: 'Desregulação Significativa', 
+        description: 'Padrão de instabilidade emocional e impulsividade com forte impacto funcional. Pode indicar traços de Transtorno de Personalidade ou Transtornos de Humor.',
+        recommendations: [
+          'Avaliação psicológica e psiquiátrica aprofundada.',
+          'Terapia Dialética Comportamental (DBT) focada em regulação emocional e tolerância ao mal-estar.',
+          'Estratégias de contenção de danos para comportamentos impulsivos.',
+          'Rede de apoio para momentos de crise.'
+        ]
+      },
     ],
   }
 };

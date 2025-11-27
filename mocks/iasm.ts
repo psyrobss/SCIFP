@@ -7,6 +7,7 @@ export const IASM_INVENTORY: InventoryForm = {
   name: 'Inventário de Autogestão de Saúde Mental',
   objective: 'Avaliar habilidades de autorregulação, autocuidado, adesão a recomendações terapêuticas, prevenção de recaídas e capacidade de gerenciar saúde mental de forma autônoma.',
   instructions: 'Leia cada afirmação e indique o quanto ela descreve seu comportamento ou atitude habitual em relação à sua saúde mental e bem-estar psicológico.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },

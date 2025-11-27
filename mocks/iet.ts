@@ -7,6 +7,7 @@ export const IET_INVENTORY: InventoryForm = {
   name: 'Inventário de Espiritualidade e Transcendência',
   objective: 'Avaliar o grau de espiritualidade subjetiva, sentido de transcendência e conexão com dimensões que ultrapassam o self individual — sejam elas de natureza simbólica, filosófica, ética ou religiosa.\nO foco não é a religiosidade formal, mas sim a vivência de conexão, propósito e ampliação de consciência.',
   instructions: 'Este questionário investiga como você percebe sua relação com algo maior do que si mesmo — seja a vida, a natureza, o universo, a humanidade ou um princípio espiritual.\n\nNão há respostas certas ou erradas. Responda de acordo com o quanto cada afirmação representa sua experiência pessoal.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca ou quase nunca' },
     { value: 1, label: 'Raramente' },

@@ -7,6 +7,7 @@ export const ICSA_INVENTORY: InventoryForm = {
   name: 'Inventário de Competência Social Avançada',
   objective: 'Avaliar o grau de sofisticação, flexibilidade e eficácia das habilidades sociais complexas do indivíduo — incluindo empatia estratégica, negociação, regulação interpessoal, adaptabilidade comunicativa e resolução de conflitos.',
   instructions: 'As frases a seguir descrevem atitudes e comportamentos que podem ocorrer nas relações interpessoais.\nLeia atentamente e indique com que frequência essas situações se aplicam a você.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },

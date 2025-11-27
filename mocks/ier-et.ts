@@ -7,6 +7,7 @@ export const IERET_INVENTORY: InventoryForm = {
   name: 'Inventário de Expressão da Raiva – Estado e Traço',
   objective: 'Avaliar a intensidade, frequência e forma de expressão da raiva, diferenciando entre: Raiva-Estado: experiência emocional momentânea, reativa a situações específicas. Raiva-Traço: predisposição estável a perceber situações como provocadoras e reagir com raiva. Controle e Expressão: formas de manejar ou externalizar a raiva (internamente, externamente ou de modo controlado).',
   instructions: 'Leia cada afirmação e marque o quanto ela descreve como você se sente neste momento (para Raiva-Estado) e como você geralmente se sente (para Raiva-Traço).',
+  scoreOrientation: 'higher_is_worse',
   responseScale: [
     { value: 0, label: 'Nada verdadeiro' },
     { value: 1, label: 'Pouco verdadeiro' },
@@ -91,12 +92,54 @@ export const IERET_INVENTORY: InventoryForm = {
   scoring: {
     type: 'sum',
     description: 'A pontuação total é a soma de todos os itens (0-120). Os escores de domínio também são a soma dos itens de cada domínio (0-40).',
-    subScoresDescription: 'Raiva-Estado (Itens 1–10): Intensidade momentânea da emoção de raiva. Raiva-Traço (Itens 11–20): Tendência estável à irritabilidade e agressividade. Expressão/Controle (Itens 21–30): Estratégias de expressão e regulação emocional.',
+    subScoresDescription: 'Raiva-Estado (Itens 1–10): Intensidade momentânea. Raiva-Traço (Itens 11–20): Predisposição temperamental. Expressão/Controle (Itens 21–30): Estilo de manejo.',
     ranges: [
-      { min: 0, max: 29, label: 'Raiva baixa / tendência à supressão emocional', description: '' },
-      { min: 30, max: 59, label: 'Raiva moderada, controle funcional adequado', description: '' },
-      { min: 60, max: 89, label: 'Raiva elevada, risco de impulsividade e conflito interpessoal', description: '' },
-      { min: 90, max: 120, label: 'Raiva crônica, expressão desadaptativa e baixa regulação', description: '' },
+      { 
+        min: 0, 
+        max: 29, 
+        label: 'Baixa Raiva / Controle Elevado', 
+        description: 'Indivíduo relata pouca experiência de raiva ou forte controle. Pode indicar calma genuína ou supressão emocional excessiva.',
+        recommendations: [
+          'Investigar se há negação da raiva ("engolir sapos").',
+          'Treinar assertividade para expressar insatisfações de forma saudável.',
+          'Validar a raiva como uma emoção legítima de proteção de limites.'
+        ]
+      },
+      { 
+        min: 30, 
+        max: 59, 
+        label: 'Raiva Moderada / Funcional', 
+        description: 'Experiência de raiva proporcional aos eventos, com capacidade de controle razoável. Expressão geralmente adequada.',
+        recommendations: [
+          'Monitorar gatilhos específicos de irritação.',
+          'Usar a raiva como sinal para resolver problemas ou estabelecer limites.',
+          'Praticar técnicas de descompressão após eventos estressantes.'
+        ]
+      },
+      { 
+        min: 60, 
+        max: 89, 
+        label: 'Raiva Elevada / Dificuldade de Controle', 
+        description: 'Frequente irritabilidade e reações intensas. Risco de prejuízo nas relações interpessoais e decisões impulsivas.',
+        recommendations: [
+          'Terapia focada no manejo da raiva (Anger Management).',
+          'Identificar pensamentos distorcidos (ex: "isso é injusto", "eles deveriam...").',
+          'Técnicas de relaxamento muscular e respiração diafragmática.',
+          'Canalização física da energia agressiva (exercícios).'
+        ]
+      },
+      { 
+        min: 90, 
+        max: 120, 
+        label: 'Raiva Crônica e Desadaptativa', 
+        description: 'Padrão severo de hostilidade, agressividade (verbal ou física) ou raiva internalizada (rancor). Alto risco para saúde física e social.',
+        recommendations: [
+          'Avaliação psicológica e psiquiátrica aprofundada.',
+          'Intervenção prioritária para segurança (se houver risco de agressão).',
+          'Treinamento intensivo de habilidades de regulação emocional.',
+          'Investigar comorbidades como depressão ou transtornos de personalidade.'
+        ]
+      },
     ],
     notes: ['Itens com (R) têm a pontuação invertida (0=4, 1=3, 2=2, 3=1, 4=0).'],
   },

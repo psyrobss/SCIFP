@@ -163,10 +163,53 @@ export const IANA_INVENTORY: InventoryForm = {
     type: 'average',
     description: 'A pontuação média (0-4) indica a intensidade percebida das alterações neuropsicológicas.',
     ranges: [
-      { min: 0, max: 0.9, label: 'Ausência de Queixas', description: 'Nenhuma queixa significativa de alteração neuropsicológica.' },
-      { min: 1, max: 1.9, label: 'Queixas Leves', description: 'Presença de queixas esporádicas, com baixo impacto funcional.' },
-      { min: 2, max: 2.9, label: 'Queixas Moderadas', description: 'Alterações persistentes com impacto perceptível no dia a dia.' },
-      { min: 3, max: 4, label: 'Queixas Intensas', description: 'Alterações significativas com forte impacto funcional; sugere-se investigação.' },
+      { 
+        min: 0, 
+        max: 0.9, 
+        label: 'Funcionamento Cognitivo Preservado', 
+        description: 'O indivíduo não relata queixas significativas. As falhas ocasionais estão dentro do esperado para o funcionamento cotidiano normal, provavelmente associadas a cansaço pontual ou distração, sem impacto funcional relevante.',
+        recommendations: [
+          'Manter estilo de vida ativo e cognitivamente estimulante.',
+          'Praticar higiene do sono e atividade física regular para preservação cognitiva.',
+          'Realizar check-up médico anual para monitoramento geral.'
+        ]
+      },
+      { 
+        min: 1, 
+        max: 1.9, 
+        label: 'Queixas Leves / Sintomas Subclínicos', 
+        description: 'Relato de dificuldades leves ou esporádicas. Podem estar associadas a estresse, ansiedade leve, privação de sono ou sobrecarga momentânea. O impacto funcional é baixo, mas o indivíduo percebe mudanças sutis.',
+        recommendations: [
+          'Investigar qualidade do sono e níveis de estresse atuais.',
+          'Utilizar estratégias externas de organização (agendas, lembretes).',
+          'Monitorar se os sintomas aumentam em períodos de maior exigência.',
+          'Considerar avaliação médica se houver histórico familiar de demência ou transtornos cognitivos.'
+        ]
+      },
+      { 
+        min: 2, 
+        max: 2.9, 
+        label: 'Alterações Moderadas / Sinal de Alerta', 
+        description: 'Queixas frequentes em múltiplos domínios. Indica provável disfunção que afeta a eficiência no trabalho ou na vida social. Pode sugerir transtornos de humor (depressão/ansiedade) afetando a cognição, TDAH adulto ou início de declínio cognitivo leve, dependendo da idade e contexto.',
+        recommendations: [
+          'Recomenda-se avaliação neuropsicológica formal para investigar déficits objetivos.',
+          'Avaliação psiquiátrica para descartar causas emocionais (depressão, ansiedade).',
+          'Implementar rotinas estruturadas e reduzir a sobrecarga de tarefas.',
+          'Treino cognitivo focado nas áreas de maior dificuldade (ex: atenção ou memória).'
+        ]
+      },
+      { 
+        min: 3, 
+        max: 4, 
+        label: 'Déficit Neuropsicológico Significativo', 
+        description: 'Relato de falhas graves e frequentes com alto impacto funcional e prejuízo na autonomia ou desempenho. Sugere comprometimento neurológico, psiquiátrico severo ou exaustão cognitiva extrema (Burnout).',
+        recommendations: [
+          'Encaminhamento prioritário para neurologista e neuropsicólogo.',
+          'Necessidade de suporte para atividades da vida diária se a autonomia estiver comprometida.',
+          'Investigação de causas orgânicas, metabólicas ou neurológicas.',
+          'Adaptação do ambiente para garantir segurança e funcionalidade.'
+        ]
+      },
     ],
   }
 };

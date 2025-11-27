@@ -7,6 +7,7 @@ export const IAAC_INVENTORY: InventoryForm = {
   name: 'Inventário de Autoestima e Autocompaixão',
   objective: 'Avaliar aceitação de si, autovalor, autocompaixão e níveis de autocrítica/perfeccionismo — para uso clínico em triagem e monitoramento terapêutico.',
   instructions: 'Leia cada afirmação e assinale o quanto ela se aplica na maior parte do tempo.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },
@@ -121,10 +122,52 @@ export const IAAC_INVENTORY: InventoryForm = {
     description: 'A pontuação total (0–120) indica o nível de Autoestima e Autocompaixão. Escores mais altos refletem maior aceitação e menor autocrítica desadaptativa.',
     subScoresDescription: 'Subescores por domínio podem ser calculados (média de 0-4) para análises específicas.',
     ranges: [
-      { min: 0, max: 29, label: 'Autoestima e autocompaixão muito reduzidas', description: 'Risco de autocrítica patológica; priorizar intervenções de segurança emocional e regulação.' },
-      { min: 30, max: 59, label: 'Baixa autoestima / autocompaixão', description: 'Trabalhar autovalor e práticas de autocompaixão.' },
-      { min: 60, max: 89, label: 'Autoestima moderada', description: 'Presença de recursos e pontos de fragilidade (perfil comum).' },
-      { min: 90, max: 120, label: 'Autoestima e autocompaixão elevadas', description: 'Boa aceitação, menor autocrítica desadaptativa.' },
+      { 
+        min: 0, 
+        max: 29, 
+        label: 'Autoestima e Autocompaixão Muito Reduzidas', 
+        description: 'Presença de autocrítica severa, vergonha e dificuldade em se acolher. Risco de sintomas depressivos e ansiosos.',
+        recommendations: [
+          'Terapia focada na Compaixão (CFT) ou TCC para reestruturação de crenças.',
+          'Exercícios de "Carta Compassiva" para si mesmo.',
+          'Identificar e desafiar a "voz do crítico interno".',
+          'Praticar o autocuidado básico como forma de validar o próprio valor.'
+        ]
+      },
+      { 
+        min: 30, 
+        max: 59, 
+        label: 'Baixa Autoestima / Autocompaixão', 
+        description: 'Autoimagem fragilizada, com tendência a se culpar por erros e dificuldade em reconhecer qualidades.',
+        recommendations: [
+          'Manter um diário de gratidão e conquistas diárias.',
+          'Trabalhar a aceitação de falhas como parte da humanidade comum.',
+          'Reduzir comparações sociais (ex: redes sociais).',
+          'Práticas de Mindfulness para observar julgamentos sem se apegar a eles.'
+        ]
+      },
+      { 
+        min: 60, 
+        max: 89, 
+        label: 'Autoestima Moderada', 
+        description: 'Nível funcional de autovalor, mas com oscilações em momentos de estresse ou falha. Presença de recursos e pontos de vulnerabilidade.',
+        recommendations: [
+          'Fortalecer a autoeficácia através de novos desafios.',
+          'Praticar a fala interna positiva.',
+          'Cultivar relacionamentos que ofereçam suporte e validação.'
+        ]
+      },
+      { 
+        min: 90, 
+        max: 120, 
+        label: 'Autoestima e Autocompaixão Elevadas', 
+        description: 'Relação saudável consigo mesmo, boa resiliência emocional, aceitação de imperfeições e autovalor estável.',
+        recommendations: [
+          'Manter práticas de autodesenvolvimento.',
+          'Servir como apoio para outros, utilizando a própria estabilidade.',
+          'Continuar cultivando a humildade e a abertura para aprender.'
+        ]
+      },
     ],
   },
 };

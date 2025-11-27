@@ -196,10 +196,51 @@ export const IEVA_INVENTORY: InventoryForm = {
     type: 'sum',
     description: 'Os escores podem ser analisados por domínio e de forma global.',
     ranges: [
-      { min: 0, max: 64, label: 'Baixa ativação de esquemas', description: 'Baixa ativação de esquemas afetivos; funcionamento emocional estável e adaptativo.' },
-      { min: 65, max: 128, label: 'Vulnerabilidades moderadas', description: 'Vulnerabilidades emocionais moderadas; tendência a padrões disfuncionais em situações de estresse.' },
-      { min: 129, max: 192, label: 'Ativação significativa de esquemas', description: 'Ativação significativa de esquemas afetivos; presença de padrões emocionais centrais rígidos ou automáticos.' },
-      { min: 193, max: 256, label: 'Alta disfunção afetiva', description: 'Alta disfunção afetiva; esquemas dominantes com forte impacto na autopercepção e nos vínculos.' }
+      { 
+        min: 0, 
+        max: 64, 
+        label: 'Baixa Ativação de Esquemas', 
+        description: 'Funcionamento emocional estável e adaptativo. Esquemas disfuncionais estão inativos ou são leves.',
+        recommendations: [
+          'Manter hábitos de autocuidado emocional.',
+          'Fortalecer a resiliência através de novos desafios.',
+          'Continuar investindo em relacionamentos saudáveis.'
+        ]
+      },
+      { 
+        min: 65, 
+        max: 128, 
+        label: 'Vulnerabilidades Moderadas', 
+        description: 'Vulnerabilidades emocionais presentes; tendência a ativar padrões disfuncionais (ex: evitação, submissão) principalmente sob estresse.',
+        recommendations: [
+          'Terapia do Esquema para identificar gatilhos específicos.',
+          'Trabalhar a "Criança Vulnerável" interior (validar necessidades não atendidas).',
+          'Desenvolver o modo "Adulto Saudável" para acolher as próprias emoções.'
+        ]
+      },
+      { 
+        min: 129, 
+        max: 192, 
+        label: 'Ativação Significativa de Esquemas', 
+        description: 'Presença de padrões emocionais centrais rígidos que causam sofrimento recorrente. Provável impacto na autoestima e relacionamentos.',
+        recommendations: [
+          'Intervenção terapêutica aprofundada (focada em trauma ou esquemas).',
+          'Técnicas vivenciais (imagética, cadeira vazia) para reprocessar memórias emocionais.',
+          'Monitorar modos de enfrentamento desadaptativos (ex: ataque, fuga, congelamento).'
+        ]
+      },
+      { 
+        min: 193, 
+        max: 256, 
+        label: 'Alta Disfunção Afetiva', 
+        description: 'Esquemas dominantes e generalizados. Forte impacto na autopercepção e nos vínculos, com risco de crises emocionais frequentes.',
+        recommendations: [
+          'Prioridade para estabilização emocional e segurança.',
+          'Terapia intensiva e contínua.',
+          'Construção de uma base segura na relação terapêutica (reparentalização limitada).',
+          'Avaliação de comorbidades (ansiedade, depressão) que podem estar exacerbando os esquemas.'
+        ]
+      },
     ],
   }
 };

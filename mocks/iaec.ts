@@ -141,10 +141,51 @@ export const IAEC_INVENTORY: InventoryForm = {
     type: 'average',
     description: 'Calcule a média de cada domínio e o escore global de autocrítica/esquemas centrais (0 a 4).',
     ranges: [
-        { min: 0, max: 0.9, label: 'Baixa autocrítica', description: 'Autoimagem positiva e autocompaixão preservada' },
-        { min: 1, max: 1.9, label: 'Autocrítica leve', description: 'Tendência a padrões autoexigentes esporádicos' },
-        { min: 2, max: 2.9, label: 'Autocrítica moderada', description: 'Presença de esquemas de exigência e autojulgamento persistentes' },
-        { min: 3, max: 4, label: 'Autocrítica intensa', description: 'Padrões rígidos e autodepreciativos — requer reestruturação cognitiva profunda' }
+        { 
+          min: 0, 
+          max: 0.9, 
+          label: 'Baixa Autocrítica / Autoaceitação', 
+          description: 'Autoimagem positiva e autocompaixão preservada. O indivíduo lida bem com falhas e mantém padrões realistas.',
+          recommendations: [
+            'Manter práticas de autocuidado.',
+            'Reforçar o reconhecimento de conquistas pessoais.',
+            'Servir como modelo de autoaceitação para outros.'
+          ]
+        },
+        { 
+          min: 1, 
+          max: 1.9, 
+          label: 'Autocrítica Leve', 
+          description: 'Tendência a padrões autoexigentes esporádicos, geralmente em situações de estresse ou falha. Não compromete gravemente a autoestima.',
+          recommendations: [
+            'Monitorar o diálogo interno em momentos de estresse.',
+            'Praticar a flexibilidade cognitiva diante de erros.',
+            'Diferenciar responsabilidade de culpa excessiva.'
+          ]
+        },
+        { 
+          min: 2, 
+          max: 2.9, 
+          label: 'Autocrítica Moderada / Esquemas Ativos', 
+          description: 'Presença de esquemas de exigência e autojulgamento persistentes. Pode haver impacto na ansiedade, humor e satisfação pessoal.',
+          recommendations: [
+            'Terapia focada na Autocompaixão (CFT) para suavizar o "crítico interno".',
+            'Questionar padrões inatingíveis de perfeição.',
+            'Trabalhar a assertividade para reduzir a submissão e o medo de rejeição.'
+          ]
+        },
+        { 
+          min: 3, 
+          max: 4, 
+          label: 'Autocrítica Intensa / Padrões Rígidos', 
+          description: 'Padrões rígidos, punitivos e autodepreciativos. Forte crença de inadequação ou defeito. Risco elevado de depressão e transtornos ansiosos.',
+          recommendations: [
+            'Terapia do Esquema para reestruturação profunda de crenças centrais.',
+            'Intervenção para reduzir comportamentos de autossabotagem.',
+            'Focar na construção de uma identidade baseada em valor intrínseco, não em desempenho.',
+            'Desenvolvimento urgente de habilidades de auto-acalmamento.'
+          ]
+        }
     ],
   }
 };

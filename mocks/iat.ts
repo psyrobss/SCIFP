@@ -1,5 +1,4 @@
 
-
 import { InventoryForm } from '../types';
 
 export const IAT_INVENTORY: InventoryForm = {
@@ -8,6 +7,7 @@ export const IAT_INVENTORY: InventoryForm = {
   name: 'Inventário de Autoanálise e Insight Terapêutico',
   objective: 'O IAT avalia o grau em que o indivíduo reflete sobre suas experiências terapêuticas, reconhece padrões emocionais e cognitivos emergentes no processo e integra aprendizados obtidos nas sessões. Ele mede autoanálise reflexiva, insight terapêutico e transferência da compreensão para a vida real — capacidades fundamentais para a evolução na psicoterapia.',
   instructions: 'As afirmações a seguir se referem à maneira como você costuma pensar e refletir sobre suas sessões de terapia e sobre o que aprende nelas. Leia cada frase com atenção e marque a opção que melhor descreve o quanto ela corresponde à sua experiência. Seja honesto e pense em seu processo terapêutico atual ou mais recente.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca é verdade para mim' },
     { value: 1, label: 'Raramente é verdade para mim' },
@@ -132,10 +132,50 @@ export const IAT_INVENTORY: InventoryForm = {
     description: 'O escore total (0–160) indica o nível global de autoanálise e insight terapêutico.',
     subScoresDescription: 'Subescores por domínio podem ser calculados para avaliar áreas específicas de reflexão e integração terapêutica.',
     ranges: [
-      { min: 0, max: 40, label: 'Baixa reflexão', description: 'Baixa reflexão sobre o processo terapêutico; tendência à evasão emocional.' },
-      { min: 41, max: 80, label: 'Reflexão superficial', description: 'Reflexão superficial, com compreensão parcial do processo.' },
-      { min: 81, max: 120, label: 'Boa capacidade reflexiva', description: 'Boa capacidade reflexiva e integração moderada dos aprendizados.' },
-      { min: 121, max: 160, label: 'Elevada capacidade de autoanálise', description: 'Elevada capacidade de autoanálise, insight e autonomia metaterapêutica.' }
+      { 
+        min: 0, 
+        max: 39, 
+        label: 'Baixo Insight / Reflexão Limitada', 
+        description: 'Dificuldade em refletir sobre o processo, tendência a ver a terapia como algo externo ou intelectual. Mudanças podem ser lentas devido à falta de internalização.',
+        recommendations: [
+          'Estimular o uso de diários terapêuticos para registrar reflexões pós-sessão.',
+          'Focar em insights menores e concretos antes de interpretações profundas.',
+          'Explorar possíveis bloqueios emocionais que impedem a auto-observação.'
+        ]
+      },
+      { 
+        min: 40, 
+        max: 79, 
+        label: 'Insight em Desenvolvimento', 
+        description: 'Capacidade reflexiva presente, mas talvez inconsistente ou focada mais no nível racional (insight intelectual) do que no emocional.',
+        recommendations: [
+          'Incentivar a "ponte" entre a sessão e a vida diária (tarefas comportamentais).',
+          'Trabalhar a conexão entre pensamento e emoção sentida no corpo.',
+          'Reforçar a autonomia do paciente na identificação de padrões.'
+        ]
+      },
+      { 
+        min: 80, 
+        max: 119, 
+        label: 'Boa Capacidade de Insight', 
+        description: 'O paciente consegue conectar passado e presente, aplicar aprendizados e se auto-observar com eficácia.',
+        recommendations: [
+          'Aprofundar a autonomia: "O que você acha que isso significa?".',
+          'Focar na generalização dos ganhos para diversas áreas da vida.',
+          'Validar a capacidade do paciente de ser seu próprio terapeuta.'
+        ]
+      },
+      { 
+        min: 120, 
+        max: 160, 
+        label: 'Elevada Capacidade de Autoanálise', 
+        description: 'Integração profunda de insights emocionais e cognitivos. O processo terapêutico foi internalizado, permitindo crescimento contínuo e autônomo.',
+        recommendations: [
+          'Considerar espaçamento das sessões ou alta terapêutica, se os objetivos clínicos foram atingidos.',
+          'Focar em manutenção de ganhos e prevenção de recaídas.',
+          'Celebrar a autonomia e a consolidação da identidade terapêutica.'
+        ]
+      }
     ]
   }
 };

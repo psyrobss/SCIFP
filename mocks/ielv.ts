@@ -7,6 +7,7 @@ export const IELV_INVENTORY: InventoryForm = {
   name: 'Inventário de Estilo de Lazer e Equilíbrio Vida/Trabalho',
   objective: 'Avaliar o estilo de lazer do indivíduo, frequência e qualidade das atividades recreativas, engajamento em hobbies, e percepção de equilíbrio entre vida pessoal, trabalho e bem-estar.',
   instructions: 'As afirmações abaixo descrevem hábitos, atitudes e sentimentos sobre lazer, descanso e equilíbrio pessoal.\nIndique com que frequência cada item se aplica a você.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },

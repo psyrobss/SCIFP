@@ -120,10 +120,51 @@ export const IRPT_INVENTORY: InventoryForm = {
     type: 'average',
     description: 'A pontuação média (0-4) reflete a intensidade da resistência ao processo psicoterápico. Escores mais altos indicam maior resistência.',
     ranges: [
-      { min: 0, max: 0.9, label: 'Baixa Resistência (Alta Aliança)', description: 'Postura aberta, colaborativa e engajada no processo terapêutico.' },
-      { min: 1, max: 1.9, label: 'Resistência Leve ou Situacional', description: 'Hesitações ou defesas pontuais, geralmente relacionadas a temas sensíveis.' },
-      { min: 2, max: 2.9, label: 'Resistência Moderada', description: 'Padrão consistente de evitação, controle ou desconfiança que impacta o progresso.' },
-      { min: 3, max: 4, label: 'Alta Resistência', description: 'Forte oposição, racionalização ou evitação que pode inviabilizar o processo terapêutico.' },
+      { 
+        min: 0, 
+        max: 0.9, 
+        label: 'Baixa Resistência (Alta Aliança)', 
+        description: 'Postura aberta, colaborativa e engajada no processo terapêutico. Boa capacidade de entrar em contato com emoções.',
+        recommendations: [
+          'Aproveitar a abertura para aprofundar temas centrais.',
+          'Manter a aliança terapêutica como base segura.',
+          'Explorar áreas de maior vulnerabilidade com segurança.'
+        ]
+      },
+      { 
+        min: 1, 
+        max: 1.9, 
+        label: 'Resistência Leve ou Situacional', 
+        description: 'Hesitações ou defesas pontuais, geralmente relacionadas a temas sensíveis específicos. Pode haver leve racionalização.',
+        recommendations: [
+          'Validar a dificuldade em abordar certos temas.',
+          'Identificar quais assuntos geram mais esquiva.',
+          'Normalizar a ambivalência sobre a mudança.'
+        ]
+      },
+      { 
+        min: 2, 
+        max: 2.9, 
+        label: 'Resistência Moderada', 
+        description: 'Padrão consistente de evitação, controle ou desconfiança que impacta o progresso. Risco de estagnação ou intelectualização excessiva.',
+        recommendations: [
+          'Abordar a resistência explicitamente na sessão ("O que te impede de falar sobre isso?").',
+          'Trabalhar a confiança na relação terapêutica.',
+          'Focar no "aqui e agora" da relação com o terapeuta para entender padrões defensivos.'
+        ]
+      },
+      { 
+        min: 3, 
+        max: 4, 
+        label: 'Alta Resistência', 
+        description: 'Forte oposição, racionalização ou evitação que pode inviabilizar o processo terapêutico. Possível medo intenso de vulnerabilidade ou mudança.',
+        recommendations: [
+          'Priorizar a segurança e a redução da ansiedade no setting terapêutico.',
+          'Não forçar confrontações precoces; respeitar as defesas.',
+          'Investigar crenças sobre o perigo de se abrir ou mudar.',
+          'Avaliar se o método terapêutico atual é o mais adequado.'
+        ]
+      },
     ],
   }
 };

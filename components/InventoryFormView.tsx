@@ -1,12 +1,6 @@
+
 import React, { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import { InventoryForm, InterpretationRange, Question as BaseQuestion, Domain, ResponseOption } from '../types';
-
-/*
-  Versão refatorada do InventoryFormView
-  - Extraído a lógica de renderização da pergunta para um componente `QuestionRenderer`.
-  - Eliminada a duplicação de código entre a view de desktop (tabela) e mobile (cartões).
-  - Mantidas as melhorias de performance, acessibilidade e estado.
-*/
 
 /* Ícones simples em componentes para manter o JSX limpo */
 const BackArrowIcon = () => (
@@ -51,24 +45,75 @@ const shuffleArray = (array: ShuffledQuestion[]): ShuffledQuestion[] => {
   return newArray;
 };
 
-/* Função para gerar interpretação breve do domínio por média */
+/* 
+  Função para gerar interpretação dinâmica baseada na escala do teste e na orientação (Bom vs Ruim).
+*/
 const getDomainInterpretation = (
   averageScore: number,
+  scaleMin: number,
+  scaleMax: number,
+  orientation: 'higher_is_better' | 'higher_is_worse',
   labels?: Domain['interpretationLabels']
-): string => {
+): { text: string, intent: 'good' | 'neutral' | 'bad' | 'warning' } => {
+  
+  // Padrão para testes de Sintomas (Quanto maior, pior)
   const defaultDeficitLabels = {
-    level_1: 'Nenhuma dificuldade significativa.',
-    level_2: 'Presença de dificuldades leves.',
-    level_3: 'Dificuldades moderadas e persistentes.',
-    level_4: 'Dificuldades intensas com impacto funcional.',
+    level_1: 'Baixa intensidade / Preservado',
+    level_2: 'Intensidade leve / Atenção',
+    level_3: 'Intensidade moderada',
+    level_4: 'Intensidade alta / Crítico',
+  };
+
+  // Padrão para testes de Habilidades/Forças (Quanto maior, melhor)
+  const defaultStrengthLabels = {
+    level_1: 'Baixo recurso / Dificuldade',
+    level_2: 'Recurso em desenvolvimento',
+    level_3: 'Bom funcionamento / Habilidade',
+    level_4: 'Excelente / Alto recurso',
   };
   
-  const effectiveLabels = labels || defaultDeficitLabels;
+  const effectiveLabels = labels || (orientation === 'higher_is_better' ? defaultStrengthLabels : defaultDeficitLabels);
+  
+  const range = scaleMax - scaleMin;
+  const step = range / 4;
 
-  if (averageScore < 1) return effectiveLabels.level_1;
-  if (averageScore < 2) return effectiveLabels.level_2;
-  if (averageScore < 3) return effectiveLabels.level_3;
-  return effectiveLabels.level_4;
+  const limit1 = scaleMin + step;
+  const limit2 = scaleMin + (step * 2);
+  const limit3 = scaleMin + (step * 3);
+
+  // Lógica de determinação do nível (1 a 4)
+  let level = 4;
+  let text = effectiveLabels.level_4;
+
+  if (averageScore <= limit1 + 0.05) {
+    level = 1;
+    text = effectiveLabels.level_1;
+  } else if (averageScore <= limit2 + 0.05) {
+    level = 2;
+    text = effectiveLabels.level_2;
+  } else if (averageScore <= limit3 + 0.05) {
+    level = 3;
+    text = effectiveLabels.level_3;
+  }
+
+  // Determina a "intencionalidade" (cor) baseada na orientação
+  let intent: 'good' | 'neutral' | 'bad' | 'warning' = 'neutral';
+
+  if (orientation === 'higher_is_better') {
+    // Nota alta é bom
+    if (level === 1) intent = 'bad';       // Baixa habilidade
+    if (level === 2) intent = 'warning';   // Médio-baixo
+    if (level === 3) intent = 'neutral';   // Bom
+    if (level === 4) intent = 'good';      // Excelente
+  } else {
+    // Nota alta é ruim (Sintoma)
+    if (level === 1) intent = 'good';      // Sem sintoma
+    if (level === 2) intent = 'neutral';   // Leve
+    if (level === 3) intent = 'warning';   // Moderado
+    if (level === 4) intent = 'bad';       // Crítico
+  }
+
+  return { text, intent };
 };
 
 /* Função para gerar interpretação breve do domínio por soma */
@@ -78,7 +123,7 @@ const getDomainInterpretationBySum = (
 ): string => {
   if (!ranges || ranges.length === 0) return 'Interpretação não disponível.';
   const interpretation = ranges.find(r => sumScore >= r.min && sumScore <= r.max);
-  return interpretation ? interpretation.label : 'Pontuação fora do intervalo de interpretação.';
+  return interpretation ? interpretation.label : `${sumScore} pontos`;
 };
 
 
@@ -94,27 +139,29 @@ interface QuestionRendererProps {
 const QuestionRenderer: React.FC<QuestionRendererProps> = ({ question, responseScale, currentAnswer, onAnswerChange, type }) => {
   if (type === 'desktop') {
     return (
-      <tr className="group even:bg-slate-50/50">
-        <td className="px-3 py-2 whitespace-normal text-sm font-medium text-slate-800 align-middle">
+      <tr className="group even:bg-slate-50/50 hover:bg-indigo-50/30 transition-colors">
+        <td className="px-3 py-3 whitespace-normal text-sm font-medium text-slate-800 align-middle">
           <div className="flex items-start gap-x-3">
-            <span title={question.domainName} className="text-xl mt-1 flex-shrink-0" aria-hidden="true">
+            <span title={question.domainName} className="text-xl mt-0.5 flex-shrink-0 select-none cursor-help" aria-hidden="true">
               {question.domainIcon}
             </span>
-            <span>{question.text}</span>
+            <span className={question.isReversed ? "italic text-slate-700" : ""}>{question.text}</span>
           </div>
         </td>
         {responseScale.map((option) => (
           <td key={option.value} className="px-1 py-2 text-center align-middle">
-            <input
-              type="radio"
-              id={`q${question.id}_${option.value}_desktop`}
-              name={`question_${question.id}_desktop`}
-              value={option.value}
-              checked={currentAnswer === option.value}
-              onChange={() => onAnswerChange(question.id, option.value)}
-              className="h-5 w-5 text-indigo-600 border-slate-300 focus:ring-0 focus:ring-offset-0 cursor-pointer"
-              aria-label={`${option.label} (${option.value}) para a pergunta: ${question.text}`}
-            />
+            <div className="flex justify-center">
+              <input
+                type="radio"
+                id={`q${question.id}_${option.value}_desktop`}
+                name={`question_${question.id}_desktop`}
+                value={option.value}
+                checked={currentAnswer === option.value}
+                onChange={() => onAnswerChange(question.id, option.value)}
+                className="h-5 w-5 text-indigo-600 border-slate-300 focus:ring-indigo-500 cursor-pointer accent-indigo-600"
+                aria-label={`${option.label} (${option.value}) para a pergunta: ${question.text}`}
+              />
+            </div>
           </td>
         ))}
       </tr>
@@ -123,18 +170,18 @@ const QuestionRenderer: React.FC<QuestionRendererProps> = ({ question, responseS
 
   // type === 'mobile'
   return (
-    <fieldset className="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+    <fieldset className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm transition-all focus-within:ring-2 focus-within:ring-indigo-500 focus-within:border-indigo-500">
       <legend className="sr-only">Pergunta sobre {question.domainName}</legend>
-      <div className="flex items-start gap-x-3">
-        <span title={question.domainName} className="text-2xl mt-1 flex-shrink-0" aria-hidden="true">
+      <div className="flex items-start gap-x-3 mb-3">
+        <span title={question.domainName} className="text-2xl mt-0.5 flex-shrink-0" aria-hidden="true">
           {question.domainIcon}
         </span>
-        <p className="text-sm font-medium text-slate-800 mb-4">{question.text}</p>
+        <p className={`text-sm font-medium text-slate-800 ${question.isReversed ? "italic" : ""}`}>{question.text}</p>
       </div>
 
-      <div className="flex justify-center items-center pt-2 gap-x-3">
+      <div className="flex justify-between items-center gap-x-2 pt-2">
         {responseScale.map((option) => (
-          <div key={option.value}>
+          <div key={option.value} className="flex flex-col items-center flex-1">
             <input
               type="radio"
               id={`q${question.id}_${option.value}_mobile`}
@@ -147,10 +194,14 @@ const QuestionRenderer: React.FC<QuestionRendererProps> = ({ question, responseS
             />
             <label
               htmlFor={`q${question.id}_${option.value}_mobile`}
-              title={`${option.label} (${option.value})`}
-              className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-slate-300 bg-white font-bold text-slate-600 cursor-pointer transition-all duration-200 ease-in-out hover:border-indigo-400 peer-checked:border-indigo-600 peer-checked:bg-indigo-600 peer-checked:text-white"
+              className="flex flex-col items-center w-full cursor-pointer group"
             >
-              {option.value}
+              <span className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border-2 border-slate-200 bg-slate-50 font-bold text-slate-600 transition-all duration-200 ease-in-out group-hover:border-indigo-300 peer-checked:border-indigo-600 peer-checked:bg-indigo-600 peer-checked:text-white peer-checked:shadow-md peer-checked:scale-110">
+                {option.value}
+              </span>
+              <span className="text-[10px] text-center text-slate-500 mt-1 leading-tight line-clamp-2 peer-checked:text-indigo-700 peer-checked:font-semibold">
+                {option.label}
+              </span>
             </label>
           </div>
         ))}
@@ -271,49 +322,68 @@ export const InventoryFormView: React.FC<InventoryFormViewProps> = ({ inventory,
   }, [inventory, allAnswered, flattenedQuestions, answers, scaleMax, scaleMin]);
 
   const handleReset = useCallback(() => {
-    setAnswers({});
-    setResult(null);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if(window.confirm('Tem certeza que deseja limpar todas as respostas?')) {
+        setAnswers({});
+        setResult(null);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }, []);
+
+  // Define color styles based on intent
+  const getIntentColor = (intent: 'good' | 'neutral' | 'bad' | 'warning') => {
+    switch (intent) {
+        case 'good': return 'text-green-700 bg-green-50 border-green-200';
+        case 'warning': return 'text-amber-700 bg-amber-50 border-amber-200';
+        case 'bad': return 'text-red-700 bg-red-50 border-red-200';
+        case 'neutral': return 'text-slate-700 bg-slate-50 border-slate-200';
+        default: return 'text-slate-700 bg-slate-50 border-slate-200';
+    }
+  };
+
+  const scoreOrientation = inventory.scoreOrientation || 'higher_is_worse';
 
   return (
     <div className="bg-white p-1 sm:p-2 rounded-2xl shadow-lg border border-slate-200 animate-fade-in">
       <div className="flex items-center mb-2">
         {showBackButton && (
-          <button onClick={onBack} className="p-1 rounded-full hover:bg-slate-100 transition-colors mr-1" aria-label="Voltar para a lista">
+          <button onClick={onBack} className="p-2 rounded-full hover:bg-slate-100 transition-colors mr-1 text-slate-600" aria-label="Voltar para a lista">
             <BackArrowIcon />
           </button>
         )}
         <div className={!showBackButton ? 'pl-2' : ''}>
-          <h2 className="text-lg sm:text-2xl font-bold text-slate-900">{inventory.name}</h2>
+          <h2 className="text-lg sm:text-2xl font-bold text-slate-900 leading-tight">{inventory.name}</h2>
           <p className="text-sm font-semibold text-indigo-600">{inventory.acronym}</p>
         </div>
       </div>
 
-      <div className="prose prose-slate max-w-none mb-3 p-2 bg-slate-50 rounded-lg border border-slate-200">
-        <h3>Objetivo</h3>
-        <p>{inventory.objective}</p>
-        <h3>Instruções</h3>
+      <div className="prose prose-slate prose-sm max-w-none mb-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
+        <h3 className="text-slate-800 font-semibold mb-1">Objetivo</h3>
+        <p className="mb-3">{inventory.objective}</p>
+        <h3 className="text-slate-800 font-semibold mb-1">Instruções</h3>
         <p style={{ whiteSpace: 'pre-line' }}>{inventory.instructions}</p>
+        {scaleMin !== 0 && (
+            <p className="mt-2 text-xs text-slate-500 italic">
+                * Nota: A escala deste teste varia de {scaleMin} a {scaleMax}.
+            </p>
+        )}
       </div>
       
-      <div className="p-2 my-4" aria-live="polite">
-        <div className="flex justify-between items-center mb-1 text-sm">
-          <span className="font-semibold text-slate-700">Progresso</span>
-          <span className="font-medium text-slate-500">
-            {progressData.answeredCount} de {progressData.totalQuestions} respondidas
+      <div className="sticky top-[60px] z-20 bg-white/95 backdrop-blur-sm py-2 border-b border-slate-100 mb-4 px-1" aria-live="polite">
+        <div className="flex justify-between items-center mb-1 text-xs sm:text-sm font-medium">
+          <span className="text-slate-600">Seu Progresso</span>
+          <span className={progressData.percentage === 100 ? "text-green-600 font-bold" : "text-indigo-600"}>
+            {Math.round(progressData.percentage)}%
           </span>
         </div>
         <div 
-          className="w-full bg-slate-200 rounded-full h-2.5"
+          className="w-full bg-slate-100 rounded-full h-2"
           role="progressbar"
           aria-valuenow={progressData.answeredCount}
           aria-valuemin={0}
           aria-valuemax={progressData.totalQuestions}
-          aria-label={`${progressData.answeredCount} de ${progressData.totalQuestions} perguntas respondidas`}
         >
           <div 
-            className="bg-indigo-600 h-2.5 rounded-full transition-all duration-300 ease-out" 
+            className={`h-2 rounded-full transition-all duration-500 ease-out ${progressData.percentage === 100 ? 'bg-green-500' : 'bg-indigo-600'}`}
             style={{ width: `${progressData.percentage}%` }}
           ></div>
         </div>
@@ -321,17 +391,23 @@ export const InventoryFormView: React.FC<InventoryFormViewProps> = ({ inventory,
 
       <form onSubmit={(e) => e.preventDefault()}>
         {/* --- Layout de Tabela para Desktop --- */}
-        <div className="hidden md:block overflow-x-auto rounded-lg border border-slate-200">
+        <div className="hidden md:block overflow-hidden rounded-xl border border-slate-200 shadow-sm">
           <table className="min-w-full divide-y divide-slate-200 table-fixed" role="table" aria-label="Questionário">
             <thead className="bg-slate-50">
               <tr>
-                <th scope="col" className="px-3 py-3 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider w-1/2">
+                <th scope="col" className="px-4 py-3 text-left text-xs font-bold text-slate-500 uppercase tracking-wider w-1/2">
                   Afirmação
                 </th>
                 {inventory.responseScale.map((option) => (
-                  <th key={option.value} scope="col" className="px-1 py-2 text-center text-xs font-semibold text-slate-600 w-20">
-                    <span className="block font-bold text-slate-800 text-sm">{option.value}</span>
-                    <span className="block font-normal text-slate-500 mt-1 leading-tight text-xs">{option.label}</span>
+                  <th key={option.value} scope="col" className="px-1 py-3 text-center text-xs font-semibold text-slate-500 w-24">
+                    <div className="flex flex-col items-center">
+                        <span className="bg-white border border-slate-200 rounded-full w-6 h-6 flex items-center justify-center text-slate-700 mb-1 shadow-sm">
+                            {option.value}
+                        </span>
+                        <span className="font-normal text-[10px] leading-tight px-1">
+                            {option.label}
+                        </span>
+                    </div>
                   </th>
                 ))}
               </tr>
@@ -366,72 +442,117 @@ export const InventoryFormView: React.FC<InventoryFormViewProps> = ({ inventory,
         </div>
       </form>
 
-      <div className="mt-8 px-2">
+      <div className="mt-8 px-2 pb-8">
         <button
           onClick={handleCalculateScore}
           disabled={!allAnswered}
-          className="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-indigo-700 transition-all duration-300 disabled:bg-slate-300 disabled:cursor-not-allowed disabled:shadow-none"
+          className={`w-full py-4 px-6 rounded-xl font-bold text-lg shadow-lg transition-all duration-300 transform 
+            ${allAnswered 
+                ? 'bg-indigo-600 text-white hover:bg-indigo-700 hover:scale-[1.02] hover:shadow-indigo-500/30' 
+                : 'bg-slate-200 text-slate-400 cursor-not-allowed'
+            }`}
           aria-disabled={!allAnswered}
         >
-          {allAnswered ? 'Calcular Resultado' : 'Responda todas as questões'}
+          {allAnswered ? 'Calcular Resultado Completo' : `Responda todas as questões (${progressData.totalQuestions - progressData.answeredCount} restantes)`}
         </button>
       </div>
       
       {result && (
-        <div ref={resultRef} className="mt-8 p-4 sm:p-6 bg-slate-50 rounded-lg border border-slate-200 printable-area">
-          <div className="text-center mb-6">
-            <h3 className="text-2xl font-bold text-slate-900">Resultado do Inventário</h3>
-            <p className="text-slate-600 mt-1">{inventory.acronym} - {inventory.name}</p>
+        <div ref={resultRef} className="mt-8 pt-8 border-t-2 border-slate-100 animate-slide-up printable-area">
+          <div className="text-center mb-8">
+            <div className="inline-block p-3 bg-green-100 text-green-700 rounded-full mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+            <h3 className="text-2xl font-bold text-slate-900">Análise de Resultados</h3>
+            <p className="text-slate-500">{inventory.acronym} - {inventory.name}</p>
           </div>
           
           {result.interpretation && (
-             <div className="bg-white p-4 rounded-lg shadow-sm border border-slate-200 mb-6 text-center">
-                <p className="text-sm text-slate-500 uppercase font-semibold">Resultado Geral</p>
-                <p className="text-2xl font-bold text-indigo-600 my-1">{result.interpretation.label}</p>
-                 <p className="text-slate-700">
-                    {inventory.scoring?.type === 'average' ? 'Pontuação Média: ' : 'Pontuação Total: '}
-                    <span className="font-semibold">{result.totalScore.toFixed(inventory.scoring?.type === 'average' ? 2 : 0)}</span>
-                </p>
-                <p className="text-sm text-slate-500 mt-2">{result.interpretation.description}</p>
+             <div className="bg-gradient-to-br from-indigo-50 to-white p-6 rounded-2xl shadow-sm border border-indigo-100 mb-8 text-center relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-indigo-500"></div>
+                <p className="text-xs text-indigo-500 uppercase font-bold tracking-wider mb-2">Resultado Global</p>
+                <h4 className="text-3xl font-extrabold text-indigo-700 mb-2">{result.interpretation.label}</h4>
+                 <div className="inline-flex items-center gap-x-2 bg-white px-3 py-1 rounded-full border border-indigo-100 shadow-sm mb-4">
+                    <span className="text-sm text-slate-500">
+                        {inventory.scoring?.type === 'average' ? 'Pontuação Média:' : 'Pontuação Total:'}
+                    </span>
+                    <span className="font-bold text-indigo-700 text-lg">
+                        {result.totalScore.toFixed(inventory.scoring?.type === 'average' ? 2 : 0)}
+                    </span>
+                </div>
+                <p className="text-slate-700 leading-relaxed max-w-2xl mx-auto mb-4">{result.interpretation.description}</p>
+                
+                {result.interpretation.recommendations && result.interpretation.recommendations.length > 0 && (
+                  <div className="mt-6 text-left bg-white p-4 rounded-xl border border-indigo-100 shadow-sm max-w-xl mx-auto">
+                    <h5 className="font-bold text-indigo-800 text-sm uppercase tracking-wide mb-3 flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
+                      </svg>
+                      Recomendações e Próximos Passos
+                    </h5>
+                    <ul className="space-y-2">
+                      {result.interpretation.recommendations.map((rec, index) => (
+                        <li key={index} className="flex items-start text-sm text-slate-700">
+                          <span className="text-indigo-500 mr-2 mt-1">•</span>
+                          <span>{rec}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
              </div>
           )}
 
-          <div className="space-y-4">
-            <h4 className="text-xl font-bold text-slate-800 text-center mb-4">Análise por Domínio</h4>
-            {(Object.values(result.domainScores) as DomainResult[]).map((domain) => (
-              <div key={domain.id} className="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
-                <div className="flex items-center mb-2">
-                   <span className="text-2xl mr-3" aria-hidden="true">{domain.icon}</span>
-                   <div>
-                      <h5 className="font-bold text-slate-800">{domain.name}</h5>
-                      <p className="text-sm text-slate-500">
-                        {domain.interpretationSumRanges && domain.interpretationSumRanges.length > 0 ? 'Escore: ' : 'Média: '}
-                        <strong>
-                            {domain.interpretationSumRanges && domain.interpretationSumRanges.length > 0 ? domain.score : domain.averageScore.toFixed(2)}
-                        </strong>
-                      </p>
-                   </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="col-span-1 md:col-span-2 mb-2">
+                <h4 className="text-xl font-bold text-slate-800 flex items-center">
+                    <span className="bg-slate-800 text-white w-6 h-6 rounded flex items-center justify-center text-sm mr-2">i</span>
+                    Detalhamento por Domínio
+                </h4>
+            </div>
+            {(Object.values(result.domainScores) as DomainResult[]).map((domain) => {
+              // Calcular a interpretação dinâmica para este domínio
+              const interpretationData = domain.interpretationSumRanges && domain.interpretationSumRanges.length > 0
+                ? { text: getDomainInterpretationBySum(domain.score, domain.interpretationSumRanges), intent: 'neutral' as const }
+                : getDomainInterpretation(domain.averageScore, scaleMin, scaleMax, scoreOrientation, domain.interpretationLabels);
+
+              return (
+                <div key={domain.id} className="bg-white p-5 rounded-xl shadow-sm border border-slate-200 hover:border-indigo-300 transition-colors duration-300 flex flex-col h-full">
+                  <div className="flex items-start mb-3">
+                     <div className="text-3xl mr-3 p-2 bg-slate-50 rounded-lg border border-slate-100" aria-hidden="true">{domain.icon}</div>
+                     <div>
+                        <h5 className="font-bold text-slate-800 text-lg leading-tight">{domain.name}</h5>
+                        <div className="flex items-center mt-1 space-x-2">
+                            <span className="text-xs font-semibold bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                              {domain.interpretationSumRanges && domain.interpretationSumRanges.length > 0 ? 'Soma' : 'Média'}
+                            </span>
+                            <span className="text-lg font-bold text-indigo-600">
+                              {domain.interpretationSumRanges && domain.interpretationSumRanges.length > 0 ? domain.score : domain.averageScore.toFixed(2)}
+                            </span>
+                        </div>
+                     </div>
+                  </div>
+                   <div className="mt-auto pt-3 border-t border-slate-100">
+                      <p className="text-xs text-slate-500 mb-2 italic">{domain.description}</p>
+                      <div className={`p-2 rounded border ${getIntentColor(interpretationData.intent)}`}>
+                          <p className="text-sm font-medium">
+                              <span className="opacity-70 font-normal mr-1">Interpretação:</span>
+                              {interpretationData.text}
+                          </p>
+                      </div>
+                  </div>
                 </div>
-                 <div className="mt-3 pt-3 border-t border-slate-200">
-                    <p className="text-sm text-slate-600 mb-1"><strong>Descrição:</strong> {domain.description}</p>
-                    <p className="text-sm text-slate-700 font-medium">
-                        <strong>Interpretação:</strong> {
-                          domain.interpretationSumRanges && domain.interpretationSumRanges.length > 0
-                          ? getDomainInterpretationBySum(domain.score, domain.interpretationSumRanges)
-                          : getDomainInterpretation(domain.averageScore, domain.interpretationLabels)
-                        }
-                    </p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
           
-          <div className="mt-8 flex justify-center items-center no-print">
+          <div className="mt-10 flex justify-center items-center no-print pb-8">
             <button
               onClick={handleReset}
-              className="w-full sm:w-auto bg-indigo-600 text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-indigo-700 transition-all duration-300"
+              className="bg-white text-slate-600 font-medium py-2 px-6 rounded-lg border border-slate-300 hover:bg-slate-50 hover:text-slate-800 transition-all duration-300 flex items-center"
             >
-              Responder Novamente
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74-2.74L3 12"></path></svg>
+              Limpar e Começar Novo Teste
             </button>
           </div>
         </div>

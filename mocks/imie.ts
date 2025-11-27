@@ -7,6 +7,7 @@ export const IMIE_INVENTORY: InventoryForm = {
   name: 'Inventário de Motivação Intrínseca e Extrínseca',
   objective: 'Avaliar os níveis e tipos de motivação que orientam o comportamento — desde o engajamento espontâneo e prazeroso (motivação intrínseca) até a motivação regulada por recompensas, pressões externas ou reconhecimento (motivação extrínseca).',
   instructions: 'Abaixo estão frases sobre o que o motiva em suas atividades pessoais, profissionais e cotidianas.\nIndique o quanto cada afirmação descreve o que realmente o(a) move a agir ou persistir em seus objetivos.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },

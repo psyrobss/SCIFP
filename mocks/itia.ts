@@ -7,6 +7,7 @@ export const ITIA_INVENTORY: InventoryForm = {
   name: 'Inventário de Tolerância à Incerteza e Ambiguidade',
   objective: 'Avaliar a capacidade do indivíduo de lidar com situações incertas, ambíguas ou inesperadas, tolerando a ansiedade, mantendo funcionamento adaptativo e flexibilidade cognitiva.',
   instructions: 'Leia cada afirmação e indique o quanto ela descreve seu comportamento ou reação habitual em situações incertas, ambíguas ou inesperadas.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },
@@ -105,10 +106,51 @@ export const ITIA_INVENTORY: InventoryForm = {
     description: 'A pontuação total (0–112) indica o nível de tolerância à incerteza. Itens com (R) são invertidos. Escores mais altos refletem maior tolerância.',
     subScoresDescription: 'Subescores por domínio podem ser calculados (média de 0-4) para análises específicas.',
     ranges: [
-      { min: 0, max: 28, label: 'Tolerância muito baixa à incerteza', description: 'Forte desconforto, procrastinação e dificuldade em lidar com ambiguidades.' },
-      { min: 29, max: 56, label: 'Tolerância baixa', description: 'Fragilidades importantes, necessidade de intervenção para melhorar enfrentamento.' },
-      { min: 57, max: 84, label: 'Tolerância moderada', description: 'Recursos adequados, mas com pontos de atenção.' },
-      { min: 85, max: 112, label: 'Tolerância elevada', description: 'Capacidade sólida de enfrentar incerteza e ambiguidade sem prejuízo funcional.' },
+      { 
+        min: 0, 
+        max: 28, 
+        label: 'Tolerância Muito Baixa à Incerteza', 
+        description: 'Forte desconforto, paralisia e ansiedade diante do desconhecido. Tendência a buscar controle excessivo, garantias impossíveis e evitar riscos.',
+        recommendations: [
+          'Terapia Cognitivo-Comportamental (TCC) com foco em exposição à incerteza.',
+          'Desafiar crenças de que "incerteza é perigosa" ou "irresponsável".',
+          'Eliminar comportamentos de segurança (ex: checagem excessiva, busca constante de garantias).',
+          'Mindfulness para observar a ansiedade sem reagir a ela.'
+        ]
+      },
+      { 
+        min: 29, 
+        max: 56, 
+        label: 'Tolerância Baixa', 
+        description: 'Dificuldade em lidar com ambiguidades, resultando em estresse e procrastinação. Preferência marcada por rotinas e previsibilidade.',
+        recommendations: [
+          'Praticar pequenas tomadas de decisão com informações incompletas.',
+          'Delegar tarefas para reduzir a necessidade de controle.',
+          'Aceitar o "não saber" como parte natural do processo.'
+        ]
+      },
+      { 
+        min: 57, 
+        max: 84, 
+        label: 'Tolerância Moderada', 
+        description: 'Capacidade funcional de lidar com o imprevisto, embora possa gerar algum desconforto inicial. Adaptação adequada na maioria dos contextos.',
+        recommendations: [
+          'Reforçar a confiança na própria capacidade de improvisação.',
+          'Reenquadrar a incerteza como oportunidade de novidade.',
+          'Manter o foco no que está sob controle (esforço) e aceitar o que não está (resultado).'
+        ]
+      },
+      { 
+        min: 85, 
+        max: 112, 
+        label: 'Tolerância Elevada', 
+        description: 'Alta resiliência diante do desconhecido. Vê a ambiguidade como desafio ou oportunidade. Toma decisões com calma mesmo sem todas as respostas.',
+        recommendations: [
+          'Assumir projetos complexos ou inovadores que exijam navegação na incerteza.',
+          'Liderar equipes em momentos de mudança ou crise.',
+          'Cultivar a curiosidade como resposta ao novo.'
+        ]
+      },
     ],
   },
 };

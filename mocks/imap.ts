@@ -7,6 +7,7 @@ export const IMAP_INVENTORY: InventoryForm = {
   name: 'Inventário de Mindfulness e Atenção Plena',
   objective: 'Avaliar a capacidade do indivíduo de manter atenção plena ao momento presente, consciência sem julgamento, percepção de pensamentos e emoções, e engajamento consciente nas atividades diárias.',
   instructions: 'As afirmações descrevem atitudes, percepções e comportamentos relacionados à atenção plena.\nIndique com que frequência cada item se aplica a você.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },

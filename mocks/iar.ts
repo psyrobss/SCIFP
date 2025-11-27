@@ -7,6 +7,7 @@ export const IAR_INVENTORY: InventoryForm = {
   name: 'Inventário de Ajuste Relacional (Casal/Intimidade)',
   objective: 'Avaliar o funcionamento afetivo e interpessoal em relações íntimas, incluindo comunicação, empatia, intimidade emocional, satisfação e manejo de conflitos.',
   instructions: 'Leia cada afirmação e indique o quanto ela descreve seu comportamento e sentimentos habituais no relacionamento íntimo.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },

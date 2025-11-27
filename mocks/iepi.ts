@@ -7,6 +7,7 @@ export const IEPI_INVENTORY: InventoryForm = {
   name: 'Inventário de Estilo de Personalidade Interpessoal',
   objective: 'Avaliar padrões emocionais e cognitivos de relação interpessoal, identificando como o indivíduo costuma se posicionar frente aos outros — entre autonomia e dependência, controle e submissão, acolhimento e evitação.',
   instructions: 'Abaixo estão frases sobre como você costuma se comportar, pensar e sentir nas suas relações com outras pessoas (familiares, amigos, colegas, parceiro(a), etc.).\nLeia cada frase e assinale a opção que melhor representa como você geralmente é, e não apenas em situações específicas.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca é verdade para mim' },
     { value: 1, label: 'Raramente é verdade para mim' },
@@ -153,9 +154,39 @@ export const IEPI_INVENTORY: InventoryForm = {
     description: 'O escore total (0–192) → perfil geral de funcionamento interpessoal.',
     subScoresDescription: 'Subescores por domínio → estilos predominantes de interação.',
     ranges: [
-      { min: 0, max: 64, label: 'Estilo retraído', description: 'Estilo retraído, defensivo ou evitativo. Dificuldade em intimidade e expressão emocional.' },
-      { min: 65, max: 128, label: 'Estilo intermediário', description: 'Busca de conexão, mas com conflitos entre autonomia e dependência.' },
-      { min: 129, max: 192, label: 'Estilo saudável e adaptativo', description: 'Estilo saudável e adaptativo: equilíbrio entre empatia, assertividade e autenticidade.' }
+      { 
+        min: 0, 
+        max: 64, 
+        label: 'Estilo Interpessoal Retraído/Defensivo', 
+        description: 'Dificuldade significativa em estabelecer intimidade, expressar necessidades ou confiar nos outros. Pode haver excesso de evitação ou submissão.',
+        recommendations: [
+          'Treinamento de Assertividade para aprender a expressar limites.',
+          'Explorar crenças de desconfiança ou medo de rejeição em terapia.',
+          'Começar com pequenas interações seguras para construir confiança social.'
+        ]
+      },
+      { 
+        min: 65, 
+        max: 128, 
+        label: 'Estilo Interpessoal Intermediário', 
+        description: 'Capacidade de conexão presente, mas com conflitos frequentes entre autonomia e dependência, ou entre controle e submissão.',
+        recommendations: [
+          'Desenvolver a flexibilidade em situações de conflito.',
+          'Equilibrar o cuidado com o outro e o autocuidado.',
+          'Trabalhar a escuta ativa e a empatia sem perder a própria identidade.'
+        ]
+      },
+      { 
+        min: 129, 
+        max: 192, 
+        label: 'Estilo Interpessoal Adaptativo e Saudável', 
+        description: 'Equilíbrio entre empatia, assertividade e autenticidade. Capacidade de estabelecer vínculos seguros e resolver conflitos de forma construtiva.',
+        recommendations: [
+          'Manter a qualidade das relações através da reciprocidade.',
+          'Servir como mediador em grupos devido à boa competência social.',
+          'Continuar praticando a vulnerabilidade segura em relações íntimas.'
+        ]
+      },
     ],
   }
 };

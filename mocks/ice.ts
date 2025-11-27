@@ -7,6 +7,7 @@ export const ICE_INVENTORY: InventoryForm = {
   name: 'Inventário de Curiosidade e Exploração',
   objective: 'Avaliar a propensão do indivíduo a buscar novas experiências, explorar ideias, questionar, aprender continuamente e se engajar cognitivamente com o mundo ao seu redor.',
   instructions: 'As frases a seguir descrevem atitudes, comportamentos e sentimentos relacionados à curiosidade e exploração pessoal.\nIndique com que frequência cada item se aplica a você.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },

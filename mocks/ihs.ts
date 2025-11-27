@@ -7,6 +7,7 @@ export const IHS_INVENTORY: InventoryForm = {
   name: 'Inventário de Habilidades Sociais Clínicas',
   objective: 'Avaliar competências sociais centrais para interação interpessoal funcional: comunicação (assertividade e clareza), empatia e escuta, iniciação e manutenção de relações, gestão de conflitos e estabelecimento de limites, cooperação e trabalho em grupo.',
   instructions: 'Abaixo estão frases sobre como você costuma se comportar e interagir com outras pessoas. Leia cada frase e assinale a opção que melhor representa como você geralmente age nas últimas 4 semanas.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca ou quase nunca' },
     { value: 1, label: 'Raramente' },

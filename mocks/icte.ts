@@ -1,4 +1,5 @@
 
+
 import { InventoryForm } from '../types';
 
 export const ICTE_INVENTORY: InventoryForm = {
@@ -7,6 +8,7 @@ export const ICTE_INVENTORY: InventoryForm = {
   name: 'Inventário de Consciência Temporal e Existencial',
   objective: 'Avaliar como o indivíduo percebe, integra e se orienta em relação ao seu passado, presente e futuro — identificando padrões de fixação temporal, negação da história pessoal, dificuldades de presença ou falta de direção existencial.',
   instructions: 'Leia as frases abaixo e marque o quanto cada uma representa a forma como você tem se sentido nas últimas semanas.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca ou quase nunca' },
     { value: 1, label: 'Raramente' },
@@ -96,10 +98,50 @@ export const ICTE_INVENTORY: InventoryForm = {
     type: 'sum',
     description: 'A pontuação é a soma total das respostas (0-80). Pontuações mais altas indicam maior integração temporal e existencial.',
     ranges: [
-      { min: 65, max: 80, label: 'Integração Temporal Elevada', description: 'Senso de continuidade, propósito e presença equilibrada.' },
-      { min: 45, max: 64, label: 'Consciência Temporal Funcional', description: 'Boa integração, com eventuais oscilações emocionais.' },
-      { min: 25, max: 44, label: 'Fragmentação Moderada', description: 'Dificuldade em lidar com passado ou planejar o futuro; baixa presença.' },
-      { min: 0, max: 24, label: 'Desconexão Temporal e Existencial', description: 'Vivência fragmentada, sem sentido de continuidade ou propósito.' }
+      { 
+        min: 0, 
+        max: 24, 
+        label: 'Desconexão Temporal e Existencial', 
+        description: 'Vivência fragmentada, sensação de estagnação ou de estar "à deriva". Possível fixação em traumas passados ou ansiedade paralisante sobre o futuro.',
+        recommendations: [
+          'Terapia Narrativa: reconstruir a história de vida de forma coerente.',
+          'Focar no "aqui e agora" para reduzir a ansiedade antecipatória ou ruminação.',
+          'Resgatar pequenos objetivos de curto prazo para reativar a agência.'
+        ]
+      },
+      { 
+        min: 25, 
+        max: 44, 
+        label: 'Fragmentação Moderada', 
+        description: 'Dificuldade em integrar passado, presente e futuro. Pode haver períodos de alienação ou falta de clareza sobre a direção da vida.',
+        recommendations: [
+          'Trabalhar a aceitação do passado (perdão, ressignificação).',
+          'Exercícios de visualização de futuro (Best Possible Self).',
+          'Conectar ações presentes com valores futuros.'
+        ]
+      },
+      { 
+        min: 45, 
+        max: 64, 
+        label: 'Consciência Temporal Funcional', 
+        description: 'Boa noção de continuidade e tempo. O indivíduo consegue aprender com o passado e planejar o futuro, vivendo o presente de forma adequada.',
+        recommendations: [
+          'Refinar o planejamento de longo prazo.',
+          'Praticar mindfulness para aprofundar a qualidade da presença.',
+          'Celebrar marcos da história pessoal.'
+        ]
+      },
+      { 
+        min: 65, 
+        max: 80, 
+        label: 'Integração Temporal Elevada', 
+        description: 'Senso profundo de continuidade, propósito e presença equilibrada. A vida é percebida como uma jornada significativa e coesa.',
+        recommendations: [
+          'Mentorar outros em suas jornadas de vida.',
+          'Focar no legado e na generatividade.',
+          'Utilizar a perspectiva temporal para manter a resiliência em crises.'
+        ]
+      },
     ],
   }
 };

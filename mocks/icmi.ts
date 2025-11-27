@@ -1,4 +1,5 @@
 
+
 import { InventoryForm } from '../types';
 
 export const ICMI_INVENTORY: InventoryForm = {
@@ -7,6 +8,7 @@ export const ICMI_INVENTORY: InventoryForm = {
   name: 'Inventário de Consciência Moral e Integridade',
   objective: 'Avaliar o grau de consciência moral, coerência ética e autenticidade pessoal, identificando como o indivíduo se relaciona com valores, responsabilidade e integridade em suas ações cotidianas.',
   instructions: 'A seguir, há afirmações sobre sua forma de pensar, agir e se posicionar diante de decisões e dilemas do dia a dia.\nMarque o quanto cada uma representa você na maior parte do tempo.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca ou quase nunca' },
     { value: 1, label: 'Raramente' },
@@ -97,10 +99,51 @@ export const ICMI_INVENTORY: InventoryForm = {
     description: 'A pontuação é a soma total das respostas (0-80). Pontuações mais altas indicam maior integridade moral.',
     subScoresDescription: 'A média por domínio pode ser calculada para uma análise mais detalhada.',
     ranges: [
-      { min: 65, max: 80, label: 'Alta Integridade Ética', description: 'Valores claros, coerência entre fala e ação, empatia moral.' },
-      { min: 45, max: 64, label: 'Integridade Funcional', description: 'Boa coerência ética, com pequenas falhas situacionais.' },
-      { min: 25, max: 44, label: 'Inconsistência Ética Moderada', description: 'Conflito entre valores e conduta, racionalizações defensivas.' },
-      { min: 0, max: 24, label: 'Fragmentação Moral', description: 'Falta de valores consistentes, tendência a negação ou justificação de condutas incoerentes.' },
+      { 
+        min: 0, 
+        max: 24, 
+        label: 'Fragmentação Moral / Desconexão Ética', 
+        description: 'Falta de valores claros, tendência a racionalizar comportamentos inadequados ou agir por conveniência imediata. Risco de conflitos interpessoais e falta de confiança.',
+        recommendations: [
+          'Trabalhar a identificação de valores pessoais fundamentais.',
+          'Desenvolver a empatia cognitiva (entender o impacto no outro).',
+          'Refletir sobre as consequências de longo prazo das ações.',
+          'Assumir responsabilidade por pequenas ações cotidianas.'
+        ]
+      },
+      { 
+        min: 25, 
+        max: 44, 
+        label: 'Inconsistência Ética Moderada', 
+        description: 'Conflito entre valores e conduta. O indivíduo pode sentir culpa ou desconforto moral, mas ainda cede a pressões ou impulsos contrários aos seus valores.',
+        recommendations: [
+          'Identificar barreiras que impedem a ação ética (medo, pressão social).',
+          'Fortalecer a coragem moral para tomar decisões difíceis.',
+          'Praticar a honestidade radical consigo mesmo.'
+        ]
+      },
+      { 
+        min: 45, 
+        max: 64, 
+        label: 'Integridade Funcional', 
+        description: 'Boa coerência ética. O indivíduo geralmente age de acordo com seus princípios, com falhas ocasionais que são reconhecidas e reparadas.',
+        recommendations: [
+          'Manter a autovigilância sem cair em autocrítica excessiva.',
+          'Refinar a sensibilidade ética em situações complexas.',
+          'Valorizar a reparação de erros como parte da integridade.'
+        ]
+      },
+      { 
+        min: 65, 
+        max: 80, 
+        label: 'Alta Integridade e Consciência Moral', 
+        description: 'Forte alinhamento entre valores e ações. Senso de justiça apurado, responsabilidade pessoal e autenticidade. Inspira confiança.',
+        recommendations: [
+          'Atuar como modelo ético em sua comunidade ou trabalho.',
+          'Liderar iniciativas que promovam justiça e bem-estar coletivo.',
+          'Continuar o processo de aprimoramento moral contínuo.'
+        ]
+      },
     ],
   },
 };

@@ -7,6 +7,7 @@ export const IPM_INVENTORY: InventoryForm = {
   name: 'Inventário de Psychological Mindedness (IPM)',
   objective: 'Avaliar a capacidade do indivíduo de observar, compreender e refletir sobre seus próprios estados mentais e os de outras pessoas — incluindo insight, autorreflexão, empatia e abertura emocional.',
   instructions: 'As frases abaixo descrevem atitudes e experiências relacionadas à capacidade de compreender a si mesmo(a) e os outros. Leia com atenção e marque o quanto elas se aplicam a você na maior parte do tempo.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },
@@ -120,9 +121,39 @@ export const IPM_INVENTORY: InventoryForm = {
     type: 'sum',
     description: 'O escore total (0-120) indica o nível de "Psychological Mindedness". Escores mais altos refletem maior capacidade de insight e autorreflexão.',
     ranges: [
-      { min: 0, max: 39, label: 'Baixa Psychological Mindedness', description: 'Dificuldade em refletir sobre estados internos; tendência a focar em aspectos concretos e externos.' },
-      { min: 40, max: 79, label: 'Psychological Mindedness Moderada', description: 'Capacidade de insight presente, mas pode ser limitada a certas áreas ou ser mais intelectual que emocional.' },
-      { min: 80, max: 120, label: 'Alta Psychological Mindedness', description: 'Forte capacidade de autorreflexão, insight, empatia e integração entre pensamento e sentimento.' },
+      { 
+        min: 0, 
+        max: 39, 
+        label: 'Baixa Psychological Mindedness', 
+        description: 'Dificuldade em refletir sobre estados internos; tendência a focar em aspectos concretos e externos. Pode haver alexitimia ou pensamento operatório.',
+        recommendations: [
+          'Psicoeducação sobre emoções básicas e suas funções.',
+          'Exercícios de monitoramento: "O que estou sentindo agora?" (várias vezes ao dia).',
+          'Focar na conexão entre eventos externos e reações internas.'
+        ]
+      },
+      { 
+        min: 40, 
+        max: 79, 
+        label: 'Psychological Mindedness Moderada', 
+        description: 'Capacidade de insight presente, mas pode ser limitada a certas áreas ou ser mais intelectual do que emocional.',
+        recommendations: [
+          'Aprofundar a reflexão: "Por que reagi assim? O que isso diz sobre minha história?".',
+          'Praticar a empatia cognitiva: imaginar ativamente a mente do outro.',
+          'Conectar insights intelectuais com a experiência emocional sentida no corpo.'
+        ]
+      },
+      { 
+        min: 80, 
+        max: 120, 
+        label: 'Alta Psychological Mindedness', 
+        description: 'Forte capacidade de autorreflexão, insight, empatia e integração entre pensamento e sentimento. Bom prognóstico para psicoterapias orientadas ao insight.',
+        recommendations: [
+          'Utilizar essa capacidade para autoanálise contínua e crescimento autônomo.',
+          'Cuidar para não intelectualizar excessivamente (ruminação analítica).',
+          'Aplicar os insights para mudanças comportamentais concretas.'
+        ]
+      },
     ],
   }
 };

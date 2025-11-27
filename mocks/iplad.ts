@@ -7,6 +7,7 @@ export const IPLAD_INVENTORY: InventoryForm = {
   name: 'Inventário Psicológico para Lutadores de Alto Desempenho (IPLAD)',
   objective: 'Avaliar o perfil psicológico de atletas de luta em relação à: Força mental e resiliência competitiva, Autoconfiança e regulação emocional, Agressividade funcional e controle do impulso, Foco atencional e preparo psicológico, Receio ou ansiedade de competir. O instrumento auxilia no ajuste de estratégias mentais para maximizar desempenho e estabilidade emocional antes, durante e após a competição.',
   instructions: 'Leia cada afirmação e indique o quanto ela reflete o modo como você normalmente se comporta ou se sente em situações de treino e competição.\nResponda com sinceridade — não há respostas certas ou erradas.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 1, label: 'Nada verdadeiro' },
     { value: 2, label: 'Pouco verdadeiro' },

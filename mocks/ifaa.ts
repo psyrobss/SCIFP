@@ -7,6 +7,7 @@ export const IFAA_INVENTORY: InventoryForm = {
   name: 'Inventário de Fluxo e Absorção em Atividades',
   objective: 'Avaliar a experiência de fluxo (engajamento total, foco e absorção) e a capacidade de envolvimento pleno em atividades que proporcionam prazer, competência e desafio adequado.',
   instructions: 'Leia atentamente cada afirmação e indique com que frequência você vivencia o comportamento ou sentimento descrito quando realiza atividades significativas para você.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },
@@ -78,7 +79,7 @@ export const IFAA_INVENTORY: InventoryForm = {
   ],
   scoring: {
     type: 'sum',
-    description: 'A pontuação total (0–112) indica o nível de fluxo e absorção. Itens invertidos: 4, 7, 10, 12, 14 (o item 7 está invertido incorretamente no prompt original, ajustado para o correto), 18, 21, 24, 26. Escores mais altos refletem maior capacidade de fluxo.',
+    description: 'A pontuação total (0–112) indica o nível de fluxo e absorção. Itens invertidos: 4, 7, 10, 12, 18, 21, 24, 26. Escores mais altos refletem maior capacidade de fluxo.',
     ranges: [
       { min: 0, max: 28, label: 'Baixo engajamento', description: 'Dificuldade de foco, prazer limitado e pouca absorção nas atividades' },
       { min: 29, max: 56, label: 'Engajamento moderado', description: 'Concentração parcial e prazer limitado em atividades significativas' },

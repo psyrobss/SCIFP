@@ -7,6 +7,7 @@ export const ISSM_INVENTORY: InventoryForm = {
   name: 'Inventário de Sono, Saúde e Motivação',
   objective: 'Avaliar a qualidade do sono, o equilíbrio físico e o nível de motivação geral do indivíduo, considerando aspectos fisiológicos, energéticos e psicocomportamentais. O instrumento permite identificar padrões de desequilíbrio sono-vigília, fadiga mental e queda motivacional, frequentes em condições de estresse, depressão ou desregulação funcional.',
   instructions: 'Abaixo estão afirmações sobre seu estado físico, hábitos e motivação pessoal. Responda considerando as últimas quatro semanas, utilizando a escala:',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca ou quase nunca' },
     { value: 1, label: 'Raramente' },
@@ -27,11 +28,11 @@ export const ISSM_INVENTORY: InventoryForm = {
         level_4: 'Boa qualidade e regulação do sono.',
       },
       questions: [
-        { id: 16001, text: 'Tenho dificuldade para adormecer ou desperto várias vezes à noite.' },
-        { id: 16002, text: 'Acordo com sensação de cansaço, mesmo após várias horas de sono.' },
-        { id: 16003, text: 'Tenho horários irregulares para dormir e acordar.' },
-        { id: 16004, text: 'Meu sono costuma ser leve ou interrompido por preocupações.' },
-        { id: 16005, text: 'Sinto que meu sono realmente me recupera física e mentalmente.', isReversed: true },
+        { id: 16001, text: 'Tenho dificuldade para adormecer ou desperto várias vezes à noite.', isReversed: true },
+        { id: 16002, text: 'Acordo com sensação de cansaço, mesmo após várias horas de sono.', isReversed: true },
+        { id: 16003, text: 'Tenho horários irregulares para dormir e acordar.', isReversed: true },
+        { id: 16004, text: 'Meu sono costuma ser leve ou interrompido por preocupações.', isReversed: true },
+        { id: 16005, text: 'Sinto que meu sono realmente me recupera física e mentalmente.' },
       ],
     },
     {
@@ -47,10 +48,10 @@ export const ISSM_INVENTORY: InventoryForm = {
       },
       questions: [
         { id: 16101, text: 'Tenho energia suficiente para enfrentar as atividades do dia.' },
-        { id: 16102, text: 'Sinto cansaço ou lentidão física sem causa aparente.' },
-        { id: 16103, text: 'Tenho sentido dores musculares, tensão ou fadiga constante.' },
+        { id: 16102, text: 'Sinto cansaço ou lentidão física sem causa aparente.', isReversed: true },
+        { id: 16103, text: 'Tenho sentido dores musculares, tensão ou fadiga constante.', isReversed: true },
         { id: 16104, text: 'Mantenho hábitos saudáveis de alimentação, hidratação e movimento corporal.' },
-        { id: 16105, text: 'Sinto que minha energia diminui rapidamente ao longo do dia.' },
+        { id: 16105, text: 'Sinto que minha energia diminui rapidamente ao longo do dia.', isReversed: true },
       ],
     },
     {
@@ -66,9 +67,9 @@ export const ISSM_INVENTORY: InventoryForm = {
       },
       questions: [
         { id: 16201, text: 'Tenho me sentido motivado(a) para realizar minhas tarefas cotidianas.' },
-        { id: 16202, text: 'Procrastino com frequência, mesmo em atividades importantes.' },
+        { id: 16202, text: 'Procrastino com frequência, mesmo em atividades importantes.', isReversed: true },
         { id: 16203, text: 'Sinto prazer e envolvimento nas coisas que faço.' },
-        { id: 16204, text: 'Tenho dificuldade para começar atividades novas, mesmo que desejadas.' },
+        { id: 16204, text: 'Tenho dificuldade para começar atividades novas, mesmo que desejadas.', isReversed: true },
         { id: 16205, text: 'Mantenho meu foco e persistência mesmo quando surgem obstáculos.' },
       ],
     },
@@ -85,7 +86,7 @@ export const ISSM_INVENTORY: InventoryForm = {
       },
       questions: [
         { id: 16301, text: 'Mantenho uma rotina diária estável (alimentação, descanso, lazer).' },
-        { id: 16302, text: 'Tenho percebido variações acentuadas de energia ao longo do dia.' },
+        { id: 16302, text: 'Tenho percebido variações acentuadas de energia ao longo do dia.', isReversed: true },
         { id: 16303, text: 'Me sinto mais produtivo(a) em horários muito específicos do dia.' },
         { id: 16304, text: 'Tenho consciência de como o ritmo do meu corpo afeta meu humor e desempenho.' },
         { id: 16305, text: 'Tenho conseguido equilibrar períodos de esforço com momentos de recuperação.' },

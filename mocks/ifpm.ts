@@ -7,6 +7,7 @@ export const IFPM_INVENTORY: InventoryForm = {
   name: 'Inventário de Planejamento Futuro e Projeção de Metas',
   objective: 'Avaliar a capacidade do indivíduo de estabelecer metas, planejar ações futuras, prever obstáculos e organizar estratégias para alcançar objetivos pessoais e profissionais de forma estruturada e realista.',
   instructions: 'Leia cada afirmação e indique com que frequência você vivencia o comportamento ou atitude descrita ao pensar ou agir em direção a objetivos futuros.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca' },
     { value: 1, label: 'Raramente' },

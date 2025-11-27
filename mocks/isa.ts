@@ -7,6 +7,7 @@ export const ISA_INVENTORY: InventoryForm = {
   name: 'Inventário de Satisfação e Autoeficácia',
   objective: 'Avaliar o grau de satisfação pessoal e percepção de competência para lidar com demandas da vida cotidiana, desafios e metas. O ISA investiga a autoconfiança funcional, a persistência diante de obstáculos e o sentimento de realização, compondo uma medida de autorregulação e eficácia pessoal.',
   instructions: 'Leia as afirmações abaixo e marque o quanto cada uma descreve você nas últimas semanas.',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 0, label: 'Nunca ou quase nunca' },
     { value: 1, label: 'Raramente' },

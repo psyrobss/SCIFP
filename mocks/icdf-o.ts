@@ -7,6 +7,7 @@ export const ICDFO_INVENTORY: InventoryForm = {
   name: 'Inventário de Correspondência entre Dizer e Fazer – Versão Observacional do Terapeuta',
   objective: 'Permitir ao terapeuta avaliar o grau de coerência entre o discurso e o comportamento observável do paciente, ao longo das sessões e entre sessões.',
   instructions: 'O terapeuta deve pontuar cada item com base em observações, autorrelatos consistentes e feedback de terceiros, usando a seguinte escala:',
+  scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 1, label: 'Nunca' },
     { value: 2, label: 'Raramente' },
