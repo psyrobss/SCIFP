@@ -5,46 +5,48 @@ export const IFA_INVENTORY: InventoryForm = {
   id: 'ifa',
   acronym: 'IFA',
   name: 'Inventário de Funcionamento Adaptativo',
-  objective: 'Avaliar o grau de funcionamento adaptativo do indivíduo em domínios de autonomia, regulação comportamental, autocuidado e competência social. O instrumento busca identificar como o paciente se ajusta às demandas da vida cotidiana, mantém sua independência e regula suas ações de forma funcional.',
-  instructions: 'Abaixo estão afirmações sobre comportamentos e atitudes do dia a dia. Leia cada item com atenção e marque o quanto cada afirmação descreve você nas últimas quatro semanas, utilizando a escala abaixo:',
+  objective: 'Avaliar o grau de autonomia, regulação comportamental, autocuidado e competência para lidar com as demandas da vida cotidiana de forma independente e funcional.',
+  instructions: 'Abaixo estão afirmações sobre comportamentos e atitudes do dia a dia. Leia cada item e marque o quanto ele descreve você nas últimas quatro semanas, utilizando a escala de 1 a 7.',
   scoreOrientation: 'higher_is_better',
   responseScale: [
-    { value: 0, label: 'Nunca ou quase nunca' },
-    { value: 1, label: 'Raramente' },
-    { value: 2, label: 'Às vezes' },
-    { value: 3, label: 'Frequentemente' },
-    { value: 4, label: 'Quase sempre ou sempre' },
+    { value: 1, label: 'Discordo Totalmente' },
+    { value: 2, label: 'Discordo Fortemente' },
+    { value: 3, label: 'Discordo em Parte' },
+    { value: 4, label: 'Neutro / Misto' },
+    { value: 5, label: 'Concordo em Parte' },
+    { value: 6, label: 'Concordo Fortemente' },
+    { value: 7, label: 'Concordo Totalmente' },
   ],
   domains: [
     {
       id: 'autonomy_personal_management',
-      name: 'Autonomia e Gestão da Vida Pessoal',
+      name: 'Autonomia e Gestão Pessoal',
       icon: '🧩',
       description: 'Capacidade de organizar a própria rotina, tomar decisões e perseguir metas de forma independente.',
       interpretationLabels: {
-        level_1: 'Baixa autonomia, com dependência de outros para organização.',
-        level_2: 'Autonomia em desenvolvimento, com algumas dificuldades de gestão.',
-        level_3: 'Boa capacidade de gerir a própria vida e tomar decisões.',
-        level_4: 'Elevada autonomia e senso de direção pessoal.',
+        level_1: 'Dependência de terceiros.',
+        level_2: 'Autonomia em desenvolvimento.',
+        level_3: 'Boa gestão pessoal.',
+        level_4: 'Alta autonomia e independência.',
       },
       questions: [
         { id: 13001, text: 'Costumo organizar meus compromissos e prazos sem depender de outras pessoas.' },
         { id: 13002, text: 'Consigo lidar bem com imprevistos e mudanças de rotina.' },
-        { id: 13003, text: 'Tenho clareza sobre minhas metas pessoais e consigo persegui-las com consistência.' },
-        { id: 13004, text: 'Tomo decisões importantes de forma independente, mesmo quando recebo opiniões externas.' },
+        { id: 13003, text: 'Tenho clareza sobre minhas metas pessoais e consigo persegui-las.' },
+        { id: 13004, text: 'Tomo decisões importantes de forma independente.' },
         { id: 13005, text: 'Sinto-me capaz de manter uma rotina estruturada por conta própria.' },
       ],
     },
     {
       id: 'behavioral_regulation_self_control',
-      name: 'Regulação Comportamental e Autocontrole',
+      name: 'Regulação Comportamental',
       icon: '⚖️',
-      description: 'Habilidade de controlar impulsos, pensar antes de agir e manter o equilíbrio emocional em situações de estresse.',
+      description: 'Habilidade de controlar impulsos, pensar antes de agir e manter o equilíbrio sob estresse.',
       interpretationLabels: {
-        level_1: 'Baixo autocontrole, com tendência a reações impulsivas.',
-        level_2: 'Autocontrole inconsistente, com dificuldades sob pressão.',
-        level_3: 'Bom nível de regulação comportamental e emocional.',
-        level_4: 'Elevado autocontrole e capacidade de ponderar antes de agir.',
+        level_1: 'Dificuldade de controle de impulsos.',
+        level_2: 'Regulação inconsistente.',
+        level_3: 'Bom autocontrole.',
+        level_4: 'Excelente regulação comportamental.',
       },
       questions: [
         { id: 13101, text: 'Quando fico irritado(a), consigo me acalmar antes de agir.' },
@@ -56,51 +58,91 @@ export const IFA_INVENTORY: InventoryForm = {
     },
     {
       id: 'self_care_personal_organization',
-      name: 'Autocuidado e Organização Pessoal',
+      name: 'Autocuidado e Rotina',
       icon: '🧼',
-      description: 'Prática de hábitos saudáveis relacionados a sono, alimentação, higiene e organização do ambiente pessoal.',
+      description: 'Prática de hábitos saudáveis relacionados a sono, alimentação, higiene e organização do ambiente.',
       interpretationLabels: {
-        level_1: 'Baixo nível de autocuidado, com hábitos negligenciados.',
-        level_2: 'Autocuidado irregular, com inconsistências na rotina.',
-        level_3: 'Bons hábitos de autocuidado e organização.',
-        level_4: 'Elevado compromisso com a saúde e o bem-estar pessoal.',
+        level_1: 'Negligência do autocuidado.',
+        level_2: 'Autocuidado irregular.',
+        level_3: 'Bons hábitos de saúde.',
+        level_4: 'Rotina de autocuidado sólida.',
       },
       questions: [
         { id: 13201, text: 'Cuido adequadamente da minha alimentação e hidratação.' },
         { id: 13202, text: 'Mantenho uma rotina regular de sono e descanso.' },
-        { id: 13203, text: 'Tenho atenção com a limpeza e organização dos meus espaços pessoais.' },
+        { id: 13203, text: 'Tenho atenção com a organização dos meus espaços pessoais.' },
         { id: 13204, text: 'Realizo atividades físicas ou de relaxamento com alguma frequência.' },
-        { id: 13205, text: 'Busco ajuda quando percebo que minha saúde física ou mental está prejudicada.' },
+        { id: 13205, text: 'Busco ajuda quando percebo que minha saúde está prejudicada.' },
       ],
     },
     {
       id: 'social_competence_adaptation',
-      name: 'Competência e Adaptação Social',
+      name: 'Adaptação Social',
       icon: '🧍‍♂️',
-      description: 'Capacidade de interagir de forma respeitosa, compreender outras perspectivas e adaptar-se a diferentes contextos sociais.',
+      description: 'Capacidade de interagir, compreender perspectivas e adaptar-se a diferentes contextos sociais.',
       interpretationLabels: {
-        level_1: 'Baixa competência social, com dificuldades de interação.',
-        level_2: 'Habilidades sociais em desenvolvimento, com dificuldades pontuais.',
-        level_3: 'Boa capacidade de adaptação e interação social.',
-        level_4: 'Elevada competência social, com facilidade de navegação em diferentes contextos.',
+        level_1: 'Dificuldade de adaptação social.',
+        level_2: 'Adaptação seletiva.',
+        level_3: 'Boa competência social.',
+        level_4: 'Alta adaptabilidade e facilidade social.',
       },
       questions: [
         { id: 13301, text: 'Consigo compreender o ponto de vista das outras pessoas, mesmo quando discordo.' },
         { id: 13302, text: 'Lido bem com críticas sem me sentir excessivamente atacado(a).' },
-        { id: 13303, text: 'Costumo me adaptar bem a diferentes ambientes ou grupos sociais.' },
+        { id: 13303, text: 'Costumo me adaptar bem a diferentes ambientes ou grupos.' },
         { id: 13304, text: 'Mantenho relações de confiança e respeito com pessoas próximas.' },
-        { id: 13305, text: 'Sei equilibrar minhas necessidades com as dos outros nas interações diárias.' },
+        { id: 13305, text: 'Sei equilibrar minhas necessidades com as dos outros.' },
       ],
     },
   ],
   scoring: {
-    type: 'sum',
-    description: 'A pontuação é a soma total das respostas (0-80). Pontuações mais altas indicam melhor funcionamento adaptativo.',
+    type: 'average',
+    description: 'A pontuação média (1-7) indica o nível de funcionamento adaptativo. Escores mais altos sugerem maior independência e eficácia na vida diária.',
     ranges: [
-      { min: 60, max: 80, label: 'Excelente funcionamento adaptativo', description: 'Alto grau de autonomia e regulação.' },
-      { min: 40, max: 59, label: 'Funcionamento adequado', description: 'Boa adaptação com áreas pontuais a desenvolver.' },
-      { min: 20, max: 39, label: 'Funcionamento moderado', description: 'Dificuldades consistentes em autorregulação e autonomia.' },
-      { min: 0, max: 19, label: 'Funcionamento comprometido', description: 'Indícios de desorganização ou dependência significativa.' },
+      { 
+        min: 1, 
+        max: 2.5, 
+        label: 'Necessidade de Suporte', 
+        description: 'Indica desafios na gestão da rotina, autocuidado ou regulação emocional. O indivíduo pode se beneficiar de apoio externo para estruturar o dia a dia.',
+        recommendations: [
+          'Estabelecer rotinas básicas e previsíveis (horário de sono/acordar).',
+          'Usar ferramentas de organização (alarmes, listas).',
+          'Focar em uma pequena mudança de hábito por vez.'
+        ]
+      },
+      { 
+        min: 2.51, 
+        max: 4.0, 
+        label: 'Adaptação em Desenvolvimento', 
+        description: 'Funcionamento parcial. Algumas áreas estão preservadas, mas outras (ex: autocuidado ou controle de impulsos) podem falhar sob estresse ou cansaço.',
+        recommendations: [
+          'Identificar gatilhos que desorganizam a rotina.',
+          'Fortalecer a rede de apoio para momentos de sobrecarga.',
+          'Praticar o autocontrole em situações de baixo risco.'
+        ]
+      },
+      { 
+        min: 4.01, 
+        max: 5.5, 
+        label: 'Funcionamento Adaptativo Eficaz', 
+        description: 'Boa capacidade de gerir a própria vida. O indivíduo mantém hábitos saudáveis, cumpre responsabilidades e se relaciona bem na maioria das situações.',
+        recommendations: [
+          'Refinar o planejamento de longo prazo.',
+          'Manter a consistência nos hábitos de autocuidado.',
+          'Buscar desafios que estimulem o crescimento pessoal.'
+        ]
+      },
+      { 
+        min: 5.51, 
+        max: 7, 
+        label: 'Alta Autonomia e Adaptação', 
+        description: 'Excelente nível de independência, regulação e competência social. O indivíduo navega com facilidade por diferentes contextos e cuida bem de si.',
+        recommendations: [
+          'Assumir papéis de liderança ou mentoria.',
+          'Expandir horizontes e buscar novas experiências.',
+          'Servir como modelo de equilíbrio e organização.'
+        ]
+      },
     ],
   }
 };

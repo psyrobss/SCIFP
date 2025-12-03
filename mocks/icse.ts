@@ -1,19 +1,22 @@
 
+
 import { InventoryForm } from '../types';
 
 export const ICSE_INVENTORY: InventoryForm = {
   id: 'icse',
   acronym: 'ICSE',
   name: 'Inventário de Coerência do Self e Existência',
-  objective: 'Avaliar o grau de alinhamento interno entre identidade, valores e propósito de vida, bem como a integração entre o self pessoal e o sentido existencial.\nO ICSE busca identificar conflitos entre o “eu que sou” e o “eu que quero ser”, analisando coerência, propósito e congruência entre crenças, emoções e ações.',
-  instructions: 'Este inventário tem o objetivo de compreender como você percebe a coerência entre quem você é, o que acredita e o modo como vive.\n\nLeia atentamente cada frase e indique o quanto ela se aplica a você, usando a escala:',
+  objective: 'Avaliar o grau de alinhamento interno entre identidade, valores e propósito de vida, bem como a integração entre o self pessoal e o sentido existencial.',
+  instructions: 'Este inventário tem o objetivo de compreender como você percebe a coerência entre quem você é, o que acredita e o modo como vive.\nLeia atentamente cada frase e indique o quanto ela se aplica a você, usando a escala:',
   scoreOrientation: 'higher_is_better',
   responseScale: [
-    { value: 0, label: 'Nunca ou quase nunca' },
-    { value: 1, label: 'Raramente' },
-    { value: 2, label: 'Às vezes' },
-    { value: 3, label: 'Frequentemente' },
-    { value: 4, label: 'Quase sempre ou sempre' },
+    { value: 1, label: 'Discordo Totalmente' },
+    { value: 2, label: 'Discordo Fortemente' },
+    { value: 3, label: 'Discordo em Parte' },
+    { value: 4, label: 'Neutro / Misto' },
+    { value: 5, label: 'Concordo em Parte' },
+    { value: 6, label: 'Concordo Fortemente' },
+    { value: 7, label: 'Concordo Totalmente' },
   ],
   domains: [
     {
@@ -113,14 +116,54 @@ export const ICSE_INVENTORY: InventoryForm = {
     },
   ],
   scoring: {
-    type: 'sum',
-    description: 'A pontuação total (0-100) indica o nível de coerência existencial. Pontuações mais altas refletem maior integridade, autenticidade e sentido de propósito.',
+    type: 'average',
+    description: 'A pontuação média (1-7) indica o nível de coerência existencial. Pontuações mais altas refletem maior integridade, autenticidade e sentido de propósito.',
     notes: ['Itens que representam incoerência, dúvida ou fragmentação são invertidos na pontuação.'],
     ranges: [
-       { min: 0, max: 25, label: 'Alta Incoerência', description: 'Fragmentação interna, falta de propósito e forte conflito entre valores e ações.' },
-       { min: 26, max: 50, label: 'Incoerência Moderada', description: 'Conflito perceptível entre valores e ações, com alguma falta de propósito.' },
-       { min: 51, max: 75, label: 'Coerência Funcional', description: 'Bom alinhamento interno, com conflitos pontuais ou situacionais.' },
-       { min: 76, max: 100, label: 'Alta Coerência', description: 'Autenticidade, clareza existencial e forte congruência pessoal.' },
+       { 
+         min: 1, 
+         max: 2.5, 
+         label: 'Fragmentação Existencial', 
+         description: 'Fragmentação interna, falta de propósito e forte conflito entre valores e ações. Pode haver sensação de vazio ou de viver uma "vida falsa".',
+         recommendations: [
+           'Trabalho focado na descoberta de valores pessoais.',
+           'Reduzir a dissonância cognitiva através de pequenas ações coerentes.',
+           'Explorar a autenticidade em um ambiente seguro.'
+         ]
+       },
+       { 
+         min: 2.51, 
+         max: 4.0, 
+         label: 'Busca de Coerência', 
+         description: 'Conflito perceptível entre valores e ações, com alguma falta de propósito. O indivíduo deseja ser coerente, mas cede a pressões externas.',
+         recommendations: [
+           'Identificar as pressões sociais que impedem a autenticidade.',
+           'Praticar a tomada de decisão baseada em princípios.',
+           'Fortalecer o "Eu Observador" para notar contradições sem julgamento.'
+         ]
+       },
+       { 
+         min: 4.01, 
+         max: 5.5, 
+         label: 'Coerência Funcional', 
+         description: 'Bom alinhamento interno, com conflitos pontuais ou situacionais. O indivíduo geralmente vive de acordo com o que acredita.',
+         recommendations: [
+           'Refinar a sintonia fina entre intuição e razão.',
+           'Manter a vigilância sobre a integridade em situações desafiadoras.',
+           'Aprofundar o sentido de propósito.'
+         ]
+       },
+       { 
+         min: 5.51, 
+         max: 7, 
+         label: 'Alta Coerência e Integração', 
+         description: 'Autenticidade, clareza existencial e forte congruência pessoal. Sentimento de unidade e paz interior.',
+         recommendations: [
+           'Viver como exemplo de integridade.',
+           'Dedicar-se a causas maiores que o self.',
+           'Manter a humildade e a abertura ao crescimento contínuo.'
+         ]
+       },
     ],
   },
 };

@@ -5,27 +5,29 @@ export const ISA_INVENTORY: InventoryForm = {
   id: 'isa',
   acronym: 'ISA',
   name: 'Inventário de Satisfação e Autoeficácia',
-  objective: 'Avaliar o grau de satisfação pessoal e percepção de competência para lidar com demandas da vida cotidiana, desafios e metas. O ISA investiga a autoconfiança funcional, a persistência diante de obstáculos e o sentimento de realização, compondo uma medida de autorregulação e eficácia pessoal.',
-  instructions: 'Leia as afirmações abaixo e marque o quanto cada uma descreve você nas últimas semanas.',
+  objective: 'Avaliar o grau de satisfação pessoal e a percepção de competência para lidar com demandas da vida, desafios e metas (autoeficácia).',
+  instructions: 'Leia as afirmações abaixo e marque o quanto cada uma descreve seu sentimento nas últimas semanas, utilizando a escala de 1 a 7.',
   scoreOrientation: 'higher_is_better',
   responseScale: [
-    { value: 0, label: 'Nunca ou quase nunca' },
-    { value: 1, label: 'Raramente' },
-    { value: 2, label: 'Às vezes' },
-    { value: 3, label: 'Frequentemente' },
-    { value: 4, label: 'Quase sempre ou sempre' },
+    { value: 1, label: 'Discordo Totalmente' },
+    { value: 2, label: 'Discordo Fortemente' },
+    { value: 3, label: 'Discordo em Parte' },
+    { value: 4, label: 'Neutro / Misto' },
+    { value: 5, label: 'Concordo em Parte' },
+    { value: 6, label: 'Concordo Fortemente' },
+    { value: 7, label: 'Concordo Totalmente' },
   ],
   domains: [
     {
       id: 'perceived_self_efficacy',
       name: 'Autoeficácia Percebida',
       icon: '🎯',
-      description: 'Crença na própria capacidade de organizar e executar as ações necessárias para alcançar objetivos e lidar com desafios.',
+      description: 'Crença na própria capacidade de organizar e executar as ações necessárias para alcançar objetivos.',
       interpretationLabels: {
-        level_1: 'Baixa confiança na própria capacidade de lidar com desafios.',
-        level_2: 'Confiança moderada, com dúvidas em situações novas ou difíceis.',
-        level_3: 'Boa crença na própria capacidade de resolver problemas.',
-        level_4: 'Forte senso de autoeficácia e confiança para superar obstáculos.',
+        level_1: 'Baixa confiança na capacidade pessoal.',
+        level_2: 'Confiança instável ou situacional.',
+        level_3: 'Boa crença de autoeficácia.',
+        level_4: 'Forte convicção de capacidade.',
       },
       questions: [
         { id: 19001, text: 'Acredito na minha capacidade de resolver situações difíceis.' },
@@ -37,33 +39,33 @@ export const ISA_INVENTORY: InventoryForm = {
     },
     {
       id: 'personal_achievement_progress',
-      name: 'Realização e Progresso Pessoal',
+      name: 'Realização e Progresso',
       icon: '🌟',
-      description: 'Sentimento de satisfação com as próprias conquistas e a percepção de estar avançando em direção a metas pessoais.',
+      description: 'Sentimento de satisfação com as próprias conquistas e percepção de avanço.',
       interpretationLabels: {
-        level_1: 'Sensação de estagnação ou insatisfação com as próprias realizações.',
-        level_2: 'Reconhecimento limitado do próprio progresso.',
-        level_3: 'Bom sentimento de realização e orgulho das conquistas.',
-        level_4: 'Forte senso de progresso e satisfação com a própria trajetória.',
+        level_1: 'Sensação de estagnação.',
+        level_2: 'Reconhecimento limitado de progresso.',
+        level_3: 'Boa percepção de realização.',
+        level_4: 'Alto senso de progresso e conquista.',
       },
       questions: [
         { id: 19101, text: 'Sinto que estou avançando em direção aos meus objetivos.' },
         { id: 19102, text: 'Tenho orgulho das conquistas que já alcancei.' },
         { id: 19103, text: 'Percebo que estou me tornando uma pessoa melhor com o tempo.' },
         { id: 19104, text: 'Tenho clareza de que meus esforços geram resultados.' },
-        { id: 19105, text: 'Sinto satisfação por ver meu próprio progresso.' },
+        { id: 19105, text: 'Sinto satisfação por ver meu próprio crescimento.' },
       ],
     },
     {
       id: 'autonomy_persistence',
       name: 'Autonomia e Persistência',
       icon: '🧭',
-      description: 'Capacidade de se automotivar, manter a disciplina e persistir na busca por objetivos sem depender de validação externa.',
+      description: 'Capacidade de se automotivar e persistir na busca por objetivos sem depender de validação externa.',
       interpretationLabels: {
-        level_1: 'Baixa persistência, com tendência a desistir facilmente.',
-        level_2: 'Persistência inconsistente, dependente de motivação externa.',
-        level_3: 'Boa capacidade de autonomia e disciplina para concluir tarefas.',
-        level_4: 'Elevada persistência e automotivação, mesmo diante de dificuldades.',
+        level_1: 'Baixa persistência / Dependência.',
+        level_2: 'Persistência oscilante.',
+        level_3: 'Boa autonomia e disciplina.',
+        level_4: 'Alta determinação e automotivação.',
       },
       questions: [
         { id: 19201, text: 'Sou capaz de manter meus planos mesmo quando surgem dificuldades.' },
@@ -75,14 +77,14 @@ export const ISA_INVENTORY: InventoryForm = {
     },
     {
       id: 'satisfaction_functional_self_esteem',
-      name: 'Satisfação e Autoestima Funcional',
+      name: 'Satisfação Pessoal',
       icon: '💬',
-      description: 'Nível de satisfação geral consigo mesmo, reconhecendo as próprias qualidades e mantendo uma autoavaliação positiva.',
+      description: 'Nível geral de contentamento com quem se é e com a vida que se leva.',
       interpretationLabels: {
-        level_1: 'Baixa autoestima e insatisfação com quem se é.',
-        level_2: 'Autoestima frágil, dependente de conquistas externas.',
-        level_3: 'Boa autoestima, com reconhecimento das próprias qualidades.',
-        level_4: 'Forte senso de autovalorização e satisfação pessoal.',
+        level_1: 'Insatisfação significativa.',
+        level_2: 'Satisfação parcial.',
+        level_3: 'Bom nível de satisfação.',
+        level_4: 'Alta satisfação e aceitação.',
       },
       questions: [
         { id: 19301, text: 'Sinto-me satisfeito(a) com quem me tornei até hoje.' },
@@ -94,13 +96,54 @@ export const ISA_INVENTORY: InventoryForm = {
     },
   ],
   scoring: {
-    type: 'sum',
-    description: 'A pontuação é a soma total das respostas (0-80). Pontuações mais altas indicam maior satisfação e autoeficácia.',
+    type: 'average',
+    description: 'A pontuação média (1-7) indica o nível de crença na própria eficácia. Escores altos correlacionam-se com maior resiliência e sucesso na obtenção de metas.',
     ranges: [
-      { min: 60, max: 80, label: 'Alta autoeficácia e satisfação pessoal', description: 'Confiança elevada, motivação e equilíbrio funcional.' },
-      { min: 40, max: 59, label: 'Bom funcionamento pessoal', description: 'Boa percepção de competência e realização, com pequenas áreas de dúvida.' },
-      { min: 20, max: 39, label: 'Autoeficácia moderada', description: 'Insegurança pontual, frustração ou oscilação de confiança.' },
-      { min: 0, max: 19, label: 'Baixa autoeficácia e satisfação', description: 'Desânimo, baixa autoconfiança e percepção negativa de desempenho pessoal.' }
+      { 
+        min: 1, 
+        max: 2.5, 
+        label: 'Insegurança e Dúvida', 
+        description: 'Sensação de incapacidade diante dos desafios. Pode haver desânimo, evitação de tarefas difíceis ou foco excessivo nas falhas passadas.',
+        recommendations: [
+          'Recordar sucessos passados, mesmo que pequenos.',
+          'Dividir grandes tarefas em passos minúsculos e realizáveis.',
+          'Identificar modelos inspiradores (aprendizagem vicária).',
+          'Celebrar o esforço, não apenas o resultado final.'
+        ]
+      },
+      { 
+        min: 2.51, 
+        max: 4.0, 
+        label: 'Autoeficácia em Construção', 
+        description: 'Confiança oscilante. O indivíduo acredita em si em áreas familiares, mas hesita diante do novo ou de obstáculos maiores.',
+        recommendations: [
+          'Focar no desenvolvimento de novas habilidades.',
+          'Usar afirmações positivas realistas ("Eu posso aprender isso").',
+          'Buscar feedback construtivo para ajustar a rota.'
+        ]
+      },
+      { 
+        min: 4.01, 
+        max: 5.5, 
+        label: 'Confiança Funcional', 
+        description: 'Boa percepção de competência. O indivíduo sente que tem recursos para lidar com a maioria das situações e se recupera bem de falhas.',
+        recommendations: [
+          'Assumir novos desafios que exijam um pouco mais de esforço.',
+          'Ajudar outros a resolverem problemas.',
+          'Manter o registro de progresso para sustentar a motivação.'
+        ]
+      },
+      { 
+        min: 5.51, 
+        max: 7, 
+        label: 'Alta Autoeficácia e Realização', 
+        description: 'Forte convicção na própria capacidade de agência. O indivíduo encara problemas como desafios a serem superados e mantém alta persistência.',
+        recommendations: [
+          'Liderar projetos inovadores.',
+          'Mentorar pessoas com baixa autoconfiança.',
+          'Cuidar para não subestimar riscos devido ao excesso de confiança.'
+        ]
+      },
     ],
   }
 };

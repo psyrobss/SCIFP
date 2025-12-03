@@ -6,14 +6,16 @@ export const IAR_INVENTORY: InventoryForm = {
   acronym: 'IAR',
   name: 'Inventário de Ajuste Relacional (Casal/Intimidade)',
   objective: 'Avaliar o funcionamento afetivo e interpessoal em relações íntimas, incluindo comunicação, empatia, intimidade emocional, satisfação e manejo de conflitos.',
-  instructions: 'Leia cada afirmação e indique o quanto ela descreve seu comportamento e sentimentos habituais no relacionamento íntimo.',
+  instructions: 'Leia cada afirmação e indique o quanto ela descreve seu comportamento e sentimentos habituais no relacionamento íntimo, utilizando a escala de 1 a 7.',
   scoreOrientation: 'higher_is_better',
   responseScale: [
-    { value: 0, label: 'Nunca' },
-    { value: 1, label: 'Raramente' },
-    { value: 2, label: 'Às vezes' },
-    { value: 3, label: 'Frequentemente' },
-    { value: 4, label: 'Quase sempre' },
+    { value: 1, label: 'Discordo Totalmente' },
+    { value: 2, label: 'Discordo Fortemente' },
+    { value: 3, label: 'Discordo em Parte' },
+    { value: 4, label: 'Neutro / Misto' },
+    { value: 5, label: 'Concordo em Parte' },
+    { value: 6, label: 'Concordo Fortemente' },
+    { value: 7, label: 'Concordo Totalmente' },
   ],
   domains: [
     {
@@ -22,10 +24,10 @@ export const IAR_INVENTORY: InventoryForm = {
       icon: '💬',
       description: 'Habilidade de expressar sentimentos, necessidades e opiniões de forma clara e respeitosa, e de ouvir o parceiro(a) sem julgamento.',
       interpretationLabels: {
-        level_1: 'Fragilidade significativa na comunicação.',
-        level_2: 'Tendência a problemas de comunicação.',
-        level_3: 'Comunicação funcional e adequada.',
-        level_4: 'Comunicação excelente, um recurso relacional.',
+        level_1: 'Comunicação bloqueada ou reativa.',
+        level_2: 'Dificuldade de expressão clara.',
+        level_3: 'Boa fluidez comunicativa.',
+        level_4: 'Comunicação profunda e segura.',
       },
       questions: [
         { id: 33001, text: 'Consigo expressar sentimentos sem medo de magoar meu parceiro(a).' },
@@ -43,10 +45,10 @@ export const IAR_INVENTORY: InventoryForm = {
       icon: '💞',
       description: 'Capacidade de compartilhar vulnerabilidades, manter um vínculo emocional seguro e sentir proximidade afetiva.',
       interpretationLabels: {
-        level_1: 'Fragilidade significativa na intimidade.',
-        level_2: 'Tendência a problemas de conexão.',
-        level_3: 'Intimidade funcional e segura.',
-        level_4: 'Conexão excelente, um recurso relacional.',
+        level_1: 'Distanciamento afetivo.',
+        level_2: 'Conexão oscilante.',
+        level_3: 'Vínculo seguro e próximo.',
+        level_4: 'Intimidade profunda e nutritiva.',
       },
       questions: [
         { id: 33008, text: 'Sinto que posso me aproximar emocionalmente do meu parceiro(a).' },
@@ -64,10 +66,10 @@ export const IAR_INVENTORY: InventoryForm = {
       icon: '🤝',
       description: 'Habilidade de perceber as necessidades do outro, compreender seus sentimentos e equilibrar as próprias necessidades com as do parceiro(a).',
       interpretationLabels: {
-        level_1: 'Fragilidade significativa na empatia.',
-        level_2: 'Tendência a problemas de compreensão mútua.',
-        level_3: 'Empatia funcional e equilibrada.',
-        level_4: 'Empatia excelente, um recurso relacional.',
+        level_1: 'Dificuldade de compreensão mútua.',
+        level_2: 'Empatia seletiva ou intermitente.',
+        level_3: 'Boa sintonia e compreensão.',
+        level_4: 'Alta ressonância empática.',
       },
       questions: [
         { id: 33015, text: 'Consigo compreender os sentimentos do meu parceiro(a) sem me confundir com os meus.' },
@@ -81,14 +83,14 @@ export const IAR_INVENTORY: InventoryForm = {
     },
     {
       id: 'conflict_management_satisfaction',
-      name: 'Gestão de Conflitos e Satisfação Relacional',
+      name: 'Gestão de Conflitos e Satisfação',
       icon: '⚖️',
       description: 'Capacidade de resolver desacordos de forma construtiva, negociar soluções e manter um nível de satisfação emocional geral na relação.',
       interpretationLabels: {
-        level_1: 'Fragilidade significativa na gestão de conflitos.',
-        level_2: 'Tendência a problemas na resolução de conflitos.',
-        level_3: 'Gestão de conflitos funcional e satisfatória.',
-        level_4: 'Excelente gestão de conflitos, um recurso relacional.',
+        level_1: 'Conflitos destrutivos ou não resolvidos.',
+        level_2: 'Gestão de conflitos tensa.',
+        level_3: 'Resolução funcional de problemas.',
+        level_4: 'Crescimento através das divergências.',
       },
       questions: [
         { id: 33022, text: 'Conflitos são resolvidos de forma construtiva na relação.' },
@@ -102,14 +104,53 @@ export const IAR_INVENTORY: InventoryForm = {
     },
   ],
   scoring: {
-    type: 'sum',
-    description: 'A pontuação total (0–112) indica o nível geral de ajuste relacional. Escores mais altos refletem maior funcionalidade e satisfação.',
-    subScoresDescription: 'Subescores por domínio podem ser calculados (média de 0-4) para análises específicas.',
+    type: 'average',
+    description: 'A pontuação média (1-7) indica a qualidade do ajuste relacional. Escores mais altos sugerem maior satisfação, segurança e competência na relação.',
     ranges: [
-      { min: 0, max: 28, label: 'Ajuste relacional muito baixo', description: 'Risco de insatisfação, conflitos frequentes e baixa intimidade.' },
-      { min: 29, max: 56, label: 'Baixo ajuste', description: 'Dificuldades significativas em comunicação, intimidade ou empatia.' },
-      { min: 57, max: 84, label: 'Ajuste moderado', description: 'Presença de recursos, mas ainda com pontos de fragilidade.' },
-      { min: 85, max: 112, label: 'Ajuste elevado', description: 'Relacionamento funcional, comunicação e intimidade satisfatórias.' },
+      { 
+        min: 1, 
+        max: 2.5, 
+        label: 'Desafios no Vínculo', 
+        description: 'A relação pode estar passando por um momento de tensão, desconexão ou conflito não resolvido. Há necessidade de restaurar a segurança e a comunicação.',
+        recommendations: [
+          'Estabelecer momentos de conversa sem distrações (sem telas).',
+          'Praticar a "escuta reflexiva": repetir o que o outro disse antes de responder.',
+          'Focar em expressar necessidades ("eu preciso") em vez de críticas ("você nunca").'
+        ]
+      },
+      { 
+        min: 2.51, 
+        max: 4.0, 
+        label: 'Ajuste em Desenvolvimento', 
+        description: 'Existem áreas de funcionamento e carinho, mas também pontos de atrito ou distanciamento. A comunicação pode falhar em momentos de estresse.',
+        recommendations: [
+          'Identificar os "gatilhos" que transformam conversas em discussões.',
+          'Aumentar a proporção de interações positivas (elogios, agradecimentos) para negativas.',
+          'Negociar tempo de qualidade a dois.'
+        ]
+      },
+      { 
+        min: 4.01, 
+        max: 5.5, 
+        label: 'Relacionamento Funcional', 
+        description: 'Boa base de amizade e cooperação. O casal consegue resolver a maioria dos problemas e mantém um nível satisfatório de intimidade.',
+        recommendations: [
+          'Aprofundar a intimidade compartilhando sonhos e medos, não apenas logística.',
+          'Manter a curiosidade sobre o mundo interno do parceiro.',
+          'Celebrar as conquistas conjuntas.'
+        ]
+      },
+      { 
+        min: 5.51, 
+        max: 7, 
+        label: 'Alta Sintonia e Satisfação', 
+        description: 'Relacionamento nutritivo, seguro e resiliente. Há um forte senso de "nós", com respeito à individualidade de cada um.',
+        recommendations: [
+          'Proteger o relacionamento contra a rotina excessiva.',
+          'Servir como modelo de relacionamento saudável para outros (ex: filhos).',
+          'Usar a segurança do vínculo para impulsionar o crescimento individual de ambos.'
+        ]
+      },
     ],
   },
 };

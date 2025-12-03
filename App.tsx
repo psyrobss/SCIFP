@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Routes, Route, useParams, useNavigate, Link, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
@@ -7,18 +8,22 @@ import { Footer } from './components/Footer';
 import { InventoryFormView } from './components/InventoryFormView';
 import { ALL_INVENTORIES } from './mocks';
 import { RandomSelectionPage } from './components/RandomSelectionPage';
+import { ExercisesPage } from './components/ExercisesPage';
+import { ExerciseView } from './components/ExerciseView';
 import { InventoryForm } from './types';
 import { ScrollToTop } from './components/ScrollToTop';
 
 const HomePage: React.FC = () => (
   <>
-    <div className="space-y-12">
-      {MODULES.map((module) => (
-        <ModuleSection 
-          key={module.id} 
-          module={module} 
-        />
-      ))}
+    <div className="space-y-12 animate-fade-in pt-6">
+      <div id="modulos" className="space-y-12">
+        {MODULES.map((module) => (
+            <ModuleSection 
+            key={module.id} 
+            module={module} 
+            />
+        ))}
+      </div>
     </div>
     <div className="mt-16 text-center">
       <p className="text-slate-600">
@@ -71,6 +76,7 @@ const RandomSelectionWrapper: React.FC = () => {
 const App: React.FC = () => {
   const location = useLocation();
   const isFormView = location.pathname.startsWith('/inventario/');
+  const isExerciseView = location.pathname.startsWith('/exercicio/');
   const isRandomSelectionPage = location.pathname === '/questionarios-terapeuticos';
   
   // A bit of logic to get the current inventory for the header
@@ -83,17 +89,21 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="bg-slate-50 min-h-screen text-slate-800 flex flex-col">
+    <div className="bg-slate-50 min-h-screen text-slate-800 flex flex-col font-sans">
        <ScrollToTop />
-       <Header 
-        responseScale={isFormView ? currentInventory?.responseScale : undefined} 
-        isRandomSelectionPage={isRandomSelectionPage}
-      />
+       {!isExerciseView && (
+         <Header 
+            responseScale={isFormView ? currentInventory?.responseScale : undefined} 
+            isRandomSelectionPage={isRandomSelectionPage}
+        />
+       )}
       <main className="container mx-auto p-4 sm:p-6 lg:p-8 flex-grow">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/inventario/:acronym" element={<InventoryPage />} />
           <Route path="/questionarios-terapeuticos" element={<RandomSelectionWrapper />} />
+          <Route path="/exercicios" element={<ExercisesPage />} />
+          <Route path="/exercicio/:id" element={<ExerciseView />} />
         </Routes>
       </main>
       <Footer />

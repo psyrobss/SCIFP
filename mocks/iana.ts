@@ -5,14 +5,16 @@ export const IANA_INVENTORY: InventoryForm = {
   id: 'iana',
   acronym: 'IANA',
   name: 'Inventário de Alterações Neuropsicológicas Autorrelatadas (IANA)',
-  objective: 'Identificar possíveis alterações cognitivas, emocionais e comportamentais percebidas pelo próprio indivíduo.',
-  instructions: 'Leia cada afirmação e indique com que frequência ou intensidade ela ocorre atualmente.',
+  objective: 'Identificar possíveis alterações cognitivas, emocionais e comportamentais percebidas pelo próprio indivíduo, com foco na funcionalidade diária.',
+  instructions: 'Leia cada afirmação e indique o quanto ela corresponde à sua realidade atual. Não existem respostas certas ou erradas; seja o mais honesto possível consigo mesmo.',
   responseScale: [
-    { value: 0, label: 'Nunca' },
-    { value: 1, label: 'Raramente' },
-    { value: 2, label: 'Às vezes' },
-    { value: 3, label: 'Frequentemente' },
-    { value: 4, label: 'Quase sempre' },
+    { value: 1, label: 'Discordo Totalmente' },
+    { value: 2, label: 'Discordo Fortemente' },
+    { value: 3, label: 'Discordo em Parte' },
+    { value: 4, label: 'Neutro / Às vezes' },
+    { value: 5, label: 'Concordo em Parte' },
+    { value: 6, label: 'Concordo Fortemente' },
+    { value: 7, label: 'Concordo Totalmente' },
   ],
   domains: [
     {
@@ -21,10 +23,10 @@ export const IANA_INVENTORY: InventoryForm = {
       icon: '🧩',
       description: 'Avalia a capacidade de manter o foco, filtrar distrações e sustentar o esforço mental em tarefas.',
       interpretationLabels: {
-        level_1: 'Nenhuma dificuldade significativa de atenção.',
-        level_2: 'Lapsos de atenção ocasionais, com baixo impacto.',
-        level_3: 'Dificuldades de atenção persistentes e perceptíveis.',
-        level_4: 'Dificuldades de atenção intensas com impacto funcional.',
+        level_1: 'Atenção preservada e funcional.',
+        level_2: 'Oscilações leves de atenção.',
+        level_3: 'Desafios atencionais moderados.',
+        level_4: 'Necessidade de suporte atencional significativo.',
       },
       questions: [
         { id: 101, text: 'Tenho dificuldade em manter a atenção em tarefas por muito tempo.' },
@@ -41,10 +43,10 @@ export const IANA_INVENTORY: InventoryForm = {
       icon: '💭',
       description: 'Mede a percepção sobre a capacidade de reter e recuperar informações recentes e importantes do dia a dia.',
       interpretationLabels: {
-        level_1: 'Nenhuma queixa de memória significativa.',
-        level_2: 'Lapsos de memória leves e esporádicos.',
-        level_3: 'Dificuldades de memória moderadas e recorrentes.',
-        level_4: 'Queixas de memória intensas com impacto no cotidiano.',
+        level_1: 'Memória funcional e preservada.',
+        level_2: 'Lapsos de memória pontuais.',
+        level_3: 'Dificuldades de memória recorrentes.',
+        level_4: 'Impacto significativo na retenção de informações.',
       },
       questions: [
         { id: 201, text: 'Esqueço compromissos ou datas importantes.' },
@@ -59,12 +61,12 @@ export const IANA_INVENTORY: InventoryForm = {
       id: 'language',
       name: 'Linguagem',
       icon: '🗣️',
-      description: 'Avalia dificuldades na expressão verbal, compreensão e organização do discurso no cotidiano.',
+      description: 'Avalia fluência verbal, compreensão e organização do discurso no cotidiano.',
       interpretationLabels: {
-        level_1: 'Nenhuma dificuldade de linguagem relatada.',
-        level_2: 'Dificuldades leves e pontuais na busca de palavras.',
-        level_3: 'Dificuldades moderadas na expressão ou compreensão verbal.',
-        level_4: 'Dificuldades de linguagem significativas e frequentes.',
+        level_1: 'Comunicação fluida e preservada.',
+        level_2: 'Leves hesitações na busca de palavras.',
+        level_3: 'Dificuldades moderadas de expressão.',
+        level_4: 'Desafios significativos na comunicação verbal.',
       },
       questions: [
         { id: 301, text: 'Tenho dificuldade em encontrar palavras durante conversas.' },
@@ -78,12 +80,12 @@ export const IANA_INVENTORY: InventoryForm = {
       id: 'executive_functions',
       name: 'Funções Executivas',
       icon: '⚙️',
-      description: 'Mede a capacidade de planejamento, organização, tomada de decisão e controle de impulsos em atividades diárias.',
+      description: 'Mede a capacidade de planejamento, organização, tomada de decisão e flexibilidade.',
       interpretationLabels: {
-        level_1: 'Bom funcionamento executivo.',
-        level_2: 'Dificuldades leves de planejamento e organização.',
-        level_3: 'Dificuldades executivas moderadas com impacto na rotina.',
-        level_4: 'Dificuldades executivas intensas e disfuncionais.',
+        level_1: 'Bom gerenciamento executivo.',
+        level_2: 'Desafios leves de organização.',
+        level_3: 'Dificuldades executivas moderadas.',
+        level_4: 'Disfunção executiva com impacto na rotina.',
       },
       questions: [
         { id: 401, text: 'Tenho dificuldade em planejar ou organizar minhas atividades.' },
@@ -98,12 +100,12 @@ export const IANA_INVENTORY: InventoryForm = {
       id: 'perception',
       name: 'Percepção e Processamento Visual/Espacial',
       icon: '🧍',
-      description: 'Avalia dificuldades na interpretação de estímulos visuais, orientação espacial e reconhecimento de padrões.',
+      description: 'Avalia a interpretação de estímulos visuais, orientação espacial e reconhecimento.',
       interpretationLabels: {
-        level_1: 'Nenhuma dificuldade visuoespacial relatada.',
-        level_2: 'Dificuldades leves e ocasionais de percepção.',
-        level_3: 'Dificuldades moderadas em tarefas visuoespaciais.',
-        level_4: 'Dificuldades intensas de orientação e reconhecimento.',
+        level_1: 'Percepção visuoespacial preservada.',
+        level_2: 'Dificuldades perceptivas leves.',
+        level_3: 'Desafios moderados de orientação.',
+        level_4: 'Dificuldades significativas de reconhecimento/espaço.',
       },
       questions: [
         { id: 501, text: 'Tenho dificuldade em perceber detalhes em imagens ou mapas.' },
@@ -117,12 +119,12 @@ export const IANA_INVENTORY: InventoryForm = {
       id: 'emotion',
       name: 'Emoção e Regulação Afetiva',
       icon: '❤️',
-      description: 'Mede a estabilidade do humor, a capacidade de regular emoções como raiva e ansiedade, e a expressão afetiva.',
+      description: 'Mede a estabilidade do humor e a capacidade de regular emoções.',
       interpretationLabels: {
-        level_1: 'Boa estabilidade e regulação emocional.',
-        level_2: 'Labilidade emocional leve ou situacional.',
-        level_3: 'Dificuldades moderadas de regulação do humor.',
-        level_4: 'Instabilidade emocional intensa e frequente.',
+        level_1: 'Boa estabilidade emocional.',
+        level_2: 'Oscilações de humor situacionais.',
+        level_3: 'Dificuldades moderadas de regulação.',
+        level_4: 'Instabilidade emocional significativa.',
       },
       questions: [
         { id: 601, text: 'Sinto variações bruscas de humor sem motivo claro.' },
@@ -138,12 +140,12 @@ export const IANA_INVENTORY: InventoryForm = {
       id: 'behavior',
       name: 'Comportamento e Vida Social',
       icon: '🤝',
-      description: 'Avalia o impacto das dificuldades percebidas no isolamento social, motivação para atividades e mudanças de hábito.',
+      description: 'Avalia o impacto das dificuldades cognitivas na interação social e motivação.',
       interpretationLabels: {
-        level_1: 'Bom funcionamento social e comportamental.',
-        level_2: 'Leve tendência ao isolamento ou desmotivação.',
-        level_3: 'Dificuldades moderadas na interação social e motivação.',
-        level_4: 'Forte impacto no funcionamento social e comportamental.',
+        level_1: 'Funcionamento social preservado.',
+        level_2: 'Leve retraimento ou mudança de comportamento.',
+        level_3: 'Impacto moderado na vida social.',
+        level_4: 'Dificuldades comportamentais significativas.',
       },
       questions: [
         { id: 701, text: 'Tenho evitado situações sociais por falta de energia ou paciência.' },
@@ -161,13 +163,13 @@ export const IANA_INVENTORY: InventoryForm = {
   ],
   scoring: {
     type: 'average',
-    description: 'A pontuação média (0-4) indica a intensidade percebida das alterações neuropsicológicas.',
+    description: 'A pontuação média (1-7) indica a intensidade percebida das alterações. Escores mais altos sugerem maior necessidade de investigação.',
     ranges: [
       { 
-        min: 0, 
-        max: 0.9, 
+        min: 1, 
+        max: 2.5, 
         label: 'Funcionamento Cognitivo Preservado', 
-        description: 'O indivíduo não relata queixas significativas. As falhas ocasionais estão dentro do esperado para o funcionamento cotidiano normal, provavelmente associadas a cansaço pontual ou distração, sem impacto funcional relevante.',
+        description: 'O perfil indica um funcionamento cognitivo e comportamental dentro do esperado. Queixas eventuais podem estar relacionadas a cansaço pontual, sem configurar um padrão clínico de déficit.',
         recommendations: [
           'Manter estilo de vida ativo e cognitivamente estimulante.',
           'Praticar higiene do sono e atividade física regular para preservação cognitiva.',
@@ -175,22 +177,22 @@ export const IANA_INVENTORY: InventoryForm = {
         ]
       },
       { 
-        min: 1, 
-        max: 1.9, 
-        label: 'Queixas Leves / Sintomas Subclínicos', 
-        description: 'Relato de dificuldades leves ou esporádicas. Podem estar associadas a estresse, ansiedade leve, privação de sono ou sobrecarga momentânea. O impacto funcional é baixo, mas o indivíduo percebe mudanças sutis.',
+        min: 2.51, 
+        max: 4.0, 
+        label: 'Sinais de Alerta Leves / Sobrecarga', 
+        description: 'Presença de algumas dificuldades cognitivas ou emocionais que podem estar associadas a estresse, ansiedade, privação de sono ou sobrecarga momentânea. Merece atenção preventiva.',
         recommendations: [
           'Investigar qualidade do sono e níveis de estresse atuais.',
           'Utilizar estratégias externas de organização (agendas, lembretes).',
           'Monitorar se os sintomas aumentam em períodos de maior exigência.',
-          'Considerar avaliação médica se houver histórico familiar de demência ou transtornos cognitivos.'
+          'Considerar avaliação médica se houver histórico familiar de transtornos cognitivos.'
         ]
       },
       { 
-        min: 2, 
-        max: 2.9, 
-        label: 'Alterações Moderadas / Sinal de Alerta', 
-        description: 'Queixas frequentes em múltiplos domínios. Indica provável disfunção que afeta a eficiência no trabalho ou na vida social. Pode sugerir transtornos de humor (depressão/ansiedade) afetando a cognição, TDAH adulto ou início de declínio cognitivo leve, dependendo da idade e contexto.',
+        min: 4.01, 
+        max: 5.5, 
+        label: 'Alterações Moderadas / Necessidade de Investigação', 
+        description: 'Relato de dificuldades frequentes em múltiplos domínios. Indica provável disfunção que afeta a eficiência no trabalho ou na vida social. Pode sugerir transtornos de humor afetando a cognição, TDAH ou outras condições.',
         recommendations: [
           'Recomenda-se avaliação neuropsicológica formal para investigar déficits objetivos.',
           'Avaliação psiquiátrica para descartar causas emocionais (depressão, ansiedade).',
@@ -199,13 +201,13 @@ export const IANA_INVENTORY: InventoryForm = {
         ]
       },
       { 
-        min: 3, 
-        max: 4, 
-        label: 'Déficit Neuropsicológico Significativo', 
-        description: 'Relato de falhas graves e frequentes com alto impacto funcional e prejuízo na autonomia ou desempenho. Sugere comprometimento neurológico, psiquiátrico severo ou exaustão cognitiva extrema (Burnout).',
+        min: 5.51, 
+        max: 7, 
+        label: 'Impacto Funcional Significativo', 
+        description: 'Relato de dificuldades intensas e frequentes com alto impacto na autonomia ou desempenho. Sugere a necessidade de intervenção clínica prioritária para suporte e reabilitação.',
         recommendations: [
           'Encaminhamento prioritário para neurologista e neuropsicólogo.',
-          'Necessidade de suporte para atividades da vida diária se a autonomia estiver comprometida.',
+          'Avaliação de necessidade de suporte para atividades da vida diária.',
           'Investigação de causas orgânicas, metabólicas ou neurológicas.',
           'Adaptação do ambiente para garantir segurança e funcionalidade.'
         ]

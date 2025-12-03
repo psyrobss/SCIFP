@@ -10,11 +10,13 @@ export const ICMI_INVENTORY: InventoryForm = {
   instructions: 'A seguir, há afirmações sobre sua forma de pensar, agir e se posicionar diante de decisões e dilemas do dia a dia.\nMarque o quanto cada uma representa você na maior parte do tempo.',
   scoreOrientation: 'higher_is_better',
   responseScale: [
-    { value: 0, label: 'Nunca ou quase nunca' },
-    { value: 1, label: 'Raramente' },
-    { value: 2, label: 'Às vezes' },
-    { value: 3, label: 'Frequentemente' },
-    { value: 4, label: 'Quase sempre ou sempre' },
+    { value: 1, label: 'Discordo Totalmente' },
+    { value: 2, label: 'Discordo Fortemente' },
+    { value: 3, label: 'Discordo em Parte' },
+    { value: 4, label: 'Neutro / Misto' },
+    { value: 5, label: 'Concordo em Parte' },
+    { value: 6, label: 'Concordo Fortemente' },
+    { value: 7, label: 'Concordo Totalmente' },
   ],
   domains: [
     {
@@ -95,14 +97,13 @@ export const ICMI_INVENTORY: InventoryForm = {
     },
   ],
   scoring: {
-    type: 'sum',
-    description: 'A pontuação é a soma total das respostas (0-80). Pontuações mais altas indicam maior integridade moral.',
-    subScoresDescription: 'A média por domínio pode ser calculada para uma análise mais detalhada.',
+    type: 'average',
+    description: 'A pontuação média (1-7) reflete o nível de consciência moral e integridade.',
     ranges: [
       { 
-        min: 0, 
-        max: 24, 
-        label: 'Fragmentação Moral / Desconexão Ética', 
+        min: 1, 
+        max: 2.5, 
+        label: 'Desconexão de Valores', 
         description: 'Falta de valores claros, tendência a racionalizar comportamentos inadequados ou agir por conveniência imediata. Risco de conflitos interpessoais e falta de confiança.',
         recommendations: [
           'Trabalhar a identificação de valores pessoais fundamentais.',
@@ -112,9 +113,9 @@ export const ICMI_INVENTORY: InventoryForm = {
         ]
       },
       { 
-        min: 25, 
-        max: 44, 
-        label: 'Inconsistência Ética Moderada', 
+        min: 2.51, 
+        max: 4.0, 
+        label: 'Conflito Ético', 
         description: 'Conflito entre valores e conduta. O indivíduo pode sentir culpa ou desconforto moral, mas ainda cede a pressões ou impulsos contrários aos seus valores.',
         recommendations: [
           'Identificar barreiras que impedem a ação ética (medo, pressão social).',
@@ -123,8 +124,8 @@ export const ICMI_INVENTORY: InventoryForm = {
         ]
       },
       { 
-        min: 45, 
-        max: 64, 
+        min: 4.01, 
+        max: 5.5, 
         label: 'Integridade Funcional', 
         description: 'Boa coerência ética. O indivíduo geralmente age de acordo com seus princípios, com falhas ocasionais que são reconhecidas e reparadas.',
         recommendations: [
@@ -134,9 +135,9 @@ export const ICMI_INVENTORY: InventoryForm = {
         ]
       },
       { 
-        min: 65, 
-        max: 80, 
-        label: 'Alta Integridade e Consciência Moral', 
+        min: 5.51, 
+        max: 7, 
+        label: 'Alta Consciência e Integridade', 
         description: 'Forte alinhamento entre valores e ações. Senso de justiça apurado, responsabilidade pessoal e autenticidade. Inspira confiança.',
         recommendations: [
           'Atuar como modelo ético em sua comunidade ou trabalho.',

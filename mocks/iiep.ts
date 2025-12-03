@@ -5,22 +5,30 @@ export const IIEP_INVENTORY: InventoryForm = {
   id: 'iiep',
   acronym: 'IIEP',
   name: 'Inventário de Inteligência Emocional Prática',
-  objective: 'Avaliar a capacidade do indivíduo de perceber, compreender, regular e aplicar emoções de forma adaptativa em situações cotidianas, promovendo bem-estar pessoal e qualidade nas interações sociais.',
-  instructions: 'Leia cada afirmação e indique com que frequência você vivencia o comportamento ou sentimento descrito.',
+  objective: 'Avaliar a competência no uso das emoções para facilitar o pensamento, a tomada de decisão e a gestão de relacionamentos no cotidiano.',
+  instructions: 'Para cada afirmação, indique o quanto ela descreve sua capacidade de lidar com emoções na prática, utilizando a escala abaixo.',
   scoreOrientation: 'higher_is_better',
   responseScale: [
-    { value: 0, label: 'Nunca' },
-    { value: 1, label: 'Raramente' },
-    { value: 2, label: 'Às vezes' },
-    { value: 3, label: 'Frequentemente' },
-    { value: 4, label: 'Quase sempre' },
+    { value: 1, label: 'Discordo Totalmente' },
+    { value: 2, label: 'Discordo Fortemente' },
+    { value: 3, label: 'Discordo em Parte' },
+    { value: 4, label: 'Neutro / Misto' },
+    { value: 5, label: 'Concordo em Parte' },
+    { value: 6, label: 'Concordo Fortemente' },
+    { value: 7, label: 'Concordo Totalmente' },
   ],
   domains: [
     {
       id: 'emotional_perception',
-      name: 'Percepção Emocional',
-      icon: '🌟',
-      description: 'Avalia a habilidade de reconhecer emoções próprias e alheias.',
+      name: 'Percepção e Identificação',
+      icon: '👁️',
+      description: 'Habilidade de reconhecer com precisão emoções em si mesmo e nos outros através de pistas verbais e não verbais.',
+      interpretationLabels: {
+        level_1: 'Dificuldade em ler sinais emocionais.',
+        level_2: 'Percepção limitada ou imprecisa.',
+        level_3: 'Boa leitura emocional.',
+        level_4: 'Alta acuidade perceptiva.',
+      },
       questions: [
         { id: 69001, text: 'Consigo identificar rapidamente como me sinto em diferentes situações.' },
         { id: 69002, text: 'Tenho dificuldade em perceber minhas próprias emoções.', isReversed: true },
@@ -33,9 +41,15 @@ export const IIEP_INVENTORY: InventoryForm = {
     },
     {
       id: 'emotional_understanding',
-      name: 'Compreensão Emocional',
+      name: 'Compreensão e Análise',
       icon: '💡',
-      description: 'Avalia a capacidade de compreender causas, consequências e interações das emoções.',
+      description: 'Capacidade de entender as causas, as consequências e a evolução das emoções ao longo do tempo.',
+      interpretationLabels: {
+        level_1: 'Confusão sobre causas emocionais.',
+        level_2: 'Compreensão superficial.',
+        level_3: 'Bom entendimento de padrões.',
+        level_4: 'Análise emocional sofisticada.',
+      },
       questions: [
         { id: 69008, text: 'Consigo entender por que sinto certas emoções em determinadas situações.' },
         { id: 69009, text: 'Tenho dificuldade em compreender padrões emocionais em mim ou nos outros.', isReversed: true },
@@ -48,9 +62,15 @@ export const IIEP_INVENTORY: InventoryForm = {
     },
     {
       id: 'emotional_regulation',
-      name: 'Regulação Emocional',
+      name: 'Regulação e Gerenciamento',
       icon: '⚖️',
-      description: 'Avalia habilidade de controlar, modular e responder adequadamente às emoções.',
+      description: 'Habilidade de modular a intensidade e a duração das emoções para atingir objetivos.',
+      interpretationLabels: {
+        level_1: 'Dificuldade de controle emocional.',
+        level_2: 'Regulação inconsistente.',
+        level_3: 'Boa capacidade de gerenciamento.',
+        level_4: 'Excelente autorregulação.',
+      },
       questions: [
         { id: 69015, text: 'Consigo me acalmar rapidamente quando me sinto irritado(a) ou ansioso(a).' },
         { id: 69016, text: 'Frequentemente perco o controle diante de emoções intensas.', isReversed: true },
@@ -63,9 +83,15 @@ export const IIEP_INVENTORY: InventoryForm = {
     },
     {
       id: 'emotional_application',
-      name: 'Aplicação Emocional',
-      icon: '🌈',
-      description: 'Avalia a utilização das emoções para tomada de decisões, resolução de problemas e interação social.',
+      name: 'Aplicação e Facilitação',
+      icon: '🚀',
+      description: 'Uso inteligente das emoções para priorizar pensamentos, motivar-se e influenciar o ambiente.',
+      interpretationLabels: {
+        level_1: 'Emoções atrapalham o desempenho.',
+        level_2: 'Uso limitado da emoção como recurso.',
+        level_3: 'Uso funcional das emoções.',
+        level_4: 'Alta eficácia na aplicação emocional.',
+      },
       questions: [
         { id: 69022, text: 'Uso minhas emoções para tomar decisões mais conscientes e acertadas.' },
         { id: 69023, text: 'Frequentemente deixo que sentimentos negativos interfiram em minhas escolhas.', isReversed: true },
@@ -78,52 +104,52 @@ export const IIEP_INVENTORY: InventoryForm = {
     },
   ],
   scoring: {
-    type: 'sum',
-    description: 'Pontuação total: 0–112. Itens invertidos: 2, 4, 6, 9, 11, 14, 16, 18, 20, 23, 25, 28',
+    type: 'average',
+    description: 'A pontuação média (1-7) reflete o nível de Inteligência Emocional Prática. Escores mais altos indicam maior competência socioemocional.',
     ranges: [
       { 
-        min: 0, 
-        max: 28, 
-        label: 'Baixa Inteligência Emocional (IE)', 
-        description: 'Dificuldade significativa em perceber, compreender e regular emoções. Risco de conflitos interpessoais e decisões impulsivas.',
+        min: 1, 
+        max: 2.5, 
+        label: 'Desenvolvimento Inicial de IE', 
+        description: 'Dificuldades em reconhecer ou gerenciar emoções podem causar atritos interpessoais ou decisões reativas. Importante focar no básico da alfabetização emocional.',
         recommendations: [
-          'Alfabetização emocional básica: aprender a nomear e distinguir emoções.',
-          'Monitoramento diário do humor e seus gatilhos.',
-          'Treino de pausa antes de reagir (regulação básica).',
-          'Buscar feedback de pessoas próximas sobre o próprio comportamento.'
+          'Treinar a identificação: "O que estou sentindo agora?" (usar lista de emoções).',
+          'Monitorar gatilhos que levam a reações automáticas.',
+          'Praticar a pausa antes de reagir (regulação básica).',
+          'Buscar feedback de pessoas de confiança sobre seu impacto emocional.'
         ]
       },
       { 
-        min: 29, 
-        max: 56, 
-        label: 'Inteligência Emocional Moderada', 
-        description: 'Algumas habilidades presentes, mas com inconsistência. Pode haver dificuldade em lidar com emoções complexas ou situações de alto estresse.',
+        min: 2.51, 
+        max: 4.0, 
+        label: 'Competência Emocional em Construção', 
+        description: 'Algumas habilidades estão presentes, mas podem falhar sob estresse. Pode haver boa percepção, mas dificuldade na regulação, ou vice-versa.',
         recommendations: [
-          'Praticar a empatia ativa (escutar para entender, não para responder).',
-          'Expandir o repertório de estratégias de regulação (além da distração ou supressão).',
-          'Refletir sobre o papel das emoções nas decisões recentes.'
+          'Praticar a escuta empática (focar no outro sem julgar).',
+          'Expandir o repertório de estratégias de enfrentamento (além da evitação).',
+          'Refletir sobre como o humor influencia a tomada de decisão.'
         ]
       },
       { 
-        min: 57, 
-        max: 84, 
+        min: 4.01, 
+        max: 5.5, 
         label: 'Inteligência Emocional Funcional', 
-        description: 'Boa percepção e regulação na maioria das situações cotidianas. Relacionamentos saudáveis e tomada de decisão equilibrada.',
+        description: 'Bom nível de adaptação. O indivíduo navega bem no mundo social, entende suas motivações e consegue se recompor de aborrecimentos na maioria das vezes.',
         recommendations: [
-          'Aprofundar a compreensão das nuances emocionais dos outros.',
-          'Utilizar emoções positivas para motivar a si mesmo e à equipe.',
-          'Gerenciar conflitos de forma colaborativa.'
+          'Aprofundar a compreensão de emoções complexas e mistas.',
+          'Utilizar emoções positivas para impulsionar a motivação própria e da equipe.',
+          'Praticar a assertividade empática em conflitos.'
         ]
       },
       { 
-        min: 85, 
-        max: 112, 
-        label: 'Inteligência Emocional Elevada', 
-        description: 'Alta sofisticação emocional. Capacidade de usar emoções para facilitar o pensamento, liderar e navegar em dinâmicas sociais complexas.',
+        min: 5.51, 
+        max: 7, 
+        label: 'Alta Inteligência Emocional', 
+        description: 'Excelente capacidade de integração entre emoção e razão. Habilidade de liderança, mediação de conflitos e autogestão sofisticada.',
         recommendations: [
-          'Atuar como mediador ou líder em situações emocionalmente carregadas.',
-          'Continuar desenvolvendo a inteligência social e cultural.',
-          'Manter práticas de autoconsciência para evitar excesso de confiança.'
+          'Atuar como facilitador ou mentor em seu ambiente.',
+          'Desenvolver a inteligência cultural e sistêmica.',
+          'Manter a humildade e a curiosidade sobre o mundo interno dos outros.'
         ]
       },
     ],

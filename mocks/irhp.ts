@@ -5,22 +5,30 @@ export const IRHP_INVENTORY: InventoryForm = {
   id: 'irhp',
   acronym: 'IRHP',
   name: 'Inventário de Regulação do Humor Positivo',
-  objective: 'Avaliar a capacidade do indivíduo de perceber, manter e ampliar emoções positivas, otimismo, gratidão e estados de bem-estar subjetivo, bem como estratégias de regulação emocional adaptativas.',
-  instructions: 'Leia cada afirmação e indique com que frequência você vivencia o comportamento ou sentimento descrito.',
+  objective: 'Avaliar a capacidade de perceber, sustentar e amplificar emoções positivas (alegria, gratidão, interesse), bem como o uso de estratégias para cultivar bem-estar subjetivo.',
+  instructions: 'Indique o quanto cada afirmação descreve sua experiência habitual em relação a sentimentos positivos e bem-estar, usando a escala abaixo.',
   scoreOrientation: 'higher_is_better',
   responseScale: [
-    { value: 0, label: 'Nunca' },
-    { value: 1, label: 'Raramente' },
-    { value: 2, label: 'Às vezes' },
-    { value: 3, label: 'Frequentemente' },
-    { value: 4, label: 'Quase sempre' },
+    { value: 1, label: 'Discordo Totalmente' },
+    { value: 2, label: 'Discordo Fortemente' },
+    { value: 3, label: 'Discordo em Parte' },
+    { value: 4, label: 'Neutro / Misto' },
+    { value: 5, label: 'Concordo em Parte' },
+    { value: 6, label: 'Concordo Fortemente' },
+    { value: 7, label: 'Concordo Totalmente' },
   ],
   domains: [
     {
       id: 'positive_emotion_perception',
-      name: 'Percepção de Emoções Positivas',
+      name: 'Atenção ao Positivo',
       icon: '🌟',
-      description: 'Avalia consciência e atenção para emoções agradáveis e estados positivos.',
+      description: 'Habilidade de notar e valorizar pequenas alegrias e conquistas do cotidiano.',
+      interpretationLabels: {
+        level_1: 'Foco predominante no negativo.',
+        level_2: 'Dificuldade em notar o positivo.',
+        level_3: 'Boa percepção de eventos agradáveis.',
+        level_4: 'Alta sensibilidade a experiências positivas.',
+      },
       questions: [
         { id: 67001, text: 'Percebo rapidamente quando estou feliz ou satisfeito(a).' },
         { id: 67002, text: 'Tenho dificuldade em notar momentos agradáveis no dia a dia.', isReversed: true },
@@ -33,9 +41,15 @@ export const IRHP_INVENTORY: InventoryForm = {
     },
     {
       id: 'positive_emotion_amplification',
-      name: 'Ampliação e Intensificação de Emoções Positivas',
+      name: 'Ampliação e Savoring (Saborear)',
       icon: '☀️',
-      description: 'Avalia estratégias para prolongar ou intensificar experiências agradáveis.',
+      description: 'Estratégias para prolongar ou intensificar experiências agradáveis, evitando que elas desapareçam rapidamente.',
+      interpretationLabels: {
+        level_1: 'Dificuldade em sustentar o bem-estar.',
+        level_2: 'Bem-estar passageiro.',
+        level_3: 'Capacidade de prolongar momentos bons.',
+        level_4: 'Excelente habilidade de saborear a vida.',
+      },
       questions: [
         { id: 67008, text: 'Busco atividades que aumentem minha sensação de prazer ou satisfação.' },
         { id: 67009, text: 'Frequentemente ignoro ou não valorizo emoções positivas.', isReversed: true },
@@ -48,9 +62,15 @@ export const IRHP_INVENTORY: InventoryForm = {
     },
     {
       id: 'optimism_positive_expectation',
-      name: 'Otimismo e Expectativa Positiva',
-      icon: '😄',
-      description: 'Avalia atitudes e pensamentos voltados ao futuro positivo e confiança em resultados benéficos.',
+      name: 'Otimismo e Esperança',
+      icon: '🌈',
+      description: 'Tendência a esperar resultados favoráveis e manter uma visão construtiva sobre o futuro.',
+      interpretationLabels: {
+        level_1: 'Visão pessimista ou desesperançosa.',
+        level_2: 'Otimismo frágil ou situacional.',
+        level_3: 'Postura otimista funcional.',
+        level_4: 'Forte senso de esperança e otimismo.',
+      },
       questions: [
         { id: 67015, text: 'Acredito que coisas boas acontecem com frequência em minha vida.' },
         { id: 67016, text: 'Frequentemente espero resultados negativos em situações novas.', isReversed: true },
@@ -63,9 +83,15 @@ export const IRHP_INVENTORY: InventoryForm = {
     },
     {
       id: 'positive_emotion_expression',
-      name: 'Expressão e Compartilhamento de Emoções Positivas',
-      icon: '💛',
-      description: 'Avalia capacidade de expressar emoções positivas, reforçando bem-estar próprio e social.',
+      name: 'Expressão da Alegria',
+      icon: '😄',
+      description: 'Capacidade de demonstrar e compartilhar felicidade, o que fortalece vínculos e o próprio bem-estar.',
+      interpretationLabels: {
+        level_1: 'Inibição da expressão positiva.',
+        level_2: 'Expressão contida ou reservada.',
+        level_3: 'Boa expressão de afeto positivo.',
+        level_4: 'Expressão livre e contagiante de alegria.',
+      },
       questions: [
         { id: 67022, text: 'Compartilho facilmente alegria e entusiasmo com outras pessoas.' },
         { id: 67023, text: 'Frequentemente reprimo emoções agradáveis por vergonha ou medo.', isReversed: true },
@@ -78,14 +104,14 @@ export const IRHP_INVENTORY: InventoryForm = {
     },
   ],
   scoring: {
-    type: 'sum',
-    description: 'Pontuação total: 0–112. Itens invertidos: 2, 5, 9, 12, 16, 18, 23, 26. Escores mais altos indicam maior capacidade de regulação positiva.',
+    type: 'average',
+    description: 'A pontuação média (1-7) indica a competência em regular e manter o humor positivo. Escores altos sugerem maior bem-estar subjetivo.',
     ranges: [
       { 
-        min: 0, 
-        max: 28, 
-        label: 'Baixa Regulação Positiva (Anedonia/Embotamento)', 
-        description: 'Dificuldade significativa em sentir, manter ou expressar alegria e satisfação. Pode indicar anedonia ou humor depressivo.',
+        min: 1, 
+        max: 2.5, 
+        label: 'Dificuldade na Vivência Positiva', 
+        description: 'Pode haver uma tendência a não notar ou desvalorizar experiências boas (anedonia ou embotamento). A vida pode parecer "cinza" ou focada apenas em problemas.',
         recommendations: [
           'Ativação Comportamental: agendar atividades prazerosas simples, mesmo sem vontade inicial.',
           'Diário de Gratidão: registrar 3 coisas boas por dia para treinar o foco positivo.',
@@ -94,21 +120,21 @@ export const IRHP_INVENTORY: InventoryForm = {
         ]
       },
       { 
-        min: 29, 
-        max: 56, 
-        label: 'Regulação Positiva Moderada', 
-        description: 'Capacidade presente, mas inconsistente, de vivenciar o positivo. O bem-estar tende a ser passageiro e pouco aprofundado (dificuldade de "savoring").',
+        min: 2.51, 
+        max: 4.0, 
+        label: 'Regulação Positiva em Desenvolvimento', 
+        description: 'Capacidade presente de sentir alegria, mas pode ser passageira ou depender muito de fatores externos. Dificuldade em "segurar" o bem-estar.',
         recommendations: [
-          'Prática de "Savoring" (Saborear): prolongar conscientemente momentos bons.',
-          'Capitalização social: compartilhar boas notícias com pessoas queridas para reviver a emoção.',
-          'Visualização positiva do futuro para treinar o otimismo.'
+          'Prática de "Savoring" (Saborear): prolongar conscientemente momentos bons (ex: comer devagar, admirar uma paisagem).',
+          'Capitalização social: contar boas notícias para pessoas queridas para reviver a emoção.',
+          'Visualização positiva do futuro para treinar a esperança.'
         ]
       },
       { 
-        min: 57, 
-        max: 84, 
-        label: 'Regulação Positiva Funcional', 
-        description: 'Boa capacidade de sentir e expressar gratidão, alegria e esperança. O indivíduo consegue usar emoções positivas para lidar com o estresse.',
+        min: 4.01, 
+        max: 5.5, 
+        label: 'Bem-Estar Funcional', 
+        description: 'Boa capacidade de sentir e expressar gratidão, alegria e esperança. O indivíduo consegue usar emoções positivas para se recuperar do estresse.',
         recommendations: [
           'Cultivar a autocompaixão como fonte de afeto positivo.',
           'Engajar-se em atos de bondade ou altruísmo.',
@@ -116,10 +142,10 @@ export const IRHP_INVENTORY: InventoryForm = {
         ]
       },
       { 
-        min: 85, 
-        max: 112, 
-        label: 'Regulação Positiva Elevada (Florescimento)', 
-        description: 'Alta competência em gerar e manter bem-estar. Perfil resiliente, otimista e capaz de contagiar positivamente o ambiente.',
+        min: 5.51, 
+        max: 7, 
+        label: 'Alta Regulação Positiva (Florescimento)', 
+        description: 'Alta competência em gerar e manter bem-estar. Perfil resiliente, otimista e capaz de contagiar positivamente o ambiente e encontrar sentido na vida.',
         recommendations: [
           'Utilizar a energia positiva para impulsionar metas de longo prazo.',
           'Mentorar outros em habilidades de inteligência emocional.',

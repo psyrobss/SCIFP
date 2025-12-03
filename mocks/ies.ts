@@ -5,26 +5,29 @@ export const IES_INVENTORY: InventoryForm = {
   id: 'ies',
   acronym: 'IES',
   name: 'Inventário de Estilos de Sofrimento',
-  objective: 'Avaliar os padrões psicológicos de sofrimento — a forma como o indivíduo vivencia, regula e expressa a dor emocional —, considerando dimensões como autocrítica, evitação, dependência, controle, vazio e resignação. O instrumento permite compreender como o paciente sofre e tenta se proteger, oferecendo dados clínicos úteis para ajustar estratégias terapêuticas e metacognitivas.',
-  instructions: 'As frases abaixo descrevem maneiras diferentes de sentir e reagir diante da dor, frustração ou sofrimento emocional.\nLeia cada uma e marque o quanto ela corresponde à sua experiência pessoal na maior parte do tempo.',
+  objective: 'Identificar os padrões habituais de reação à dor emocional e frustração, compreendendo como você processa experiências difíceis.',
+  instructions: 'As frases abaixo descrevem maneiras diferentes de sentir e reagir diante da dor ou frustração.\nMarque o quanto ela corresponde à sua experiência pessoal na maior parte do tempo.',
+  scoreOrientation: 'higher_is_worse',
   responseScale: [
-    { value: 0, label: 'Nunca é verdade para mim' },
-    { value: 1, label: 'Raramente é verdade para mim' },
-    { value: 2, label: 'Às vezes é verdade para mim' },
-    { value: 3, label: 'Frequentemente é verdade para mim' },
-    { value: 4, label: 'Quase sempre é verdade para mim' },
+    { value: 1, label: 'Discordo Totalmente' },
+    { value: 2, label: 'Discordo Fortemente' },
+    { value: 3, label: 'Discordo em Parte' },
+    { value: 4, label: 'Neutro / Misto' },
+    { value: 5, label: 'Concordo em Parte' },
+    { value: 6, label: 'Concordo Fortemente' },
+    { value: 7, label: 'Concordo Totalmente' },
   ],
   domains: [
     {
       id: 'self_critical_suffering',
-      name: 'Sofrimento Autocrítico',
+      name: 'Estilo Internalizante (Autocrítica)',
       icon: '⚖️',
-      description: 'Padrão de sofrimento marcado pela culpa, vergonha e autojulgamento, onde a dor é internalizada como uma falha pessoal.',
+      description: 'Tendência a voltar a dor contra si mesmo, sentindo culpa, vergonha ou responsabilidade excessiva.',
       interpretationLabels: {
-        level_1: 'Baixa tendência ao sofrimento autocrítico.',
-        level_2: 'Sofrimento autocrítico leve ou situacional.',
-        level_3: 'Padrão moderado de culpa e autojulgamento.',
-        level_4: 'Forte padrão de sofrimento autocrítico, com vergonha e autopunição.',
+        level_1: 'Baixa tendência à autocrítica.',
+        level_2: 'Autocrítica situacional.',
+        level_3: 'Padrão moderado de internalização.',
+        level_4: 'Forte internalização da dor (culpa/vergonha).',
       },
       questions: [
         { id: 11001, text: 'Quando algo dá errado, costumo me culpar excessivamente.' },
@@ -39,14 +42,14 @@ export const IES_INVENTORY: InventoryForm = {
     },
     {
       id: 'avoidant_suffering',
-      name: 'Sofrimento Evitativo',
+      name: 'Estilo Evitativo (Supressão)',
       icon: '🚪',
-      description: 'Tendência a negar, suprimir ou se distrair da dor emocional, evitando o contato com a própria vulnerabilidade.',
+      description: 'Tendência a se afastar, distrair ou negar a dor para não entrar em contato com a vulnerabilidade.',
       interpretationLabels: {
-        level_1: 'Baixo uso de estratégias evitativas.',
-        level_2: 'Tendência leve a evitar ou suprimir emoções.',
-        level_3: 'Padrão moderado de evitação emocional.',
-        level_4: 'Forte padrão de evitação e negação do sofrimento.',
+        level_1: 'Baixa evitação emocional.',
+        level_2: 'Evitação leve ou situacional.',
+        level_3: 'Padrão moderado de esquiva.',
+        level_4: 'Forte evitação e supressão emocional.',
       },
       questions: [
         { id: 11101, text: 'Tento não pensar no que me faz sofrer.' },
@@ -61,14 +64,14 @@ export const IES_INVENTORY: InventoryForm = {
     },
     {
       id: 'dependent_suffering',
-      name: 'Sofrimento Dependente',
+      name: 'Estilo Dependente (Busca de Apoio)',
       icon: '💞',
-      description: 'A dor é vivenciada com uma forte necessidade de apoio externo, validação e conforto para ser manejada.',
+      description: 'Tendência a buscar regulação externa, conforto e validação de outras pessoas para lidar com a dor.',
       interpretationLabels: {
-        level_1: 'Baixa dependência emocional para lidar com o sofrimento.',
-        level_2: 'Busca por apoio externo de forma equilibrada.',
-        level_3: 'Padrão moderado de dependência para regulação emocional.',
-        level_4: 'Forte necessidade de validação e apoio externo para lidar com a dor.',
+        level_1: 'Baixa dependência para regulação.',
+        level_2: 'Busca de apoio equilibrada.',
+        level_3: 'Dependência moderada de regulação externa.',
+        level_4: 'Forte necessidade de apoio para lidar com a dor.',
       },
       questions: [
         { id: 11201, text: 'Quando sofro, preciso que alguém esteja comigo.' },
@@ -83,14 +86,14 @@ export const IES_INVENTORY: InventoryForm = {
     },
     {
       id: 'controlled_dissociated_suffering',
-      name: 'Sofrimento Controlado ou Dissociado',
+      name: 'Estilo Racionalizado (Desconexão)',
       icon: '🧊',
-      description: 'Padrão de desconexão afetiva, onde o sofrimento é racionalizado e a expressão emocional é contida ou "anestesiada".',
+      description: 'Tendência a analisar a dor intelectualmente, desconectando-se da experiência afetiva direta ("anestesia").',
       interpretationLabels: {
-        level_1: 'Baixa tendência à dissociação ou controle excessivo.',
-        level_2: 'Uso leve de racionalização para lidar com a dor.',
-        level_3: 'Padrão moderado de desconexão emocional.',
-        level_4: 'Forte padrão de sofrimento dissociado ou "anestesiado".',
+        level_1: 'Baixa racionalização da dor.',
+        level_2: 'Leve tendência a intelectualizar.',
+        level_3: 'Padrão moderado de desconexão.',
+        level_4: 'Forte racionalização e distanciamento afetivo.',
       },
       questions: [
         { id: 11301, text: 'Tento lidar com o sofrimento de forma racional, sem me envolver emocionalmente.' },
@@ -105,14 +108,14 @@ export const IES_INVENTORY: InventoryForm = {
     },
     {
       id: 'existential_void_suffering',
-      name: 'Sofrimento Existencial ou de Vazio',
+      name: 'Estilo Existencial (Falta de Sentido)',
       icon: '🌫️',
-      description: 'A dor está ligada a uma sensação de falta de sentido, propósito ou conexão consigo mesmo e com a vida.',
+      description: 'A dor é vivenciada como um vazio, falta de propósito ou desconexão com a vida.',
       interpretationLabels: {
-        level_1: 'Baixo nível de sofrimento existencial.',
-        level_2: 'Questionamentos existenciais leves ou ocasionais.',
-        level_3: 'Padrão moderado de vazio e falta de sentido.',
-        level_4: 'Forte sensação de vazio existencial e desconexão.',
+        level_1: 'Baixo sofrimento existencial.',
+        level_2: 'Questionamentos ocasionais.',
+        level_3: 'Sensação moderada de vazio.',
+        level_4: 'Forte sentimento de falta de sentido.',
       },
       questions: [
         { id: 11401, text: 'Às vezes sinto que minha vida perdeu o sentido.' },
@@ -128,52 +131,51 @@ export const IES_INVENTORY: InventoryForm = {
   ],
   scoring: {
     type: 'average',
-    description: 'A pontuação é a média das respostas (0-4), representando a intensidade e o estilo do sofrimento.',
+    description: 'A pontuação média (1-7) indica a predominância de cada estilo de processamento do sofrimento.',
     ranges: [
       { 
-        min: 0, 
-        max: 0.9, 
-        label: 'Manejo Emocional Adaptativo', 
-        description: 'O indivíduo demonstra boa capacidade de lidar com a dor e frustração, sem recorrer a mecanismos rígidos de evitação, culpa ou dependência.',
-        recommendations: [
-          'Manter práticas de autoconhecimento e expressão emocional saudável.',
-          'Fortalecer a rede de apoio como fator de proteção.',
-          'Praticar a aceitação ativa das emoções difíceis como parte da vida.'
-        ]
-      },
-      { 
         min: 1, 
-        max: 1.9, 
-        label: 'Sofrimento Leve / Reativo', 
-        description: 'Presença de alguns padrões desadaptativos (como leve evitação ou autocrítica) em momentos de maior estresse, mas com recuperação funcional.',
+        max: 2.5, 
+        label: 'Processamento Adaptativo', 
+        description: 'Baixa utilização de mecanismos defensivos rígidos. O indivíduo tende a lidar com a dor de forma fluida e resiliente.',
         recommendations: [
-          'Identificar gatilhos que ativam a autocrítica ou a necessidade de isolamento.',
-          'Praticar a autocompaixão em momentos de falha ou dor.',
-          'Experimentar expressar sentimentos em um ambiente seguro (diário, terapia).'
+          'Manter práticas de expressão emocional saudável.',
+          'Valorizar a rede de apoio como complemento, não dependência.',
+          'Praticar a aceitação ativa das emoções difíceis.'
         ]
       },
       { 
-        min: 2, 
-        max: 2.9, 
-        label: 'Padrões Desadaptativos Moderados', 
-        description: 'Tendência consistente a lidar com o sofrimento de forma que pode perpetuá-lo (ex: ruminar culpa, evitar contato, depender excessivamente). Requer atenção clínica.',
+        min: 2.51, 
+        max: 4.0, 
+        label: 'Mecanismos de Defesa Leves', 
+        description: 'Uso ocasional de estratégias (como evitação ou racionalização) para lidar com o estresse, mas com capacidade de retorno ao equilíbrio.',
         recommendations: [
-          'Psicoterapia para flexibilizar os modos de enfrentamento.',
-          'Treinamento em Regulação Emocional para reduzir a necessidade de evitação.',
+          'Observar em quais situações específicas a autocrítica ou o isolamento aumentam.',
+          'Experimentar expressar sentimentos em um ambiente seguro (diário, terapia).',
+          'Praticar a autocompaixão em momentos de falha.'
+        ]
+      },
+      { 
+        min: 4.01, 
+        max: 5.5, 
+        label: 'Padrão de Enfrentamento Rígido', 
+        description: 'Tendência consistente a usar um estilo específico (ex: culpar-se, isolar-se ou depender) que pode dificultar a resolução real do problema.',
+        recommendations: [
+          'Flexibilizar os modos de enfrentamento (ex: se tende a isolar, tentar aproximar; se tende a criticar, tentar acolher).',
           'Questionar crenças de que "sentir dor é perigoso" ou "sou culpado por sofrer".',
-          'Técnicas de Mindfulness para observar a dor sem se fundir a ela.'
+          'Técnicas de Mindfulness para observar a dor sem reagir automaticamente a ela.'
         ]
       },
       { 
-        min: 3, 
-        max: 4, 
-        label: 'Estilo de Sofrimento Disfuncional Severo', 
-        description: 'Padrões rígidos e intensos de sofrimento (ex: vazio existencial profundo, dissociação forte ou autocrítica punitiva). Alto risco de agravamento clínico (depressão, ansiedade).',
+        min: 5.51, 
+        max: 7, 
+        label: 'Estilo de Sofrimento Intenso', 
+        description: 'Alta predominância de mecanismos que podem perpetuar o mal-estar (vazio existencial, dissociação forte ou autocrítica punitiva).',
         recommendations: [
-          'Intervenção psicoterapêutica focal e intensiva.',
+          'Intervenção psicoterapêutica focal para criar segurança interna.',
           'Terapia de Aceitação e Compromisso (ACT) para trabalhar a esquiva experiencial.',
-          'Avaliação para quadros depressivos ou traumáticos.',
-          'Desenvolvimento urgente de recursos de auto-acalmamento e segurança interna.'
+          'Avaliação para quadros de humor se houver impacto funcional severo.',
+          'Desenvolvimento de recursos de auto-acalmamento.'
         ]
       }
     ],

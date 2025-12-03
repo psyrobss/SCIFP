@@ -5,26 +5,28 @@ export const IAPM_INVENTORY: InventoryForm = {
   id: 'iapm',
   acronym: 'IAPM',
   name: 'Inventário de Atenção e Processamento Mental (IAPM)',
-  objective: 'Avaliar, por autorrelato, o nível de atenção, vigilância, velocidade de processamento e clareza mental no cotidiano.',
-  instructions: 'A seguir, estão frases sobre como você costuma perceber sua atenção e capacidade mental em diferentes situações. Marque a opção que melhor descreve o que ocorre com você na maioria dos dias.',
+  objective: 'Avaliar o nível de atenção, vigilância, velocidade de processamento e clareza mental no cotidiano, identificando padrões de funcionamento.',
+  instructions: 'Indique o grau de concordância com as frases abaixo, baseando-se em como você se sente na maioria dos dias.',
   responseScale: [
-    { value: 0, label: 'Nunca' },
-    { value: 1, label: 'Raramente' },
-    { value: 2, label: 'Às vezes' },
-    { value: 3, label: 'Frequentemente' },
-    { value: 4, label: 'Quase sempre' },
+    { value: 1, label: 'Discordo Totalmente' },
+    { value: 2, label: 'Discordo Fortemente' },
+    { value: 3, label: 'Discordo em Parte' },
+    { value: 4, label: 'Neutro / Às vezes' },
+    { value: 5, label: 'Concordo em Parte' },
+    { value: 6, label: 'Concordo Fortemente' },
+    { value: 7, label: 'Concordo Totalmente' },
   ],
   domains: [
     {
       id: 'sustained_attention',
       name: 'Atenção Sustentada',
       icon: '🎯',
-      description: 'Capacidade de manter o foco em uma tarefa ou estímulo por um período prolongado sem se distrair.',
+      description: 'Capacidade de manter o foco em uma tarefa por tempo prolongado.',
       interpretationLabels: {
-        level_1: 'Excelente capacidade de atenção sustentada.',
-        level_2: 'Dificuldades leves para manter o foco por longos períodos.',
-        level_3: 'Dificuldade moderada de concentração em tarefas monótonas.',
-        level_4: 'Forte dificuldade em sustentar a atenção, com alto nível de distração.',
+        level_1: 'Foco sustentado preservado.',
+        level_2: 'Leve dispersão em tarefas longas.',
+        level_3: 'Dificuldade moderada de concentração.',
+        level_4: 'Desafios significativos de atenção sustentada.',
       },
       questions: [
         { id: 1801, text: 'Tenho dificuldade em manter o foco por longos períodos.' },
@@ -39,12 +41,12 @@ export const IAPM_INVENTORY: InventoryForm = {
       id: 'processing_speed',
       name: 'Velocidade de Processamento',
       icon: '⚡',
-      description: 'Agilidade para compreender, organizar e responder a informações recebidas do ambiente.',
+      description: 'Agilidade para compreender, organizar e responder a informações.',
       interpretationLabels: {
-        level_1: 'Velocidade de processamento mental ágil e eficiente.',
-        level_2: 'Leve lentidão para processar informações novas.',
-        level_3: 'Lentidão moderada no raciocínio e na organização de pensamentos.',
-        level_4: 'Forte sensação de lentidão mental com impacto funcional.',
+        level_1: 'Processamento mental ágil.',
+        level_2: 'Leve lentidão em situações novas.',
+        level_3: 'Lentidão moderada de raciocínio.',
+        level_4: 'Processamento significativamente lentificado.',
       },
       questions: [
         { id: 1901, text: 'Preciso de mais tempo que o normal para compreender informações novas.' },
@@ -57,14 +59,14 @@ export const IAPM_INVENTORY: InventoryForm = {
     },
     {
       id: 'attention_switching',
-      name: 'Alternância Atencional (Flexibilidade do Foco)',
+      name: 'Alternância Atencional',
       icon: '🔄',
-      description: 'Habilidade de mudar o foco de atenção entre diferentes tarefas ou estímulos de forma eficiente.',
+      description: 'Habilidade de mudar o foco entre tarefas eficientemente.',
       interpretationLabels: {
-        level_1: 'Excelente flexibilidade e alternância de foco.',
-        level_2: 'Dificuldade leve para alternar entre tarefas ou após interrupções.',
-        level_3: 'Dificuldade moderada em lidar com múltiplas demandas simultâneas.',
-        level_4: 'Forte dificuldade de alternância atencional, com confusão mental.',
+        level_1: 'Boa flexibilidade de foco.',
+        level_2: 'Leve dificuldade em alternar tarefas.',
+        level_3: 'Dificuldade moderada com múltiplas demandas.',
+        level_4: 'Rigidez ou confusão na alternância.',
       },
       questions: [
         { id: 2001, text: 'Tenho dificuldade em mudar de uma tarefa para outra sem me confundir.' },
@@ -77,14 +79,14 @@ export const IAPM_INVENTORY: InventoryForm = {
     },
     {
       id: 'selective_attention',
-      name: 'Atenção Seletiva e Filtragem de Estímulos',
+      name: 'Atenção Seletiva',
       icon: '🧩',
-      description: 'Capacidade de focar em um estímulo relevante enquanto ignora outras distrações ao redor.',
+      description: 'Capacidade de focar no relevante e ignorar distrações.',
       interpretationLabels: {
-        level_1: 'Excelente capacidade de filtrar distrações.',
-        level_2: 'Leve dificuldade em ignorar estímulos irrelevantes.',
-        level_3: 'Dificuldade moderada de concentração em ambientes com distrações.',
-        level_4: 'Forte sensibilidade a distrações, com sobrecarga sensorial.',
+        level_1: 'Boa filtragem de distrações.',
+        level_2: 'Sensibilidade leve a ruídos.',
+        level_3: 'Distratibilidade moderada em ambientes cheios.',
+        level_4: 'Alta vulnerabilidade a distrações externas.',
       },
       questions: [
         { id: 2101, text: 'Tenho dificuldade em ignorar ruídos, pessoas ou distrações ao redor.' },
@@ -97,14 +99,14 @@ export const IAPM_INVENTORY: InventoryForm = {
     },
     {
       id: 'mental_clarity',
-      name: 'Clareza Mental e Consciência Cognitiva',
+      name: 'Clareza Mental',
       icon: '💭',
-      description: 'Percepção de um pensamento organizado, nítido e livre de confusão ou "nevoeiro mental".',
+      description: 'Percepção de pensamento organizado e lúcido.',
       interpretationLabels: {
-        level_1: 'Alta clareza mental e pensamento organizado.',
-        level_2: 'Sensação ocasional de "nevoeiro mental" ou confusão.',
-        level_3: 'Sensação moderada e frequente de mente "enevoada" ou lenta.',
-        level_4: 'Forte sensação de confusão mental e sobrecarga.',
+        level_1: 'Pensamento claro e organizado.',
+        level_2: 'Sensação ocasional de confusão.',
+        level_3: '“Nevoeiro mental” moderado.',
+        level_4: 'Sensação frequente de confusão ou mente “cheia”.',
       },
       questions: [
         { id: 2201, text: 'Tenho sensação de “mente enevoada” ou confusa.' },
@@ -118,53 +120,53 @@ export const IAPM_INVENTORY: InventoryForm = {
   ],
   scoring: {
     type: 'average',
-    description: 'A pontuação média (0-4) indica a intensidade das dificuldades de atenção e processamento mental. Escores mais altos sugerem maiores déficits.',
+    description: 'A pontuação média (1-7) indica o perfil de atenção. Pontuações mais altas sugerem maiores desafios no processamento mental.',
     ranges: [
       { 
-        min: 0, 
-        max: 0.9, 
-        label: 'Atenção e Processamento Preservados', 
+        min: 1, 
+        max: 2.5, 
+        label: 'Atenção e Processamento Eficientes', 
         description: 'Boa capacidade de foco, seleção de estímulos e velocidade de pensamento. Consegue lidar bem com ambientes ruidosos e multitarefas ocasionais.',
         recommendations: [
-          'Manter hábitos que favorecem a neuroplasticidade (leitura, aprendizado de novas habilidades).',
+          'Manter hábitos que favorecem a neuroplasticidade (leitura, aprendizado).',
           'Utilizar momentos de alta clareza mental para tarefas complexas.',
           'Pausas regulares para evitar fadiga futura.'
         ]
       },
       { 
-        min: 1, 
-        max: 1.9, 
-        label: 'Dificuldades Atencionais Leves', 
-        description: 'Lapsos de atenção ocasionais, distratibilidade em ambientes estimulantes ou leve lentificação. Pode ser resultado de cansaço, desinteresse pela tarefa ou uso excessivo de telas.',
+        min: 2.51, 
+        max: 4.0, 
+        label: 'Oscilações Atencionais Leves', 
+        description: 'Lapsos de atenção ocasionais ou distratibilidade em ambientes estimulantes. Pode ser resultado de cansaço, desinteresse ou uso excessivo de telas.',
         recommendations: [
           'Técnica Pomodoro (foco intervalado) para tarefas longas.',
           'Reduzir multitarefas: focar em uma coisa de cada vez.',
           'Limitar notificações digitais durante o trabalho/estudo.',
-          'Avaliar qualidade do sono, pois afeta diretamente a velocidade de processamento.'
+          'Avaliar qualidade do sono.'
         ]
       },
       { 
-        min: 2, 
-        max: 2.9, 
+        min: 4.01, 
+        max: 5.5, 
         label: 'Dificuldades Atencionais Moderadas', 
-        description: 'Dificuldades persistentes de concentração e organização mental. Sensação frequente de "mente cheia" ou lenta. Impacta a produtividade e pode gerar erros por descuido. Comum em TDAH não tratado, ansiedade ou depressão.',
+        description: 'Dificuldades persistentes de concentração e organização mental. Sensação frequente de "mente cheia". Impacta a produtividade e pode gerar erros por descuido.',
         recommendations: [
-          'Avaliação clínica para transtornos de atenção (TDAH) ou ansiosos.',
-          'Adaptação do ambiente de trabalho (uso de fones de cancelamento de ruído, mesas limpas).',
+          'Avaliação clínica para transtornos de atenção ou ansiosos.',
+          'Adaptação do ambiente de trabalho (fones de cancelamento de ruído, organização).',
           'Prática de Mindfulness para treinar o retorno ao foco.',
           'Escrever tudo: não confiar apenas na memória de trabalho.'
         ]
       },
       { 
-        min: 3, 
-        max: 4, 
-        label: 'Déficit Atencional Severo / Nevoeiro Mental', 
-        description: 'Prejuízo significativo na capacidade de processar informações, manter o foco ou alternar tarefas. Sensação de confusão mental intensa. Pode indicar exaustão cognitiva grave, efeitos colaterais de medicação ou condições neurológicas.',
+        min: 5.51, 
+        max: 7, 
+        label: 'Desafios Significativos de Processamento', 
+        description: 'Prejuízo acentuado na capacidade de processar informações, manter o foco ou alternar tarefas. Sensação de confusão mental intensa ou "nevoeiro".',
         recommendations: [
-          'Avaliação neurológica e psiquiátrica mandatória.',
-          'Investigar causas metabólicas (ex: tireoide, vitaminas B12/D) e sono (apneia).',
-          'Repouso cognitivo e redução drástica de estímulos.',
-          'Simplificação extrema da rotina diária até a recuperação.'
+          'Avaliação neurológica e psiquiátrica indicada.',
+          'Investigar causas metabólicas (ex: vitaminas, tireoide) e sono.',
+          'Repouso cognitivo e redução de estímulos.',
+          'Simplificação da rotina diária até a recuperação.'
         ]
       },
     ],

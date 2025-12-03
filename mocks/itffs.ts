@@ -5,22 +5,30 @@ export const ITFFS_INVENTORY: InventoryForm = {
   id: 'itffs',
   acronym: 'ITFFS',
   name: 'Inventário de Tolerância à Frustração e Frustração Social',
-  objective: 'Avaliar a capacidade do indivíduo de lidar com frustrações, obstáculos, atrasos, contratempos e desafios interpessoais de forma adaptativa, sem reações impulsivas ou emocionais desproporcionais.',
-  instructions: 'Leia cada afirmação e indique com que frequência você vivencia o comportamento ou sentimento descrito ao enfrentar situações frustrantes ou desafiadoras socialmente.',
+  objective: 'Avaliar a capacidade de lidar com obstáculos, atrasos, contratempos e desafios interpessoais de forma adaptativa, mantendo o equilíbrio emocional e a persistência.',
+  instructions: 'Leia cada afirmação e indique com que frequência você vivencia o comportamento ou sentimento descrito ao enfrentar situações frustrantes, usando a escala abaixo.',
   scoreOrientation: 'higher_is_better',
   responseScale: [
-    { value: 0, label: 'Nunca' },
-    { value: 1, label: 'Raramente' },
-    { value: 2, label: 'Às vezes' },
-    { value: 3, label: 'Frequentemente' },
-    { value: 4, label: 'Quase sempre' },
+    { value: 1, label: 'Discordo Totalmente' },
+    { value: 2, label: 'Discordo Fortemente' },
+    { value: 3, label: 'Discordo em Parte' },
+    { value: 4, label: 'Neutro / Misto' },
+    { value: 5, label: 'Concordo em Parte' },
+    { value: 6, label: 'Concordo Fortemente' },
+    { value: 7, label: 'Concordo Totalmente' },
   ],
   domains: [
     {
       id: 'general_frustration',
-      name: 'Frustração Geral e Obstáculos',
-      icon: '🔹',
-      description: 'Avalia a tolerância do indivíduo frente a obstáculos, atrasos ou situações inesperadas.',
+      name: 'Manejo de Obstáculos Gerais',
+      icon: '🚧',
+      description: 'Capacidade de tolerar atrasos, imprevistos e barreiras sem desorganização emocional.',
+      interpretationLabels: {
+        level_1: 'Baixa tolerância a imprevistos.',
+        level_2: 'Dificuldade moderada com obstáculos.',
+        level_3: 'Boa gestão de contratempos.',
+        level_4: 'Alta resiliência diante de barreiras.',
+      },
       questions: [
         { id: 68001, text: 'Consigo lidar calmamente com atrasos ou contratempos.' },
         { id: 68002, text: 'Frequentemente fico irritado(a) quando as coisas não saem como planejado.', isReversed: true },
@@ -33,9 +41,15 @@ export const ITFFS_INVENTORY: InventoryForm = {
     },
     {
       id: 'interpersonal_frustration',
-      name: 'Frustração Interpessoal',
-      icon: '🔹',
-      description: 'Avalia reações diante de conflitos sociais, críticas ou rejeição.',
+      name: 'Resiliência Interpessoal',
+      icon: '👥',
+      description: 'Habilidade de lidar com conflitos, críticas ou comportamentos alheios desagradáveis sem reatividade excessiva.',
+      interpretationLabels: {
+        level_1: 'Alta sensibilidade a conflitos.',
+        level_2: 'Reatividade social moderada.',
+        level_3: 'Bom equilíbrio em situações tensas.',
+        level_4: 'Excelente manejo de frustrações sociais.',
+      },
       questions: [
         { id: 68008, text: 'Posso aceitar críticas sem sentir raiva ou tristeza excessiva.' },
         { id: 68009, text: 'Fico facilmente frustrado(a) quando outros não cumprem suas promessas.', isReversed: true },
@@ -48,9 +62,15 @@ export const ITFFS_INVENTORY: InventoryForm = {
     },
     {
       id: 'emotional_control',
-      name: 'Controle Emocional e Regulação',
-      icon: '🔹',
-      description: 'Avalia habilidade de regular emoções negativas diante de frustração.',
+      name: 'Regulação Emocional sob Pressão',
+      icon: '🧘',
+      description: 'Capacidade de usar estratégias para acalmar a si mesmo e evitar explosões emocionais.',
+      interpretationLabels: {
+        level_1: 'Dificuldade de autorregulação.',
+        level_2: 'Controle emocional instável.',
+        level_3: 'Boa capacidade de autoacalmamento.',
+        level_4: 'Alta estabilidade emocional.',
+      },
       questions: [
         { id: 68015, text: 'Consigo respirar fundo e me acalmar quando algo me frustra.' },
         { id: 68016, text: 'Frequentemente explodo ou reajo com irritação.', isReversed: true },
@@ -63,9 +83,15 @@ export const ITFFS_INVENTORY: InventoryForm = {
     },
     {
       id: 'persistence_resilience',
-      name: 'Persistência e Resiliência',
-      icon: '🔹',
-      description: 'Avalia capacidade de continuar esforços apesar de obstáculos ou dificuldades sociais.',
+      name: 'Persistência e Continuidade',
+      icon: '🔥',
+      description: 'Capacidade de manter o esforço e o foco na meta, mesmo quando surgem dificuldades.',
+      interpretationLabels: {
+        level_1: 'Tendência a desistir facilmente.',
+        level_2: 'Persistência condicional ao sucesso.',
+        level_3: 'Boa tenacidade diante de desafios.',
+        level_4: 'Alta determinação e resiliência.',
+      },
       questions: [
         { id: 68022, text: 'Continuo tentando alcançar meus objetivos mesmo quando encontro barreiras.' },
         { id: 68023, text: 'Desisto facilmente quando as coisas se tornam difíceis.', isReversed: true },
@@ -78,51 +104,51 @@ export const ITFFS_INVENTORY: InventoryForm = {
     },
   ],
   scoring: {
-    type: 'sum',
-    description: 'Pontuação total: 0–112. Itens invertidos: 2, 4, 6, 9, 11, 13, 16, 18, 20, 23, 25, 27.',
+    type: 'average',
+    description: 'A pontuação média (1-7) indica o nível de tolerância à frustração. Escores mais altos sugerem maior capacidade de adaptação e persistência.',
     ranges: [
       { 
-        min: 0, 
-        max: 28, 
-        label: 'Tolerância Muito Baixa à Frustração (LFT)', 
-        description: 'Dificuldade significativa em lidar com o não-atendimento de desejos ou obstáculos. Reações impulsivas, raiva intensa ou desistência imediata são comuns.',
+        min: 1, 
+        max: 2.5, 
+        label: 'Sensibilidade à Frustração', 
+        description: 'Pode haver dificuldade significativa em lidar com o não-atendimento de expectativas, levando a reações de irritação, desistência ou desânimo. Importante acolher o desconforto sem julgamento.',
         recommendations: [
-          'Treino de Tolerância ao Mal-Estar (habilidades DBT).',
-          'Identificar crenças irracionais de "eu tenho que ter o que quero agora".',
-          'Exercícios de exposição gradual a pequenas frustrações.',
-          'Técnicas de relaxamento para reduzir a ativação fisiológica da raiva.'
+          'Treino de habilidades de tolerância ao mal-estar (DBT).',
+          'Identificar pensamentos de "tudo ou nada" ou exigências rígidas.',
+          'Praticar a exposição gradual a pequenos desconfortos.',
+          'Técnicas de respiração para reduzir a ativação imediata da raiva.'
         ]
       },
       { 
-        min: 29, 
-        max: 56, 
-        label: 'Tolerância Baixa', 
-        description: 'Algumas dificuldades em tolerar frustrações e contratempos. Pode haver irritabilidade frequente ou procrastinação para evitar desconforto.',
+        min: 2.51, 
+        max: 4.0, 
+        label: 'Tolerância em Desenvolvimento', 
+        description: 'Capacidade de lidar com frustrações menores, mas desafios maiores ou acumulados podem gerar sobrecarga. Pode haver tendência a evitar situações difíceis.',
         recommendations: [
-          'Reestruturação cognitiva: mudar "isso é insuportável" para "isso é difícil, mas posso lidar".',
-          'Desenvolver paciência através de mindfulness.',
+          'Reestruturação cognitiva: ver o obstáculo como desafio, não ameaça.',
+          'Desenvolver paciência através de práticas de mindfulness.',
           'Focar na resolução de problemas em vez de na reação emocional.'
         ]
       },
       { 
-        min: 57, 
-        max: 84, 
+        min: 4.01, 
+        max: 5.5, 
         label: 'Tolerância Funcional', 
-        description: 'Capacidade adequada de lidar com obstáculos e situações sociais desafiadoras. O indivíduo sente frustração, mas não é paralisado por ela.',
+        description: 'Boa capacidade de navegar por contratempos. O indivíduo sente a frustração, mas consegue manter o controle e buscar alternativas construtivas.',
         recommendations: [
           'Fortalecer a resiliência focando no aprendizado com o erro.',
-          'Praticar a aceitação radical de situações que não podem ser mudadas.',
-          'Manter perspectiva de longo prazo em projetos difíceis.'
+          'Praticar a aceitação radical de situações incontroláveis.',
+          'Manter a perspectiva de longo prazo em projetos difíceis.'
         ]
       },
       { 
-        min: 85, 
-        max: 112, 
-        label: 'Tolerância Elevada (Resiliência)', 
-        description: 'Excelente controle emocional, persistência e capacidade de adaptação frente a bloqueios. Transforma frustração em motivação.',
+        min: 5.51, 
+        max: 7, 
+        label: 'Alta Resiliência e Persistência', 
+        description: 'Excelente controle emocional e tenacidade. Capacidade de transformar a energia da frustração em motivação para superar barreiras.',
         recommendations: [
-          'Utilizar a estabilidade emocional para mediar conflitos.',
-          'Assumir desafios que exijam perseverança.',
+          'Utilizar a estabilidade emocional para mediar conflitos em grupos.',
+          'Assumir liderança em projetos complexos ou desafiadores.',
           'Servir de modelo de regulação para outras pessoas.'
         ]
       },

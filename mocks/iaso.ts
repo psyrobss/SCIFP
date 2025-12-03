@@ -5,27 +5,29 @@ export const IASO_INVENTORY: InventoryForm = {
   id: 'iaso',
   acronym: 'IASO',
   name: 'Inventário de Assertividade e Sociabilidade',
-  objective: 'Avaliar o grau de assertividade, abertura social e competência interpessoal do indivíduo, incluindo sua capacidade de expressar sentimentos, defender limites, iniciar e manter interações sociais de forma equilibrada e respeitosa.',
-  instructions: 'Leia atentamente cada afirmação abaixo.\nMarque o quanto ela descreve você na maioria das situações, utilizando a escala:',
+  objective: 'Avaliar o grau de assertividade, abertura social e competência interpessoal, focando na capacidade de expressar sentimentos, defender limites e interagir de forma equilibrada.',
+  instructions: 'Leia atentamente cada afirmação e marque o quanto ela descreve você na maioria das situações, utilizando a escala de 1 a 7.',
   scoreOrientation: 'higher_is_better',
   responseScale: [
-    { value: 0, label: 'Nunca ou quase nunca' },
-    { value: 1, label: 'Raramente' },
-    { value: 2, label: 'Às vezes' },
-    { value: 3, label: 'Frequentemente' },
-    { value: 4, label: 'Quase sempre ou sempre' },
+    { value: 1, label: 'Discordo Totalmente' },
+    { value: 2, label: 'Discordo Fortemente' },
+    { value: 3, label: 'Discordo em Parte' },
+    { value: 4, label: 'Neutro / Misto' },
+    { value: 5, label: 'Concordo em Parte' },
+    { value: 6, label: 'Concordo Fortemente' },
+    { value: 7, label: 'Concordo Totalmente' },
   ],
   domains: [
     {
       id: 'assertive_expression',
-      name: 'Expressão Assertiva e Comunicação Clara',
+      name: 'Expressão Assertiva',
       icon: '💬',
-      description: 'Habilidade de comunicar pensamentos, sentimentos e necessidades de forma direta, honesta e respeitosa.',
+      description: 'Habilidade de comunicar pensamentos, sentimentos e necessidades de forma direta e respeitosa.',
       interpretationLabels: {
-        level_1: 'Comunicação passiva, com dificuldade em se expressar.',
-        level_2: 'Expressão inconsistente, com hesitação em se posicionar.',
-        level_3: 'Boa capacidade de comunicação assertiva na maioria das situações.',
-        level_4: 'Elevada assertividade, com comunicação clara e segura.',
+        level_1: 'Comunicação passiva ou agressiva.',
+        level_2: 'Dificuldade em se posicionar.',
+        level_3: 'Boa assertividade.',
+        level_4: 'Comunicação clara e firme.',
       },
       questions: [
         { id: 14001, text: 'Consigo dizer o que penso mesmo quando os outros discordam.' },
@@ -37,33 +39,33 @@ export const IASO_INVENTORY: InventoryForm = {
     },
     {
       id: 'self_confidence',
-      name: 'Autoconfiança e Postura Interpessoal',
+      name: 'Autoconfiança Social',
       icon: '🧍',
-      description: 'Nível de segurança e conforto em situações sociais, refletindo a confiança nas próprias opiniões e capacidades.',
+      description: 'Nível de segurança e conforto em situações sociais e confiança nas próprias opiniões.',
       interpretationLabels: {
-        level_1: 'Baixa autoconfiança, com insegurança em interações sociais.',
-        level_2: 'Confiança situacional, com desconforto em novos contextos.',
-        level_3: 'Boa autoconfiança na maioria das situações interpessoais.',
-        level_4: 'Postura segura e confiante, com facilidade em se posicionar.',
+        level_1: 'Insegurança social significativa.',
+        level_2: 'Confiança situacional.',
+        level_3: 'Boa segurança interpessoal.',
+        level_4: 'Postura confiante e segura.',
       },
       questions: [
         { id: 14101, text: 'Sinto-me à vontade em situações sociais, mesmo com pessoas que não conheço bem.' },
         { id: 14102, text: 'Tenho facilidade em iniciar conversas com desconhecidos.' },
         { id: 14103, text: 'Costumo me posicionar com tranquilidade diante de pessoas com autoridade.' },
-        { id: 14104, text: 'Acredito que minhas opiniões têm valor, mesmo quando são diferentes das demais.' },
-        { id: 14105, text: 'Sinto-me confiante ao expressar minhas necessidades em público ou em grupo.' },
+        { id: 14104, text: 'Acredito que minhas opiniões têm valor.' },
+        { id: 14105, text: 'Sinto-me confiante ao expressar minhas necessidades em público.' },
       ],
     },
     {
       id: 'sociability_openness',
-      name: 'Sociabilidade e Abertura ao Contato',
+      name: 'Sociabilidade e Abertura',
       icon: '🫂',
-      description: 'Disposição para iniciar interações, conhecer novas pessoas e participar de atividades sociais e em grupo.',
+      description: 'Disposição para iniciar interações, conhecer novas pessoas e participar de atividades sociais.',
       interpretationLabels: {
-        level_1: 'Tendência ao isolamento, com baixa iniciativa para o contato social.',
-        level_2: 'Abertura social seletiva, preferindo ambientes familiares.',
-        level_3: 'Boa disposição para interagir e participar de atividades sociais.',
-        level_4: 'Elevada sociabilidade, com prazer em conhecer novas pessoas.',
+        level_1: 'Tendência ao isolamento.',
+        level_2: 'Abertura social restrita.',
+        level_3: 'Boa sociabilidade.',
+        level_4: 'Alta abertura e iniciativa social.',
       },
       questions: [
         { id: 14201, text: 'Gosto de conhecer pessoas novas e ampliar meu círculo social.' },
@@ -75,14 +77,14 @@ export const IASO_INVENTORY: InventoryForm = {
     },
     {
       id: 'conflict_management',
-      name: 'Gestão de Conflitos e Limites Interpessoais',
+      name: 'Gestão de Conflitos',
       icon: '⚖️',
-      description: 'Capacidade de lidar com desacordos e críticas de forma construtiva, defendendo os próprios limites sem agressividade.',
+      description: 'Capacidade de lidar com desacordos e críticas de forma construtiva e não reativa.',
       interpretationLabels: {
-        level_1: 'Estilo de evitação de conflitos ou reação agressiva.',
-        level_2: 'Dificuldade em lidar com críticas e desacordos de forma equilibrada.',
-        level_3: 'Boa capacidade de gerenciar conflitos e defender limites.',
-        level_4: 'Elevada habilidade para resolver conflitos de forma calma e construtiva.',
+        level_1: 'Evitação ou reatividade em conflitos.',
+        level_2: 'Dificuldade em gerenciar desacordos.',
+        level_3: 'Boa gestão de conflitos.',
+        level_4: 'Resolução construtiva e madura.',
       },
       questions: [
         { id: 14301, text: 'Procuro resolver conflitos de forma calma e racional.' },
@@ -94,13 +96,53 @@ export const IASO_INVENTORY: InventoryForm = {
     },
   ],
   scoring: {
-    type: 'sum',
-    description: 'A pontuação é a soma total das respostas (0-80). Pontuações mais altas indicam melhor assertividade e sociabilidade.',
+    type: 'average',
+    description: 'A pontuação média (1-7) indica o nível de competência social e assertividade. Escores altos sugerem relações mais equilibradas e satisfatórias.',
     ranges: [
-      { min: 60, max: 80, label: 'Alta assertividade e sociabilidade', description: 'Boa autoconfiança, comunicação equilibrada e empatia.' },
-      { min: 40, max: 59, label: 'Nível funcional', description: 'Assertividade adequada, com pequenas dificuldades situacionais.' },
-      { min: 20, max: 39, label: 'Baixa assertividade ou retraimento', description: 'Tendência a evitação, submissão ou dificuldade de autoexpressão.' },
-      { min: 0, max: 19, label: 'Dificuldade significativa', description: 'Padrões de comunicação passiva, agressiva ou evitativa recorrentes.' }
+      { 
+        min: 1, 
+        max: 2.5, 
+        label: 'Inibição ou Passividade', 
+        description: 'Dificuldade em expressar necessidades ou defender direitos. Pode haver tendência a concordar com tudo para evitar conflito ou, inversamente, reagir com agressividade defensiva.',
+        recommendations: [
+          'Treino de Assertividade: aprender a diferença entre passivo, agressivo e assertivo.',
+          'Começar a expressar opiniões pequenas em ambientes seguros.',
+          'Validar que suas necessidades são tão importantes quanto as dos outros.'
+        ]
+      },
+      { 
+        min: 2.51, 
+        max: 4.0, 
+        label: 'Assertividade em Desenvolvimento', 
+        description: 'Consegue se posicionar em algumas situações, mas pode travar diante de autoridade ou crítica. A sociabilidade pode depender do nível de familiaridade com o grupo.',
+        recommendations: [
+          'Praticar o "Não" sem justificar excessivamente.',
+          'Expor-se gradualmente a situações sociais novas.',
+          'Refletir sobre o medo do julgamento alheio.'
+        ]
+      },
+      { 
+        min: 4.01, 
+        max: 5.5, 
+        label: 'Boa Competência Social', 
+        description: 'Comunicação clara e respeitosa. O indivíduo consegue estabelecer limites e interagir bem na maioria dos contextos.',
+        recommendations: [
+          'Refinar a habilidade de negociação em conflitos complexos.',
+          'Ampliar a rede de contatos profissionais ou pessoais.',
+          'Manter a autenticidade nas interações.'
+        ]
+      },
+      { 
+        min: 5.51, 
+        max: 7, 
+        label: 'Alta Assertividade e Liderança', 
+        description: 'Excelente habilidade de comunicação e influência. Sente-se seguro socialmente e resolve conflitos de forma construtiva.',
+        recommendations: [
+          'Assumir papéis de liderança ou mediação.',
+          'Ajudar outros a desenvolverem suas habilidades sociais.',
+          'Utilizar a influência para promover ambientes colaborativos.'
+        ]
+      },
     ],
   }
 };

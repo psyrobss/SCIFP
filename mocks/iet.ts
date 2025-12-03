@@ -5,15 +5,17 @@ export const IET_INVENTORY: InventoryForm = {
   id: 'iet',
   acronym: 'IET',
   name: 'Inventário de Espiritualidade e Transcendência',
-  objective: 'Avaliar o grau de espiritualidade subjetiva, sentido de transcendência e conexão com dimensões que ultrapassam o self individual — sejam elas de natureza simbólica, filosófica, ética ou religiosa.\nO foco não é a religiosidade formal, mas sim a vivência de conexão, propósito e ampliação de consciência.',
-  instructions: 'Este questionário investiga como você percebe sua relação com algo maior do que si mesmo — seja a vida, a natureza, o universo, a humanidade ou um princípio espiritual.\n\nNão há respostas certas ou erradas. Responda de acordo com o quanto cada afirmação representa sua experiência pessoal.',
+  objective: 'Avaliar o grau de espiritualidade subjetiva, sentido de transcendência e conexão com dimensões que ultrapassam o self individual — sejam elas de natureza simbólica, filosófica, ética ou religiosa.',
+  instructions: 'Este questionário investiga como você percebe sua relação com algo maior do que si mesmo. Não há respostas certas ou erradas. Responda de acordo com o quanto cada afirmação representa sua experiência pessoal na escala de 1 a 7.',
   scoreOrientation: 'higher_is_better',
   responseScale: [
-    { value: 0, label: 'Nunca ou quase nunca' },
-    { value: 1, label: 'Raramente' },
-    { value: 2, label: 'Às vezes' },
-    { value: 3, label: 'Frequentemente' },
-    { value: 4, label: 'Quase sempre ou sempre' },
+    { value: 1, label: 'Discordo Totalmente' },
+    { value: 2, label: 'Discordo Fortemente' },
+    { value: 3, label: 'Discordo em Parte' },
+    { value: 4, label: 'Neutro / Misto' },
+    { value: 5, label: 'Concordo em Parte' },
+    { value: 6, label: 'Concordo Fortemente' },
+    { value: 7, label: 'Concordo Totalmente' },
   ],
   domains: [
     {
@@ -22,10 +24,10 @@ export const IET_INVENTORY: InventoryForm = {
       icon: '🌿',
       description: 'Avalia o sentimento de integração com o todo, a natureza ou o fluxo da vida.',
       interpretationLabels: {
-        level_1: 'Forte sentimento de desconexão e isolamento.',
-        level_2: 'Conexão fraca ou intermitente com o todo.',
-        level_3: 'Bom senso de conexão e unidade com a vida.',
-        level_4: 'Elevado sentimento de integração e unidade.',
+        level_1: 'Sentimento de desconexão ou isolamento.',
+        level_2: 'Conexão intermitente com o todo.',
+        level_3: 'Bom senso de conexão e unidade.',
+        level_4: 'Profundo sentimento de integração e unidade.',
       },
       questions: [
         { id: 26001, text: 'Sinto que faço parte de algo maior do que eu.' },
@@ -41,14 +43,14 @@ export const IET_INVENTORY: InventoryForm = {
       icon: '🔮',
       description: 'Investiga o quanto o indivíduo percebe um propósito que dá sentido à vida.',
       interpretationLabels: {
-        level_1: 'Forte sensação de falta de propósito e sentido.',
-        level_2: 'Propósito de vida pouco claro ou em questionamento.',
+        level_1: 'Busca ativa por sentido.',
+        level_2: 'Propósito em definição.',
         level_3: 'Bom senso de propósito transcendente.',
-        level_4: 'Forte e claro senso de propósito e missão pessoal.',
+        level_4: 'Forte e claro senso de missão pessoal.',
       },
       questions: [
         { id: 26006, text: 'Sinto que há um propósito que orienta minha vida.' },
-        { id: 26007, text: 'Frequentemente me pergunto “por que estou aqui”.' },
+        { id: 26007, text: 'Frequentemente me pergunto “por que estou aqui” com sensação de dúvida.', isReversed: true },
         { id: 26008, text: 'Tenho clareza sobre o que me faz sentir parte de algo significativo.' },
         { id: 26009, text: 'Às vezes sinto que vivo sem direção ou propósito.', isReversed: true },
         { id: 26010, text: 'Busco viver de acordo com um sentido que vai além de mim mesmo.' },
@@ -56,14 +58,14 @@ export const IET_INVENTORY: InventoryForm = {
     },
     {
       id: 'spiritual_experience',
-      name: 'Experiência Espiritual e Ampliação de Consciência',
+      name: 'Experiência Espiritual e Ampliação',
       icon: '🌙',
       description: 'Avalia estados subjetivos de expansão, insight ou conexão interior profunda.',
       interpretationLabels: {
-        level_1: 'Baixa ocorrência de experiências de ampliação de consciência.',
-        level_2: 'Experiências espirituais raras ou superficiais.',
-        level_3: 'Boa capacidade de acessar estados de paz e insight.',
-        level_4: 'Frequentes experiências de conexão e ampliação da consciência.',
+        level_1: 'Vivência focada no concreto.',
+        level_2: 'Experiências de ampliação ocasionais.',
+        level_3: 'Boa capacidade de acessar estados de paz.',
+        level_4: 'Frequentes experiências de conexão profunda.',
       },
       questions: [
         { id: 26011, text: 'Já vivi momentos de profunda paz interior, difíceis de descrever.' },
@@ -75,52 +77,91 @@ export const IET_INVENTORY: InventoryForm = {
     },
     {
       id: 'ego_transcendence',
-      name: 'Transcendência do Ego e Compromisso Ético',
+      name: 'Transcendência do Ego',
       icon: '🕊️',
       description: 'Explora a capacidade de ir além dos interesses pessoais, conectando-se a valores universais.',
       interpretationLabels: {
-        level_1: 'Forte foco em interesses pessoais e egoístas.',
-        level_2: 'Dificuldade em transcender o ego e agir pelo bem comum.',
-        level_3: 'Bom equilíbrio entre necessidades pessoais e compromisso ético.',
-        level_4: 'Elevada capacidade de transcendência do ego e ação compassiva.',
+        level_1: 'Foco nas necessidades imediatas do self.',
+        level_2: 'Esforço para transcender interesses pessoais.',
+        level_3: 'Bom equilíbrio entre self e o todo.',
+        level_4: 'Elevada capacidade de serviço e compaixão.',
       },
       questions: [
         { id: 26016, text: 'Sinto que minha vida é guiada por valores mais amplos do que meus desejos.' },
         { id: 26017, text: 'Tento agir pensando no bem comum.' },
-        { id: 26018, text: 'Costumo me perceber preso em questões egoístas.', isReversed: true },
+        { id: 26018, text: 'Costumo me perceber preso em questões estritamente pessoais.', isReversed: true },
         { id: 26019, text: 'Sinto que a compaixão é uma força que orienta minhas ações.' },
         { id: 26020, text: 'Acredito que crescer espiritualmente envolve servir algo além de si mesmo.' },
       ],
     },
     {
       id: 'spiritual_integration',
-      name: 'Integração Espiritual e Autotransformação',
+      name: 'Integração e Autotransformação',
       icon: '💫',
       description: 'Avalia a integração das experiências espirituais com o cotidiano e a capacidade de transformação interior.',
       interpretationLabels: {
-        level_1: 'Baixa integração entre espiritualidade e vida cotidiana.',
-        level_2: 'Dificuldade em aplicar insights espirituais na prática.',
-        level_3: 'Boa integração e uso da espiritualidade para o crescimento.',
-        level_4: 'Elevada integração, com autotransformação contínua.',
+        level_1: 'Espiritualidade compartimentalizada.',
+        level_2: 'Dificuldade em aplicar insights na prática.',
+        level_3: 'Boa integração no dia a dia.',
+        level_4: 'Espiritualidade como eixo de vida.',
       },
       questions: [
         { id: 26021, text: 'As experiências profundas que vivi mudaram minha forma de ser.' },
         { id: 26022, text: 'Busco aprender com cada dificuldade como parte do meu crescimento interior.' },
         { id: 26023, text: 'Às vezes tenho dificuldade em manter o equilíbrio entre o espiritual e o prático.', isReversed: true },
         { id: 26024, text: 'Sinto que estou me tornando uma pessoa mais consciente e compassiva.' },
-        { id: 26025, text: 'Vejo minha trajetória como um processo de evolução pessoal e espiritual.' },
+        { id: 26025, text: 'Vejo minha trajetória como um processo de evolução pessoal.' },
       ],
     },
   ],
   scoring: {
-    type: 'sum',
-    description: 'A pontuação total (0-100) indica o nível de integração espiritual e sentido de transcendência. Pontuações mais altas refletem maior conexão e propósito.',
-    notes: ['Itens que indicam ausência de conexão ou espiritualidade fragmentada são revertidos na pontuação.'],
+    type: 'average',
+    description: 'A pontuação média (1-7) indica o nível de integração espiritual e sentido de transcendência. Escores mais altos refletem maior conexão e propósito.',
     ranges: [
-      { min: 76, max: 100, label: 'Alta Transcendência', description: 'Forte sentido de conexão, propósito, coerência ética e autotransformação.' },
-      { min: 51, max: 75, label: 'Boa Integração Espiritual', description: 'Conexão e propósito presentes, com boa coerência interna.' },
-      { min: 26, max: 50, label: 'Transcendência Moderada', description: 'Busca por sentido, mas com inconsistências ou desconexão ocasional.' },
-      { min: 0, max: 25, label: 'Baixa Transcendência', description: 'Vazio existencial, desconexão, perda de sentido.' },
+      { 
+        min: 1, 
+        max: 2.5, 
+        label: 'Busca de Conexão', 
+        description: 'Pode haver uma sensação de vazio existencial, desconexão ou foco excessivo em aspectos materiais/concretos da vida. Momento propício para explorar valores.',
+        recommendations: [
+          'Práticas de contemplação da natureza ou arte.',
+          'Explorar literatura sobre sentido de vida e filosofia.',
+          'Exercícios de gratidão para ampliar a percepção do "bom".'
+        ]
+      },
+      { 
+        min: 2.51, 
+        max: 4.0, 
+        label: 'Espiritualidade em Desenvolvimento', 
+        description: 'Interesse por temas transcendentes e experiências ocasionais de conexão, mas talvez com dificuldade de integrar isso na rotina diária.',
+        recommendations: [
+          'Criar pequenos rituais diários de conexão (meditação, oração, silêncio).',
+          'Buscar grupos ou comunidades com valores similares.',
+          'Refletir sobre como trazer valores espirituais para o trabalho/relações.'
+        ]
+      },
+      { 
+        min: 4.01, 
+        max: 5.5, 
+        label: 'Boa Integração Espiritual', 
+        description: 'Conexão e propósito presentes de forma consistente. O indivíduo consegue utilizar sua espiritualidade como recurso de resiliência.',
+        recommendations: [
+          'Aprofundar o estudo ou prática de sua linha filosófica/espiritual.',
+          'Engajar-se em serviço voluntário como expressão de valores.',
+          'Praticar o não-julgamento e a aceitação no dia a dia.'
+        ]
+      },
+      { 
+        min: 5.51, 
+        max: 7, 
+        label: 'Alta Transcendência e Propósito', 
+        description: 'Forte sentido de conexão, propósito e coerência ética. A vida é vivida com um senso de missão e serviço, com alta paz interior.',
+        recommendations: [
+          'Atuar como mentor ou guia para outros.',
+          'Focar no legado e na transmissão de sabedoria.',
+          'Manter a humildade ("mente de principiante") para continuar aprendendo.'
+        ]
+      },
     ],
   },
 };

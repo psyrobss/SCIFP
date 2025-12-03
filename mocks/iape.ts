@@ -9,23 +9,25 @@ export const IAPE_INVENTORY: InventoryForm = {
   instructions: 'Abaixo estão frases sobre como você tende a perceber e reagir às emoções de outras pessoas. Assinale quanto cada uma representa o que ocorre com você na maioria das situações sociais.',
   scoreOrientation: 'higher_is_better',
   responseScale: [
-    { value: 0, label: 'Nunca é verdade para mim' },
-    { value: 1, label: 'Raramente é verdade para mim' },
-    { value: 2, label: 'Às vezes é verdade para mim' },
-    { value: 3, label: 'Frequentemente é verdade para mim' },
-    { value: 4, label: 'Quase sempre é verdade para mim' },
+    { value: 1, label: 'Discordo Totalmente' },
+    { value: 2, label: 'Discordo Fortemente' },
+    { value: 3, label: 'Discordo em Parte' },
+    { value: 4, label: 'Neutro / Misto' },
+    { value: 5, label: 'Concordo em Parte' },
+    { value: 6, label: 'Concordo Fortemente' },
+    { value: 7, label: 'Concordo Totalmente' },
   ],
   domains: [
     {
       id: 'cognitive_empathy',
       name: 'Empatia Cognitiva',
       icon: '🧠',
-      description: 'Capacidade de compreender e interpretar o estado emocional de outra pessoa de uma perspectiva racional.',
+      description: 'Capacidade de compreender e interpretar o estado emocional de outra pessoa de uma perspectiva racional (entender o que o outro sente).',
       interpretationLabels: {
-        level_1: 'Dificuldade em compreender o ponto de vista alheio.',
-        level_2: 'Compreensão intelectual das emoções, mas com dificuldade em situações complexas.',
-        level_3: 'Boa capacidade de interpretar e entender as emoções dos outros.',
-        level_4: 'Elevada capacidade de ler o estado emocional e as intenções de outras pessoas.',
+        level_1: 'Dificuldade de leitura social.',
+        level_2: 'Compreensão básica.',
+        level_3: 'Boa leitura de sinais.',
+        level_4: 'Alta perspicácia social.',
       },
       questions: [
         { id: 12001, text: 'Consigo perceber quando alguém está desconfortável, mesmo que não diga nada.' },
@@ -40,14 +42,14 @@ export const IAPE_INVENTORY: InventoryForm = {
     },
     {
       id: 'emotional_empathy',
-      name: 'Empatia Emocional (Ressonância Afetiva)',
+      name: 'Empatia Emocional (Ressonância)',
       icon: '💓',
       description: 'Capacidade de sentir o que a outra pessoa está sentindo, compartilhando ou ressoando com seu estado afetivo.',
       interpretationLabels: {
-        level_1: 'Baixa ressonância afetiva, com distanciamento emocional.',
-        level_2: 'Sensibilidade emocional presente, mas contida.',
-        level_3: 'Boa capacidade de se conectar e se comover com o sentimento alheio.',
-        level_4: 'Elevada ressonância afetiva, com forte contágio emocional.',
+        level_1: 'Distanciamento afetivo.',
+        level_2: 'Ressonância seletiva.',
+        level_3: 'Boa conexão emocional.',
+        level_4: 'Alta sensibilidade e contágio.',
       },
       questions: [
         { id: 12101, text: 'Quando vejo alguém sofrendo, fico emocionalmente tocado.' },
@@ -55,21 +57,21 @@ export const IAPE_INVENTORY: InventoryForm = {
         { id: 12103, text: 'Tenho dificuldade em me comover com o sofrimento dos outros.', isReversed: true },
         { id: 12104, text: 'Alegro-me com as conquistas de outras pessoas.' },
         { id: 12105, text: 'Quando alguém está tenso, também fico tenso.' },
-        { id: 12106, text: 'Costumo me afetar demais pelos problemas alheios.', isReversed: true },
+        { id: 12106, text: 'Costumo me afetar demais pelos problemas alheios (sobrecarga).', isReversed: true }, // Revertido pois excesso é desregulação
         { id: 12107, text: 'Sinto empatia mesmo quando não conheço a pessoa.' },
         { id: 12108, text: 'Às vezes evito contato emocional com o sofrimento dos outros.', isReversed: true },
       ],
     },
     {
       id: 'interpersonal_regulation',
-      name: 'Regulação Interpessoal e Empatia Funcional',
+      name: 'Regulação Interpessoal',
       icon: '⚖️',
-      description: 'Habilidade de manter o próprio equilíbrio emocional ao lidar com o sofrimento alheio, sem se sobrecarregar.',
+      description: 'Habilidade de manter o próprio equilíbrio emocional ao lidar com o sofrimento alheio, sem se fundir ou se exaurir.',
       interpretationLabels: {
-        level_1: 'Elevada capacidade de se manter centrado ao ajudar os outros.',
-        level_2: 'Boa regulação, com raras sobrecargas emocionais.',
-        level_3: 'Dificuldade em não absorver as emoções alheias, com tendência à sobrecarga.',
-        level_4: 'Forte sobrecarga empática, com dificuldade em separar as próprias emoções das dos outros.',
+        level_1: 'Fusão ou exaustão fácil.',
+        level_2: 'Regulação oscilante.',
+        level_3: 'Bom equilíbrio eu-outro.',
+        level_4: 'Empatia sustentável e regulada.',
       },
       questions: [
         { id: 12201, text: 'Consigo ajudar alguém sem me deixar sobrecarregar emocionalmente.' },
@@ -84,14 +86,14 @@ export const IAPE_INVENTORY: InventoryForm = {
     },
     {
       id: 'social_integration',
-      name: 'Integração Social e Resposta Empática',
+      name: 'Ação Pró-Social (Compaixão)',
       icon: '🌐',
-      description: 'Tendência a transformar o sentimento empático em ações de apoio, cuidado e gentileza para com os outros.',
+      description: 'Tendência a transformar o sentimento empático em ações de apoio, cuidado e gentileza.',
       interpretationLabels: {
-        level_1: 'Baixa iniciativa para oferecer ajuda ou conforto.',
-        level_2: 'Ação empática presente, mas pode haver hesitação ou evitação.',
-        level_3: 'Boa disposição para agir em apoio aos outros.',
-        level_4: 'Comportamento pró-social elevado, com forte inclinação a ajudar.',
+        level_1: 'Passividade diante da dor alheia.',
+        level_2: 'Ação hesitante.',
+        level_3: 'Boa disposição para ajudar.',
+        level_4: 'Atitude compassiva ativa.',
       },
       questions: [
         { id: 12301, text: 'Costumo oferecer ajuda quando percebo que alguém está triste.' },
@@ -107,12 +109,52 @@ export const IAPE_INVENTORY: InventoryForm = {
   ],
   scoring: {
     type: 'average',
-    description: 'Cada item é pontuado de 0 a 4. Escores altos indicam maior empatia. Questões com (R) devem ser revertidas antes do cálculo da média.',
+    description: 'A pontuação média (1-7) reflete o perfil de empatia. Escores equilibrados indicam capacidade de conexão sem perda de si mesmo.',
     ranges: [
-      { min: 0, max: 0.9, label: 'Baixo', description: 'Dificuldade em perceber e reagir emocionalmente ao outro; traços de distanciamento ou alexitimia social.' },
-      { min: 1, max: 1.9, label: 'Leve', description: 'Empatia presente, porém superficial ou inconsistência na resposta emocional.' },
-      { min: 2, max: 2.9, label: 'Moderado', description: 'Boa percepção emocional, mas flutuações na regulação e na expressão empática.' },
-      { min: 3, max: 4, label: 'Elevado', description: 'Alta empatia cognitiva e afetiva, com boa integração e resposta pró-social.' }
+      { 
+        min: 1, 
+        max: 2.5, 
+        label: 'Foco Interno / Distanciamento', 
+        description: 'Dificuldade em sintonizar com o estado emocional alheio ou tendência a evitar o envolvimento por autoproteção. Pode parecer frio ou distante.',
+        recommendations: [
+          'Treinar a leitura de expressões faciais e linguagem corporal.',
+          'Praticar a escuta ativa: ouvir para entender, não para responder.',
+          'Explorar se o distanciamento é uma defesa contra a própria sensibilidade.'
+        ]
+      },
+      { 
+        min: 2.51, 
+        max: 4.0, 
+        label: 'Empatia em Desenvolvimento', 
+        description: 'Capacidade de conexão presente, mas pode haver dificuldade em situações complexas ou sob estresse. Risco de "contágio emocional" sem regulação.',
+        recommendations: [
+          'Aprender a diferenciar "sentir com" (empatia) de "sofrer por" (angústia).',
+          'Estabelecer limites saudáveis: saber dizer não para se preservar.',
+          'Desenvolver curiosidade sobre a perspectiva do outro.'
+        ]
+      },
+      { 
+        min: 4.01, 
+        max: 5.5, 
+        label: 'Boa Capacidade Empática', 
+        description: 'Bom equilíbrio entre compreender o outro e manter a própria estabilidade. O indivíduo consegue oferecer suporte efetivo.',
+        recommendations: [
+          'Praticar a compaixão ativa (focar na ação de ajuda).',
+          'Usar a empatia para mediar conflitos ou melhorar a comunicação.',
+          'Manter práticas de autocuidado para evitar fadiga por compaixão.'
+        ]
+      },
+      { 
+        min: 5.51, 
+        max: 7, 
+        label: 'Alta Ressonância e Compaixão', 
+        description: 'Excelente capacidade de conexão e leitura social. O indivíduo é percebido como acolhedor e compreensivo. Atenção para não se doar em excesso.',
+        recommendations: [
+          'Liderança humanizada e gestão de pessoas.',
+          'Monitorar o equilíbrio entre dar e receber nas relações.',
+          'Servir como modelo de regulação emocional para o grupo.'
+        ]
+      },
     ],
   }
 };

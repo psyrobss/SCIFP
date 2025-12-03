@@ -1,4 +1,5 @@
 
+
 import { InventoryForm } from '../types';
 
 export const IVM_INVENTORY: InventoryForm = {
@@ -9,11 +10,13 @@ export const IVM_INVENTORY: InventoryForm = {
   instructions: 'As frases abaixo descrevem atitudes e sentimentos relacionados à vontade e motivação pessoal.\nMarque o quanto cada uma representa você nas últimas semanas.',
   scoreOrientation: 'higher_is_better',
   responseScale: [
-    { value: 0, label: 'Nunca ou quase nunca' },
-    { value: 1, label: 'Raramente' },
-    { value: 2, label: 'Às vezes' },
-    { value: 3, label: 'Frequentemente' },
-    { value: 4, label: 'Quase sempre ou sempre' },
+    { value: 1, label: 'Discordo Totalmente' },
+    { value: 2, label: 'Discordo Fortemente' },
+    { value: 3, label: 'Discordo em Parte' },
+    { value: 4, label: 'Neutro / Misto' },
+    { value: 5, label: 'Concordo em Parte' },
+    { value: 6, label: 'Concordo Fortemente' },
+    { value: 7, label: 'Concordo Totalmente' },
   ],
   domains: [
     {
@@ -94,14 +97,53 @@ export const IVM_INVENTORY: InventoryForm = {
     },
   ],
   scoring: {
-    type: 'sum',
-    description: 'A pontuação total (0-80) indica o nível de motivação e vontade. Escores mais altos refletem maior disposição e clareza de metas.',
-    subScoresDescription: 'A média por domínio pode ser calculada para uma análise mais detalhada.',
+    type: 'average',
+    description: 'A pontuação média (1-7) indica o nível de motivação e vontade. Escores mais altos refletem maior disposição e clareza de metas.',
     ranges: [
-      { min: 65, max: 80, label: 'Alta Motivação e Direção de Vontade', description: 'Energia estável, metas claras e persistência consistente.' },
-      { min: 45, max: 64, label: 'Motivação Funcional', description: 'Boa disposição e clareza de metas, com leves oscilações.' },
-      { min: 25, max: 44, label: 'Motivação Reduzida', description: 'Falta de foco, energia instável ou desistência fácil.' },
-      { min: 0, max: 24, label: 'Desmotivação ou Apatia', description: 'Perda de sentido, inércia, baixa vitalidade e ausência de metas.' },
+      { 
+        min: 1, 
+        max: 2.5, 
+        label: 'Apatia ou Desmotivação', 
+        description: 'Perda de sentido, inércia, baixa vitalidade e ausência de metas. Pode indicar necessidade de cuidar da saúde mental ou física.',
+        recommendations: [
+          'Investigar causas físicas ou emocionais da falta de energia.',
+          'Estabelecer micro-metas diárias muito fáceis de cumprir.',
+          'Reconectar-se com atividades que antes davam prazer.'
+        ]
+      },
+      { 
+        min: 2.51, 
+        max: 4.0, 
+        label: 'Motivação Flutuante', 
+        description: 'Falta de foco, energia instável ou desistência fácil diante de obstáculos. A vontade existe, mas a disciplina falha.',
+        recommendations: [
+          'Clarificar o "porquê" por trás dos objetivos.',
+          'Criar um ambiente que favoreça a ação (reduzir distrações).',
+          'Trabalhar a tolerância à frustração.'
+        ]
+      },
+      { 
+        min: 4.01, 
+        max: 5.5, 
+        label: 'Motivação Funcional', 
+        description: 'Boa disposição e clareza de metas, com leves oscilações. O indivíduo consegue manter a rotina e buscar seus objetivos.',
+        recommendations: [
+          'Desafiar-se com metas um pouco mais ambiciosas.',
+          'Manter o equilíbrio entre esforço e descanso para evitar burnout.',
+          'Celebrar o progresso consistente.'
+        ]
+      },
+      { 
+        min: 5.51, 
+        max: 7, 
+        label: 'Alta Determinação e Vontade', 
+        description: 'Energia estável, metas claras e persistência consistente. Forte senso de agência e capacidade de realização.',
+        recommendations: [
+          'Liderar projetos ou inspirar outros.',
+          'Focar em legado e impacto de longo prazo.',
+          'Garantir que a alta motivação não vire obsessão ou rigidez.'
+        ]
+      },
     ],
   },
 };

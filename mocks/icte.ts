@@ -10,11 +10,13 @@ export const ICTE_INVENTORY: InventoryForm = {
   instructions: 'Leia as frases abaixo e marque o quanto cada uma representa a forma como você tem se sentido nas últimas semanas.',
   scoreOrientation: 'higher_is_better',
   responseScale: [
-    { value: 0, label: 'Nunca ou quase nunca' },
-    { value: 1, label: 'Raramente' },
-    { value: 2, label: 'Às vezes' },
-    { value: 3, label: 'Frequentemente' },
-    { value: 4, label: 'Quase sempre ou sempre' },
+    { value: 1, label: 'Discordo Totalmente' },
+    { value: 2, label: 'Discordo Fortemente' },
+    { value: 3, label: 'Discordo em Parte' },
+    { value: 4, label: 'Neutro / Misto' },
+    { value: 5, label: 'Concordo em Parte' },
+    { value: 6, label: 'Concordo Fortemente' },
+    { value: 7, label: 'Concordo Totalmente' },
   ],
   domains: [
     {
@@ -95,13 +97,13 @@ export const ICTE_INVENTORY: InventoryForm = {
     },
   ],
   scoring: {
-    type: 'sum',
-    description: 'A pontuação é a soma total das respostas (0-80). Pontuações mais altas indicam maior integração temporal e existencial.',
+    type: 'average',
+    description: 'A pontuação média (1-7) indica o nível de integração temporal e existencial. Escores mais altos sugerem uma narrativa de vida coesa e com propósito.',
     ranges: [
       { 
-        min: 0, 
-        max: 24, 
-        label: 'Desconexão Temporal e Existencial', 
+        min: 1, 
+        max: 2.5, 
+        label: 'Desconexão Temporal', 
         description: 'Vivência fragmentada, sensação de estagnação ou de estar "à deriva". Possível fixação em traumas passados ou ansiedade paralisante sobre o futuro.',
         recommendations: [
           'Terapia Narrativa: reconstruir a história de vida de forma coerente.',
@@ -110,9 +112,9 @@ export const ICTE_INVENTORY: InventoryForm = {
         ]
       },
       { 
-        min: 25, 
-        max: 44, 
-        label: 'Fragmentação Moderada', 
+        min: 2.51, 
+        max: 4.0, 
+        label: 'Busca de Coerência', 
         description: 'Dificuldade em integrar passado, presente e futuro. Pode haver períodos de alienação ou falta de clareza sobre a direção da vida.',
         recommendations: [
           'Trabalhar a aceitação do passado (perdão, ressignificação).',
@@ -121,8 +123,8 @@ export const ICTE_INVENTORY: InventoryForm = {
         ]
       },
       { 
-        min: 45, 
-        max: 64, 
+        min: 4.01, 
+        max: 5.5, 
         label: 'Consciência Temporal Funcional', 
         description: 'Boa noção de continuidade e tempo. O indivíduo consegue aprender com o passado e planejar o futuro, vivendo o presente de forma adequada.',
         recommendations: [
@@ -132,9 +134,9 @@ export const ICTE_INVENTORY: InventoryForm = {
         ]
       },
       { 
-        min: 65, 
-        max: 80, 
-        label: 'Integração Temporal Elevada', 
+        min: 5.51, 
+        max: 7, 
+        label: 'Integração Existencial Plena', 
         description: 'Senso profundo de continuidade, propósito e presença equilibrada. A vida é percebida como uma jornada significativa e coesa.',
         recommendations: [
           'Mentorar outros em suas jornadas de vida.',

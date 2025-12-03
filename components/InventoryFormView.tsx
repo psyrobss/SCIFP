@@ -148,27 +148,35 @@ const QuestionRenderer: React.FC<QuestionRendererProps> = ({ question, responseS
             <span className={question.isReversed ? "italic text-slate-700" : ""}>{question.text}</span>
           </div>
         </td>
-        {responseScale.map((option) => (
-          <td key={option.value} className="px-1 py-2 text-center align-middle">
-            <div className="flex justify-center">
-              <input
-                type="radio"
-                id={`q${question.id}_${option.value}_desktop`}
-                name={`question_${question.id}_desktop`}
-                value={option.value}
-                checked={currentAnswer === option.value}
-                onChange={() => onAnswerChange(question.id, option.value)}
-                className="h-5 w-5 text-indigo-600 border-slate-300 focus:ring-indigo-500 cursor-pointer accent-indigo-600"
-                aria-label={`${option.label} (${option.value}) para a pergunta: ${question.text}`}
-              />
-            </div>
-          </td>
-        ))}
+        {responseScale.map((option) => {
+          const isSelected = currentAnswer === option.value;
+          return (
+            <td 
+              key={option.value} 
+              className={`px-1 py-2 text-center align-middle transition-colors duration-200 cursor-pointer ${isSelected ? 'bg-indigo-100/60' : ''}`}
+              onClick={() => onAnswerChange(question.id, option.value)}
+            >
+              <div className="flex justify-center">
+                <input
+                  type="radio"
+                  id={`q${question.id}_${option.value}_desktop`}
+                  name={`question_${question.id}_desktop`}
+                  value={option.value}
+                  checked={isSelected}
+                  onChange={() => onAnswerChange(question.id, option.value)}
+                  className="h-5 w-5 text-indigo-600 border-slate-300 focus:ring-indigo-500 cursor-pointer accent-indigo-600"
+                  aria-label={`${option.label} (${option.value}) para a pergunta: ${question.text}`}
+                />
+              </div>
+            </td>
+          );
+        })}
       </tr>
     );
   }
 
   // type === 'mobile'
+  // CORREÇÃO: Usar lógica direta de 'isSelected' para as classes, em vez de depender de 'peer-checked'
   return (
     <fieldset className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm transition-all focus-within:ring-2 focus-within:ring-indigo-500 focus-within:border-indigo-500">
       <legend className="sr-only">Pergunta sobre {question.domainName}</legend>
@@ -179,32 +187,47 @@ const QuestionRenderer: React.FC<QuestionRendererProps> = ({ question, responseS
         <p className={`text-sm font-medium text-slate-800 ${question.isReversed ? "italic" : ""}`}>{question.text}</p>
       </div>
 
-      <div className="flex justify-between items-center gap-x-2 pt-2">
-        {responseScale.map((option) => (
-          <div key={option.value} className="flex flex-col items-center flex-1">
-            <input
-              type="radio"
-              id={`q${question.id}_${option.value}_mobile`}
-              name={`question_${question.id}_mobile`}
-              value={option.value}
-              checked={currentAnswer === option.value}
-              onChange={() => onAnswerChange(question.id, option.value)}
-              className="sr-only peer"
-              aria-label={`${option.label} (${option.value})`}
-            />
-            <label
-              htmlFor={`q${question.id}_${option.value}_mobile`}
-              className="flex flex-col items-center w-full cursor-pointer group"
-            >
-              <span className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border-2 border-slate-200 bg-slate-50 font-bold text-slate-600 transition-all duration-200 ease-in-out group-hover:border-indigo-300 peer-checked:border-indigo-600 peer-checked:bg-indigo-600 peer-checked:text-white peer-checked:shadow-md peer-checked:scale-110">
-                {option.value}
-              </span>
-              <span className="text-[10px] text-center text-slate-500 mt-1 leading-tight line-clamp-2 peer-checked:text-indigo-700 peer-checked:font-semibold">
-                {option.label}
-              </span>
-            </label>
-          </div>
-        ))}
+      <div className="flex justify-between items-start gap-x-1 pt-2">
+        {responseScale.map((option) => {
+          const isSelected = currentAnswer === option.value;
+          return (
+            <div key={option.value} className="flex flex-col items-center flex-1 min-w-0">
+              <input
+                type="radio"
+                id={`q${question.id}_${option.value}_mobile`}
+                name={`question_${question.id}_mobile`}
+                value={option.value}
+                checked={isSelected}
+                onChange={() => onAnswerChange(question.id, option.value)}
+                className="sr-only" // Input escondido, mas controlado pelo React
+                aria-label={`${option.label} (${option.value})`}
+              />
+              <label
+                htmlFor={`q${question.id}_${option.value}_mobile`}
+                className="flex flex-col items-center w-full cursor-pointer group"
+              >
+                {/* O Círculo com o número - Estilo Condicional */}
+                <span className={`
+                  flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full border-2 
+                  transition-all duration-200 ease-in-out text-xs sm:text-sm font-bold
+                  ${isSelected 
+                    ? 'border-indigo-600 bg-indigo-600 text-white shadow-md scale-110' 
+                    : 'border-slate-200 bg-slate-50 text-slate-600 group-hover:border-indigo-300'}
+                `}>
+                  {option.value}
+                </span>
+                
+                {/* A Legenda pequena abaixo - Estilo Condicional */}
+                <span className={`
+                  text-[9px] sm:text-[10px] text-center mt-1 leading-tight line-clamp-2
+                  ${isSelected ? 'text-indigo-700 font-semibold' : 'text-slate-500'}
+                `}>
+                  {option.label}
+                </span>
+              </label>
+            </div>
+          );
+        })}
       </div>
     </fieldset>
   );
@@ -399,12 +422,12 @@ export const InventoryFormView: React.FC<InventoryFormViewProps> = ({ inventory,
                   Afirmação
                 </th>
                 {inventory.responseScale.map((option) => (
-                  <th key={option.value} scope="col" className="px-1 py-3 text-center text-xs font-semibold text-slate-500 w-24">
+                  <th key={option.value} scope="col" className="px-1 py-3 text-center text-xs font-semibold text-slate-500 w-14 lg:w-16">
                     <div className="flex flex-col items-center">
                         <span className="bg-white border border-slate-200 rounded-full w-6 h-6 flex items-center justify-center text-slate-700 mb-1 shadow-sm">
                             {option.value}
                         </span>
-                        <span className="font-normal text-[10px] leading-tight px-1">
+                        <span className="font-normal text-[9px] leading-tight px-1">
                             {option.label}
                         </span>
                     </div>

@@ -5,26 +5,28 @@ export const IFEC_INVENTORY: InventoryForm = {
   id: 'ifec',
   acronym: 'IFEC',
   name: 'Inventário de Funções Executivas no Cotidiano (IFEC)',
-  objective: 'Avaliar, por autorrelato, o funcionamento executivo percebido em situações cotidianas, incluindo planejamento, flexibilidade, autocontrole e monitoramento de desempenho.',
-  instructions: 'A seguir, estão frases sobre como você costuma lidar com tarefas, decisões e situações do dia a dia. Marque a opção que melhor descreve o que geralmente acontece com você.',
+  objective: 'Avaliar o funcionamento executivo percebido em situações cotidianas, focando na capacidade de autogerenciamento, planejamento e regulação.',
+  instructions: 'Para cada frase, escolha a opção que melhor descreve como você lida com as situações do dia a dia. Seja honesto sobre suas facilidades e dificuldades.',
   responseScale: [
-    { value: 0, label: 'Nunca' },
-    { value: 1, label: 'Raramente' },
-    { value: 2, label: 'Às vezes' },
-    { value: 3, label: 'Frequentemente' },
-    { value: 4, label: 'Quase sempre' },
+    { value: 1, label: 'Discordo Totalmente' },
+    { value: 2, label: 'Discordo Fortemente' },
+    { value: 3, label: 'Discordo em Parte' },
+    { value: 4, label: 'Neutro / Às vezes' },
+    { value: 5, label: 'Concordo em Parte' },
+    { value: 6, label: 'Concordo Fortemente' },
+    { value: 7, label: 'Concordo Totalmente' },
   ],
   domains: [
     {
       id: 'planning_organization',
       name: 'Planejamento e Organização',
       icon: '🗓️',
-      description: 'Mede a capacidade de estruturar tarefas, definir prioridades e gerenciar o tempo de forma eficaz.',
+      description: 'Capacidade de estruturar tarefas e gerenciar o tempo.',
       interpretationLabels: {
-        level_1: 'Excelente capacidade de planejamento e organização.',
-        level_2: 'Dificuldades leves e pontuais na organização de tarefas.',
-        level_3: 'Dificuldades moderadas de planejamento com impacto na rotina.',
-        level_4: 'Forte desorganização e dificuldade de planejamento.',
+        level_1: 'Planejamento eficaz.',
+        level_2: 'Desorganização ocasional.',
+        level_3: 'Dificuldades frequentes de organização.',
+        level_4: 'Desafios significativos em planejamento.',
       },
       questions: [
         { id: 1301, text: 'Tenho dificuldade em organizar minhas tarefas diárias.' },
@@ -39,12 +41,12 @@ export const IFEC_INVENTORY: InventoryForm = {
       id: 'cognitive_flexibility',
       name: 'Flexibilidade Cognitiva',
       icon: '🔄',
-      description: 'Avalia a habilidade de se adaptar a mudanças, considerar diferentes perspectivas e alterar planos quando necessário.',
+      description: 'Habilidade de se adaptar a mudanças e alterar planos.',
       interpretationLabels: {
-        level_1: 'Alta flexibilidade cognitiva e capacidade de adaptação.',
-        level_2: 'Leve rigidez cognitiva, com alguma resistência a mudanças.',
-        level_3: 'Dificuldade moderada em se adaptar a novas situações.',
-        level_4: 'Forte rigidez cognitiva e dificuldade de adaptação.',
+        level_1: 'Boa flexibilidade e adaptação.',
+        level_2: 'Leve resistência a mudanças.',
+        level_3: 'Dificuldade moderada de adaptação.',
+        level_4: 'Rigidez cognitiva significativa.',
       },
       questions: [
         { id: 1401, text: 'Tenho dificuldade em mudar de plano quando algo dá errado.' },
@@ -57,14 +59,14 @@ export const IFEC_INVENTORY: InventoryForm = {
     },
     {
       id: 'inhibitory_control',
-      name: 'Controle Inibitório e Autocontrole',
+      name: 'Controle Inibitório',
       icon: '⏱️',
-      description: 'Mede a capacidade de conter impulsos, resistir a distrações e regular reações emocionais e comportamentais.',
+      description: 'Capacidade de conter impulsos e regular reações.',
       interpretationLabels: {
-        level_1: 'Excelente controle inibitório e autorregulação.',
-        level_2: 'Dificuldades leves de autocontrole, especialmente sob pressão.',
-        level_3: 'Dificuldade moderada em conter impulsos e distrações.',
-        level_4: 'Forte padrão de impulsividade e baixo autocontrole.',
+        level_1: 'Bom autocontrole.',
+        level_2: 'Impulsividade ocasional.',
+        level_3: 'Dificuldade moderada de inibição.',
+        level_4: 'Desafios significativos de autocontrole.',
       },
       questions: [
         { id: 1501, text: 'Falo sem pensar nas consequências.' },
@@ -79,12 +81,12 @@ export const IFEC_INVENTORY: InventoryForm = {
       id: 'monitoring_self_correction',
       name: 'Monitoramento e Autocorreção',
       icon: '📊',
-      description: 'Avalia a habilidade de perceber os próprios erros, revisar o desempenho e ajustar o comportamento conforme necessário.',
+      description: 'Habilidade de perceber erros e ajustar o comportamento.',
       interpretationLabels: {
-        level_1: 'Forte dificuldade de automonitoramento e correção de erros.',
-        level_2: 'Dificuldade moderada em perceber e corrigir falhas.',
-        level_3: 'Boa capacidade de monitoramento, com algumas falhas.',
-        level_4: 'Excelente capacidade de automonitoramento e correção.',
+        level_1: 'Dificuldade em perceber e corrigir erros.',
+        level_2: 'Monitoramento inconsistente.',
+        level_3: 'Boa capacidade de automonitoramento.',
+        level_4: 'Excelente capacidade de autocorreção.',
       },
       questions: [
         { id: 1601, text: 'Percebo rapidamente quando cometo erros.', isReversed: true },
@@ -98,13 +100,13 @@ export const IFEC_INVENTORY: InventoryForm = {
     {
       id: 'initiation_motivation',
       name: 'Iniciação e Motivação',
-      icon: '🧩',
-      description: 'Mede a capacidade de iniciar tarefas de forma autônoma e superar a procrastinação.',
+      icon: '🚀',
+      description: 'Capacidade de iniciar tarefas de forma autônoma.',
       interpretationLabels: {
-        level_1: 'Excelente capacidade de iniciativa e automotivação.',
-        level_2: 'Leve tendência à procrastinação ou dificuldade de iniciar tarefas.',
-        level_3: 'Dificuldade moderada de iniciativa, com procrastinação frequente.',
-        level_4: 'Forte padrão de procrastinação e baixa motivação.',
+        level_1: 'Alta iniciativa e motivação.',
+        level_2: 'Procrastinação leve ou ocasional.',
+        level_3: 'Dificuldade frequente para iniciar tarefas.',
+        level_4: 'Inércia ou procrastinação significativa.',
       },
       questions: [
         { id: 1701, text: 'Tenho dificuldade em começar tarefas, mesmo as simples.' },
@@ -118,53 +120,53 @@ export const IFEC_INVENTORY: InventoryForm = {
   ],
   scoring: {
     type: 'average',
-    description: 'A pontuação média (0-4) reflete o nível de disfunção executiva percebida. Escores mais altos indicam maiores dificuldades.',
+    description: 'A pontuação média (1-7) reflete o perfil executivo. Escores mais altos em itens diretos indicam maiores desafios executivos.',
     ranges: [
       { 
-        min: 0, 
-        max: 0.9, 
+        min: 1, 
+        max: 2.5, 
         label: 'Funcionamento Executivo Eficaz', 
-        description: 'Indivíduo apresenta boa capacidade de autogerenciamento, planejamento e flexibilidade. Consegue inibir impulsos e monitorar o próprio desempenho de forma adequada.',
+        description: 'Indica boa capacidade de autogerenciamento, planejamento e flexibilidade. O indivíduo provavelmente consegue lidar bem com demandas cotidianas sem suporte externo intensivo.',
         recommendations: [
           'Manter desafios cognitivos para preservar a função executiva.',
-          'Pode atuar como mentor ou organizador em contextos de grupo devido à boa capacidade de gestão.',
+          'Pode atuar como mentor ou organizador em contextos de grupo.',
           'Continuar utilizando estratégias intuitivas de organização.'
         ]
       },
       { 
-        min: 1, 
-        max: 1.9, 
-        label: 'Dificuldades Executivas Leves', 
-        description: 'Falhas ocasionais na organização, procrastinação ou controle de impulsos, geralmente exacerbadas por cansaço ou estresse. Não chega a comprometer gravemente a independência.',
+        min: 2.51, 
+        max: 4.0, 
+        label: 'Desafios Executivos Leves', 
+        description: 'Falhas ocasionais na organização ou controle de impulsos, geralmente exacerbadas por cansaço ou estresse. Não chega a comprometer gravemente a independência, mas pode gerar retrabalho.',
         recommendations: [
           'Uso de ferramentas externas (agendas, apps de tarefas) para reduzir carga mental.',
           'Técnicas de "time-blocking" para melhorar a gestão do tempo.',
           'Mindfulness para melhorar o foco e reduzir a reatividade sob estresse.',
-          'Higiene do sono, pois a fadiga afeta rapidamente as funções executivas.'
+          'Higiene do sono para otimizar o funcionamento frontal.'
         ]
       },
       { 
-        min: 2, 
-        max: 2.9, 
+        min: 4.01, 
+        max: 5.5, 
         label: 'Disfunção Executiva Moderada', 
-        description: 'Dificuldades consistentes em iniciar tarefas, manter o foco ou regular impulsos. Impacto perceptível na produtividade acadêmica/profissional e na gestão doméstica. Comum em quadros de TDAH, ansiedade generalizada ou depressão.',
+        description: 'Dificuldades consistentes em iniciar tarefas, manter o foco ou regular impulsos. Impacto perceptível na produtividade e na gestão doméstica. Comum em quadros de TDAH ou sobrecarga cognitiva.',
         recommendations: [
-          'Avaliação clínica para transtornos de déficit de atenção ou humor.',
+          'Avaliação clínica para transtornos de déficit de atenção.',
           'Terapia Cognitivo-Comportamental (TCC) focada em treino de habilidades executivas.',
           'Quebrar tarefas complexas em passos menores (micro-passos).',
-          'Externalizar a motivação (trabalhar com parceiros de responsabilidade/body doubling).'
+          'Externalizar a motivação (trabalhar com parceiros de responsabilidade).'
         ]
       },
       { 
-        min: 3, 
-        max: 4, 
+        min: 5.51, 
+        max: 7, 
         label: 'Disfunção Executiva Significativa', 
-        description: 'Prejuízo severo na capacidade de autogerenciamento. Dificuldade marcante em iniciar, planejar e concluir atividades, com alta impulsividade ou rigidez. Risco de prejuízos sociais, financeiros e ocupacionais graves.',
+        description: 'Prejuízo acentuado na capacidade de autogerenciamento. Dificuldade marcante em iniciar, planejar e concluir atividades. Requer suporte externo e estratégias compensatórias robustas.',
         recommendations: [
           'Avaliação neuropsicológica e psiquiátrica urgente.',
-          'Intervenção medicamentosa pode ser necessária dependendo da causa base (ex: TDAH severo).',
           'Reabilitação neuropsicológica focada em compensação de déficits.',
-          'Suporte familiar ou profissional para estruturação do ambiente e rotina.'
+          'Suporte familiar ou profissional para estruturação do ambiente e rotina.',
+          'Simplificação do ambiente para reduzir distrações e demandas de decisão.'
         ]
       },
     ],

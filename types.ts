@@ -69,3 +69,25 @@ export interface InventoryForm {
   // 'higher_is_worse': Pontuação alta = Sintoma/Dificuldade (ex: Ansiedade). Padrão se omitido.
   scoreOrientation?: 'higher_is_better' | 'higher_is_worse'; 
 }
+
+// --- NOVOS TIPOS PARA A ÁREA DE EXERCÍCIOS ---
+
+export type ExerciseStepType = 'text' | 'instruction' | 'reflection' | 'writing';
+
+export interface ExerciseStep {
+  id: number;
+  type: ExerciseStepType;
+  title?: string;
+  content: string; // O texto explicativo ou a pergunta
+  placeholder?: string; // Para campos de escrita
+}
+
+export interface TherapeuticExercise {
+  id: string;
+  title: string;
+  description: string;
+  category: string; // ex: "TCC", "Mindfulness", "Autoestima"
+  icon: string;
+  duration: string; // ex: "15 min"
+  steps: ExerciseStep[];
+}
