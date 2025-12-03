@@ -200,7 +200,8 @@ const RangeSlider: React.FC<{ min: number; max: number; labelMin: string; labelM
                 <span>{labelMax}</span>
             </div>
             <input 
-                type="range" 
+                type="range"
+                id={`slider-${id}`} 
                 min={min} 
                 max={max} 
                 value={value || min} 
@@ -226,7 +227,7 @@ const TableInput: React.FC<{ columns: string[]; stepId: number; }> = ({ columns,
     };
 
     return (
-        <div className="mt-6 overflow-x-auto">
+        <div className="mt-6 overflow-x-auto" id={`table-step-${stepId}`}>
             <table className="w-full min-w-[600px] text-sm text-left text-slate-600 border border-slate-200 rounded-lg overflow-hidden">
                 <thead className="text-xs text-slate-700 uppercase bg-slate-100">
                     <tr>
