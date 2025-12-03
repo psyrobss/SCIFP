@@ -7,6 +7,7 @@ export const IMIE_INVENTORY: InventoryForm = {
   name: 'Inventário de Motivação Intrínseca e Extrínseca',
   objective: 'Avaliar o perfil motivacional, distinguindo entre motivação autônoma (intrínseca/integrada), motivação controlada (recompensas/pressão) e desmotivação.',
   instructions: 'Indique o quanto cada afirmação descreve o que realmente move você a agir em suas atividades principais (trabalho, estudo, projetos), usando a escala de 1 a 7.',
+  // Orientação geral: não se aplica bem pois é misto, mas deixamos higher_is_better como padrão para o score total se houvesse.
   scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 1, label: 'Discordo Totalmente' },
@@ -22,6 +23,7 @@ export const IMIE_INVENTORY: InventoryForm = {
       id: 'intrinsic_motivation',
       name: 'Motivação Intrínseca (Autônoma)',
       icon: '🧭',
+      orientation: 'higher_is_better',
       description: 'Engajamento por interesse, prazer, curiosidade e satisfação inerente à atividade.',
       interpretationLabels: {
         level_1: 'Baixa motivação intrínseca.',
@@ -42,6 +44,7 @@ export const IMIE_INVENTORY: InventoryForm = {
       id: 'extrinsic_identified_integrated',
       name: 'Motivação Identificada/Integrada (Valores)',
       icon: '💼',
+      orientation: 'higher_is_better',
       description: 'Motivação baseada na importância pessoal e alinhamento com valores, mesmo que a atividade não seja puramente prazerosa.',
        interpretationLabels: {
         level_1: 'Desconexão com valores pessoais.',
@@ -62,6 +65,7 @@ export const IMIE_INVENTORY: InventoryForm = {
       id: 'extrinsic_controlled',
       name: 'Motivação Controlada (Pressão/Recompensa)',
       icon: '💰',
+      orientation: 'higher_is_worse', // Aqui, nota alta é "pior" (menos autonomia)
       description: 'Ação movida por recompensas externas, medo de punição, culpa ou busca de aprovação (Nota: Alta pontuação aqui indica menor autonomia).',
        interpretationLabels: {
         level_1: 'Baixa dependência externa (Autonomia).',
@@ -82,6 +86,7 @@ export const IMIE_INVENTORY: InventoryForm = {
       id: 'amotivation',
       name: 'Desmotivação (Amotivação)',
       icon: '🌫️',
+      orientation: 'higher_is_worse', // Nota alta é ruim
       description: 'Falta de intenção de agir, sentimento de incompetência ou falta de valor na atividade.',
        interpretationLabels: {
         level_1: 'Alto engajamento (Baixa desmotivação).',

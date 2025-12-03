@@ -5,21 +5,24 @@ export const IEE_INVENTORY: InventoryForm = {
   id: 'iee',
   acronym: 'IEE',
   name: 'Inventário de Esquiva Experiencial',
-  objective: 'Avaliar o grau em que o indivíduo evita, controla ou suprime experiências internas (emoções, pensamentos, memórias, sensações corporais) e o impacto dessa esquiva no funcionamento psicológico e interpessoal.',
-  instructions: 'A seguir estão afirmações sobre como você lida com sentimentos e pensamentos difíceis. Leia com atenção e marque a opção que melhor descreve o quanto cada frase é verdadeira para você no seu cotidiano. Não existem respostas certas ou erradas — responda com sinceridade.',
+  objective: 'Avaliar a tendência a evitar experiências internas (pensamentos, emoções, memórias) e o impacto dessa esquiva na flexibilidade psicológica.',
+  instructions: 'Indique o quanto cada afirmação é verdadeira para você, refletindo como você lida com sentimentos e pensamentos difíceis, usando a escala de 1 a 7.',
+  scoreOrientation: 'higher_is_worse',
   responseScale: [
     { value: 1, label: 'Nunca ou quase nunca' },
     { value: 2, label: 'Raramente' },
     { value: 3, label: 'Às vezes' },
     { value: 4, label: 'Frequentemente' },
-    { value: 5, label: 'Quase sempre ou sempre' },
+    { value: 5, label: 'Muito Frequentemente' },
+    { value: 6, label: 'Quase sempre' },
+    { value: 7, label: 'Sempre' },
   ],
   domains: [
     {
       id: 'emotional_avoidance',
-      name: 'Evitação Emocional (EE)',
+      name: 'Evitação Emocional',
       icon: '🧩',
-      description: 'Tendência a evitar, suprimir ou se afastar de emoções negativas.',
+      description: 'Esforço para não sentir emoções desconfortáveis, fugindo de situações ou suprimindo o afeto.',
       questions: [
         { id: 76001, text: 'Tento não sentir emoções negativas, mesmo quando elas surgem.' },
         { id: 76002, text: 'Evito situações que possam me deixar triste ou frustrado.' },
@@ -30,9 +33,9 @@ export const IEE_INVENTORY: InventoryForm = {
     },
     {
       id: 'cognitive_suppression',
-      name: 'Supressão Cognitiva (SC)',
+      name: 'Supressão de Pensamentos',
       icon: '💭',
-      description: 'Esforço para controlar ou eliminar pensamentos, memórias ou imagens mentais indesejadas.',
+      description: 'Tentativa de controlar ou eliminar pensamentos indesejados.',
       questions: [
         { id: 76006, text: 'Tento “desligar” pensamentos ruins assim que eles aparecem.' },
         { id: 76007, text: 'Procuro distrações para não pensar em problemas emocionais.' },
@@ -43,12 +46,12 @@ export const IEE_INVENTORY: InventoryForm = {
     },
     {
       id: 'body_sensory_avoidance',
-      name: 'Evitação Corporal e Sensorial (ECS)',
+      name: 'Evitação de Sensações Físicas',
       icon: '⚖️',
-      description: 'Tendência a evitar ou ignorar sensações físicas desconfortáveis associadas a emoções.',
+      description: 'Intolerância a sensações corporais ligadas à ansiedade ou desconforto.',
       questions: [
         { id: 76011, text: 'Evito perceber sensações físicas que me incomodam, como tensão ou batimentos rápidos.' },
-        { id: 76012, text: 'Sinto-me desconfortável ao notar reações corporais ligadas à emoção (ex: coração acelerado).' },
+        { id: 76012, text: 'Sinto-me desconfortável ao notar reações corporais ligadas à emoção.' },
         { id: 76013, text: 'Quando algo me causa desconforto físico, faço de tudo para ignorar.' },
         { id: 76014, text: 'Tenho dificuldade em tolerar o mal-estar físico associado à ansiedade.' },
         { id: 76015, text: 'Tento evitar qualquer sensação corporal que me lembre de situações difíceis.' },
@@ -56,9 +59,9 @@ export const IEE_INVENTORY: InventoryForm = {
     },
     {
       id: 'psychological_rigidity_control',
-      name: 'Controle e Rigidez Psicológica (CRP)',
+      name: 'Rigidez e Controle',
       icon: '🌪️',
-      description: 'Necessidade de controlar rigidamente as experiências internas, acreditando que a falta de controle é perigosa.',
+      description: 'Crença de que é necessário controlar a experiência interna para viver bem.',
       questions: [
         { id: 76016, text: 'Sinto necessidade de controlar o que sinto para não “perder o rumo”.' },
         { id: 76017, text: 'Acho perigoso deixar as emoções fluírem livremente.' },
@@ -69,9 +72,9 @@ export const IEE_INVENTORY: InventoryForm = {
     },
     {
       id: 'experiential_acceptance_openness',
-      name: 'Abertura e Aceitação Experiencial (AAE)',
+      name: 'Aceitação e Abertura (Adaptativo)',
       icon: '🌱',
-      description: 'Capacidade de observar e acolher experiências internas sem julgamento (fator reverso).',
+      description: 'Capacidade de acolher experiências internas sem julgamento (itens reversos).',
       questions: [
         { id: 76021, text: 'Tento observar minhas emoções sem julgá-las.', isReversed: true },
         { id: 76022, text: 'Quando algo me incomoda, permito que a sensação venha e vá.', isReversed: true },
@@ -82,16 +85,54 @@ export const IEE_INVENTORY: InventoryForm = {
     },
   ],
   scoring: {
-    type: 'sum',
-    description: 'A pontuação total indica o nível de esquiva experiencial. Pontuações mais altas refletem maior tendência à evitação de experiências internas.',
-    notes: [
-      'Itens do fator "Abertura e Aceitação Experiencial (AAE)" são revertidos na pontuação (1=5, 2=4, etc.).'
-    ],
+    type: 'average',
+    description: 'A pontuação média (1-7) indica o nível de esquiva experiencial. Escores mais altos sugerem maior rigidez e evitação, enquanto escores baixos indicam maior flexibilidade psicológica.',
     ranges: [
-        { min: 25, max: 49, label: 'Baixa esquiva experiencial', description: 'Alta aceitação e flexibilidade psicológica.' },
-        { min: 50, max: 74, label: 'Esquiva moderada', description: 'Tendência a controlar emoções e pensamentos, com algum impacto funcional.' },
-        { min: 75, max: 100, label: 'Alta esquiva experiencial', description: 'Rigidez psicológica acentuada, com evitação frequente de experiências internas.' },
-        { min: 101, max: 125, label: 'Esquiva clinicamente significativa', description: 'Padrão evitativo que provavelmente causa sofrimento emocional e comportamental elevado.' },
+      { 
+        min: 1, 
+        max: 2.5, 
+        label: 'Flexibilidade Psicológica', 
+        description: 'Capacidade de estar em contato com o momento presente e com as experiências internas (boas ou ruins) sem defesa excessiva. O indivíduo age de acordo com seus valores.',
+        recommendations: [
+          'Manter a prática de aceitação radical.',
+          'Utilizar a abertura emocional para aprofundar relacionamentos.',
+          'Continuar agindo em direção ao que importa, mesmo com desconforto.'
+        ]
+      },
+      { 
+        min: 2.51, 
+        max: 4.0, 
+        label: 'Esquiva Moderada', 
+        description: 'Tendência a evitar desconfortos maiores, o que pode limitar algumas áreas da vida. O controle funciona em situações leves, mas falha sob estresse.',
+        recommendations: [
+          'Identificar "custos da esquiva": o que estou perdendo ao tentar não sentir?',
+          'Praticar "ficar com a emoção" por pequenos períodos.',
+          'Diferenciar dor (inevitável) de sofrimento (luta contra a dor).'
+        ]
+      },
+      { 
+        min: 4.01, 
+        max: 5.5, 
+        label: 'Rigidez Psicológica', 
+        description: 'Esforço significativo para controlar pensamentos e sentimentos. A vida pode estar se estreitando para evitar gatilhos de ansiedade ou dor.',
+        recommendations: [
+          'Terapia de Aceitação e Compromisso (ACT).',
+          'Exercícios de desfusão cognitiva ("estou tendo o pensamento de que...").',
+          'Focar em ações valorizadas, independentemente do estado interno.'
+        ]
+      },
+      { 
+        min: 5.51, 
+        max: 7, 
+        label: 'Alta Esquiva Experiencial', 
+        description: 'A luta contra a experiência interna é a prioridade, consumindo muita energia e restringindo severamente a vida. Alto risco de transtornos emocionais.',
+        recommendations: [
+          'Intervenção focada em aceitação e redução do controle.',
+          'Mindfulness para desenvolver a posição de observador.',
+          'Reconectar com valores perdidos devido à evitação.',
+          'Validar que a tentativa de controle é o problema, não a solução.'
+        ]
+      },
     ],
   },
 };

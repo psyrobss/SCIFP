@@ -21,6 +21,7 @@ export const IEV_INVENTORY: InventoryForm = {
       id: 'secure_attachment',
       name: 'Segurança e Conexão (Estilo Seguro)',
       icon: '💖',
+      orientation: 'higher_is_better',
       description: 'Capacidade de confiar, oferecer e receber apoio, mantendo o equilíbrio entre intimidade e autonomia.',
       interpretationLabels: {
         level_1: 'Dificuldade em confiar na segurança do vínculo.',
@@ -43,6 +44,7 @@ export const IEV_INVENTORY: InventoryForm = {
       id: 'anxious_attachment',
       name: 'Busca de Proximidade e Validação (Estilo Ansioso)',
       icon: '🫂',
+      orientation: 'higher_is_worse',
       description: 'Tendência a buscar maior proximidade e reasseguramento para sentir-se seguro, podendo haver sensibilidade a sinais de distanciamento.',
       interpretationLabels: {
         level_1: 'Baixa necessidade de validação externa.',
@@ -65,6 +67,7 @@ export const IEV_INVENTORY: InventoryForm = {
       id: 'avoidant_attachment',
       name: 'Autossuficiência e Preservação (Estilo Evitativo)',
       icon: '🛡️',
+      orientation: 'higher_is_worse',
       description: 'Preferência pela autonomia e autoapoio, com tendência a preservar o espaço pessoal quando a intimidade se torna intensa.',
       interpretationLabels: {
         level_1: 'Conforto com a dependência mútua.',
@@ -86,6 +89,7 @@ export const IEV_INVENTORY: InventoryForm = {
       id: 'ambivalent_attachment',
       name: 'Vigilância Relacional (Estilo Desorganizado/Ambivalente)',
       icon: '👁️',
+      orientation: 'higher_is_worse',
       description: 'Padrão complexo onde coexistem o desejo de proximidade e o medo de se ferir, gerando reações de proteção e aproximação alternadas.',
       interpretationLabels: {
         level_1: 'Padrão relacional estável e previsível.',

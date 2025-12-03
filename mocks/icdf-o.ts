@@ -4,23 +4,25 @@ import { InventoryForm } from '../types';
 export const ICDFO_INVENTORY: InventoryForm = {
   id: 'icdf-o',
   acronym: 'ICDF-O',
-  name: 'Inventário de Correspondência entre Dizer e Fazer – Versão Observacional do Terapeuta',
-  objective: 'Permitir ao terapeuta avaliar o grau de coerência entre o discurso e o comportamento observável do paciente, ao longo das sessões e entre sessões.',
-  instructions: 'O terapeuta deve pontuar cada item com base em observações, autorrelatos consistentes e feedback de terceiros, usando a seguinte escala:',
+  name: 'Inventário de Correspondência entre Dizer e Fazer – Versão Observacional',
+  objective: 'Instrumento para o terapeuta avaliar a coerência observada entre o discurso do paciente e seus comportamentos efetivos, identificando padrões de compromisso e ação.',
+  instructions: 'Pontue com base na observação clínica, relatos consistentes e feedback de terceiros, usando a escala de 1 a 7.',
   scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 1, label: 'Nunca' },
     { value: 2, label: 'Raramente' },
     { value: 3, label: 'Às vezes' },
-    { value: 4, label: 'Frequentemente' },
-    { value: 5, label: 'Sempre' },
+    { value: 4, label: 'Neutro / Misto' },
+    { value: 5, label: 'Frequentemente' },
+    { value: 6, label: 'Muito Frequentemente' },
+    { value: 7, label: 'Sempre' },
   ],
   domains: [
     {
       id: 'observed_personal_coherence',
-      name: 'Coerência Pessoal Observada',
+      name: 'Coerência Observada',
       icon: '✅',
-      description: 'Avalia o alinhamento observado entre promessas, valores e ações do paciente.',
+      description: 'Grau em que as ações do paciente correspondem consistentemente às suas intenções declaradas.',
       questions: [
         { id: 74001, text: 'O paciente tende a agir de forma consistente com o que afirma em sessão.' },
         { id: 74002, text: 'Há correspondência entre seus relatos de intenção e suas ações subsequentes.' },
@@ -31,9 +33,9 @@ export const ICDFO_INVENTORY: InventoryForm = {
     },
     {
       id: 'behavioral_incoherence_signs',
-      name: 'Indícios de Incoerência Comportamental',
+      name: 'Sinais de Incoerência',
       icon: '🤔',
-      description: 'Mede os sinais observáveis de inconsistências entre discurso e prática.',
+      description: 'Presença de discrepâncias notáveis entre o discurso e a prática (dizer uma coisa e fazer outra).',
       questions: [
         { id: 74006, text: 'Relata intenções que raramente são seguidas de ação.', isReversed: true },
         { id: 74007, text: 'Justifica incongruências sem reflexão crítica.', isReversed: true },
@@ -46,7 +48,7 @@ export const ICDFO_INVENTORY: InventoryForm = {
       id: 'responsibility_insight',
       name: 'Responsabilidade e Insight',
       icon: '🔄',
-      description: 'Avalia a capacidade do paciente de assumir e corrigir as próprias incoerências.',
+      description: 'Capacidade do paciente de perceber suas falhas de coerência e buscar reparação.',
       questions: [
         { id: 74011, text: 'Reconhece quando há incoerência em suas atitudes.' },
         { id: 74012, text: 'Mostra esforço ativo para se tornar mais congruente.' },
@@ -59,7 +61,7 @@ export const ICDFO_INVENTORY: InventoryForm = {
       id: 'social_influence_authenticity',
       name: 'Influência Social e Autenticidade',
       icon: '🎭',
-      description: 'Mede o impacto da pressão social na coerência entre valores e comportamento do paciente.',
+      description: 'Impacto da necessidade de aprovação na consistência comportamental.',
       questions: [
         { id: 74016, text: 'Ajusta comportamento para agradar ou evitar desaprovação.', isReversed: true },
         { id: 74017, text: 'Mostra dificuldade em manter autenticidade diante de figuras de autoridade.', isReversed: true },
@@ -70,17 +72,53 @@ export const ICDFO_INVENTORY: InventoryForm = {
     },
   ],
   scoring: {
-    type: 'sum',
-    description: 'A pontuação total indica o nível de correspondência observada entre o discurso e a ação. Pontuações mais altas refletem maior coerência.',
-    notes: [
-      'Itens de "Indícios de Incoerência" e os quatro primeiros de "Influência Social" são revertidos. A pontuação é calculada de 20 a 100.'
-    ],
+    type: 'average',
+    description: 'A pontuação média (1-7) reflete a observação clínica da coerência. Escores altos indicam maior integração e confiabilidade comportamental.',
     ranges: [
-        { min: 80, max: 100, label: 'Alta congruência observada', description: 'Discurso e ação alinhados.' },
-        { min: 60, max: 79, label: 'Coerência predominante', description: 'Pequenas inconsistências contextuais.' },
-        { min: 40, max: 59, label: 'Inconsistência moderada', description: 'Provável conflito interno ou esquiva.' },
-        { min: 20, max: 39, label: 'Incoerência significativa', description: 'Possível uso de defesas evitativas.' },
-        { min: 0, max: 19, label: 'Desalinhamento acentuado', description: 'Risco de autoengano ou comportamento contraditório crônico.' },
+      { 
+        min: 1, 
+        max: 2.5, 
+        label: 'Dissociação Discurso-Ação', 
+        description: 'Padrão de prometer e não cumprir, ou de apresentar valores que não se traduzem em atos. Pode indicar baixa insight, desejo de agradar o terapeuta ou dificuldades executivas.',
+        recommendations: [
+          'Confrontar gentilmente as discrepâncias em sessão.',
+          'Investigar barreiras que impedem a ação (medo, falta de habilidade).',
+          'Focar em metas comportamentais muito pequenas e concretas.'
+        ]
+      },
+      { 
+        min: 2.51, 
+        max: 4.0, 
+        label: 'Coerência em Desenvolvimento', 
+        description: 'O paciente esforça-se para ser coerente, mas ainda oscila. A autocrítica ou a pressão social podem interferir na execução.',
+        recommendations: [
+          'Reforçar cada momento de coerência observada.',
+          'Trabalhar a aceitação de que a mudança leva tempo.',
+          'Identificar gatilhos de "camaleão social".'
+        ]
+      },
+      { 
+        min: 4.01, 
+        max: 5.5, 
+        label: 'Boa Coerência Observada', 
+        description: 'O paciente demonstra integridade e compromisso. As falhas são exceções e geralmente seguidas de reconhecimento e reparação.',
+        recommendations: [
+          'Validar a força de caráter demonstrada.',
+          'Utilizar a coerência como recurso para enfrentar desafios maiores.',
+          'Explorar como essa integridade impacta positivamente as relações.'
+        ]
+      },
+      { 
+        min: 5.51, 
+        max: 7, 
+        label: 'Alta Integridade e Autenticidade', 
+        description: 'Alinhamento robusto entre valores e comportamento. O paciente age de forma autêntica e responsável, servindo de base segura para o trabalho terapêutico.',
+        recommendations: [
+          'Incentivar a liderança pelo exemplo.',
+          'Consolidar a identidade autêntica.',
+          'Preparar para a alta terapêutica com base na autonomia conquistada.'
+        ]
+      },
     ],
   },
 };

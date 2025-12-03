@@ -5,22 +5,30 @@ export const IFAA_INVENTORY: InventoryForm = {
   id: 'ifaa',
   acronym: 'IFAA',
   name: 'Inventário de Fluxo e Absorção em Atividades',
-  objective: 'Avaliar a experiência de fluxo (engajamento total, foco e absorção) e a capacidade de envolvimento pleno em atividades que proporcionam prazer, competência e desafio adequado.',
-  instructions: 'Leia atentamente cada afirmação e indique com que frequência você vivencia o comportamento ou sentimento descrito quando realiza atividades significativas para você.',
+  objective: 'Avaliar a frequência e intensidade de estados de "Flow" (fluxo): engajamento total, foco profundo e prazer intrínseco na realização de atividades.',
+  instructions: 'Pense nas atividades que você realiza (trabalho, hobbies, esportes). Indique com que frequência você vivencia as experiências descritas, usando a escala de 1 a 7.',
   scoreOrientation: 'higher_is_better',
   responseScale: [
-    { value: 0, label: 'Nunca' },
-    { value: 1, label: 'Raramente' },
-    { value: 2, label: 'Às vezes' },
-    { value: 3, label: 'Frequentemente' },
-    { value: 4, label: 'Quase sempre' },
+    { value: 1, label: 'Nunca' },
+    { value: 2, label: 'Raramente' },
+    { value: 3, label: 'Às vezes' },
+    { value: 4, label: 'Neutro / Misto' },
+    { value: 5, label: 'Frequentemente' },
+    { value: 6, label: 'Muito Frequentemente' },
+    { value: 7, label: 'Sempre' },
   ],
   domains: [
     {
       id: 'concentration_immersion',
       name: 'Concentração e Imersão',
       icon: '⏱',
-      description: 'Avalia a capacidade de foco intenso e absorção completa na atividade.',
+      description: 'Capacidade de foco intenso, perda da noção do tempo e fusão entre ação e consciência.',
+      interpretationLabels: {
+        level_1: 'Dificuldade de foco/imersão.',
+        level_2: 'Imersão superficial.',
+        level_3: 'Boa concentração.',
+        level_4: 'Estado de fluxo profundo.',
+      },
       questions: [
         { id: 64001, text: 'Quando estou em uma atividade que gosto, perco a noção do tempo.' },
         { id: 64002, text: 'Sinto que toda minha atenção está direcionada à tarefa que realizo.' },
@@ -33,9 +41,15 @@ export const IFAA_INVENTORY: InventoryForm = {
     },
     {
       id: 'challenge_competence',
-      name: 'Desafio e Competência',
+      name: 'Equilíbrio Desafio-Habilidade',
       icon: '⚡',
-      description: 'Avalia percepção de equilíbrio entre desafio da tarefa e habilidades pessoais.',
+      description: 'Percepção de que as habilidades pessoais são adequadas para enfrentar os desafios da tarefa.',
+      interpretationLabels: {
+        level_1: 'Ansiedade (desafio > habilidade) ou Tédio (habilidade > desafio).',
+        level_2: 'Desequilíbrio frequente.',
+        level_3: 'Bom ajuste de desafio.',
+        level_4: 'Equilíbrio ótimo (canal de fluxo).',
+      },
       questions: [
         { id: 64008, text: 'Sinto que minhas habilidades são suficientes para lidar com desafios da atividade.' },
         { id: 64009, text: 'Gosto de atividades que exigem esforço, mas que posso realizar com competência.' },
@@ -48,9 +62,15 @@ export const IFAA_INVENTORY: InventoryForm = {
     },
     {
       id: 'absorption_pleasure',
-      name: 'Absorção e Prazer na Experiência',
+      name: 'Prazer Autotélico',
       icon: '🎨',
-      description: 'Avalia intensidade de prazer, engajamento emocional e sensação de bem-estar durante a atividade.',
+      description: 'Realização da atividade pelo prazer inerente a ela, não apenas pelo resultado final.',
+      interpretationLabels: {
+        level_1: 'Atividade vista como obrigação.',
+        level_2: 'Prazer moderado.',
+        level_3: 'Satisfação na ação.',
+        level_4: 'Êxtase e motivação intrínseca.',
+      },
       questions: [
         { id: 64015, text: 'Sinto prazer intenso enquanto realizo minhas atividades favoritas.' },
         { id: 64016, text: 'A realização da tarefa me deixa energizado(a) e motivado(a).' },
@@ -63,9 +83,15 @@ export const IFAA_INVENTORY: InventoryForm = {
     },
     {
       id: 'autonomy_control',
-      name: 'Autonomia e Controle sobre a Atividade',
+      name: 'Senso de Controle e Autonomia',
       icon: '🌐',
-      description: 'Avalia a percepção de autorregulação, iniciativa e controle sobre o próprio envolvimento.',
+      description: 'Sensação de exercer controle sobre as ações e o desenrolar da atividade.',
+      interpretationLabels: {
+        level_1: 'Sensação de falta de controle.',
+        level_2: 'Controle limitado.',
+        level_3: 'Bom senso de agência.',
+        level_4: 'Domínio e autonomia total.',
+      },
       questions: [
         { id: 64022, text: 'Sinto que posso decidir como realizar a atividade de forma independente.' },
         { id: 64023, text: 'Tomo iniciativa para tornar minhas tarefas mais interessantes.' },
@@ -78,13 +104,53 @@ export const IFAA_INVENTORY: InventoryForm = {
     },
   ],
   scoring: {
-    type: 'sum',
-    description: 'A pontuação total (0–112) indica o nível de fluxo e absorção. Itens invertidos: 4, 7, 10, 12, 18, 21, 24, 26. Escores mais altos refletem maior capacidade de fluxo.',
+    type: 'average',
+    description: 'A pontuação média (1-7) indica a propensão a entrar em estado de fluxo (flow). Escores altos sugerem alto engajamento e satisfação com a vida.',
     ranges: [
-      { min: 0, max: 28, label: 'Baixo engajamento', description: 'Dificuldade de foco, prazer limitado e pouca absorção nas atividades' },
-      { min: 29, max: 56, label: 'Engajamento moderado', description: 'Concentração parcial e prazer limitado em atividades significativas' },
-      { min: 57, max: 84, label: 'Engajamento funcional', description: 'Boa absorção, prazer e foco equilibrados em atividades importantes' },
-      { min: 85, max: 112, label: 'Fluxo elevado', description: 'Intensidade máxima de foco, prazer e envolvimento profundo' },
+      { 
+        min: 1, 
+        max: 2.5, 
+        label: 'Dificuldade de Engajamento', 
+        description: 'O indivíduo pode estar vivenciando tédio (tarefas muito fáceis) ou ansiedade (tarefas muito difíceis). Dificuldade em focar ou encontrar prazer na ação.',
+        recommendations: [
+          'Ajustar o nível de desafio das tarefas atuais.',
+          'Eliminar distrações externas para facilitar o foco.',
+          'Buscar atividades que tenham significado pessoal claro.'
+        ]
+      },
+      { 
+        min: 2.51, 
+        max: 4.0, 
+        label: 'Engajamento Moderado', 
+        description: 'Ocorre concentração e envolvimento, mas talvez de forma intermitente. O fluxo é interrompido por distrações ou autocrítica.',
+        recommendations: [
+          'Praticar a atenção plena na ação (mindfulness ativo).',
+          'Definir metas claras para cada sessão de atividade.',
+          'Reduzir a multitarefa.'
+        ]
+      },
+      { 
+        min: 4.01, 
+        max: 5.5, 
+        label: 'Experiência de Fluxo Frequente', 
+        description: 'Boa capacidade de absorção. O indivíduo consegue "mergulhar" no que faz, sentindo competência e prazer. Isso contribui para o bem-estar.',
+        recommendations: [
+          'Proteger os momentos de fluxo na agenda.',
+          'Usar esse estado para tarefas criativas ou complexas.',
+          'Observar quais atividades geram mais fluxo e priorizá-las.'
+        ]
+      },
+      { 
+        min: 5.51, 
+        max: 7, 
+        label: 'Estado de Fluxo Elevado', 
+        description: 'Alta integração entre consciência e ação. O indivíduo vive momentos frequentes de êxtase, clareza e desempenho ótimo.',
+        recommendations: [
+          'Desafiar-se ainda mais para expandir habilidades.',
+          'Ensinar outros a encontrar paixão no que fazem.',
+          'Garantir que o hiperfoco não negligencie outras áreas da vida (saúde, relações).'
+        ]
+      },
     ],
   },
 };

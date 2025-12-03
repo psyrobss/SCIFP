@@ -5,27 +5,29 @@ export const IERET_INVENTORY: InventoryForm = {
   id: 'ier-et',
   acronym: 'IER-ET',
   name: 'Inventário de Expressão da Raiva – Estado e Traço',
-  objective: 'Avaliar a intensidade, frequência e forma de expressão da raiva, diferenciando entre: Raiva-Estado: experiência emocional momentânea, reativa a situações específicas. Raiva-Traço: predisposição estável a perceber situações como provocadoras e reagir com raiva. Controle e Expressão: formas de manejar ou externalizar a raiva (internamente, externamente ou de modo controlado).',
-  instructions: 'Leia cada afirmação e marque o quanto ela descreve como você se sente neste momento (para Raiva-Estado) e como você geralmente se sente (para Raiva-Traço).',
+  objective: 'Avaliar a intensidade, frequência e forma de expressão da raiva, diferenciando entre a experiência momentânea (Estado), a predisposição temperamental (Traço) e as estratégias de controle.',
+  instructions: 'Leia cada afirmação e marque o quanto ela descreve como você se sente neste momento (para Raiva-Estado) e como você geralmente se sente (para Raiva-Traço), usando a escala de 1 a 7.',
   scoreOrientation: 'higher_is_worse',
   responseScale: [
-    { value: 0, label: 'Nada verdadeiro' },
-    { value: 1, label: 'Pouco verdadeiro' },
-    { value: 2, label: 'Moderadamente verdadeiro' },
-    { value: 3, label: 'Muito verdadeiro' },
-    { value: 4, label: 'Totalmente verdadeiro' },
+    { value: 1, label: 'Discordo Totalmente' },
+    { value: 2, label: 'Discordo Fortemente' },
+    { value: 3, label: 'Discordo em Parte' },
+    { value: 4, label: 'Neutro / Misto' },
+    { value: 5, label: 'Concordo em Parte' },
+    { value: 6, label: 'Concordo Fortemente' },
+    { value: 7, label: 'Concordo Totalmente' },
   ],
   domains: [
     {
       id: 'anger_state',
-      name: 'Raiva-Estado',
+      name: 'Raiva-Estado (Intensidade Atual)',
       icon: '😡',
-      description: 'Avalia a intensidade e duração da raiva em situações recentes.',
+      description: 'Nível de ativação da raiva em situações recentes ou no momento presente.',
       interpretationLabels: {
-        level_1: 'Baixa intensidade momentânea de raiva.',
-        level_2: 'Intensidade leve.',
-        level_3: 'Intensidade moderada.',
-        level_4: 'Intensidade alta.',
+        level_1: 'Calma e estabilidade.',
+        level_2: 'Irritação leve.',
+        level_3: 'Raiva moderada.',
+        level_4: 'Intensa ativação de raiva.',
       },
       questions: [
         { id: 71001, text: 'Neste momento, sinto meu corpo tenso ou pronto para reagir.' },
@@ -42,14 +44,14 @@ export const IERET_INVENTORY: InventoryForm = {
     },
     {
       id: 'anger_trait',
-      name: 'Raiva-Traço',
+      name: 'Raiva-Traço (Temperamento)',
       icon: '💢',
-      description: 'Mede a tendência geral a sentir raiva e o limiar de reatividade.',
+      description: 'Tendência geral a perceber situações como provocadoras e responder com irritação.',
       interpretationLabels: {
-        level_1: 'Baixa tendência à irritabilidade.',
-        level_2: 'Tendência leve.',
-        level_3: 'Tendência moderada.',
-        level_4: 'Alta tendência à irritabilidade e agressividade.',
+        level_1: 'Temperamento calmo.',
+        level_2: 'Reatividade ocasional.',
+        level_3: 'Temperamento reativo.',
+        level_4: 'Alta predisposição à raiva.',
       },
       questions: [
         { id: 71011, text: 'Costumo me irritar com pequenos contratempos.' },
@@ -66,20 +68,20 @@ export const IERET_INVENTORY: InventoryForm = {
     },
     {
       id: 'anger_expression_control',
-      name: 'Expressão e Controle da Raiva',
+      name: 'Expressão e Regulação',
       icon: '🧘',
-      description: 'Avalia a direção da raiva (interna, externa) e o grau de regulação emocional.',
+      description: 'Forma como a raiva é gerenciada: se é internalizada (guardada), externalizada (agressão) ou controlada (assertividade).',
       interpretationLabels: {
-        level_1: 'Bom controle e expressão adaptativa.',
-        level_2: 'Controle funcional com dificuldades pontuais.',
-        level_3: 'Dificuldades moderadas de controle e expressão.',
-        level_4: 'Baixo controle e expressão desadaptativa.',
+        level_1: 'Regulação adaptativa.',
+        level_2: 'Controle funcional.',
+        level_3: 'Dificuldade de modulação.',
+        level_4: 'Desregulação ou supressão excessiva.',
       },
       questions: [
         { id: 71021, text: 'Descarrego minha raiva em objetos ou ações físicas.' },
         { id: 71022, text: 'Falo de forma agressiva quando estou irritado.' },
         { id: 71023, text: 'Tento compreender o motivo da minha raiva antes de agir.', isReversed: true },
-        { id: 71024, text: 'Guardo o que sinto, sem demonstrar.' },
+        { id: 71024, text: 'Guardo o que sinto, sem demonstrar (raiva para dentro).' },
         { id: 71025, text: 'Busco respirar fundo ou me afastar quando sinto raiva.', isReversed: true },
         { id: 71026, text: 'Fico em silêncio, mas imagino respostas agressivas.' },
         { id: 71027, text: 'Canalizo minha raiva para atividades produtivas.', isReversed: true },
@@ -90,57 +92,54 @@ export const IERET_INVENTORY: InventoryForm = {
     },
   ],
   scoring: {
-    type: 'sum',
-    description: 'A pontuação total é a soma de todos os itens (0-120). Os escores de domínio também são a soma dos itens de cada domínio (0-40).',
-    subScoresDescription: 'Raiva-Estado (Itens 1–10): Intensidade momentânea. Raiva-Traço (Itens 11–20): Predisposição temperamental. Expressão/Controle (Itens 21–30): Estilo de manejo.',
+    type: 'average',
+    description: 'A pontuação média (1-7) indica o perfil de manejo da raiva. Escores altos sugerem maior intensidade e dificuldade de regulação.',
     ranges: [
       { 
-        min: 0, 
-        max: 29, 
-        label: 'Baixa Raiva / Controle Elevado', 
-        description: 'Indivíduo relata pouca experiência de raiva ou forte controle. Pode indicar calma genuína ou supressão emocional excessiva.',
+        min: 1, 
+        max: 2.5, 
+        label: 'Manejo Saudável da Raiva', 
+        description: 'O indivíduo vivencia a raiva como uma emoção passageira e informativa, sem ser dominado por ela. Utiliza estratégias assertivas para resolver conflitos.',
         recommendations: [
-          'Investigar se há negação da raiva ("engolir sapos").',
-          'Treinar assertividade para expressar insatisfações de forma saudável.',
-          'Validar a raiva como uma emoção legítima de proteção de limites.'
+          'Validar a raiva como sinal de limites violados.',
+          'Manter a prática de comunicação não-violenta.',
+          'Utilizar a energia da raiva para ações de mudança construtiva.'
         ]
       },
       { 
-        min: 30, 
-        max: 59, 
-        label: 'Raiva Moderada / Funcional', 
-        description: 'Experiência de raiva proporcional aos eventos, com capacidade de controle razoável. Expressão geralmente adequada.',
+        min: 2.51, 
+        max: 4.0, 
+        label: 'Irritabilidade Situacional', 
+        description: 'Reações de raiva aparecem em contextos de estresse ou cansaço. O controle geralmente funciona, mas pode falhar se houver acúmulo de tensão.',
         recommendations: [
-          'Monitorar gatilhos específicos de irritação.',
-          'Usar a raiva como sinal para resolver problemas ou estabelecer limites.',
-          'Praticar técnicas de descompressão após eventos estressantes.'
+          'Monitorar o nível de estresse basal ("copo cheio").',
+          'Praticar pausas preventivas antes de atingir o limite.',
+          'Expressar insatisfações antes que elas virem ressentimento.'
         ]
       },
       { 
-        min: 60, 
-        max: 89, 
-        label: 'Raiva Elevada / Dificuldade de Controle', 
-        description: 'Frequente irritabilidade e reações intensas. Risco de prejuízo nas relações interpessoais e decisões impulsivas.',
+        min: 4.01, 
+        max: 5.5, 
+        label: 'Dificuldades de Regulação da Raiva', 
+        description: 'Padrão frequente de irritação, hostilidade ou "engolir sapos" (raiva internalizada). Pode haver impacto nas relações e na saúde física (tensão).',
         recommendations: [
-          'Terapia focada no manejo da raiva (Anger Management).',
-          'Identificar pensamentos distorcidos (ex: "isso é injusto", "eles deveriam...").',
-          'Técnicas de relaxamento muscular e respiração diafragmática.',
-          'Canalização física da energia agressiva (exercícios).'
+          'Técnicas de "Time-out": sair de cena para esfriar a cabeça.',
+          'Identificar pensamentos gatilho (ex: "isso não é justo!").',
+          'Canalização física: exercícios intensos para descarga de adrenalina.'
         ]
       },
       { 
-        min: 90, 
-        max: 120, 
-        label: 'Raiva Crônica e Desadaptativa', 
-        description: 'Padrão severo de hostilidade, agressividade (verbal ou física) ou raiva internalizada (rancor). Alto risco para saúde física e social.',
+        min: 5.51, 
+        max: 7, 
+        label: 'Reatividade Intensa / Desregulação', 
+        description: 'A raiva é vivida com grande intensidade, podendo levar a comportamentos impulsivos, agressivos ou autodestrutivos. Alto custo emocional.',
         recommendations: [
-          'Avaliação psicológica e psiquiátrica aprofundada.',
-          'Intervenção prioritária para segurança (se houver risco de agressão).',
-          'Treinamento intensivo de habilidades de regulação emocional.',
-          'Investigar comorbidades como depressão ou transtornos de personalidade.'
+          'Protocolo de gerenciamento da raiva (Anger Management).',
+          'Avaliação para transtornos do humor ou controle de impulsos.',
+          'Treino intensivo de tolerância ao mal-estar.',
+          'Foco na segurança e na reparação de danos relacionais.'
         ]
       },
     ],
-    notes: ['Itens com (R) têm a pontuação invertida (0=4, 1=3, 2=2, 3=1, 4=0).'],
   },
 };

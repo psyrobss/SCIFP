@@ -25,6 +25,7 @@ interface DomainResult {
   name: string;
   icon: string;
   description: string;
+  orientation?: 'higher_is_better' | 'higher_is_worse';
   interpretationLabels?: Domain['interpretationLabels'];
   interpretationSumRanges?: InterpretationRange[];
 }
@@ -47,15 +48,20 @@ const shuffleArray = (array: ShuffledQuestion[]): ShuffledQuestion[] => {
 
 /* 
   Função para gerar interpretação dinâmica baseada na escala do teste e na orientação (Bom vs Ruim).
+  Agora aceita a orientação específica do domínio, se houver.
 */
 const getDomainInterpretation = (
   averageScore: number,
   scaleMin: number,
   scaleMax: number,
-  orientation: 'higher_is_better' | 'higher_is_worse',
+  inventoryOrientation: 'higher_is_better' | 'higher_is_worse',
+  domainOrientation?: 'higher_is_better' | 'higher_is_worse',
   labels?: Domain['interpretationLabels']
 ): { text: string, intent: 'good' | 'neutral' | 'bad' | 'warning' } => {
   
+  // Define qual orientação usar: a do domínio (se específica) ou a geral do inventário
+  const orientation = domainOrientation || inventoryOrientation;
+
   // Padrão para testes de Sintomas (Quanto maior, pior)
   const defaultDeficitLabels = {
     level_1: 'Baixa intensidade / Preservado',
@@ -326,6 +332,7 @@ export const InventoryFormView: React.FC<InventoryFormViewProps> = ({ inventory,
         name: domain.name,
         icon: domain.icon,
         description: domain.description,
+        orientation: domain.orientation,
         interpretationLabels: domain.interpretationLabels,
         interpretationSumRanges: domain.interpretationSumRanges,
       };
@@ -363,11 +370,11 @@ export const InventoryFormView: React.FC<InventoryFormViewProps> = ({ inventory,
     }
   };
 
-  const scoreOrientation = inventory.scoreOrientation || 'higher_is_worse';
+  const inventoryOrientation = inventory.scoreOrientation || 'higher_is_worse';
 
   return (
     <div className="bg-white p-1 sm:p-2 rounded-2xl shadow-lg border border-slate-200 animate-fade-in">
-      <div className="flex items-center mb-2">
+      <div className="flex items-center mb-2 no-print">
         {showBackButton && (
           <button onClick={onBack} className="p-2 rounded-full hover:bg-slate-100 transition-colors mr-1 text-slate-600" aria-label="Voltar para a lista">
             <BackArrowIcon />
@@ -378,8 +385,14 @@ export const InventoryFormView: React.FC<InventoryFormViewProps> = ({ inventory,
           <p className="text-sm font-semibold text-indigo-600">{inventory.acronym}</p>
         </div>
       </div>
+      
+      {/* Versão de título para impressão */}
+      <div className="hidden print-only mb-6 text-center">
+          <h2 className="text-2xl font-bold text-slate-900">{inventory.name}</h2>
+          <p className="text-sm text-slate-500">Relatório de Resultados - SCIFP</p>
+      </div>
 
-      <div className="prose prose-slate prose-sm max-w-none mb-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
+      <div className="prose prose-slate prose-sm max-w-none mb-3 p-4 bg-slate-50 rounded-xl border border-slate-200 no-print">
         <h3 className="text-slate-800 font-semibold mb-1">Objetivo</h3>
         <p className="mb-3">{inventory.objective}</p>
         <h3 className="text-slate-800 font-semibold mb-1">Instruções</h3>
@@ -391,7 +404,7 @@ export const InventoryFormView: React.FC<InventoryFormViewProps> = ({ inventory,
         )}
       </div>
       
-      <div className="sticky top-[60px] z-20 bg-white/95 backdrop-blur-sm py-2 border-b border-slate-100 mb-4 px-1" aria-live="polite">
+      <div className="sticky top-[60px] z-20 bg-white/95 backdrop-blur-sm py-2 border-b border-slate-100 mb-4 px-1 no-print" aria-live="polite">
         <div className="flex justify-between items-center mb-1 text-xs sm:text-sm font-medium">
           <span className="text-slate-600">Seu Progresso</span>
           <span className={progressData.percentage === 100 ? "text-green-600 font-bold" : "text-indigo-600"}>
@@ -412,7 +425,7 @@ export const InventoryFormView: React.FC<InventoryFormViewProps> = ({ inventory,
         </div>
       </div>
 
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={(e) => e.preventDefault()} className="no-print">
         {/* --- Layout de Tabela para Desktop --- */}
         <div className="hidden md:block overflow-hidden rounded-xl border border-slate-200 shadow-sm">
           <table className="min-w-full divide-y divide-slate-200 table-fixed" role="table" aria-label="Questionário">
@@ -465,7 +478,7 @@ export const InventoryFormView: React.FC<InventoryFormViewProps> = ({ inventory,
         </div>
       </form>
 
-      <div className="mt-8 px-2 pb-8">
+      <div className="mt-8 px-2 pb-8 no-print">
         <button
           onClick={handleCalculateScore}
           disabled={!allAnswered}
@@ -482,7 +495,7 @@ export const InventoryFormView: React.FC<InventoryFormViewProps> = ({ inventory,
       
       {result && (
         <div ref={resultRef} className="mt-8 pt-8 border-t-2 border-slate-100 animate-slide-up printable-area">
-          <div className="text-center mb-8">
+          <div className="text-center mb-8 no-print">
             <div className="inline-block p-3 bg-green-100 text-green-700 rounded-full mb-3">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
             </div>
@@ -491,7 +504,7 @@ export const InventoryFormView: React.FC<InventoryFormViewProps> = ({ inventory,
           </div>
           
           {result.interpretation && (
-             <div className="bg-gradient-to-br from-indigo-50 to-white p-6 rounded-2xl shadow-sm border border-indigo-100 mb-8 text-center relative overflow-hidden">
+             <div className="bg-gradient-to-br from-indigo-50 to-white p-6 rounded-2xl shadow-sm border border-indigo-100 mb-8 text-center relative overflow-hidden break-inside-avoid">
                 <div className="absolute top-0 left-0 w-full h-1 bg-indigo-500"></div>
                 <p className="text-xs text-indigo-500 uppercase font-bold tracking-wider mb-2">Resultado Global</p>
                 <h4 className="text-3xl font-extrabold text-indigo-700 mb-2">{result.interpretation.label}</h4>
@@ -529,18 +542,19 @@ export const InventoryFormView: React.FC<InventoryFormViewProps> = ({ inventory,
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="col-span-1 md:col-span-2 mb-2">
                 <h4 className="text-xl font-bold text-slate-800 flex items-center">
-                    <span className="bg-slate-800 text-white w-6 h-6 rounded flex items-center justify-center text-sm mr-2">i</span>
+                    <span className="bg-slate-800 text-white w-6 h-6 rounded flex items-center justify-center text-sm mr-2 no-print">i</span>
                     Detalhamento por Domínio
                 </h4>
             </div>
             {(Object.values(result.domainScores) as DomainResult[]).map((domain) => {
               // Calcular a interpretação dinâmica para este domínio
+              // Passamos domain.orientation para permitir interpretação mista (ex: alguns domínios são força, outros fraqueza)
               const interpretationData = domain.interpretationSumRanges && domain.interpretationSumRanges.length > 0
                 ? { text: getDomainInterpretationBySum(domain.score, domain.interpretationSumRanges), intent: 'neutral' as const }
-                : getDomainInterpretation(domain.averageScore, scaleMin, scaleMax, scoreOrientation, domain.interpretationLabels);
+                : getDomainInterpretation(domain.averageScore, scaleMin, scaleMax, inventoryOrientation, domain.orientation, domain.interpretationLabels);
 
               return (
-                <div key={domain.id} className="bg-white p-5 rounded-xl shadow-sm border border-slate-200 hover:border-indigo-300 transition-colors duration-300 flex flex-col h-full">
+                <div key={domain.id} className="bg-white p-5 rounded-xl shadow-sm border border-slate-200 hover:border-indigo-300 transition-colors duration-300 flex flex-col h-full break-inside-avoid">
                   <div className="flex items-start mb-3">
                      <div className="text-3xl mr-3 p-2 bg-slate-50 rounded-lg border border-slate-100" aria-hidden="true">{domain.icon}</div>
                      <div>

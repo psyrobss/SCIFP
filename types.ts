@@ -30,6 +30,8 @@ export interface Domain {
   name: string;
   icon: string;
   description: string;
+  // Permite que um domínio tenha orientação diferente do teste geral (ex: num teste de 'sintomas', ter um domínio de 'forças')
+  orientation?: 'higher_is_better' | 'higher_is_worse';
   interpretationLabels?: {
     level_1: string; // avg score 0 - 0.9 (Low)
     level_2: string; // avg score 1 - 1.9

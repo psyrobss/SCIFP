@@ -5,22 +5,30 @@ export const ICDF_INVENTORY: InventoryForm = {
   id: 'icdf',
   acronym: 'ICDF',
   name: 'Inventário de Correspondência entre Dizer e Fazer (ICDF)',
-  objective: 'Avaliar o alinhamento entre o que o indivíduo afirma (valores, intenções, promessas ou compromissos) e o que efetivamente realiza em seu comportamento cotidiano. Mede tanto a consistência comportamental quanto a autopercepção de coerência.',
-  instructions: 'Leia cada afirmação e indique o quanto ela representa o seu modo de agir, utilizando a seguinte escala:',
+  objective: 'Avaliar o alinhamento entre valores, discurso e comportamento (coerência pessoal), identificando integridade e autenticidade.',
+  instructions: 'Leia cada afirmação e indique o quanto ela representa o seu modo de agir habitual, utilizando a escala de 1 a 7.',
   scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 1, label: 'Nunca' },
     { value: 2, label: 'Raramente' },
     { value: 3, label: 'Às vezes' },
-    { value: 4, label: 'Frequentemente' },
-    { value: 5, label: 'Sempre' },
+    { value: 4, label: 'Neutro / Misto' },
+    { value: 5, label: 'Frequentemente' },
+    { value: 6, label: 'Muito Frequentemente' },
+    { value: 7, label: 'Sempre' },
   ],
   domains: [
     {
       id: 'personal_coherence',
       name: 'Coerência Pessoal',
       icon: '✅',
-      description: 'Avalia o alinhamento entre promessas, valores e ações.',
+      description: 'Alinhamento consistente entre o que se diz (promessas, valores) e o que se faz.',
+      interpretationLabels: {
+        level_1: 'Desalinhamento frequente.',
+        level_2: 'Coerência frágil.',
+        level_3: 'Boa coerência.',
+        level_4: 'Alta integridade discurso-ação.',
+      },
       questions: [
         { id: 73001, text: 'Cumpro o que prometo, mesmo quando é difícil.' },
         { id: 73002, text: 'O que eu digo sobre mim combina com o que as pessoas veem nas minhas ações.' },
@@ -31,9 +39,15 @@ export const ICDF_INVENTORY: InventoryForm = {
     },
     {
       id: 'incoherence_self_perception',
-      name: 'Autopercepção de Incoerência',
+      name: 'Percepção de Incoerência',
       icon: '🤔',
-      description: 'Mede a consciência sobre as próprias inconsistências entre discurso e prática.',
+      description: 'Consciência sobre as próprias contradições e falhas em manter a palavra.',
+      interpretationLabels: {
+        level_1: 'Muitas contradições percebidas.',
+        level_2: 'Incoerências frequentes.',
+        level_3: 'Poucas contradições.',
+        level_4: 'Rara percepção de incoerência.',
+      },
       questions: [
         { id: 73006, text: 'Percebo que às vezes falo coisas que não coloco em prática.', isReversed: true },
         { id: 73007, text: 'Já defendi uma ideia apenas para agradar os outros, sem realmente acreditar nela.', isReversed: true },
@@ -44,9 +58,15 @@ export const ICDF_INVENTORY: InventoryForm = {
     },
     {
       id: 'responsibility_self_regulation',
-      name: 'Responsabilidade e Autorregulação',
+      name: 'Responsabilidade e Correção',
       icon: '🔄',
-      description: 'Avalia a capacidade de assumir e corrigir as próprias incoerências.',
+      description: 'Capacidade de assumir erros e ajustar o comportamento para retomar a coerência.',
+      interpretationLabels: {
+        level_1: 'Evitação de responsabilidade.',
+        level_2: 'Dificuldade de reparação.',
+        level_3: 'Boa autorresponsabilidade.',
+        level_4: 'Compromisso ativo com a integridade.',
+      },
       questions: [
         { id: 73011, text: 'Admito quando falho em cumprir algo que prometi.' },
         { id: 73012, text: 'Esforço-me para corrigir inconsistências entre o que digo e o que faço.' },
@@ -57,9 +77,15 @@ export const ICDF_INVENTORY: InventoryForm = {
     },
     {
       id: 'social_pressure_authenticity',
-      name: 'Pressão Social e Autenticidade',
+      name: 'Autenticidade sob Pressão',
       icon: '🎭',
-      description: 'Mede o impacto da pressão social na coerência entre valores e comportamento.',
+      description: 'Capacidade de manter a coerência mesmo diante de pressão social para se conformar.',
+      interpretationLabels: {
+        level_1: 'Alta conformidade (camaleão).',
+        level_2: 'Autenticidade oscilante.',
+        level_3: 'Boa resistência à pressão.',
+        level_4: 'Alta autenticidade pessoal.',
+      },
       questions: [
         { id: 73016, text: 'Às vezes digo o que os outros esperam, mesmo sem acreditar realmente.', isReversed: true },
         { id: 73017, text: 'Sinto necessidade de agradar, mesmo que isso me leve a agir contra meus valores.', isReversed: true },
@@ -70,16 +96,53 @@ export const ICDF_INVENTORY: InventoryForm = {
     },
   ],
   scoring: {
-    type: 'sum',
-    description: 'A pontuação total indica o nível de correspondência entre o discurso e a ação. Pontuações mais altas refletem maior coerência.',
-    notes: [
-      'Itens de "Autopercepção de Incoerência" e os quatro primeiros de "Pressão Social" são revertidos. A pontuação é calculada de 20 a 100.'
-    ],
+    type: 'average',
+    description: 'A pontuação média (1-7) indica o nível de correspondência entre dizer e fazer. Escores altos sugerem maior integridade e autenticidade.',
     ranges: [
-        { min: 80, max: 100, label: 'Alta correspondência', description: 'Coerência autêntica e estável entre discurso e ação.' },
-        { min: 60, max: 79, label: 'Boa coerência', description: 'Lapsos ocasionais, comumente sob pressão social.' },
-        { min: 40, max: 59, label: 'Coerência moderada', description: 'Presença de contradições internas que podem gerar desconforto ou conflito.' },
-        { min: 20, max: 39, label: 'Incoerência significativa', description: 'Desalinhamento marcante entre dizer e fazer, com possível dissociação entre valores e conduta.' },
+      { 
+        min: 1, 
+        max: 2.5, 
+        label: 'Dissonância / Incoerência', 
+        description: 'Desalinhamento significativo entre discurso e ação. Pode indicar conflito de valores, desejo de agradar ou dificuldade de autodisciplina.',
+        recommendations: [
+          'Identificar valores centrais e verificar se as ações atuais os refletem.',
+          'Começar com pequenas promessas fáceis de cumprir para construir confiança.',
+          'Aceitar que não é possível agradar a todos e focar na verdade pessoal.'
+        ]
+      },
+      { 
+        min: 2.51, 
+        max: 4.0, 
+        label: 'Busca de Coerência', 
+        description: 'O indivíduo valoriza a integridade, mas pode ceder à pressão social ou falhar na execução. A consciência da incoerência pode gerar culpa.',
+        recommendations: [
+          'Praticar a autocompaixão ao errar, focando na correção e não na punição.',
+          'Observar situações onde a pressão social leva à incoerência.',
+          'Refinar o discurso: prometer menos e entregar mais.'
+        ]
+      },
+      { 
+        min: 4.01, 
+        max: 5.5, 
+        label: 'Coerência Funcional', 
+        description: 'Bom nível de integridade. O indivíduo é confiável e suas ações geralmente correspondem às suas palavras. Falhas são ocasionais e assumidas.',
+        recommendations: [
+          'Manter a vigilância sobre a autenticidade em novos ambientes.',
+          'Usar a coerência como base para liderança e confiança interpessoal.',
+          'Continuar alinhando metas de longo prazo com valores.'
+        ]
+      },
+      { 
+        min: 5.51, 
+        max: 7, 
+        label: 'Alta Integridade e Autenticidade', 
+        description: 'Forte alinhamento interno. A pessoa vive o que prega e inspira confiança. A autenticidade é mantida mesmo sob pressão.',
+        recommendations: [
+          'Servir de modelo de integridade para outros.',
+          'Utilizar essa força para defender causas éticas.',
+          'Manter a humildade para reconhecer que a coerência é um exercício diário.'
+        ]
+      },
     ],
   },
 };

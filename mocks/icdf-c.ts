@@ -4,23 +4,25 @@ import { InventoryForm } from '../types';
 export const ICDFC_INVENTORY: InventoryForm = {
   id: 'icdf-c',
   acronym: 'ICDF-C',
-  name: 'Inventário de Correspondência entre Dizer e Fazer – Versão Clínica (Paciente)',
-  objective: 'Explorar a autopercepção do paciente sobre sua própria coerência, promover insight e identificar padrões de dissonância entre valores, intenções e comportamento.',
-  instructions: 'Responda pensando no seu dia a dia, nas promessas que faz e nas atitudes que realiza.\nUse a escala:\n1️⃣ Nunca | 2️⃣ Raramente | 3️⃣ Às vezes | 4️⃣ Frequentemente | 5️⃣ Sempre',
+  name: 'Inventário de Correspondência entre Dizer e Fazer – Versão Clínica',
+  objective: 'Ferramenta de autoavaliação para pacientes em terapia, focada na percepção da própria coerência, responsabilidade pessoal e autenticidade.',
+  instructions: 'Responda pensando no seu dia a dia, nas promessas que faz e nas atitudes que realiza, usando a escala de 1 a 7.',
   scoreOrientation: 'higher_is_better',
   responseScale: [
     { value: 1, label: 'Nunca' },
     { value: 2, label: 'Raramente' },
     { value: 3, label: 'Às vezes' },
-    { value: 4, label: 'Frequentemente' },
-    { value: 5, label: 'Sempre' },
+    { value: 4, label: 'Neutro / Misto' },
+    { value: 5, label: 'Frequentemente' },
+    { value: 6, label: 'Muito Frequentemente' },
+    { value: 7, label: 'Sempre' },
   ],
   domains: [
     {
       id: 'internal_coherence',
       name: 'Coerência Interna',
       icon: '🌱',
-      description: 'Avalia o quanto a pessoa sente que age de acordo com seus princípios e valores.',
+      description: 'Sensação de alinhamento entre princípios internos e ações externas.',
       questions: [
         { id: 75001, text: 'Sinto que ajo de acordo com meus princípios.' },
         { id: 75002, text: 'Minhas ações refletem o que acredito ser certo.' },
@@ -31,9 +33,9 @@ export const ICDFC_INVENTORY: InventoryForm = {
     },
     {
       id: 'self_criticism_reflection',
-      name: 'Autocrítica e Reflexão',
+      name: 'Reflexão e Autocrítica',
       icon: '🔍',
-      description: 'Mede a capacidade de perceber, admitir e corrigir as próprias inconsistências.',
+      description: 'Capacidade de perceber e admitir falhas na própria coerência.',
       questions: [
         { id: 75006, text: 'Às vezes percebo que minhas atitudes contradizem o que digo.' },
         { id: 75007, text: 'Sinto desconforto quando percebo que não cumpri o que prometi.' },
@@ -46,7 +48,7 @@ export const ICDFC_INVENTORY: InventoryForm = {
       id: 'external_influence',
       name: 'Influência Externa',
       icon: '🎭',
-      description: 'Avalia o impacto da pressão social e da necessidade de agradar na coerência pessoal.',
+      description: 'Impacto da necessidade de aprovação na autenticidade.',
       questions: [
         { id: 75011, text: 'Mudo meu discurso para agradar as pessoas.', isReversed: true },
         { id: 75012, text: 'Tenho medo de parecer incoerente.', isReversed: true },
@@ -57,9 +59,9 @@ export const ICDFC_INVENTORY: InventoryForm = {
     },
     {
       id: 'self_responsibility_action',
-      name: 'Autorresponsabilidade e Ação',
+      name: 'Ação e Autorresponsabilidade',
       icon: '💪',
-      description: 'Mede o comprometimento ativo com a coerência e a aplicação de insights no comportamento.',
+      description: 'Compromisso ativo em agir conforme o que se aprende e acredita.',
       questions: [
         { id: 75016, text: 'Coloco em prática o que aprendo sobre mim.' },
         { id: 75017, text: 'Esforço-me para manter coerência mesmo em situações difíceis.' },
@@ -70,17 +72,53 @@ export const ICDFC_INVENTORY: InventoryForm = {
     },
   ],
   scoring: {
-    type: 'sum',
-    description: 'A pontuação total indica o nível de coerência percebida. Pontuações mais altas refletem maior coerência.',
-    notes: [
-      'Itens do fator "Influência Externa" são revertidos (1=5, 2=4, etc.). A pontuação é calculada de 20 a 100.'
-    ],
+    type: 'average',
+    description: 'A pontuação média (1-7) indica a autopercepção de coerência. Escores mais altos sugerem maior senso de integridade.',
     ranges: [
-        { min: 80, max: 100, label: 'Elevada coerência', description: 'Elevada coerência entre discurso e prática.' },
-        { min: 60, max: 79, label: 'Coerência predominante', description: 'Coerência predominante, mas vulnerável a contextos sociais.' },
-        { min: 40, max: 59, label: 'Inconsistência moderada', description: 'Conflitos de valor ou esquiva de desconforto.' },
-        { min: 20, max: 39, label: 'Coerência baixa', description: 'Tendência a autojustificação e incongruência.' },
-        { min: 0, max: 19, label: 'Marcada dissociação', description: 'Marcada dissociação entre fala e ação; investigar padrões evitativos, manipulatórios ou de autoengano.' },
+      { 
+        min: 1, 
+        max: 2.5, 
+        label: 'Percepção de Incoerência', 
+        description: 'O paciente sente que não está vivendo de acordo com o que diz ou acredita. Pode haver conflito interno, culpa ou sensação de falsidade.',
+        recommendations: [
+          'Trabalhar a autoaceitação para reduzir a necessidade de "máscaras".',
+          'Identificar um pequeno valor para colocar em prática hoje.',
+          'Explorar o medo por trás da incoerência (medo de rejeição, fracasso?).'
+        ]
+      },
+      { 
+        min: 2.51, 
+        max: 4.0, 
+        label: 'Busca de Alinhamento', 
+        description: 'Esforço consciente para ser coerente, com sucessos e falhas. A pressão externa ainda influencia bastante as decisões.',
+        recommendations: [
+          'Fortalecer a voz interna frente às demandas externas.',
+          'Celebrar momentos de autenticidade.',
+          'Usar o diário para monitorar a coerência diária.'
+        ]
+      },
+      { 
+        min: 4.01, 
+        max: 5.5, 
+        label: 'Coerência Satisfatória', 
+        description: 'Sentimento de integridade na maior parte do tempo. O paciente confia em si mesmo e sente que suas ações refletem seus valores.',
+        recommendations: [
+          'Refinar a coerência em áreas mais desafiadoras da vida.',
+          'Manter a prática de autorreflexão.',
+          'Valorizar a honestidade consigo mesmo.'
+        ]
+      },
+      { 
+        min: 5.51, 
+        max: 7, 
+        label: 'Alta Integridade Percebida', 
+        description: 'Forte senso de autenticidade e responsabilidade. O paciente sente-se "inteiro" e age com convicção.',
+        recommendations: [
+          'Usar essa força para inspirar e liderar.',
+          'Manter a flexibilidade para não se tornar rígido.',
+          'Continuar o processo de crescimento pessoal com base na verdade.'
+        ]
+      },
     ],
   },
 };

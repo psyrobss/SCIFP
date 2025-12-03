@@ -5,22 +5,30 @@ export const IMAP_INVENTORY: InventoryForm = {
   id: 'imap',
   acronym: 'IMAP',
   name: 'Inventário de Mindfulness e Atenção Plena',
-  objective: 'Avaliar a capacidade do indivíduo de manter atenção plena ao momento presente, consciência sem julgamento, percepção de pensamentos e emoções, e engajamento consciente nas atividades diárias.',
-  instructions: 'As afirmações descrevem atitudes, percepções e comportamentos relacionados à atenção plena.\nIndique com que frequência cada item se aplica a você.',
+  objective: 'Avaliar a capacidade de manter a atenção no momento presente, observar pensamentos e emoções sem julgamento e agir com consciência no cotidiano.',
+  instructions: 'Indique com que frequência cada afirmação descreve sua experiência habitual, utilizando a escala de 1 a 7.',
   scoreOrientation: 'higher_is_better',
   responseScale: [
-    { value: 0, label: 'Nunca' },
-    { value: 1, label: 'Raramente' },
-    { value: 2, label: 'Às vezes' },
-    { value: 3, label: 'Frequentemente' },
-    { value: 4, label: 'Quase sempre' },
+    { value: 1, label: 'Nunca' },
+    { value: 2, label: 'Raramente' },
+    { value: 3, label: 'Às vezes' },
+    { value: 4, label: 'Neutro / Misto' },
+    { value: 5, label: 'Frequentemente' },
+    { value: 6, label: 'Muito Frequentemente' },
+    { value: 7, label: 'Sempre' },
   ],
   domains: [
     {
       id: 'present_attention',
       name: 'Atenção ao Presente',
       icon: '🌿',
-      description: 'Avalia a capacidade de focar no momento atual e perceber experiências sensoriais e cognitivas sem distração.',
+      description: 'Capacidade de focar na experiência imediata (sensorial, interna ou externa) sem se perder em distrações.',
+      interpretationLabels: {
+        level_1: 'Mente dispersa ("piloto automático").',
+        level_2: 'Atenção instável.',
+        level_3: 'Boa presença no aqui e agora.',
+        level_4: 'Alta estabilidade atencional.',
+      },
       questions: [
         { id: 65001, text: 'Consigo prestar atenção plena ao que estou fazendo, sem me distrair.' },
         { id: 65002, text: 'Frequentemente me pego pensando em tarefas passadas ou futuras.', isReversed: true },
@@ -33,9 +41,15 @@ export const IMAP_INVENTORY: InventoryForm = {
     },
     {
       id: 'thought_awareness',
-      name: 'Consciência e Observação de Pensamentos',
+      name: 'Desfusão e Observação',
       icon: '🧠',
-      description: 'Avalia percepção e observação dos próprios pensamentos sem se envolver automaticamente com eles.',
+      description: 'Habilidade de notar os pensamentos como eventos mentais passageiros, sem se identificar ou reagir automaticamente a eles.',
+      interpretationLabels: {
+        level_1: 'Fusão com pensamentos.',
+        level_2: 'Observação difícil sob estresse.',
+        level_3: 'Boa capacidade de observar.',
+        level_4: 'Postura de observador desenvolvida.',
+      },
       questions: [
         { id: 65008, text: 'Consigo perceber meus pensamentos sem julgá-los.' },
         { id: 65009, text: 'Frequentemente me identifico completamente com pensamentos negativos.', isReversed: true },
@@ -48,9 +62,15 @@ export const IMAP_INVENTORY: InventoryForm = {
     },
     {
       id: 'emotional_awareness',
-      name: 'Consciência Emocional',
+      name: 'Aceitação Emocional',
       icon: '💛',
-      description: 'Avalia percepção e aceitação das emoções sem julgamento ou supressão.',
+      description: 'Disposição para sentir e aceitar emoções, mesmo as difíceis, sem tentar suprimi-las ou evitá-las.',
+      interpretationLabels: {
+        level_1: 'Evitação ou supressão emocional.',
+        level_2: 'Aceitação condicional.',
+        level_3: 'Boa abertura emocional.',
+        level_4: 'Alta aceitação e equanimidade.',
+      },
       questions: [
         { id: 65015, text: 'Posso perceber minhas emoções sem me sentir sobrecarregado(a).' },
         { id: 65016, text: 'Evito reconhecer sentimentos desconfortáveis.', isReversed: true },
@@ -63,9 +83,15 @@ export const IMAP_INVENTORY: InventoryForm = {
     },
     {
       id: 'conscious_engagement',
-      name: 'Aceitação e Engajamento Consciente',
+      name: 'Ação Consciente',
       icon: '🌟',
-      description: 'Avalia capacidade de agir de forma intencional e consciente, com aceitação e não julgamento.',
+      description: 'Capacidade de agir com intenção e consciência, em vez de reagir por impulso ou hábito.',
+      interpretationLabels: {
+        level_1: 'Reatividade automática.',
+        level_2: 'Consciência intermitente.',
+        level_3: 'Ação intencional frequente.',
+        level_4: 'Vida vivida com propósito e presença.',
+      },
       questions: [
         { id: 65022, text: 'Tento agir de acordo com minhas intenções conscientes, não por impulso.' },
         { id: 65023, text: 'Aceito eventos que não posso controlar sem frustração excessiva.' },
@@ -78,13 +104,53 @@ export const IMAP_INVENTORY: InventoryForm = {
     },
   ],
   scoring: {
-    type: 'sum',
-    description: 'A pontuação total (0–112) indica o nível de mindfulness. Itens invertidos: 2, 4, 5, 9, 11, 13, 16, 18, 21, 24, 26, 28.',
+    type: 'average',
+    description: 'A pontuação média (1-7) indica o nível de Mindfulness. Escores altos sugerem maior capacidade de viver no presente com equilíbrio.',
     ranges: [
-      { min: 0, max: 28, label: 'Mindfulness baixo', description: 'Dificuldade em atenção plena, consciência e regulação emocional' },
-      { min: 29, max: 56, label: 'Mindfulness moderado', description: 'Alguma atenção ao presente, percepção parcial de pensamentos e emoções' },
-      { min: 57, max: 84, label: 'Mindfulness funcional', description: 'Boa atenção ao presente, consciência de pensamentos e emoções, engajamento consciente' },
-      { min: 85, max: 112, label: 'Mindfulness elevado', description: 'Forte atenção plena, observação de pensamentos/emissões sem julgamento, aceitação e engajamento consciente' },
+      { 
+        min: 1, 
+        max: 2.5, 
+        label: 'Piloto Automático', 
+        description: 'A mente tende a estar no passado ou no futuro, com pouca conexão com o agora. Pode haver reatividade emocional e julgamento frequente da própria experiência.',
+        recommendations: [
+          'Práticas breves de "respiração consciente" (3 minutos) várias vezes ao dia.',
+          'Comer uma refeição por dia em silêncio e com atenção total.',
+          'Notar 5 coisas visuais no ambiente quando se sentir disperso.'
+        ]
+      },
+      { 
+        min: 2.51, 
+        max: 4.0, 
+        label: 'Atenção Plena em Desenvolvimento', 
+        description: 'Há momentos de presença, mas o estresse facilmente traz de volta a distração ou a reatividade. O indivíduo reconhece a importância de estar presente.',
+        recommendations: [
+          'Body Scan (escaneamento corporal) para conectar mente e corpo.',
+          'Observar pensamentos como "trens passando na estação" sem embarcar neles.',
+          'Praticar a escuta atenta em conversas.'
+        ]
+      },
+      { 
+        min: 4.01, 
+        max: 5.5, 
+        label: 'Estado de Mindfulness Funcional', 
+        description: 'Boa capacidade de observar a própria mente e regular emoções. O indivíduo consegue pausar antes de reagir e aceita melhor o desconforto.',
+        recommendations: [
+          'Integrar mindfulness em atividades rotineiras (banho, caminhada).',
+          'Aprofundar a prática de autocompaixão.',
+          'Usar a consciência para fazer escolhas mais alinhadas com valores.'
+        ]
+      },
+      { 
+        min: 5.51, 
+        max: 7, 
+        label: 'Alta Consciência e Presença', 
+        description: 'Estilo de vida consciente. Alta aceitação, não-julgamento e clareza mental. Capacidade de manter a calma e a compaixão mesmo em dificuldades.',
+        recommendations: [
+          'Práticas de meditação mais longas ou retiros.',
+          'Levar a qualidade de presença para liderança ou ajuda a outros.',
+          'Cultivar a "mente de principiante" continuamente.'
+        ]
+      },
     ],
   },
 };
