@@ -34,7 +34,7 @@ export const IAAC_INVENTORY: InventoryForm = {
         { id: 29002, text: 'Consigo ver minhas qualidades, tanto quanto vejo meus defeitos.' },
         { id: 29003, text: 'Às vezes sinto que não tenho valor.', isReversed: true },
         { id: 29004, text: 'Tenho orgulho das minhas pequenas e grandes conquistas.' },
-        { id: 29005, text: 'Quando alguém me elogia, consigo aceitar e acreditar.' }, // Corrected: No reversal
+        { id: 29005, text: 'Quando alguém me elogia, consigo aceitar e acreditar.' }, // Corrected: removed isReversed
         { id: 29006, text: 'Sinto que sou digno(a) de coisas boas.' },
       ],
     },

@@ -74,7 +74,28 @@ export interface InventoryForm {
 
 // --- NOVOS TIPOS PARA A ÁREA DE EXERCÍCIOS ---
 
-export type ExerciseStepType = 'text' | 'instruction' | 'reflection' | 'writing';
+export type ExerciseStepType = 
+  | 'text' 
+  | 'instruction' 
+  | 'reflection' 
+  | 'writing' 
+  | 'checklist'
+  | 'pie_chart' // Novo: Gráfico interativo
+  | 'breathing_guide' // Novo: Animação de respiração
+  | 'range' // Novo: Slider de 0-10 ou 0-100
+  | 'table_input'; // Novo: Tabela de entrada de dados
+
+export interface BreathingSettings {
+  inhale: number; // segundos
+  hold?: number; // segundos
+  exhale: number; // segundos
+  holdAfter?: number; // segundos
+}
+
+export interface TableSettings {
+  columns: string[]; // Títulos das colunas
+  minRows?: number;
+}
 
 export interface ExerciseStep {
   id: number;
@@ -82,6 +103,10 @@ export interface ExerciseStep {
   title?: string;
   content: string; // O texto explicativo ou a pergunta
   placeholder?: string; // Para campos de escrita
+  options?: string[]; // Para checklists
+  breathingSettings?: BreathingSettings; // Para guia de respiração
+  rangeSettings?: { min: number; max: number; labelMin: string; labelMax: string }; // Para sliders
+  tableSettings?: TableSettings; // Para tabelas
 }
 
 export interface TherapeuticExercise {

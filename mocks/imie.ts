@@ -24,7 +24,7 @@ export const IMIE_INVENTORY: InventoryForm = {
       name: 'Motivação Intrínseca (Autônoma)',
       icon: '🧭',
       orientation: 'higher_is_better',
-      description: 'Engajamento por interesse, prazer, curiosidade e satisfação inerente à atividade.',
+      description: 'Engajamento por interesse, prazer, curiosidade e satisfação inerente à atividade. Nota alta indica alto engajamento positivo.',
       interpretationLabels: {
         level_1: 'Baixa motivação intrínseca.',
         level_2: 'Interesse ocasional.',
@@ -45,7 +45,7 @@ export const IMIE_INVENTORY: InventoryForm = {
       name: 'Motivação Identificada/Integrada (Valores)',
       icon: '💼',
       orientation: 'higher_is_better',
-      description: 'Motivação baseada na importância pessoal e alinhamento com valores, mesmo que a atividade não seja puramente prazerosa.',
+      description: 'Motivação baseada na importância pessoal e alinhamento com valores, mesmo que a atividade não seja puramente prazerosa. Nota alta é positiva.',
        interpretationLabels: {
         level_1: 'Desconexão com valores pessoais.',
         level_2: 'Sentido de importância fraco.',
@@ -66,7 +66,7 @@ export const IMIE_INVENTORY: InventoryForm = {
       name: 'Motivação Controlada (Pressão/Recompensa)',
       icon: '💰',
       orientation: 'higher_is_worse', // Aqui, nota alta é "pior" (menos autonomia)
-      description: 'Ação movida por recompensas externas, medo de punição, culpa ou busca de aprovação (Nota: Alta pontuação aqui indica menor autonomia).',
+      description: 'Ação movida por recompensas externas, medo de punição, culpa ou busca de aprovação. Nota alta indica menor autonomia e maior risco de estresse.',
        interpretationLabels: {
         level_1: 'Baixa dependência externa (Autonomia).',
         level_2: 'Influência externa moderada.',
@@ -87,7 +87,7 @@ export const IMIE_INVENTORY: InventoryForm = {
       name: 'Desmotivação (Amotivação)',
       icon: '🌫️',
       orientation: 'higher_is_worse', // Nota alta é ruim
-      description: 'Falta de intenção de agir, sentimento de incompetência ou falta de valor na atividade.',
+      description: 'Falta de intenção de agir, sentimento de incompetência ou falta de valor na atividade. Nota alta indica risco de apatia ou burnout.',
        interpretationLabels: {
         level_1: 'Alto engajamento (Baixa desmotivação).',
         level_2: 'Desânimo ocasional.',

@@ -10,6 +10,7 @@ import { ALL_INVENTORIES } from './mocks';
 import { RandomSelectionPage } from './components/RandomSelectionPage';
 import { ExercisesPage } from './components/ExercisesPage';
 import { ExerciseView } from './components/ExerciseView';
+import { ReferencesPage } from './components/ReferencesPage';
 import { InventoryForm } from './types';
 import { ScrollToTop } from './components/ScrollToTop';
 
@@ -104,6 +105,7 @@ const App: React.FC = () => {
           <Route path="/questionarios-terapeuticos" element={<RandomSelectionWrapper />} />
           <Route path="/exercicios" element={<ExercisesPage />} />
           <Route path="/exercicio/:id" element={<ExerciseView />} />
+          <Route path="/referencias" element={<ReferencesPage />} />
         </Routes>
       </main>
       <Footer />

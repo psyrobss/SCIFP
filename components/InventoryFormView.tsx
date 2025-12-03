@@ -28,6 +28,7 @@ interface DomainResult {
   orientation?: 'higher_is_better' | 'higher_is_worse';
   interpretationLabels?: Domain['interpretationLabels'];
   interpretationSumRanges?: InterpretationRange[];
+  validityFlag?: 'extreme_min' | 'extreme_max' | null; // Novo campo para alerta de validade
 }
 
 interface CalculatedResult {
@@ -106,13 +107,13 @@ const getDomainInterpretation = (
   let intent: 'good' | 'neutral' | 'bad' | 'warning' = 'neutral';
 
   if (orientation === 'higher_is_better') {
-    // Nota alta é bom
+    // Nota alta é bom (Ex: Autoestima, Resiliência)
     if (level === 1) intent = 'bad';       // Baixa habilidade
     if (level === 2) intent = 'warning';   // Médio-baixo
-    if (level === 3) intent = 'neutral';   // Bom
+    if (level === 3) intent = 'neutral';   // Bom (Neutro/Azul ou Verde claro no design)
     if (level === 4) intent = 'good';      // Excelente
   } else {
-    // Nota alta é ruim (Sintoma)
+    // Nota alta é ruim (Sintoma, Ex: Ansiedade, Burnout)
     if (level === 1) intent = 'good';      // Sem sintoma
     if (level === 2) intent = 'neutral';   // Leve
     if (level === 3) intent = 'warning';   // Moderado
@@ -182,7 +183,6 @@ const QuestionRenderer: React.FC<QuestionRendererProps> = ({ question, responseS
   }
 
   // type === 'mobile'
-  // CORREÇÃO: Usar lógica direta de 'isSelected' para as classes, em vez de depender de 'peer-checked'
   return (
     <fieldset className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm transition-all focus-within:ring-2 focus-within:ring-indigo-500 focus-within:border-indigo-500">
       <legend className="sr-only">Pergunta sobre {question.domainName}</legend>
@@ -205,14 +205,14 @@ const QuestionRenderer: React.FC<QuestionRendererProps> = ({ question, responseS
                 value={option.value}
                 checked={isSelected}
                 onChange={() => onAnswerChange(question.id, option.value)}
-                className="sr-only" // Input escondido, mas controlado pelo React
+                className="sr-only" // Input escondido
                 aria-label={`${option.label} (${option.value})`}
               />
               <label
                 htmlFor={`q${question.id}_${option.value}_mobile`}
                 className="flex flex-col items-center w-full cursor-pointer group"
               >
-                {/* O Círculo com o número - Estilo Condicional */}
+                {/* O Círculo com o número */}
                 <span className={`
                   flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full border-2 
                   transition-all duration-200 ease-in-out text-xs sm:text-sm font-bold
@@ -223,7 +223,7 @@ const QuestionRenderer: React.FC<QuestionRendererProps> = ({ question, responseS
                   {option.value}
                 </span>
                 
-                {/* A Legenda pequena abaixo - Estilo Condicional */}
+                {/* A Legenda pequena abaixo */}
                 <span className={`
                   text-[9px] sm:text-[10px] text-center mt-1 leading-tight line-clamp-2
                   ${isSelected ? 'text-indigo-700 font-semibold' : 'text-slate-500'}
@@ -316,15 +316,37 @@ export const InventoryFormView: React.FC<InventoryFormViewProps> = ({ inventory,
     const calculatedDomainScores: { [domainId: string]: DomainResult } = {};
     for (const domain of inventory.domains) {
       let domainSum = 0;
-      for (const q of domain.questions) {
+      const domainQuestions = domain.questions;
+      // Para detecção de viés: coleta todas as respostas brutas deste domínio (sem inversão)
+      const rawAnswers: number[] = [];
+
+      for (const q of domainQuestions) {
         const answerValue = answers[q.id];
         if (typeof answerValue === 'number') {
+          rawAnswers.push(answerValue);
+          // Para o cálculo do score, usamos o valor ajustado (invertido se necessário)
           const adjusted = q.isReversed ? (scaleMax + scaleMin - answerValue) : answerValue;
           domainSum += adjusted;
         }
       }
       
-      const averageScore = domain.questions.length > 0 ? domainSum / domain.questions.length : 0;
+      // Lógica de Detecção de Viés de Resposta
+      // Se mais de 80% das respostas forem iguais ao Mínimo ou Máximo da escala
+      const totalQ = rawAnswers.length;
+      const countMin = rawAnswers.filter(a => a === scaleMin).length;
+      const countMax = rawAnswers.filter(a => a === scaleMax).length;
+      
+      let validityFlag: 'extreme_min' | 'extreme_max' | null = null;
+      // Define o limiar de suspeita (ex: 80% das respostas são extremas)
+      const threshold = 0.8; 
+      
+      if (totalQ >= 3) { // Só aplica para domínios com pelo menos 3 perguntas
+          if ((countMin / totalQ) >= threshold) validityFlag = 'extreme_min';
+          else if ((countMax / totalQ) >= threshold) validityFlag = 'extreme_max';
+      }
+
+      const averageScore = domainQuestions.length > 0 ? domainSum / domainQuestions.length : 0;
+      
       calculatedDomainScores[domain.id] = {
         id: domain.id,
         score: domainSum,
@@ -335,6 +357,7 @@ export const InventoryFormView: React.FC<InventoryFormViewProps> = ({ inventory,
         orientation: domain.orientation,
         interpretationLabels: domain.interpretationLabels,
         interpretationSumRanges: domain.interpretationSumRanges,
+        validityFlag: validityFlag,
       };
     }
 
@@ -577,6 +600,17 @@ export const InventoryFormView: React.FC<InventoryFormViewProps> = ({ inventory,
                               {interpretationData.text}
                           </p>
                       </div>
+                      
+                      {/* ALERTA DE VALIDADE DE RESPOSTA */}
+                      {domain.validityFlag && (
+                        <div className="mt-3 p-3 bg-amber-50 border border-amber-200 rounded-lg text-xs text-amber-800 flex items-start">
+                          <span className="mr-2 text-lg" aria-hidden="true">⚠️</span>
+                          <span>
+                            <strong>Nota de Atenção:</strong> Padrão de resposta uniforme detectado ({domain.validityFlag === 'extreme_max' ? 'Máximo' : 'Mínimo'}). 
+                            Isso pode indicar viés de desejabilidade social ou resposta automática.
+                          </span>
+                        </div>
+                      )}
                   </div>
                 </div>
               );
